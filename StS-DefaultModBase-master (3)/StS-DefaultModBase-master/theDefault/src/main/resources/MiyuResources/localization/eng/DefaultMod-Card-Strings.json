@@ -1,0 +1,67 @@
+{
+  "Miyu:DefaultCommonAttack": {
+    "NAME": "Strike",
+    "DESCRIPTION": "Deal !D! damage. NL [#0000ff]This[] [#ff0000]Is[] [#ffff00]How[] [#88888]color[] [#ff00ff]works.[]"
+  },
+  "Miyu:DefaultCommonSkill": {
+    "NAME": "Defend",
+    "DESCRIPTION": "Gain !B! Block. NL Miyu:Multiword_Keyword."
+  },
+  "Miyu:DefaultCommonPower": {
+    "NAME": "Hold Place",
+    "DESCRIPTION": "Gain !M! Miyu:Keyword.",
+    "UPGRADE_DESCRIPTION": "Gain !M! Miyu:Keywords."
+  },
+  "Miyu:DefaultUncommonAttack": {
+    "NAME": "Big slap",
+    "DESCRIPTION": "Deal !D! damage."
+  },
+  "Miyu:DefaultUncommonSkill": {
+    "NAME": "A Better Defend",
+    "DESCRIPTION": "Gain !B! Plated Armor. Affected by Dexterity."
+  },
+  "Miyu:DefaultUncommonPower": {
+    "NAME": "Weirdness",
+    "DESCRIPTION": "Gain X Miyu:Keywords.",
+    "UPGRADE_DESCRIPTION": "Gain X +1 Miyu:Keywords."
+  },
+  "Miyu:DefaultRareAttack": {
+    "NAME": "TOUCH",
+    "DESCRIPTION": "Deal !D! damage."
+  },
+  "Miyu:DefaultRareSkill": {
+    "NAME": "For Each Loop x2",
+    "DESCRIPTION": "Apply !M! Vulnerable to all enemies, 2 times.",
+    "UPGRADE_DESCRIPTION": "Apply !M! Vulnerable to all enemies, 3 times."
+  },
+  "Miyu:DefaultRarePower": {
+    "NAME": "In-Progress Form",
+    "DESCRIPTION": "At the start of your turn, play a TOUCH."
+  },
+  "Miyu:DefaultAttackWithVariable": {
+    "NAME": "Special Strike",
+    "DESCRIPTION": "Deal !D! damage [E] times. NL (Deal !Miyu:ENERGY_DAMAGE! damage total.)"
+  },
+  "Miyu:DefaultSecondMagicNumberSkill": {
+    "NAME": "Cool 2 Number Card",
+    "DESCRIPTION": "Apply !M! Vulnerable and !Miyu:SecondMagic! poison to an enemy."
+  },
+  "Miyu:OrbSkill": {
+    "NAME": "Get Orb",
+    "DESCRIPTION": "Channel 1 Default Orb."
+  },
+  "Miyu:Strike": {
+    "NAME": "Strike",
+    "DESCRIPTION": "Deal !D! damage."
+  },
+  "Miyu:Pebbles": {
+    "NAME": "Pebbles",
+    "DESCRIPTION": "Pebbles."
+
+  },
+  "Miyu:RarePower": {
+    "NAME": "StrongRarePower",
+    "DESCRIPTION": "Tweet.",
+    "UPGRADE_DESCRIPTION": "Tweet. Tweet."
+  }
+}

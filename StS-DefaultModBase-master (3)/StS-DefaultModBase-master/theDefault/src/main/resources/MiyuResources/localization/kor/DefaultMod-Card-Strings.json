@@ -1,0 +1,224 @@
+{
+  "Miyu:Strike": {
+    "NAME": "타격",
+    "DESCRIPTION": "피해를 !D! 줍니다."
+  },
+  "Miyu:Defend": {
+    "NAME": "수비",
+    "DESCRIPTION": "방어도를 !B! 얻습니다."
+  },
+  "Miyu:RarePower": {
+    "NAME": "엄청막강한파워",
+    "DESCRIPTION": "지존강력함. NL miyu:조약돌. NL miyu:엄폐물.",
+    "UPGRADE_DESCRIPTION": "와! NL miyu:조약돌. NL miyu:엄폐물."
+
+  },
+  "Miyu:PebbleMagic": {
+    "NAME": "평범한 조약돌",
+    "DESCRIPTION": "적 전체에게 NL 피해를 !D! 줍니다. NL Miyu:조약돌 NL !M! 배만큼 피해가 증가합니다.",
+    "UPGRADE_DESCRIPTION": "적 전체에게 NL 피해를 !D! 줍니다. NL Miyu:조약돌 NL !M! 배만큼 피해가 증가합니다."
+  },
+
+  "Miyu:Scope": {
+    "NAME": "스코프",
+    "DESCRIPTION": "피해를 !D! 줍니다. NL 취약을 !M! 부여합니다. ( Miyu:거리 4마다 1. ) NL Miyu:거리 !Miyu:R! ",
+    "UPGRADE_DESCRIPTION": "피해를 !D! 줍니다. NL 취약을 !M! 부여합니다. ( Miyu:거리 3마다 1. ) NL Miyu:거리 !Miyu:R! "
+  },
+  "Miyu:Inevitably": {
+    "NAME": "하는 수 없죠...",
+    "DESCRIPTION": "피해를 !D! 줍니다. NL Miyu:거리만큼 피해가 감소합니다. NL Miyu:거리가 8 이상이면 NL 카드를 1장 뽑습니다. NL Miyu:거리 !Miyu:R! "
+  },
+  "Miyu:RunAndGun": {
+    "NAME": "런앤건",
+    "DESCRIPTION": "피해를 !D! 만큼 NL 2회 줍니다. NL Miyu:이동 합니다."
+  },
+  "Miyu:Move": {
+    "NAME": "이동",
+    "DESCRIPTION": "방어도를 !B! 얻습니다. NL Miyu:이동 합니다."
+  },
+  "Miyu:TrashBin": {
+    "NAME": "쓰레기통",
+    "DESCRIPTION": "Miyu:엄폐물 !Miyu:C!. NL 소멸 시 Miyu:쓰레기 !M! NL 개를 얻습니다. NL 사용불가. NL 보존."
+  },
+  "Miyu:Fortification": {
+    "NAME": "요새화",
+    "DESCRIPTION": "선택한 Miyu:엄폐물 을 NL !M! 증가시킵니다. NL 소멸."
+  },
+  "Miyu:Dummy": {
+  "NAME": "더미",
+  "DESCRIPTION": "Miyu:이동 합니다. NL 대상의 Miyu:엄폐물 만큼 방어도를 얻습니다."
+  },
+  "Miyu:Miyako": {
+    "NAME": "RABBIT01. 미야코",
+    "DESCRIPTION": "손에 카드를 !M! 장 NL 더 가질 수 있습니다."
+  },
+  "Miyu:ClaymoreMine": {
+    "NAME": "크레모아",
+    "DESCRIPTION": " 모든 적에게 NL 피해를 !D! 만큼 NL !Miyu:R! 회 줍니다. NL Miyu:거리 만큼 반복합니다. NL 거리 !Miyu:R! "
+  },
+  "Miyu:Rock": {
+    "NAME": "바위",
+    "DESCRIPTION": " 조약돌을 얻습니다. NL 소멸. NL 보존."
+  },
+  "Miyu:SafeZone": {
+    "NAME": "안전 지대",
+    "DESCRIPTION": " 방어도를 !B! 얻습니다. NL 카드를 !M! 장 뽑습니다. NL 손에 카드를 !M! 장 더 NL 가질 수 있습니다. ",
+    "UPGRADE_DESCRIPTION": " 방어도를 !B! 얻습니다. NL 카드를 !M! 장 뽑습니다. NL 손에 카드를 !M! 장 더 NL 가질 수 있습니다. "
+  },
+  "Miyu:RecyclingTrash": {
+    "NAME": "재활용 쓰레기",
+    "DESCRIPTION": " 손이 가득 찰 때까지 NL Miyu:쓰레기를 소모하여 카드를 뽑습니다. "
+  },
+  "Miyu:CleanUpTrash": {
+    "NAME": "쓰레기 청소",
+    "DESCRIPTION": " Miyu:쓰레기가 감소 NL 할 때마다 그만큼 NL Miyu:자존감 과 NL 활력 을 얻습니다. "
+  },
+  "Miyu:Park": {
+    "NAME": "공원",
+    "DESCRIPTION": " Miyu:엄폐물 !Miyu:C! . NL 이 카드를 뽑을 때 NL 공원을 2장 생성합니다. NL 이동 시 Miyu:쓰레기 와 Miyu:조약돌 NL 을 얻습니다. 보존. 사용불가. "
+  },
+  "Miyu:LeafPile": {
+    "NAME": "낙엽 더미",
+    "DESCRIPTION": " Miyu:엄폐물 !Miyu:C! . NL 방어도를 !B! 얻습니다. NL 소멸 시, Miyu:쓰레기를 !M! 얻습니다. ",
+    "UPGRADE_DESCRIPTION": " Miyu:엄폐물 !Miyu:C! . NL 방어도를 !B! 얻습니다. NL 소멸 시, Miyu:쓰레기를 !M! 얻습니다. "
+  },
+  "Miyu:SupplyCrate": {
+    "NAME": "보급 상자",
+    "DESCRIPTION": " Miyu:엄폐물 !Miyu:C! . NL 소멸 시, 다음 턴에 [R] [R] . ",
+    "UPGRADE_DESCRIPTION": " Miyu:엄폐물 !Miyu:C! . NL 소멸 시, 다음 턴에 [R] [R] [R] . "
+
+  },
+  "Miyu:PanicShot": {
+    "NAME": "패닉 샷",
+    "DESCRIPTION": " Miyu:거리만큼 피해를 !D! 줍니다. NL 이 카드와 복사본을 NL 뽑을 카드 더미 NL 맨 위에 놓습니다. NL Miyu:거리 !Miyu:R!. "
+
+  },
+  "Miyu:BackTracking": {
+    "NAME": "백 트래킹",
+    "DESCRIPTION": " 방어도를 !B! 얻습니다. NL 카드를 선택한 만큼 NL 뽑을 카드 더미 NL 맨 위에 놓습니다. "
+
+  },
+  "Miyu:TacticalReload": {
+    "NAME": "전술 재장전",
+    "DESCRIPTION": " 턴 시작 시 카드를 NL 1장 뽑습니다. NL 카드 1장을 뽑을 카드 NL 더미 맨 위에 놓습니다. ",
+    "UPGRADE_DESCRIPTION": " 턴 시작 시 카드를 NL 1장 뽑습니다. NL 카드 1장을 뽑을 카드 NL 더미 맨 위에 놓습니다. 선천성. "
+
+  },
+  "Miyu:Collapse": {
+    "NAME": "붕괴",
+    "DESCRIPTION": " Miyu:엄폐물 이 공격받으면 NL 감소한 Miyu:엄폐물 만큼 NL 대상에게 피해를 줍니다. "
+
+  },
+  "Miyu:FadedPresence": {
+    "NAME": "사라진 존재감",
+    "DESCRIPTION": " 불가침을 1 얻습니다. NL Miyu:자존감이 5 감소합니다. NL 소멸. "
+
+  },
+  "Miyu:IamHere": {
+    "NAME": "여기에요!",
+    "DESCRIPTION": " 피해를 !D! 줍니다. NL Miyu:자존감이 3 감소합니다. NL 이 카드를 뽑을 때 NL Miyu:자존감이 음수라면 NL 버립니다. "
+
+  },
+  "Miyu:ConvenienceStore": {
+    "NAME": "편의점",
+    "DESCRIPTION": " Miyu:엄폐물 !Miyu:C!. NL 피해를 !D! 만큼 NL !M! 회 줍니다. NL 이동할 때 공격 회수가 NL 증가합니다. NL 보존. "
+
+  },
+  "Miyu:PointShooting": {
+    "NAME": "지향 사격",
+    "DESCRIPTION": " 무작위 적들에게 NL 피해를 !D! 만큼 !M! 번 NL 줍니다. NL Miyu:거리만큼 피해가 NL 감소합니다. NL Miyu:거리 !Miyu:R!. "
+
+  },
+  "Miyu:UnexpectedAngle": {
+    "NAME": "예상치 못한 일격",
+    "DESCRIPTION": " 공격 카드를 5회 NL 사용 할 때마다 NL Miyu:활력을 !M! 얻습니다. "
+
+  },
+  "Miyu:Saki": {
+    "NAME": "RABBIT.02 사키",
+    "DESCRIPTION": " 적 전체를 기절시킵니다. NL Miyu:거리만큼 비용이 감소합니다. NL 소멸. NL Miyu:거리 !Miyu:R! "
+
+  },
+  "Miyu:Panic": {
+    "NAME": "패닉",
+    "DESCRIPTION": " 카드를 1 장 뽑습니다. NL Miyu:이동합니다. NL Miyu:자존감을 2 잃습니다. NL 카드를 1 장 버립니다.",
+    "UPGRADE_DESCRIPTION": " 카드를 1 장 뽑습니다. NL Miyu:이동합니다. NL Miyu:자존감을 2 잃습니다. NL 카드를 1 장 버립니다. NL Miyu:이동합니다."
+
+  },
+  "Miyu:BunnyHop": {
+    "NAME": "깡총깡총",
+    "DESCRIPTION": " 방어도를 !B!만큼 X번 NL 얻습니다. NL X번 Miyu:이동합니다. "
+
+  },
+  "Miyu:Urban_S": {
+    "NAME": "시가전 S",
+    "DESCRIPTION": " 피해를 !D! 만큼 3 번 NL 줍니다. NL 손에 있는 Miyu:엄폐물 만큼 NL 비용이 감소합니다. "
+
+  },
+  "Miyu:Breakthrough": {
+    "NAME": "돌파",
+    "DESCRIPTION": " 피해를 !D! 줍니다. NL 손에 카드를 !M! 장 더 NL 가질 수 있습니다. "
+  },
+  "Miyu:DiscardedLunch": {
+    "NAME": "폐기 도시락",
+    "DESCRIPTION": " 체력을 !M! 회복합니다. NL Miyu:활력을 !Miyu:C! 얻습니다. NL Miyu:쓰레기를 !Miyu:C! 얻습니다. NL 소멸. 휘발성. "
+  },
+  "Miyu:NextTarget": {
+    "NAME": "다음 타겟",
+    "DESCRIPTION": " 피해를 !D! 줍니다. NL 활력이 !M! 배 적용됩니다. NL 적이 죽었다면 Miyu:이동합니다. "
+  },
+  "Miyu:Sniping": {
+    "NAME": "저격",
+    "DESCRIPTION": " 피해를 !D! 줍니다. NL Miyu:거리 5 마다 기본 피해량이 NL 2배가 됩니다. NL Miyu:거리 !Miyu:R! ",
+    "UPGRADE_DESCRIPTION": " 피해를 !D! 줍니다. NL Miyu:거리 4 마다 기본 피해량이 NL 2배가 됩니다. NL Miyu:거리 !Miyu:R! "
+  },
+  "Miyu:FlowerGarden": {
+    "NAME": "화원",
+    "DESCRIPTION": " Miyu:엄폐물 !Miyu:C!. NL 활력을 !M! 얻습니다. NL 이 카드를 뽑을 때 NL 엄폐물이 2배가 됩니다. NL 보존. "
+  },
+  "Miyu:DontForgetMe": {
+    "NAME": "잊지 말아줘...",
+    "DESCRIPTION": " 카드를 !M! 장 뽑습니다. NL 뽑은 카드에 휘발성 을 NL 부여합니다. NL ( 보존 불가. ) NL 소멸. "
+  },
+  "Miyu:FindingTrashBin": {
+    "NAME": "쓰레기통 찾기",
+    "DESCRIPTION": " Miyu:자존감을 2 잃습니다. NL 카드를 !M! 장 뽑습니다. NL Miyu:이동합니다. "
+  },
+  "Miyu:PalePresence": {
+    "NAME": "옅은 존재감",
+    "DESCRIPTION": " 피해를 !D! 줍니다. NL 카드 한 장을 NL 뽑을 카드 더미 NL 맨 위에 놓습니다. NL 휘발성.  "
+  },
+  "Miyu:RabbitBath": {
+    "NAME": "토끼탕",
+    "DESCRIPTION": " 엄폐물 !Miyu:C!. NL 이동 시 체력을 !M! NL 회복하고 회복량이 NL 6 감소합니다. 보존. "
+  },
+  "Miyu:Hyauu": {
+    "NAME": "햐우우...",
+    "DESCRIPTION": " 피해를 !D! 줍니다. NL 방어도를 !B! 얻습니다. NL (음수의 자존감만큼) "
+  },
+  "Miyu:DoNotDisturb": {
+    "NAME": "방해되지 않도록",
+    "DESCRIPTION": " [R] [R] 를 얻습니다. NL 자존감을 !M! 잃습니다. NL 소멸. ",
+    "UPGRADE_DESCRIPTION": " [R] [R] [R] 를 얻습니다. NL 자존감을 !M! 잃습니다. NL 소멸. "
+  },
+  "Miyu:Moe": {
+    "NAME": "RABBIT.03 모에",
+    "DESCRIPTION": " 3턴 후 턴 종료 시 NL 적 전체에게 NL 피해를 !M! 줍니다. NL ( 손에 있는 모든 카드의 NL 비용과 개수의 곱입니다.) "
+  },
+  "Miyu:Trigger": {
+    "NAME": "트리거",
+    "DESCRIPTION": " 자존감이 2배가 됩니다. NL 소멸. ",
+    "UPGRADE_DESCRIPTION": " 자존감이 2배가 됩니다. "
+
+  },
+  "Miyu:RabbitType39Rifle": {
+    "NAME": "RABBIT 39식 소총",
+    "DESCRIPTION": " 피해를 !D! 줍니다. NL 이 카드를 NL 두 번 뽑을 때마다 NL 한 번 사용할 수 있습니다. NL (현재 !M! 회 누적) "
+
+  },
+  "Miyu:ContestedArea": {
+    "NAME": "격전지",
+    "DESCRIPTION": " 엄폐물이 소멸할 때마다 NL 바위를 2(3)장 얻고 NL 손에 카드를 2(3)장 NL 더 가질 수 있습니다. "
+
+  }
+}

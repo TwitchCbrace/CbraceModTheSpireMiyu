@@ -1,0 +1,1 @@
+{"skeleton":{"width":512,"height":512,"fps":24,"hash":" ","name":"Armature"},"bones":[{"name":"root"}],"slots":[{"name":"Miyustand","bone":"root","attachment":"Miyustand"}],"skins":{"default":{"Miyustand":{"Miyustand":{"name":"Miyustand","width":512,"height":512,"x":7.67,"y":255.47}}}}}

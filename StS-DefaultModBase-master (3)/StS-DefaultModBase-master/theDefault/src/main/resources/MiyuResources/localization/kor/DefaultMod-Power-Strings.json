@@ -1,0 +1,97 @@
+{
+        "Miyu:Pebble": {
+                "NAME": "조약돌",
+                "DESCRIPTIONS": [
+                        "작은 조약돌 #b",
+                        " 개에요...",
+                        " 개에요..."
+                ]
+        },
+        "Miyu:RarePower": {
+                "NAME": "Placeholder Power",
+                "DESCRIPTIONS": [
+                        "At the start of your turn, TOUCH #b",
+                        " enemy.",
+                        " enemies."
+                ]
+        },
+        "Miyu:Covered": {
+                "NAME": "엄폐됨",
+                "DESCRIPTIONS": [
+                        " 피해를 받을 때 #b",
+                        " 만큼 엄폐물이 대신 받습니다.",
+                        " 만큼 엄폐물이 대신 받습니다."
+                ]
+        },
+        "Miyu:HandSizeUp": {
+                "NAME": "손패 제한 증가",
+                "DESCRIPTIONS": [
+                        " 손에 카드를 #b",
+                        " 장 더 가질 수 있습니다.",
+                        " 장 더 가질 수 있습니다."
+                ]
+        },
+        "Miyu:TrashPower": {
+                "NAME": "쓰레기",
+                "DESCRIPTIONS": [
+                        " 쓰레기 #b",
+                        " 개 입니다. 분명 쓸모없겠죠... 미유처럼요.",
+                        " 개 입니다. 분명 쓸모없겠죠... 미유처럼요."
+                ]
+        },
+        "Miyu:SelfEsteem": {
+                "NAME": "자존감",
+                "DESCRIPTIONS": [
+                        " 자존감이 #b",
+                        " 정도네요...",
+                        " 정도네요..."
+                ]
+        },
+        "Miyu:CleanUpTrashPower": {
+                "NAME": "쓰레기 청소",
+                "DESCRIPTIONS": [
+                        " 감소한 쓰레기만큼 자존감과 활력을 #b ",
+                        " 얻습니다. ",
+                        " 얻습니다. "
+                ]
+        },
+        "Miyu:TacticalReloadPower": {
+                "NAME": "전술 재장전",
+                "DESCRIPTIONS": [
+                        " 매 턴 카드를 #b ",
+                        " 장 더 뽑고, 덱 맨 위로 올립니다. ",
+                        " 장 더 뽑고, 덱 맨 위로 올립니다. "
+                ]
+        },
+        "Miyu:CollapsePower": {
+                "NAME": "붕괴",
+                "DESCRIPTIONS": [
+                        " 엄폐물이 공격받아 감소한 만큼 적에게 피해를 줍니다. "
+
+                ]
+        },
+        "Miyu:UnexpectedAnglePower": {
+                "NAME": "예상치 못한 일격",
+                "DESCRIPTIONS": [
+                        " 공격 카드를 다섯 장 사용할 때마다 활력을 #b ",
+                        " 얻습니다. ",
+                        " 얻습니다. "
+                ]
+        },
+        "Miyu:MoePower": {
+                "NAME": "RABBIT03.모에",
+                "DESCRIPTIONS": [
+                        " #b%1$s 턴 후 턴 종료 시, 적 전체에게 피해를 #b%2$s 줍니다. ",
+                        " 이번 턴 종료 시, 적 전체에게 피해를 #b%1$s 줍니다. "
+
+                ]
+        },
+        "Miyu:ContestedAreaPower": {
+                "NAME": "격전지",
+                "DESCRIPTIONS": [
+                        " 엄폐물이 소멸할 때마다 바위를 #b ",
+                        " 장 얻고 손에 카드를 더 가질 수 있습니다. ",
+                        " 장 얻고 손에 카드를 더 가질 수 있습니다. "
+                ]
+        }
+}

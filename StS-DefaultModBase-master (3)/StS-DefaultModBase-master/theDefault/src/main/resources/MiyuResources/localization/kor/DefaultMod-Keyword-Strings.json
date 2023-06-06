@@ -1,0 +1,81 @@
+[
+  {
+    "NAMES": [
+      "keyword",
+      "keywords"
+    ],
+    "DESCRIPTION": "Whenever you play a card, gain 1 dexterity this turn only."
+  },
+  {
+    "PROPER_NAME": "Multiword Keyword",
+    "NAMES": [
+      "Multiword Keyword",
+      "multiword_keyword",
+      "multiword_keywords",
+      "multikey",
+      "multikeyword"
+    ],
+    "DESCRIPTION": "Make sure the first element in the NAMES is the same as your PROPER_NAME. The rest is to match keywords like the single word keyword."
+  },
+  {
+    "PROPER_NAME": "조약돌",
+    "NAMES": [
+      "조약돌",
+      "조약돌들"
+    ],
+    "DESCRIPTION": "자그마한 조약돌입니다..."
+  },
+  {
+    "PROPER_NAME": "쓰레기",
+    "NAMES": [
+      "쓰레기",
+      "쓰레기를",
+      "쓰레기와",
+      "쓰레기가"
+    ],
+    "DESCRIPTION": "다 쓴 휴지, 떨어진 나뭇잎... NL 혼자 남은 미유."
+  },
+  {
+    "PROPER_NAME": "엄폐물",
+    "NAMES": [
+      "엄폐물"
+    ],
+    "DESCRIPTION": "엄폐물이 0이 된 카드는 소멸합니다."
+  },
+  {
+    "PROPER_NAME": "이동",
+    "NAMES": [
+      "이동",
+      "이동합니다"
+    ],
+    "DESCRIPTION": "엄폐물을 선택하여 수치만큼 엄폐됨 효과를 얻습니다."
+  },
+  {
+    "PROPER_NAME": "거리",
+    "NAMES": [
+      "거리",
+      "거리만큼",
+      "거리가"
+
+    ],
+    "DESCRIPTION": "이 카드를 뽑을 때 몇 번째 카드인지 기록합니다."
+  },
+  {
+    "PROPER_NAME": "자존감",
+    "NAMES": [
+      "자존감",
+      "자존감이",
+      "자존감을"
+    ],
+    "DESCRIPTION": "자신에 대한 평가와 자신의 가치에 대한 인식입니다."
+  },
+  {
+    "PROPER_NAME": "활력",
+    "NAMES": [
+      "활력을",
+      "활력의"
+
+],
+  "DESCRIPTION": "수치만큼 다음 공격 카드의 피해가 증가합니다."
+  }
+]
