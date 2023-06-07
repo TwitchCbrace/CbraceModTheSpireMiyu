@@ -222,7 +222,6 @@
   },
   "Miyu:Cans": {
     "NAME": "캔 류",
-    "DESCRIPTION": " 쓰레기만큼 판금 갑옷을 얻습니다. NL 소멸",
-    "UPGRADE_DESCRIPTION": " 쓰레기만큼 판금 갑옷을 얻습니다."
+    "DESCRIPTION": " 쓰레기만큼 판금 갑옷을 얻습니다. NL 소멸"
   }
 }
