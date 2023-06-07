@@ -219,6 +219,10 @@
   "Miyu:ContestedArea": {
     "NAME": "격전지",
     "DESCRIPTION": " 엄폐물이 소멸할 때마다 NL 바위를 !M! 장 얻고 NL 손에 카드를 !M! 장 NL 더 가질 수 있습니다. "
-
+  },
+  "Miyu:Cans": {
+    "NAME": "캔 류",
+    "DESCRIPTION": " 쓰레기만큼 판금 갑옷을 얻습니다. NL 소멸",
+    "UPGRADE_DESCRIPTION": " 쓰레기만큼 판금 갑옷을 얻습니다."
   }
 }
