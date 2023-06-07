@@ -30,6 +30,7 @@ import Miyu.relics.PlaceholderRelic;
 import Miyu.relics.PlaceholderRelic2;
 import Miyu.util.IDCheckDontTouchPls;
 import Miyu.util.TextureLoader;
+import Miyu.variables.MiyuSecondMagicNumber;
 import Miyu.variables.MiyuRangeMagicNumber;
 import Miyu.variables.MiyuCoverMagicNumber;
 
@@ -426,6 +427,7 @@ public class DefaultMod implements
         logger.info("Add variables");
         // Add the Custom Dynamic variables
 //        BaseMod.addDynamicVariable(new DefaultCustomVariable());
+        BaseMod.addDynamicVariable(new MiyuSecondMagicNumber());
         BaseMod.addDynamicVariable(new MiyuRangeMagicNumber());
         BaseMod.addDynamicVariable(new MiyuCoverMagicNumber());
         logger.info("Adding cards");

@@ -220,5 +220,10 @@
     "NAME": "격전지",
     "DESCRIPTION": " 엄폐물이 소멸할 때마다 NL 바위를 !M! 장 얻고 NL 손에 카드를 !M! 장 NL 더 가질 수 있습니다. "
 
+  },
+  "Miyu:CatCollar": {
+    "NAME": "고양이용 목줄",
+    "DESCRIPTION": " Miyu:이동할 때마다 NL Miyu:활력을 !M! NL Miyu:자존감을 !Miyu:M2! 얻습니다. "
+
   }
 }

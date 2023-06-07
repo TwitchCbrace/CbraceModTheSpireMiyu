@@ -11,15 +11,23 @@ public abstract class AbstractDefaultCard extends CustomCard {
     // simply use that in our cards, so long as we put "extends AbstractDynamicCard" instead of "extends CustomCard" at the start.
     // In simple terms, it's for things that we don't want to define again and again in every single card we make.
     public int coverMagicNumber;
-    public int baseCoverMagicNumber;
-    public boolean upgradedCoverMagicNumber;
-    public boolean isCoverMagicNumberModified;
 
+    public int baseCoverMagicNumber;
 
     public int rangeMagicNumber;        // Just like magic number, or any number for that matter, we want our regular, modifiable stat
     public int baseRangeMagicNumber;    // And our base stat - the number in it's base state. It will reset to that by default.
+
+    public int secondMagicNumber;
+    public int baseSecondMagicNumber;
+
     public boolean upgradedRangeMagicNumber; // A boolean to check whether the number has been upgraded or not.
+
+    public boolean upgradedSecondMagicNumber;
     public boolean isRangeMagicNumberModified; // A boolean to check whether the number has been modified or not, for coloring purposes. (red/green)
+    public boolean isSecondMagicNumberModified;
+    public boolean isCoverMagicNumberModified;
+
+    public boolean upgradedCoverMagicNumber;
 
     public AbstractDefaultCard(final String id,
                                final String name,
@@ -39,6 +47,7 @@ public abstract class AbstractDefaultCard extends CustomCard {
         isDamageModified = false;
         isBlockModified = false;
         isMagicNumberModified = false;
+        isSecondMagicNumberModified = false;
         isCoverMagicNumberModified = false;
         isRangeMagicNumberModified = false;
     }
@@ -53,7 +62,10 @@ public abstract class AbstractDefaultCard extends CustomCard {
             coverMagicNumber = baseCoverMagicNumber;
             isCoverMagicNumberModified = true;
         }
-
+        if (upgradedSecondMagicNumber) {
+            secondMagicNumber = baseSecondMagicNumber;
+            isSecondMagicNumberModified = true;
+        }
     }
 
     public void upgradeRangeMagicNumber(int amount) { // If we're upgrading (read: changing) the number. Note "upgrade" and NOT "upgraded" - 2 different things. One is a boolean, and then this one is what you will usually use - change the integer by how much you want to upgrade.
@@ -65,5 +77,10 @@ public abstract class AbstractDefaultCard extends CustomCard {
         baseCoverMagicNumber += amount;
         coverMagicNumber = baseCoverMagicNumber;
         upgradedCoverMagicNumber = true;
+    }
+    public void upgradeSecondMagicNumber(int amount) {
+        baseSecondMagicNumber += amount;
+        secondMagicNumber = baseSecondMagicNumber;
+        upgradedSecondMagicNumber = true;
     }
 }
