@@ -12,11 +12,11 @@ import com.megacrit.cardcrawl.powers.PlatedArmorPower;
 
 import static Miyu.DefaultMod.makeCardPath;
 
-public class Cans extends AbstractDynamicCard {
+public class Can extends AbstractDynamicCard {
 
     // TEXT DECLARATION
-    public static final String ID = DefaultMod.makeID(Cans.class.getSimpleName());
-    public static final String IMG = makeCardPath("Dummy.png");
+    public static final String ID = DefaultMod.makeID(Can.class.getSimpleName());
+    public static final String IMG = makeCardPath("Can.png");
 
     // STAT DECLARATION
     private static final CardRarity RARITY = CardRarity.UNCOMMON;
@@ -28,7 +28,7 @@ public class Cans extends AbstractDynamicCard {
     private static final int UPGRADE_COST = 0;
 
     // /STAT DECLARATION/
-    public Cans() {
+    public Can() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
         this.exhaust = true;
     }
@@ -64,7 +64,12 @@ public class Cans extends AbstractDynamicCard {
             upgradeName();
             upgradeBaseCost(UPGRADE_COST);
             initializeDescription();
-            this.exhaust = false;
         }
     }
+
+
+    public AbstractCard makeCopy() {
+        return new Can();
+    }
+
 }
