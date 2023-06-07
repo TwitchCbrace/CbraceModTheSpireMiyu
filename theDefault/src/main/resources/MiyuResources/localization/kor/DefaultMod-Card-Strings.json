@@ -223,5 +223,9 @@
   "Miyu:Cans": {
     "NAME": "캔 류",
     "DESCRIPTION": " 쓰레기만큼 판금 갑옷을 얻습니다. NL 소멸"
+  },
+  "Miyu:CatCollar": {
+    "NAME": "고양이용 목줄",
+    "DESCRIPTION": " Miyu:이동할 때마다 NL Miyu:활력을 !M! NL Miyu:자존감을 !Miyu:M2! 얻습니다. "
   }
 }

@@ -1,6 +1,7 @@
 package Miyu.actions;
 
 import Miyu.cards.ICoverCard;
+import Miyu.cards.OnMoveAction;
 import Miyu.powers.Pebble;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
@@ -19,7 +20,7 @@ import com.megacrit.cardcrawl.ui.panels.EnergyPanel;
 import java.util.ArrayList;
 
 
-public class CoverSelectAction extends AbstractGameAction {
+public class CoverSelectAction extends AbstractGameAction implements OnMoveAction {
 
     /*
 uistring을 확장하였음.
@@ -45,6 +46,10 @@ by josh
         this.amount = amount;
     }
 
+    @Override
+    public void onMove () {
+
+    }
     @Override
     public void update() {
 
@@ -108,6 +113,7 @@ by josh
                 ((ICoverCard)card).triggerOnCovered(p);
             }
             isDone = true;
+
         }
 
     }
