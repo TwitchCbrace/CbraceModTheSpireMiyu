@@ -44,10 +44,7 @@ public class Rock extends AbstractDynamicCard {
     public void use(AbstractPlayer p, AbstractMonster m) {
         AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p,
                 new Pebble(p, p, magicNumber), magicNumber));
-
     }
-
-
 
     //Upgraded stats.
     @Override
