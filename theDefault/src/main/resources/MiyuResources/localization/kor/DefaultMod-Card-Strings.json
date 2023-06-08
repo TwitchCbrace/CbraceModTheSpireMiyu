@@ -231,5 +231,9 @@
   "Miyu:HobbyActivity": {
     "NAME": "취미 생활",
     "DESCRIPTION": " Miyu:조약돌을 얻을 때마다 NL 현재 보유한 Miyu:조약돌만큼 Miyu:자존감과 Miyu:활력을 얻습니다."
+
+  "Miyu:Compliment": {
+    "NAME": "칭찬",
+    "DESCRIPTION": " 피해를 !D! 줍니다. NL 적의 방어도를 넘어선 피해를 주거나 처치했다면, NL Miyu:자존감을 !M! 얻습니다. "
   }
 }

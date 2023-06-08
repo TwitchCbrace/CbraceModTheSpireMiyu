@@ -2,9 +2,9 @@ package Miyu.cards;
 
 import Miyu.DefaultMod;
 import Miyu.powers.Pebble;
+import Miyu.powers.SelfEsteem;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
-import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
 import static Miyu.DefaultMod.makeCardPath;
@@ -31,7 +31,6 @@ public class Rock extends AbstractDynamicCard {
 
     // /STAT DECLARATION/
 
-
     public Rock() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
         this.baseMagicNumber = this.magicNumber = MAGIC;
@@ -39,7 +38,6 @@ public class Rock extends AbstractDynamicCard {
         this.selfRetain = true;
     }
 
-    // Actions the card should do.
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p,
@@ -47,6 +45,14 @@ public class Rock extends AbstractDynamicCard {
     }
 
     //Upgraded stats.
+
+        // 조약돌 1 얻기
+        addToBot(new ApplyPowerAction(p, p, new Pebble(p, p, magicNumber), magicNumber));
+
+        // 자존감 1 얻기
+        addToBot(new ApplyPowerAction(p, p, new SelfEsteem(p, p, magicNumber), magicNumber));
+    }
+
     @Override
     public void upgrade() {
         if (!upgraded) {
