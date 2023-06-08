@@ -251,5 +251,11 @@
   "Miyu:FindingMiyu": {
     "NAME": "미유를 찾아라",
     "DESCRIPTION": " 손에 있는 엄폐물마다 피해를 !D! 줍니다. NL ( !M! 회 줍니다. ) NL 선택한 적이 공격할 의도가 있다면, Miyu:이동합니다. "
+  },
+  "Miyu:MilitaryCamp": {
+    "NAME": "밀리터리 캠프",
+    "DESCRIPTION": " 엄폐물 !Miyu:C!. NL [R] [R] [R] [R] . NL Miyu:이동 시, 이번 턴 동안 이 카드의 비용이 1 감소합니다. 보존. ",
+    "UPGRADE_DESCRIPTION": " 엄폐물 !Miyu:C!. NL [R] [R] [R] [R] [R] . NL Miyu:이동 시, 이번 턴 동안 이 카드의 비용이 1 감소합니다. 보존. "
+
   }
 }
