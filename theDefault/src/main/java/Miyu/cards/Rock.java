@@ -41,20 +41,10 @@ public class Rock extends AbstractDynamicCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         // 조약돌 1 얻기
-        addToBot(new ApplyPowerAction(
-                p,
-                p,
-                new Pebble(p, p, magicNumber),
-                magicNumber)
-        );
+        addToBot(new ApplyPowerAction(p, p, new Pebble(p, p, magicNumber), magicNumber));
 
         // 자존감 1 얻기
-        addToBot(new ApplyPowerAction(
-                p,
-                p,
-                new SelfEsteem(p, p, magicNumber),
-                magicNumber
-        ));
+        addToBot(new ApplyPowerAction(p, p, new SelfEsteem(p, p, magicNumber), magicNumber));
     }
 
     @Override
