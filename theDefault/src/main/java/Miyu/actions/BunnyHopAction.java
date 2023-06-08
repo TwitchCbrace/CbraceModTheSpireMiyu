@@ -1,6 +1,7 @@
 package Miyu.actions;
 
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
+import com.megacrit.cardcrawl.actions.animations.AnimateHopAction;
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -44,6 +45,7 @@ public class BunnyHopAction extends AbstractGameAction {
             for(int i = 0; i < effect; ++i) {
                 this.addToBot(new GainBlockAction(this.p, this.p, this.amount));
                 this.addToBot(new CoverSelectAction(p, 1));
+                this.addToBot(new AnimateHopAction(p));
             }
 
             if (!this.freeToPlayOnce) {

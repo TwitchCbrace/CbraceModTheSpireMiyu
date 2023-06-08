@@ -247,5 +247,9 @@
   "Miyu:RabbitHole": {
     "NAME": "래빗 홀",
     "DESCRIPTION": " 엄폐물 !Miyu:C!. NL 이동 시 카드를 !M!장 뽑고 NL 카드 한 장을 뽑을 NL 카드 더미 맨 위로 올립니다. 사용불가. "
+  },
+  "Miyu:FindingMiyu": {
+    "NAME": "미유를 찾아라",
+    "DESCRIPTION": " 손에 있는 엄폐물마다 피해를 !D! 줍니다. NL ( !M! 회 줍니다. ) NL 선택한 적이 공격할 의도가 있다면, Miyu:이동합니다. "
   }
 }

@@ -1,14 +1,11 @@
 package Miyu.cards;
 
 import Miyu.DefaultMod;
-import Miyu.actions.CoverIncreaseAction;
 import Miyu.characters.TheDefault;
 import Miyu.powers.SelfEsteem;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
-import com.megacrit.cardcrawl.actions.common.ReducePowerAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
-import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.IntangiblePlayerPower;
@@ -16,13 +13,6 @@ import com.megacrit.cardcrawl.powers.IntangiblePlayerPower;
 import static Miyu.DefaultMod.makeCardPath;
 
 public class FadedPresence extends AbstractDynamicCard {
-
-    /*
-     * Wiki-page: https://github.com/daviscook477/BaseMod/wiki/Custom-Cards
-     *
-     * Defend Gain 5 (8) block.
-     */
-
 
     // TEXT DECLARATION
 

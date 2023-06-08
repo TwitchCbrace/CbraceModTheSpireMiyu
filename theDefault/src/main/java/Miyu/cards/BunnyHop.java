@@ -19,13 +19,6 @@ import static Miyu.DefaultMod.makeCardPath;
 
 public class BunnyHop extends AbstractDynamicCard {
 
-    /*
-     * Wiki-page: https://github.com/daviscook477/BaseMod/wiki/Custom-Cards
-     *
-     * Defend Gain 5 (8) block.
-     */
-
-
     // TEXT DECLARATION
 
     public static final String ID = DefaultMod.makeID(BunnyHop.class.getSimpleName());
