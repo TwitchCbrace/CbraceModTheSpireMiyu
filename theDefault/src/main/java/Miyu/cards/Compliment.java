@@ -15,7 +15,7 @@ public class Compliment extends AbstractDynamicCard {
     // TEXT DECLARATION
 
     public static final String ID = DefaultMod.makeID(Compliment.class.getSimpleName());
-    public static final String IMG = makeCardPath("Dummy.png");
+    public static final String IMG = makeCardPath("Compliment.png");
 
     // /TEXT DECLARATION/
 

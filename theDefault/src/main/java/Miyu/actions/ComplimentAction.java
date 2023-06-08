@@ -33,7 +33,7 @@ public class ComplimentAction extends AbstractGameAction {
 
             this.target.damage(this.info);
 
-            if ((((AbstractMonster)this.target).isDying || this.target.currentHealth <= 0 || isDamagedOverBlock) && !this.target.halfDead && !this.target.hasPower("Minion")) {
+            if ((((AbstractMonster)this.target).isDying || this.target.currentHealth <= 0 || isDamagedOverBlock)) {
                 addToBot(new ApplyPowerAction(p, p, new SelfEsteem(p, p, increaseSelfEsteem), increaseSelfEsteem));
             }
 

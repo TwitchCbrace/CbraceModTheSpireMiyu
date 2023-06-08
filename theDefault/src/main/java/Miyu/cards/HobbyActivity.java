@@ -18,7 +18,7 @@ public class HobbyActivity extends AbstractDynamicCard {
 
     // TEXT DECLARATION
     public static final String ID = DefaultMod.makeID(HobbyActivity.class.getSimpleName());
-    public static final String IMG = makeCardPath("Dummy.png");
+    public static final String IMG = makeCardPath("HobbyActivity.png");
 
     private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
     public static final String UPGRADE_DESCRIPTION = cardStrings.UPGRADE_DESCRIPTION;

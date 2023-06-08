@@ -59,7 +59,7 @@ public class HobbyActivityPower extends AbstractPower implements CloneablePowerI
     public void onApplyPower(AbstractPower power, AbstractCreature target, AbstractCreature source) {
         if (power.ID == Pebble.POWER_ID) {
             this.flash();
-
+            this.amount += power.amount;
             addToBot(new ApplyPowerAction(
                     owner,
                     owner,
@@ -72,8 +72,6 @@ public class HobbyActivityPower extends AbstractPower implements CloneablePowerI
                     new SelfEsteem(owner, owner, amount),
                     amount)
             );
-
-            this.amount += power.amount;
 
             updateDescription();
         }

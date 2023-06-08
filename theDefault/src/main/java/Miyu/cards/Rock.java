@@ -5,6 +5,7 @@ import Miyu.powers.Pebble;
 import Miyu.powers.SelfEsteem;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
 import static Miyu.DefaultMod.makeCardPath;
@@ -40,15 +41,8 @@ public class Rock extends AbstractDynamicCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p,
-                new Pebble(p, p, magicNumber), magicNumber));
-    }
-
-    //Upgraded stats.
-
         // 조약돌 1 얻기
         addToBot(new ApplyPowerAction(p, p, new Pebble(p, p, magicNumber), magicNumber));
-
         // 자존감 1 얻기
         addToBot(new ApplyPowerAction(p, p, new SelfEsteem(p, p, magicNumber), magicNumber));
     }
