@@ -230,6 +230,6 @@
   },
   "Miyu:Compliment": {
     "NAME": "칭찬",
-    "DESCRIPTION": " 피해를 !D! 줍니다. NL 적의 방어도를 넘어선 피해를 주거나 처치했다면, Miyu:자존감을 !M! 얻습니다. "
+    "DESCRIPTION": " 피해를 !D! 줍니다. NL 적의 방어도를 넘어선 피해를 주거나 처치했다면, NL Miyu:자존감을 !M! 얻습니다. "
   }
 }
