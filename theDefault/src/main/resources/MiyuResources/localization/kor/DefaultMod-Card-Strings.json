@@ -257,5 +257,11 @@
     "DESCRIPTION": " 엄폐물 !Miyu:C!. NL [R] [R] [R] [R] . NL Miyu:이동 시, 이번 턴 동안 이 카드의 비용이 1 감소합니다. 보존. ",
     "UPGRADE_DESCRIPTION": " 엄폐물 !Miyu:C!. NL [R] [R] [R] [R] [R] . NL Miyu:이동 시, 이번 턴 동안 이 카드의 비용이 1 감소합니다. 보존. "
 
+  },
+  "Miyu:DefenseMechanism": {
+    "NAME": "방어 기제",
+    "DESCRIPTION": " 자존감이 변할 때 NL 변한 만큼 NL 방어도를 얻습니다. ",
+    "UPGRADE_DESCRIPTION": " 자존감이 변할 때 NL 변한 만큼 NL 방어도를 얻습니다. 선천성. "
+
   }
 }
