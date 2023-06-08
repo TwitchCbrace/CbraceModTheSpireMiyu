@@ -235,5 +235,17 @@
   "Miyu:Compliment": {
     "NAME": "칭찬",
     "DESCRIPTION": " 피해를 !D! 줍니다. NL 적의 방어도를 넘어선 피해를 주거나 처치했다면, NL Miyu:자존감을 !M! 얻습니다. "
+  },
+  "Miyu:LegShot": {
+    "NAME": "다리 쏘기",
+    "DESCRIPTION": " 피해를 !D! 줍니다. NL 약화를 !M! 부여합니다. NL Miyu:거리 4마다 1의 NL 약화를 부여합니다. NL ( 현재 !Miyu:M2! ) NL 거리 !Miyu:R!. "
+  },
+  "Miyu:NextSpot": {
+    "NAME": "다음 위치로",
+    "DESCRIPTION": " Miyu:이동할 때마다 카드를 뽑습니다. "
+  },
+  "Miyu:RabbitHole": {
+    "NAME": "래빗 홀",
+    "DESCRIPTION": " 엄폐물 !Miyu:C!. NL 이동 시 카드를 !M!장 뽑고 NL 카드 한 장을 뽑을 NL 카드 더미 맨 위로 올립니다. 사용불가. "
   }
 }
