@@ -16,17 +16,13 @@ import java.util.ArrayList;
 
 public class CoverIncreaseAction extends AbstractGameAction {
 
-
     private int increaseAmount;
     private final int amount;
-
 
     private static final UIStrings uiStrings = CardCrawlGame.languagePack.getUIString("CoverCardSelect");
     public static final String[] TEXT = uiStrings.TEXT;
 
     private static final float DURATION = Settings.ACTION_DUR_XFAST;
-
-
 
     private AbstractPlayer p;
     private ArrayList<AbstractDefaultCard.CardTags> keyword = new ArrayList();
@@ -40,8 +36,6 @@ public class CoverIncreaseAction extends AbstractGameAction {
 
     @Override
     public void update() {
-
-
         if (this.duration == DURATION) {
 
             CardGroup hand = this.p.hand;
