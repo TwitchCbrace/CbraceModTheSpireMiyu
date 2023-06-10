@@ -274,6 +274,10 @@
   "Miyu:NegativeDelusions": {
     "NAME": "부정적인 망상",
     "DESCRIPTION": " 이 카드가 소멸될 때 자존감을 !M! 얻습니다. 턴 종료 시 Miyu:자존감이 음수면 이 카드의 복사본을 얻습니다. 보존."
+  },
+  "Miyu:SecretArea": {
+    "NAME": "비밀 장소",
+    "DESCRIPTION": " 방어도를 !B! 얻습니다. NL (소멸 카드 더미만큼) NL 소멸 카드 더미에서 NL 가장 엄폐물이 높은 NL 카드로 Miyu:이동합니다. "
   }
 
 }

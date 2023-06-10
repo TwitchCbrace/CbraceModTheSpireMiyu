@@ -11,5 +11,4 @@ by josh
 
 public interface ICoverCard {
 	public void triggerOnCovered(AbstractPlayer p);
-
 }

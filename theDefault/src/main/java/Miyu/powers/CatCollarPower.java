@@ -1,7 +1,6 @@
 package Miyu.powers;
 
 import Miyu.DefaultMod;
-import Miyu.cards.OnMoveAction;
 import Miyu.cards.OnReduceTrash;
 import Miyu.util.TextureLoader;
 import basemod.interfaces.CloneablePowerInterface;

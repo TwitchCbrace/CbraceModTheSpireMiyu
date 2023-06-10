@@ -1,25 +1,18 @@
 package Miyu.actions;
 
 import Miyu.cards.ICoverCard;
-import Miyu.cards.OnMoveAction;
-import Miyu.powers.Pebble;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
-import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.CardGroup;
-import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.UIStrings;
-import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import com.megacrit.cardcrawl.relics.ChemicalX;
-import com.megacrit.cardcrawl.ui.panels.EnergyPanel;
 
 import java.util.ArrayList;
 
-public class CoverSelectAction extends AbstractGameAction implements OnMoveAction {
+public class CoverSelectAction extends AbstractGameAction {
 
 	/*
 	 * uistring을 확장하였음. 추가된 uistring은 localization 폴더에 다른 애들처럼 같이 있음 by josh
@@ -43,10 +36,6 @@ public class CoverSelectAction extends AbstractGameAction implements OnMoveActio
 	}
 
 	@Override
-	public void onMove() {
-
-	}
-	@Override
 	public void update() {
 
 		// 매 프레임마다 불리우는 녀석
@@ -55,7 +44,7 @@ public class CoverSelectAction extends AbstractGameAction implements OnMoveActio
 		if (this.duration == DURATION) {
 			/*
 			 * 지정된 duration이 지난 후 손 패 목록을 가져와서 ICoverCard interface를 따르는 카드만 추려서 목록에 넣음
-			 * 
+			 *
 			 * by josh
 			 */
 			CardGroup hand = this.p.hand;
@@ -86,7 +75,7 @@ public class CoverSelectAction extends AbstractGameAction implements OnMoveActio
 			/*
 			 * 지정된 조건 ICoverCard interface를 따르는 녀석들이 들어있는 cardsHasCover를 보내서 카드 선택 팝업 띄움 gridSelectScreen은 커스텀 카드 목록으로
 			 * 카드 선택할 수 있도록 팝업을 띄우는 클래스
-			 * 
+			 *
 			 * by josh
 			 */
 
