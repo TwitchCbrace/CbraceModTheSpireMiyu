@@ -13,7 +13,6 @@ TBD
 
 ### TwitchCbrace
 He is a streamer who broadcasts live on Twitch and posts videos on YouTube.
-He streams in Korean and hosts Slay the Spire from 9-11pm (UTC+09:00).
 Twitch : https://www.twitch.tv/cbrace
 Youtube : https://www.youtube.com/@92Cbrace
 
@@ -48,12 +47,9 @@ Slay the Spire Miyu (BlueArchive) 모드에 오신 것을 환영합니다.
 ##제작자
 
 + TwitchCbrace: 코딩, 밸런싱, 디자인, 아트
-+ 그의 방송 시청자: 코딩, 밸런싱
++ 시청자: 코딩, 밸런싱
 
 ##TwitchCbrace
-
-9-11pm에 Slay the Spire 방송을 진행하는 트위치 스트리머입니다.
-
 
 + Twitch: https://www.twitch.tv/cbrace
 + YouTube: https://www.youtube.com/@92Cbrace
