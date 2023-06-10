@@ -1,9 +1,11 @@
 package Miyu.cards;
 
 import Miyu.DefaultMod;
-import Miyu.actions.BackTrackingAction;
+import Miyu.actions.FoundItAction;
 import Miyu.characters.TheDefault;
 import com.megacrit.cardcrawl.actions.common.DrawCardAction;
+import com.megacrit.cardcrawl.actions.common.PutOnDeckAction;
+import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.localization.CardStrings;
@@ -49,9 +51,11 @@ public class FoundIt extends AbstractDynamicCard {
     // Actions the card should do.
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        addToBot(new DrawCardAction(baseMagicNumber));
+        // 카드를 baseMagicNumber만큼 뽑고, 엄폐중인 카드를 뽑았을 때의 후처리를 위해 FoundItAction을 FollowAction으로 넣어준다.
+        addToBot(new DrawCardAction(baseMagicNumber, new FoundItAction(p, secondMagicNumber)));
 
-        this.addToBot(new BackTrackingAction(p, p));
+        // 카드 1장을 덱 맨 위로 올리는 액션
+        this.addToBot(new PutOnDeckAction(p, p, 1, false));
     }
 
     //Upgraded stats.
@@ -65,5 +69,10 @@ public class FoundIt extends AbstractDynamicCard {
             isSecondMagicNumberModified = true;
             initializeDescription();
         }
+    }
+
+    @Override
+    public AbstractCard makeCopy() {
+        return new FoundIt();
     }
 }
