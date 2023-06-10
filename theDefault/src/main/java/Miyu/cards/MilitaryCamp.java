@@ -3,7 +3,6 @@ package Miyu.cards;
 import Miyu.DefaultMod;
 import Miyu.characters.TheDefault;
 import Miyu.powers.Covered;
-import Miyu.powers.TrashPower;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.GainEnergyAction;
 import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
@@ -60,7 +59,6 @@ public class MilitaryCamp extends AbstractDynamicCard implements ICoverCard {
             isCostModified = true;
         }
     }
-
 
     public void triggerOnGlowCheck() {
         Covered covered =

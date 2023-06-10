@@ -57,8 +57,6 @@ public class SupplyCrate extends AbstractDynamicCard implements ICoverCard {
 
     }
 
-
-
     public void triggerOnGlowCheck() {
         Covered covered =
                 (Covered)AbstractDungeon.player.getPower("Miyu:Covered");
@@ -68,9 +66,9 @@ public class SupplyCrate extends AbstractDynamicCard implements ICoverCard {
             this.glowColor = AbstractCard.GOLD_BORDER_GLOW_COLOR.cpy();
         } else {
             this.glowColor = AbstractCard.BLUE_BORDER_GLOW_COLOR.cpy();
-            stopGlowing();
         }
     }
+
     public boolean canUse(AbstractPlayer p, AbstractMonster m) {
         return false;
     }
@@ -84,7 +82,6 @@ public class SupplyCrate extends AbstractDynamicCard implements ICoverCard {
         AbstractPlayer p = AbstractDungeon.player;
         this.addToBot(new ApplyPowerAction(p, p, new EnergizedPower(p, magicNumber), magicNumber));
     }
-
 
     public AbstractCard makeCopy() {
         return new SupplyCrate();

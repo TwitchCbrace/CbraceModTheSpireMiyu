@@ -1,6 +1,7 @@
 package Miyu.cards;
 
 import Miyu.DefaultMod;
+import Miyu.actions.WannaBeAloneAction;
 import Miyu.characters.TheDefault;
 import Miyu.powers.Covered;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
@@ -11,17 +12,18 @@ import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import com.megacrit.cardcrawl.powers.watcher.VigorPower;
 
 import static Miyu.DefaultMod.makeCardPath;
 
-public class FlowerGarden extends AbstractDynamicCard implements ICoverCard {
+public class WannaBeAlone extends AbstractDynamicCard implements ICoverCard {
 
+
+//     * Wiki-page: https://github.com/daviscook477/BaseMod/wiki/Custom-Cards
 
     // TEXT DECLARATION
 
-    public static final String ID = DefaultMod.makeID(FlowerGarden.class.getSimpleName());
-    public static final String IMG = makeCardPath("FlowerGarden.png");
+    public static final String ID = DefaultMod.makeID(WannaBeAlone.class.getSimpleName());
+    public static final String IMG = makeCardPath("Dummy.png");
 
     // /TEXT DECLARATION/
     private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
@@ -32,27 +34,27 @@ public class FlowerGarden extends AbstractDynamicCard implements ICoverCard {
     private static final CardTarget TARGET = CardTarget.SELF;
     private static final CardType TYPE = CardType.SKILL;
     public static final CardColor COLOR = TheDefault.Enums.COLOR_GRAY;
-    private static final int COST = 2;
-    private static final int MAGIC = 5;
-    private static final int UPGRADE_PLUS_MAGIC = 3;
-    private static final int COVER = 4;
-    private static final int UPGRADE_PLUS_COVER = 1;
+
+    private static final int COST = -2;
+    private static final int COVER = 30;
+    private static final int UPGRADE_PLUS_COVER = 10;
 
     // /STAT DECLARATION/
-    
-    public FlowerGarden() {
+
+    public WannaBeAlone() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
         this.baseCoverMagicNumber = this.coverMagicNumber = COVER;
-        this.baseMagicNumber = this.magicNumber = MAGIC;
         selfRetain = true;
     }
 
     public void triggerOnCovered(AbstractPlayer p) {
         AbstractDungeon.actionManager.addToBottom(new RemoveSpecificPowerAction(p, p, "Miyu:Covered"));
         AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p,
-                new Covered(p, p, this.baseCoverMagicNumber, this), this.baseCoverMagicNumber)
+            new Covered(p, p, this.baseCoverMagicNumber, this), this.baseCoverMagicNumber)
         );
 
+        // 손에 있는 엄폐물에게 휘발성을 부여하는 액션을 actionManager 맨 밑에 추가
+        addToBot(new WannaBeAloneAction(this));
     }
 
     public void triggerOnGlowCheck() {
@@ -63,28 +65,30 @@ public class FlowerGarden extends AbstractDynamicCard implements ICoverCard {
             beginGlowing();
             this.glowColor = AbstractCard.GOLD_BORDER_GLOW_COLOR.cpy();
         } else {
-            this.glowColor = AbstractCard.BLUE_BORDER_GLOW_COLOR.cpy();
+            stopGlowing();
         }
     }
 
-    public void triggerWhenDrawn() {
-        this.baseCoverMagicNumber *= 2;
+    public boolean canUse(AbstractPlayer p, AbstractMonster m) {
+        return false;
     }
 
+//     Actions the card should do.
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        this.addToBot(new ApplyPowerAction(p, p, new VigorPower(p, this.magicNumber), this.magicNumber));
     }
 
-    public AbstractCard makeCopy() { return new FlowerGarden(); }
+    public AbstractCard makeCopy() {
+        return new WannaBeAlone();
+    }
 
     //Upgraded stats.
     @Override
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
-            upgradeCoverMagicNumber(UPGRADE_PLUS_COVER);
-            upgradeMagicNumber(UPGRADE_PLUS_MAGIC);
+            this.upgradeCoverMagicNumber(UPGRADE_PLUS_COVER);
+            this.isCoverMagicNumberModified = true;
             initializeDescription();
         }
     }

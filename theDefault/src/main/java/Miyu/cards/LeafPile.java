@@ -35,8 +35,10 @@ public class LeafPile extends AbstractDynamicCard implements ICoverCard {
     private static final CardType TYPE = CardType.SKILL;
     public static final CardColor COLOR = TheDefault.Enums.COLOR_GRAY;
     private static final int COST = 1;
+
     private static final int BLOCK = 8;
     private static final int UPGRADE_PLUS_BLOCK = 3;
+
     private static final int COVER = 8;
     private static final int UPGRADE_PLUS_COVER = 3;
 
@@ -51,14 +53,13 @@ public class LeafPile extends AbstractDynamicCard implements ICoverCard {
         this.baseMagicNumber = this.magicNumber = MAGIC;
         this.baseCoverMagicNumber = this.coverMagicNumber = COVER;
     }
+
     public void triggerOnCovered(AbstractPlayer p) {
         AbstractDungeon.actionManager.addToBottom(new RemoveSpecificPowerAction(p, p, "Miyu:Covered"));
         AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p,
             new Covered(p, p, this.baseCoverMagicNumber, this), this.baseCoverMagicNumber)
         );
-
     }
-
 
     public void triggerOnGlowCheck() {
         Covered covered =
@@ -80,9 +81,8 @@ public class LeafPile extends AbstractDynamicCard implements ICoverCard {
 
     public void triggerOnExhaust(){
         AbstractPlayer p = AbstractDungeon.player;
-        this.addToBot(new ApplyPowerAction(p, p, new TrashPower(p, p, baseCoverMagicNumber)));
+        this.addToBot(new ApplyPowerAction(p, p, new TrashPower(p, p, baseMagicNumber)));
     }
-
 
     public AbstractCard makeCopy() {
         return new LeafPile();
