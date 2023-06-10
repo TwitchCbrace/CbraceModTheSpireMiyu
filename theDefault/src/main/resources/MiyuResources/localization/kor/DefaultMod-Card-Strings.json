@@ -262,6 +262,9 @@
     "NAME": "방어 기제",
     "DESCRIPTION": " 자존감이 변할 때 NL 변한 만큼 NL 방어도를 얻습니다. ",
     "UPGRADE_DESCRIPTION": " 자존감이 변할 때 NL 변한 만큼 NL 방어도를 얻습니다. 선천성. "
-
+  },
+  "Miyu:WannaBeAlone": {
+    "NAME": "혼자 있고싶어...",
+    "DESCRIPTION": " 엄폐물 !Miyu:C!. NL 이동 시 모든 엄폐물에 휘발성 부여. NL 사용불가. 보존. "
   }
 }

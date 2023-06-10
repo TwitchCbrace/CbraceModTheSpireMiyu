@@ -3,7 +3,10 @@ package Miyu.cards;
 import Miyu.DefaultMod;
 import Miyu.characters.TheDefault;
 import Miyu.powers.Covered;
-import com.megacrit.cardcrawl.actions.common.*;
+import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
+import com.megacrit.cardcrawl.actions.common.DrawCardAction;
+import com.megacrit.cardcrawl.actions.common.PutOnDeckAction;
+import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
@@ -51,7 +54,6 @@ public class RabbitHole extends AbstractDynamicCard implements ICoverCard {
         AbstractDungeon.actionManager.addToBottom(new PutOnDeckAction(p, p, 1, false));
     }
 
-
     public void triggerOnGlowCheck() {
         Covered covered =
                 (Covered)AbstractDungeon.player.getPower("Miyu:Covered");
@@ -59,18 +61,24 @@ public class RabbitHole extends AbstractDynamicCard implements ICoverCard {
         if (covered != null && covered.sourceCover == this) {
             beginGlowing();
             this.glowColor = AbstractCard.GOLD_BORDER_GLOW_COLOR.cpy();
+        } else if (this.isEthereal) {
+            beginGlowing();
+            this.glowColor = AbstractCard.GREEN_BORDER_GLOW_COLOR.cpy();
         } else {
             this.glowColor = AbstractCard.BLUE_BORDER_GLOW_COLOR.cpy();
         }
     }
+
     public boolean canUse(AbstractPlayer p, AbstractMonster m) {
         return false;
     }
-    //     Actions the card should do.
+
+
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
 
     }
+
     public AbstractCard makeCopy() {
         return new RabbitHole();
     }

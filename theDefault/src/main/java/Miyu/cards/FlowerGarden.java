@@ -3,9 +3,7 @@ package Miyu.cards;
 import Miyu.DefaultMod;
 import Miyu.characters.TheDefault;
 import Miyu.powers.Covered;
-import Miyu.powers.TrashPower;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
-import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
 import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -41,14 +39,14 @@ public class FlowerGarden extends AbstractDynamicCard implements ICoverCard {
     private static final int UPGRADE_PLUS_COVER = 1;
 
     // /STAT DECLARATION/
-
-
+    
     public FlowerGarden() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
         this.baseCoverMagicNumber = this.coverMagicNumber = COVER;
         this.baseMagicNumber = this.magicNumber = MAGIC;
         selfRetain = true;
     }
+
     public void triggerOnCovered(AbstractPlayer p) {
         AbstractDungeon.actionManager.addToBottom(new RemoveSpecificPowerAction(p, p, "Miyu:Covered"));
         AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p,
@@ -57,7 +55,6 @@ public class FlowerGarden extends AbstractDynamicCard implements ICoverCard {
 
     }
 
-
     public void triggerOnGlowCheck() {
         Covered covered =
                 (Covered)AbstractDungeon.player.getPower("Miyu:Covered");
@@ -65,12 +62,13 @@ public class FlowerGarden extends AbstractDynamicCard implements ICoverCard {
         if (covered != null && covered.sourceCover == this) {
             beginGlowing();
             this.glowColor = AbstractCard.GOLD_BORDER_GLOW_COLOR.cpy();
+        } else if (this.isEthereal) {
+            beginGlowing();
+            this.glowColor = AbstractCard.GREEN_BORDER_GLOW_COLOR.cpy();
         } else {
             this.glowColor = AbstractCard.BLUE_BORDER_GLOW_COLOR.cpy();
-
         }
     }
-
 
     public void triggerWhenDrawn() {
         this.baseCoverMagicNumber *= 2;

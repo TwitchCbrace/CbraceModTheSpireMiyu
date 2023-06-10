@@ -3,13 +3,11 @@ package Miyu.powers;
 import Miyu.DefaultMod;
 import Miyu.cards.AbstractDefaultCard;
 import Miyu.cards.OnReduceCover;
-import Miyu.cards.OnReduceTrash;
 import Miyu.util.TextureLoader;
 import basemod.interfaces.CloneablePowerInterface;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.megacrit.cardcrawl.actions.common.ReducePowerAction;
-import com.megacrit.cardcrawl.actions.common.RelicAboveCreatureAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.CardGroup;
 import com.megacrit.cardcrawl.cards.DamageInfo;
@@ -19,7 +17,6 @@ import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.powers.AbstractPower;
-import org.apache.commons.lang3.ObjectUtils;
 
 import java.util.Iterator;
 
@@ -101,7 +98,7 @@ public class Covered extends AbstractPower implements CloneablePowerInterface {
 
             int reduceDamage = Math.min(this.amount, damageAmount);
 
-            this. addToTop(new ReducePowerAction(this.owner, this.owner, this.ID, reduceDamage));
+            this.addToTop(new ReducePowerAction(this.owner, this.owner, this.ID, reduceDamage));
 
             sourceCover.baseCoverMagicNumber -= reduceDamage;
             sourceCover.coverMagicNumber -= reduceDamage;

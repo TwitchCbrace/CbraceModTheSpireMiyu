@@ -4,10 +4,6 @@ import Miyu.DefaultMod;
 import Miyu.actions.CoverSelectAction;
 import Miyu.actions.FindingMiyuAction;
 import Miyu.characters.TheDefault;
-import com.megacrit.cardcrawl.actions.AbstractGameAction;
-import com.megacrit.cardcrawl.actions.animations.VFXAction;
-import com.megacrit.cardcrawl.actions.common.DamageAction;
-import com.megacrit.cardcrawl.actions.unique.FlechetteAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -15,7 +11,6 @@ import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import com.megacrit.cardcrawl.vfx.combat.ThrowDaggerEffect;
 
 import java.util.Iterator;
 
@@ -69,23 +64,12 @@ public class FindingMiyu extends AbstractDynamicCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-//        this.calculateCardDamage(m);
         this.addToBot(new FindingMiyuAction(m, new DamageInfo(p, this.damage, this.damageTypeForTurn)));
 
-//        int a = 0;
-//        for ( a = magicNumber; magicNumber >= 1; magicNumber--) {
-//            this.addToBot(new DamageAction(m, new DamageInfo(p, this.damage, this.damageTypeForTurn), AbstractGameAction.AttackEffect.SLASH_HEAVY));
-//            this.addToTop(new DamageAction(this.target, this.damage, true));
-//            if (this.target != null && this.target.hb != null) {
-//                this.addToTop(new VFXAction(new ThrowDaggerEffect(this.target.hb.cX, this.target.hb.cY)));
-//            }
-//        }
         if (m != null && (m.intent == AbstractMonster.Intent.ATTACK || m.intent == AbstractMonster.Intent.ATTACK_BUFF || m.intent == AbstractMonster.Intent.ATTACK_DEBUFF || m.intent == AbstractMonster.Intent.ATTACK_DEFEND)) {
             this.addToBot(new CoverSelectAction(p, 1));
         }
     }
-
-
 
     public AbstractCard makeCopy() {
         return new FindingMiyu();

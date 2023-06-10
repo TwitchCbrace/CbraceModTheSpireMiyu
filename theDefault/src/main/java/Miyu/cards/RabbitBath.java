@@ -3,7 +3,6 @@ package Miyu.cards;
 import Miyu.DefaultMod;
 import Miyu.characters.TheDefault;
 import Miyu.powers.Covered;
-import Miyu.powers.TrashPower;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.HealAction;
 import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
@@ -74,7 +73,6 @@ public class RabbitBath extends AbstractDynamicCard implements ICoverCard {
         isMagicNumberModified = true;
     }
 
-
     public void triggerOnGlowCheck() {
         Covered covered =
                 (Covered)AbstractDungeon.player.getPower("Miyu:Covered");
@@ -82,11 +80,14 @@ public class RabbitBath extends AbstractDynamicCard implements ICoverCard {
         if (covered != null && covered.sourceCover == this) {
             beginGlowing();
             this.glowColor = AbstractCard.GOLD_BORDER_GLOW_COLOR.cpy();
+        } else if (this.isEthereal) {
+            beginGlowing();
+            this.glowColor = AbstractCard.GREEN_BORDER_GLOW_COLOR.cpy();
         } else {
             this.glowColor = AbstractCard.BLUE_BORDER_GLOW_COLOR.cpy();
-            stopGlowing();
         }
     }
+
     public boolean canUse(AbstractPlayer p, AbstractMonster m) {
         return false;
     }
