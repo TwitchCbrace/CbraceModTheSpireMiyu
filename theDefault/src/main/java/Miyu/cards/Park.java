@@ -8,6 +8,7 @@ import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
 import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
+import com.megacrit.cardcrawl.cards.tempCards.Shiv;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -45,6 +46,7 @@ public class Park extends AbstractDynamicCard implements ICoverCard {
 		this.baseCoverMagicNumber = this.coverMagicNumber = COVER;
 		this.baseMagicNumber = this.magicNumber = MAGIC;
 		selfRetain = true;
+		this.cardsToPreview = new Rock();
 	}
 	public void triggerOnCovered(AbstractPlayer p) {
 		AbstractDungeon.actionManager.addToBottom(new RemoveSpecificPowerAction(p, p, "Miyu:Covered"));
