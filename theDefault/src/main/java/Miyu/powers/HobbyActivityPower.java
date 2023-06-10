@@ -8,6 +8,7 @@ import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.powers.watcher.VigorPower;
@@ -25,17 +26,15 @@ public class HobbyActivityPower extends AbstractPower implements CloneablePowerI
     private static final Texture tex84 = TextureLoader.getTexture(makePowerPath("ContestedAreaPower84.png"));
     private static final Texture tex32 = TextureLoader.getTexture(makePowerPath("ContestedAreaPower32.png"));
 
-    private Integer amount;
-
     public HobbyActivityPower(
             final AbstractCreature owner,
-            final AbstractCreature source,
-            final Integer amount
+            final AbstractCreature source
     ) {
         name = NAME;
         ID = POWER_ID;
 
-        this.amount = amount;
+        // amount = 파워스택 = 배수. amount가 2면 2배, 3이면 3배;
+        this.amount = 1;
         this.owner = owner;
         this.source = source;
 
@@ -52,25 +51,34 @@ public class HobbyActivityPower extends AbstractPower implements CloneablePowerI
 
     @Override
     public void updateDescription() {
-        description = DESCRIPTIONS[0] + amount + DESCRIPTIONS[1];
+        Pebble pebble = (Pebble) AbstractDungeon.player.getPower(Pebble.POWER_ID);
+        int pebbleAmount = pebble != null ? pebble.amount : 0;
+        description = DESCRIPTIONS[0] + amount * pebbleAmount + DESCRIPTIONS[1];
+
     }
 
     @Override
     public void onApplyPower(AbstractPower power, AbstractCreature target, AbstractCreature source) {
         if (power.ID == Pebble.POWER_ID) {
             this.flash();
-            this.amount += power.amount;
+
+            // onApplyPower가 조약돌을 얻는 행위보다 먼저 일어나므로
+            // 조약돌 power가 없을 때 조약돌 파워를 가져오면 null임 -> null pointer exception이 발생함
+            Pebble pebble = (Pebble) AbstractDungeon.player.getPower(Pebble.POWER_ID);
+            // 조약돌이 없을 때 조약돌을 얻으면 1, 조약돌파워가 있을 때는 보유한 조약돌 + 1만큼으로 설정
+            int pebbleAmount = pebble != null ? pebble.amount + 1 : 1;
+
             addToBot(new ApplyPowerAction(
                     owner,
                     owner,
-                    new VigorPower(owner, amount),
-                    amount)
+                    new VigorPower(owner, pebbleAmount * amount),
+                    pebbleAmount * amount)
             );
             addToBot(new ApplyPowerAction(
                     owner,
                     owner,
-                    new SelfEsteem(owner, owner, amount),
-                    amount)
+                    new SelfEsteem(owner, owner, pebbleAmount * amount),
+                    pebbleAmount * amount)
             );
 
             updateDescription();
@@ -79,6 +87,6 @@ public class HobbyActivityPower extends AbstractPower implements CloneablePowerI
 
     @Override
     public AbstractPower makeCopy() {
-        return new HobbyActivityPower(owner, source, amount);
+        return new HobbyActivityPower(owner, source);
     }
 }
