@@ -1,7 +1,7 @@
 package Miyu.actions;
 
-import Miyu.cards.AbstractDefaultCard;
-import Miyu.cards.ICoverCard;
+import java.util.ArrayList;
+
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.CardGroup;
@@ -11,74 +11,79 @@ import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.UIStrings;
 
-import java.util.ArrayList;
+import Miyu.cards.AbstractDefaultCard;
+import Miyu.cards.ICoverCard;
 
-public class CoverIncreaseAction extends AbstractGameAction {
+public class CoverIncreaseAction
+    extends AbstractGameAction {
 
-	private int increaseAmount;
-	private final int amount;
+    private int increaseAmount;
 
-	private static final UIStrings uiStrings = CardCrawlGame.languagePack.getUIString("CoverCardSelect");
-	public static final String[] TEXT = uiStrings.TEXT;
+    private final int amount;
 
-	private static final float DURATION = Settings.ACTION_DUR_XFAST;
+    private static final UIStrings uiStrings = CardCrawlGame.languagePack.getUIString("CoverCardSelect");
 
-	private AbstractPlayer p;
-	private ArrayList<AbstractDefaultCard.CardTags> keyword = new ArrayList();
+    public static final String[] TEXT = uiStrings.TEXT;
 
-	public CoverIncreaseAction(AbstractPlayer player, int amount, int magicNumber) {
-		this.p = player;
-		this.duration = DURATION;
-		this.increaseAmount = magicNumber;
-		this.amount = amount;
-	}
+    private static final float DURATION = Settings.ACTION_DUR_XFAST;
 
-	@Override
-	public void update() {
-		if (this.duration == DURATION) {
+    private AbstractPlayer p;
 
-			CardGroup hand = this.p.hand;
-			CardGroup cardsHasCover = new CardGroup(CardGroup.CardGroupType.UNSPECIFIED);
+    private ArrayList<AbstractDefaultCard.CardTags> keyword = new ArrayList();
 
-			for (AbstractCard card : hand.group) {
-				if (card instanceof ICoverCard) {
-					cardsHasCover.addToBottom(card);
-				}
-			}
+    public CoverIncreaseAction(AbstractPlayer player, int amount, int magicNumber) {
+        this.p = player;
+        this.duration = DURATION;
+        this.increaseAmount = magicNumber;
+        this.amount = amount;
+    }
 
-			if (cardsHasCover.isEmpty()) {
-				isDone = true;
-				return;
-			}
-			if (cardsHasCover.size() <= amount) {
-				// for (AbstractCard card : cardsHasCover.group) {
-				// ((ICoverCard)card).triggerOnCovered(p);
-				// }
-				for (AbstractCard card : cardsHasCover.group) {
+    @Override
+    public void update() {
+        if (this.duration == DURATION) {
 
-					if (card instanceof AbstractDefaultCard) {
-						((AbstractDefaultCard) card).baseCoverMagicNumber += increaseAmount;
-						((AbstractDefaultCard) card).coverMagicNumber += increaseAmount;
-					}
+            CardGroup hand = this.p.hand;
+            CardGroup cardsHasCover = new CardGroup(CardGroup.CardGroupType.UNSPECIFIED);
 
-				}
-				isDone = true;
-				return;
-			}
+            for (AbstractCard card : hand.group) {
+                if (card instanceof ICoverCard) {
+                    cardsHasCover.addToBottom(card);
+                }
+            }
 
-			AbstractDungeon.gridSelectScreen.open(cardsHasCover, amount, false, TEXT[0]);
-			tickDuration();
-		}
+            if (cardsHasCover.isEmpty()) {
+                isDone = true;
+                return;
+            }
+            if (cardsHasCover.size() <= amount) {
+                // for (AbstractCard card : cardsHasCover.group) {
+                // ((ICoverCard)card).triggerOnCovered(p);
+                // }
+                for (AbstractCard card : cardsHasCover.group) {
 
-		if (!AbstractDungeon.gridSelectScreen.selectedCards.isEmpty()) {
-			for (AbstractCard card : AbstractDungeon.gridSelectScreen.selectedCards) {
-				if (card instanceof AbstractDefaultCard) {
-					((AbstractDefaultCard) card).baseCoverMagicNumber += increaseAmount;
-					((AbstractDefaultCard) card).coverMagicNumber += increaseAmount;
-				}
-			}
-			isDone = true;
-		}
+                    if (card instanceof AbstractDefaultCard) {
+                        ((AbstractDefaultCard) card).baseCoverMagicNumber += increaseAmount;
+                        ((AbstractDefaultCard) card).coverMagicNumber += increaseAmount;
+                    }
 
-	}
+                }
+                isDone = true;
+                return;
+            }
+
+            AbstractDungeon.gridSelectScreen.open(cardsHasCover, amount, false, TEXT[0]);
+            tickDuration();
+        }
+
+        if (!AbstractDungeon.gridSelectScreen.selectedCards.isEmpty()) {
+            for (AbstractCard card : AbstractDungeon.gridSelectScreen.selectedCards) {
+                if (card instanceof AbstractDefaultCard) {
+                    ((AbstractDefaultCard) card).baseCoverMagicNumber += increaseAmount;
+                    ((AbstractDefaultCard) card).coverMagicNumber += increaseAmount;
+                }
+            }
+            isDone = true;
+        }
+
+    }
 }

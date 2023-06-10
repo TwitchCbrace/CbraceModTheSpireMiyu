@@ -36,256 +36,267 @@ import static Miyu.characters.TheDefault.Enums.COLOR_GRAY;
 //and https://github.com/daviscook477/BaseMod/wiki/Migrating-to-5.0
 //All text (starting description and loadout, anything labeled TEXT[]) can be found in DefaultMod-character-Strings.json in the resources
 
-public class TheDefault extends CustomPlayer {
-	public static final Logger logger = LogManager.getLogger(DefaultMod.class.getName());
+public class TheDefault
+    extends CustomPlayer {
+    public static final Logger logger = LogManager.getLogger(DefaultMod.class.getName());
 
-	// =============== CHARACTER ENUMERATORS =================
-	// These are enums for your Characters color (both general color and for the card library) as well as
-	// an enum for the name of the player class - IRONCLAD, THE_SILENT, DEFECT, YOUR_CLASS ...
-	// These are all necessary for creating a character. If you want to find out where and how exactly they are used
-	// in the basegame (for fun and education) Ctrl+click on the PlayerClass, CardColor and/or LibraryType below and go
-	// down the
-	// Ctrl+click rabbit hole
+    // =============== CHARACTER ENUMERATORS =================
+    // These are enums for your Characters color (both general color and for the card library) as well as
+    // an enum for the name of the player class - IRONCLAD, THE_SILENT, DEFECT, YOUR_CLASS ...
+    // These are all necessary for creating a character. If you want to find out where and how exactly they are used
+    // in the basegame (for fun and education) Ctrl+click on the PlayerClass, CardColor and/or LibraryType below and go
+    // down the
+    // Ctrl+click rabbit hole
 
-	public static class Enums {
-		@SpireEnum
-		public static AbstractPlayer.PlayerClass THE_DEFAULT;
-		@SpireEnum(name = "DEFAULT_GRAY_COLOR") // These two HAVE to have the same absolutely identical name.
-		public static AbstractCard.CardColor COLOR_GRAY;
-		@SpireEnum(name = "DEFAULT_GRAY_COLOR")
-		@SuppressWarnings("unused")
-		public static CardLibrary.LibraryType LIBRARY_COLOR;
-	}
+    public static class Enums {
+        @SpireEnum
+        public static AbstractPlayer.PlayerClass THE_DEFAULT;
 
-	// =============== CHARACTER ENUMERATORS =================
+        @SpireEnum(name = "DEFAULT_GRAY_COLOR") // These two HAVE to have the same absolutely identical name.
+        public static AbstractCard.CardColor COLOR_GRAY;
 
-	// =============== BASE STATS =================
+        @SpireEnum(name = "DEFAULT_GRAY_COLOR")
+        @SuppressWarnings("unused")
+        public static CardLibrary.LibraryType LIBRARY_COLOR;
+    }
 
-	public static final int ENERGY_PER_TURN = 3;
-	public static final int STARTING_HP = 72;
-	public static final int MAX_HP = 72;
-	public static final int STARTING_GOLD = 99;
-	public static final int CARD_DRAW = 10;
-	public static final int ORB_SLOTS = -2;
+    // =============== CHARACTER ENUMERATORS =================
 
-	// =============== /BASE STATS/ =================
+    // =============== BASE STATS =================
 
-	// =============== STRINGS =================
+    public static final int ENERGY_PER_TURN = 3;
 
-	private static final String ID = makeID("DefaultCharacter");
-	private static final CharacterStrings characterStrings = CardCrawlGame.languagePack.getCharacterString(ID);
-	private static final String[] NAMES = characterStrings.NAMES;
-	private static final String[] TEXT = characterStrings.TEXT;
+    public static final int STARTING_HP = 72;
 
-	// =============== /STRINGS/ =================
+    public static final int MAX_HP = 72;
 
-	// =============== TEXTURES OF BIG ENERGY ORB ===============
+    public static final int STARTING_GOLD = 99;
 
-	public static final String[] orbTextures = {"MiyuResources/images/char/defaultCharacter/orb/layer1.png",
-			"MiyuResources/images/char/defaultCharacter/orb/layer2.png",
-			"MiyuResources/images/char/defaultCharacter/orb/layer3.png",
-			"MiyuResources/images/char/defaultCharacter/orb/layer4.png",
-			"MiyuResources/images/char/defaultCharacter/orb/layer5.png",
-			"MiyuResources/images/char/defaultCharacter/orb/layer6.png",
-			"MiyuResources/images/char/defaultCharacter/orb/layer1d.png",
-			"MiyuResources/images/char/defaultCharacter/orb/layer2d.png",
-			"MiyuResources/images/char/defaultCharacter/orb/layer3d.png",
-			"MiyuResources/images/char/defaultCharacter/orb/layer4d.png",
-			"MiyuResources/images/char/defaultCharacter/orb/layer5d.png",};
+    public static final int CARD_DRAW = 10;
 
-	// =============== /TEXTURES OF BIG ENERGY ORB/ ===============
+    public static final int ORB_SLOTS = -2;
 
-	// =============== CHARACTER CLASS START =================
+    // =============== /BASE STATS/ =================
 
-	public TheDefault(String name, PlayerClass setClass) {
-		super(name, setClass, orbTextures, "MiyuResources/images/char/defaultCharacter/orb/vfx.png", null,
-				new SpineAnimation("MiyuResources/images/char/defaultCharacter/Spriter/Miyustand.atlas",
-						"MiyuResources/images/char/defaultCharacter/Spriter/Miyustand.json", 1f));
-		// Animation(
-		// "MiyuResources/images/char/defaultCharacter/Spriter/theDefaultAnimation.scml"));
+    // =============== STRINGS =================
 
-		// =============== TEXTURES, ENERGY, LOADOUT =================
+    private static final String ID = makeID("DefaultCharacter");
 
-		initializeClass(null, // required call to load textures and setup energy/loadout.
-				// I left these in DefaultMod.java (Ctrl+click them to see where they are, Ctrl+hover to see what they
-				// read.)
-				THE_DEFAULT_SHOULDER_2, // campfire pose
-				THE_DEFAULT_SHOULDER_1, // another campfire pose
-				THE_DEFAULT_CORPSE, // dead corpse
-				getLoadout(), 20.0F, -10.0F, 220.0F, 290.0F, new EnergyManager(ENERGY_PER_TURN)); // energy manager
+    private static final CharacterStrings characterStrings = CardCrawlGame.languagePack.getCharacterString(ID);
 
-		// =============== /TEXTURES, ENERGY, LOADOUT/ =================
+    private static final String[] NAMES = characterStrings.NAMES;
 
-		// =============== ANIMATIONS =================
+    private static final String[] TEXT = characterStrings.TEXT;
 
-		loadAnimation(THE_DEFAULT_SKELETON_ATLAS, THE_DEFAULT_SKELETON_JSON, 1.0f);
-		AnimationState.TrackEntry e = state.setAnimation(0, "Miyustand", true);
-		e.setTime(e.getEndTime() * MathUtils.random());
+    // =============== /STRINGS/ =================
 
-		// =============== /ANIMATIONS/ =================
+    // =============== TEXTURES OF BIG ENERGY ORB ===============
 
-		// =============== TEXT BUBBLE LOCATION =================
+    public static final String[] orbTextures = {"MiyuResources/images/char/defaultCharacter/orb/layer1.png",
+        "MiyuResources/images/char/defaultCharacter/orb/layer2.png",
+        "MiyuResources/images/char/defaultCharacter/orb/layer3.png",
+        "MiyuResources/images/char/defaultCharacter/orb/layer4.png",
+        "MiyuResources/images/char/defaultCharacter/orb/layer5.png",
+        "MiyuResources/images/char/defaultCharacter/orb/layer6.png",
+        "MiyuResources/images/char/defaultCharacter/orb/layer1d.png",
+        "MiyuResources/images/char/defaultCharacter/orb/layer2d.png",
+        "MiyuResources/images/char/defaultCharacter/orb/layer3d.png",
+        "MiyuResources/images/char/defaultCharacter/orb/layer4d.png",
+        "MiyuResources/images/char/defaultCharacter/orb/layer5d.png",};
 
-		dialogX = (drawX + 0.0F * Settings.scale); // set location for text bubbles
-		dialogY = (drawY + 220.0F * Settings.scale); // you can just copy these values
+    // =============== /TEXTURES OF BIG ENERGY ORB/ ===============
 
-		// =============== /TEXT BUBBLE LOCATION/ =================
+    // =============== CHARACTER CLASS START =================
 
-	}
+    public TheDefault(String name, PlayerClass setClass) {
+        super(name, setClass, orbTextures, "MiyuResources/images/char/defaultCharacter/orb/vfx.png", null,
+            new SpineAnimation("MiyuResources/images/char/defaultCharacter/Spriter/Miyustand.atlas",
+                "MiyuResources/images/char/defaultCharacter/Spriter/Miyustand.json", 1f));
+        // Animation(
+        // "MiyuResources/images/char/defaultCharacter/Spriter/theDefaultAnimation.scml"));
 
-	// =============== /CHARACTER CLASS END/ =================
+        // =============== TEXTURES, ENERGY, LOADOUT =================
 
-	// Starting description and loadout
-	@Override
-	public CharSelectInfo getLoadout() {
-		return new CharSelectInfo(NAMES[0], TEXT[0], STARTING_HP, MAX_HP, ORB_SLOTS, STARTING_GOLD, CARD_DRAW, this,
-				getStartingRelics(), getStartingDeck(), false);
-	}
+        initializeClass(null, // required call to load textures and setup energy/loadout.
+            // I left these in DefaultMod.java (Ctrl+click them to see where they are, Ctrl+hover to see what they
+            // read.)
+            THE_DEFAULT_SHOULDER_2, // campfire pose
+            THE_DEFAULT_SHOULDER_1, // another campfire pose
+            THE_DEFAULT_CORPSE, // dead corpse
+            getLoadout(), 20.0F, -10.0F, 220.0F, 290.0F, new EnergyManager(ENERGY_PER_TURN)); // energy manager
 
-	// Starting Deck
-	@Override
-	public ArrayList<String> getStartingDeck() {
-		ArrayList<String> retVal = new ArrayList<>();
+        // =============== /TEXTURES, ENERGY, LOADOUT/ =================
 
-		logger.info("Begin loading starter Deck Strings");
+        // =============== ANIMATIONS =================
 
-		/*
-		 * 테스트를 위해 초기 덱을 수정함.
-		 * 
-		 * by josh
-		 */
+        loadAnimation(THE_DEFAULT_SKELETON_ATLAS, THE_DEFAULT_SKELETON_JSON, 1.0f);
+        AnimationState.TrackEntry e = state.setAnimation(0, "Miyustand", true);
+        e.setTime(e.getEndTime() * MathUtils.random());
 
-		retVal.add(Strike.ID);
-		retVal.add(Strike.ID);
-		retVal.add(Strike.ID);
-		retVal.add(Strike.ID);
-		retVal.add(Defend.ID);
-		retVal.add(Defend.ID);
-		retVal.add(Defend.ID);
-		retVal.add(Defend.ID);
-		retVal.add(RunAndGun.ID);
-		retVal.add(TrashBin.ID);
+        // =============== /ANIMATIONS/ =================
 
-		return retVal;
-	}
+        // =============== TEXT BUBBLE LOCATION =================
 
-	// Starting Relics
-	public ArrayList<String> getStartingRelics() {
-		ArrayList<String> retVal = new ArrayList<>();
+        dialogX = (drawX + 0.0F * Settings.scale); // set location for text bubbles
+        dialogY = (drawY + 220.0F * Settings.scale); // you can just copy these values
 
-		retVal.add(PlaceholderRelic.ID);
-		retVal.add(PlaceholderRelic2.ID);
-		retVal.add(DefaultClickableRelic.ID);
+        // =============== /TEXT BUBBLE LOCATION/ =================
 
-		// Mark relics as seen - makes it visible in the compendium immediately
-		// If you don't have this it won't be visible in the compendium until you see them in game
-		UnlockTracker.markRelicAsSeen(PlaceholderRelic.ID);
-		UnlockTracker.markRelicAsSeen(PlaceholderRelic2.ID);
-		UnlockTracker.markRelicAsSeen(DefaultClickableRelic.ID);
+    }
 
-		return retVal;
-	}
+    // =============== /CHARACTER CLASS END/ =================
 
-	// character Select screen effect
-	@Override
-	public void doCharSelectScreenSelectEffect() {
-		CardCrawlGame.sound.playA("ATTACK_DAGGER_1", 1.25f); // Sound Effect
-		CardCrawlGame.screenShake.shake(ScreenShake.ShakeIntensity.LOW, ScreenShake.ShakeDur.SHORT, false); // Screen
-																											// Effect
-	}
+    // Starting description and loadout
+    @Override
+    public CharSelectInfo getLoadout() {
+        return new CharSelectInfo(NAMES[0], TEXT[0], STARTING_HP, MAX_HP, ORB_SLOTS, STARTING_GOLD, CARD_DRAW, this,
+            getStartingRelics(), getStartingDeck(), false);
+    }
 
-	// character Select on-button-press sound effect
-	@Override
-	public String getCustomModeCharacterButtonSoundKey() {
-		return "ATTACK_DAGGER_1";
-	}
+    // Starting Deck
+    @Override
+    public ArrayList<String> getStartingDeck() {
+        ArrayList<String> retVal = new ArrayList<>();
 
-	// Should return how much HP your maximum HP reduces by when starting a run at
-	// Ascension 14 or higher. (ironclad loses 5, defect and silent lose 4 hp respectively)
-	@Override
-	public int getAscensionMaxHPLoss() {
-		return 0;
-	}
+        logger.info("Begin loading starter Deck Strings");
 
-	// Should return the card color enum to be associated with your character.
-	@Override
-	public AbstractCard.CardColor getCardColor() {
-		return COLOR_GRAY;
-	}
+        /*
+         * 테스트를 위해 초기 덱을 수정함.
+         * 
+         * by josh
+         */
 
-	// Should return a color object to be used to color the trail of moving cards
-	@Override
-	public Color getCardTrailColor() {
-		return Miyu.DefaultMod.DODGE_BLUE;
-	}
+        retVal.add(Strike.ID);
+        retVal.add(Strike.ID);
+        retVal.add(Strike.ID);
+        retVal.add(Strike.ID);
+        retVal.add(Defend.ID);
+        retVal.add(Defend.ID);
+        retVal.add(Defend.ID);
+        retVal.add(Defend.ID);
+        retVal.add(RunAndGun.ID);
+        retVal.add(TrashBin.ID);
 
-	// Should return a BitmapFont object that you can use to customize how your
-	// energy is displayed from within the energy orb.
-	@Override
-	public BitmapFont getEnergyNumFont() {
-		return FontHelper.energyNumFontRed;
-	}
+        return retVal;
+    }
 
-	// Should return class name as it appears in run history screen.
-	@Override
-	public String getLocalizedCharacterName() {
-		return NAMES[0];
-	}
+    // Starting Relics
+    public ArrayList<String> getStartingRelics() {
+        ArrayList<String> retVal = new ArrayList<>();
 
-	// Which card should be obtainable from the Match and Keep event?
-	@Override
-	public AbstractCard getStartCardForEvent() {
-		return new Strike();
-	}
+        retVal.add(PlaceholderRelic.ID);
+        retVal.add(PlaceholderRelic2.ID);
+        retVal.add(DefaultClickableRelic.ID);
 
-	// The class name as it appears next to your player name in-game
-	@Override
-	public String getTitle(AbstractPlayer.PlayerClass playerClass) {
-		return NAMES[1];
-	}
+        // Mark relics as seen - makes it visible in the compendium immediately
+        // If you don't have this it won't be visible in the compendium until you see them in game
+        UnlockTracker.markRelicAsSeen(PlaceholderRelic.ID);
+        UnlockTracker.markRelicAsSeen(PlaceholderRelic2.ID);
+        UnlockTracker.markRelicAsSeen(DefaultClickableRelic.ID);
 
-	// Should return a new instance of your character, sending name as its name parameter.
-	@Override
-	public AbstractPlayer newInstance() {
-		return new TheDefault(name, chosenClass);
-	}
+        return retVal;
+    }
 
-	// Should return a Color object to be used to color the miniature card images in run history.
-	@Override
-	public Color getCardRenderColor() {
-		return Miyu.DefaultMod.DODGE_BLUE;
-	}
+    // character Select screen effect
+    @Override
+    public void doCharSelectScreenSelectEffect() {
+        CardCrawlGame.sound.playA("ATTACK_DAGGER_1", 1.25f); // Sound Effect
+        CardCrawlGame.screenShake.shake(ScreenShake.ShakeIntensity.LOW, ScreenShake.ShakeDur.SHORT, false); // Screen
+                                                                                                            // Effect
+    }
 
-	// Should return a Color object to be used as screen tint effect when your
-	// character attacks the heart.
-	@Override
-	public Color getSlashAttackColor() {
-		return Miyu.DefaultMod.DODGE_BLUE;
-	}
+    // character Select on-button-press sound effect
+    @Override
+    public String getCustomModeCharacterButtonSoundKey() {
+        return "ATTACK_DAGGER_1";
+    }
 
-	// Should return an AttackEffect array of any size greater than 0. These effects
-	// will be played in sequence as your character's finishing combo on the heart.
-	// Strike effects are the same as used in DamageAction and the like.
-	@Override
-	public AbstractGameAction.AttackEffect[] getSpireHeartSlashEffect() {
-		return new AbstractGameAction.AttackEffect[]{AbstractGameAction.AttackEffect.BLUNT_HEAVY,
-				AbstractGameAction.AttackEffect.BLUNT_HEAVY, AbstractGameAction.AttackEffect.BLUNT_HEAVY};
-	}
+    // Should return how much HP your maximum HP reduces by when starting a run at
+    // Ascension 14 or higher. (ironclad loses 5, defect and silent lose 4 hp respectively)
+    @Override
+    public int getAscensionMaxHPLoss() {
+        return 0;
+    }
 
-	// Should return a string containing what text is shown when your character is
-	// about to attack the heart. For example, the defect is "NL You charge your
-	// core to its maximum..."
-	@Override
-	public String getSpireHeartText() {
-		return TEXT[1];
-	}
+    // Should return the card color enum to be associated with your character.
+    @Override
+    public AbstractCard.CardColor getCardColor() {
+        return COLOR_GRAY;
+    }
 
-	// The vampire events refer to the base game characters as "brother", "sister",
-	// and "broken one" respectively.This method should return a String containing
-	// the full text that will be displayed as the first screen of the vampires event.
-	@Override
-	public String getVampireText() {
-		return TEXT[2];
-	}
+    // Should return a color object to be used to color the trail of moving cards
+    @Override
+    public Color getCardTrailColor() {
+        return Miyu.DefaultMod.DODGE_BLUE;
+    }
+
+    // Should return a BitmapFont object that you can use to customize how your
+    // energy is displayed from within the energy orb.
+    @Override
+    public BitmapFont getEnergyNumFont() {
+        return FontHelper.energyNumFontRed;
+    }
+
+    // Should return class name as it appears in run history screen.
+    @Override
+    public String getLocalizedCharacterName() {
+        return NAMES[0];
+    }
+
+    // Which card should be obtainable from the Match and Keep event?
+    @Override
+    public AbstractCard getStartCardForEvent() {
+        return new Strike();
+    }
+
+    // The class name as it appears next to your player name in-game
+    @Override
+    public String getTitle(AbstractPlayer.PlayerClass playerClass) {
+        return NAMES[1];
+    }
+
+    // Should return a new instance of your character, sending name as its name parameter.
+    @Override
+    public AbstractPlayer newInstance() {
+        return new TheDefault(name, chosenClass);
+    }
+
+    // Should return a Color object to be used to color the miniature card images in run history.
+    @Override
+    public Color getCardRenderColor() {
+        return Miyu.DefaultMod.DODGE_BLUE;
+    }
+
+    // Should return a Color object to be used as screen tint effect when your
+    // character attacks the heart.
+    @Override
+    public Color getSlashAttackColor() {
+        return Miyu.DefaultMod.DODGE_BLUE;
+    }
+
+    // Should return an AttackEffect array of any size greater than 0. These effects
+    // will be played in sequence as your character's finishing combo on the heart.
+    // Strike effects are the same as used in DamageAction and the like.
+    @Override
+    public AbstractGameAction.AttackEffect[] getSpireHeartSlashEffect() {
+        return new AbstractGameAction.AttackEffect[]{AbstractGameAction.AttackEffect.BLUNT_HEAVY,
+            AbstractGameAction.AttackEffect.BLUNT_HEAVY, AbstractGameAction.AttackEffect.BLUNT_HEAVY};
+    }
+
+    // Should return a string containing what text is shown when your character is
+    // about to attack the heart. For example, the defect is "NL You charge your
+    // core to its maximum..."
+    @Override
+    public String getSpireHeartText() {
+        return TEXT[1];
+    }
+
+    // The vampire events refer to the base game characters as "brother", "sister",
+    // and "broken one" respectively.This method should return a String containing
+    // the full text that will be displayed as the first screen of the vampires event.
+    @Override
+    public String getVampireText() {
+        return TEXT[2];
+    }
 
 }

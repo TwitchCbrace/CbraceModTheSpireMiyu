@@ -1,69 +1,76 @@
 package Miyu.cards;
 
-import Miyu.DefaultMod;
-import Miyu.actions.CoverSelectAction;
-import Miyu.characters.TheDefault;
+import static Miyu.DefaultMod.makeCardPath;
+
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
-import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
-import static Miyu.DefaultMod.makeCardPath;
+import Miyu.DefaultMod;
+import Miyu.actions.CoverSelectAction;
+import Miyu.characters.TheDefault;
 
-public class RunAndGun extends AbstractDynamicCard {
+public class RunAndGun
+    extends AbstractDynamicCard {
 
-	// TEXT DECLARATION
+    // TEXT DECLARATION
 
-	public static final String ID = DefaultMod.makeID(RunAndGun.class.getSimpleName());
-	public static final String IMG = makeCardPath("RunAndGun.png");
+    public static final String ID = DefaultMod.makeID(RunAndGun.class.getSimpleName());
 
-	// /TEXT DECLARATION/
+    public static final String IMG = makeCardPath("RunAndGun.png");
 
-	// STAT DECLARATION
+    // /TEXT DECLARATION/
 
-	private static final CardRarity RARITY = CardRarity.BASIC;
-	private static final CardTarget TARGET = CardTarget.ENEMY;
-	private static final CardType TYPE = CardType.ATTACK;
-	public static final CardColor COLOR = TheDefault.Enums.COLOR_GRAY;
+    // STAT DECLARATION
 
-	private static final int COST = 1;
+    private static final CardRarity RARITY = CardRarity.BASIC;
 
-	private static final int DAMAGE = 4;
+    private static final CardTarget TARGET = CardTarget.ENEMY;
 
-	private static final int UPGRADE_PLUS_DAMAGE = 2;
+    private static final CardType TYPE = CardType.ATTACK;
 
-	// /STAT DECLARATION/
+    public static final CardColor COLOR = TheDefault.Enums.COLOR_GRAY;
 
-	public RunAndGun() {
-		super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
-		baseDamage = DAMAGE;
+    private static final int COST = 1;
 
-	}
+    private static final int DAMAGE = 4;
 
-	@Override
-	public void use(AbstractPlayer p, AbstractMonster m) {
-		this.calculateCardDamage(m);
-		for (int i = 0; i <= 1; i++) {
-			AbstractDungeon.actionManager.addToBottom(new DamageAction(m,
-					new DamageInfo(p, this.damage, damageTypeForTurn), AbstractGameAction.AttackEffect.SMASH, true));
-		}
-		AbstractDungeon.actionManager.addToTop(new CoverSelectAction(p, 1));
+    private static final int UPGRADE_PLUS_DAMAGE = 2;
 
-	}
-	public AbstractCard makeCopy() {
-		return new RunAndGun();
-	}
-	// Upgraded stats.
-	@Override
-	public void upgrade() {
-		if (!upgraded) {
-			upgradeName();
-			upgradeDamage(UPGRADE_PLUS_DAMAGE);
-			initializeDescription();
-		}
-	}
+    // /STAT DECLARATION/
+
+    public RunAndGun() {
+        super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
+        baseDamage = DAMAGE;
+
+    }
+
+    @Override
+    public void use(AbstractPlayer p, AbstractMonster m) {
+        this.calculateCardDamage(m);
+        for (int i = 0; i <= 1; i++) {
+            AbstractDungeon.actionManager.addToBottom(new DamageAction(m,
+                new DamageInfo(p, this.damage, damageTypeForTurn), AbstractGameAction.AttackEffect.SMASH, true));
+        }
+        AbstractDungeon.actionManager.addToTop(new CoverSelectAction(p, 1));
+
+    }
+
+    public AbstractCard makeCopy() {
+        return new RunAndGun();
+    }
+
+    // Upgraded stats.
+    @Override
+    public void upgrade() {
+        if (!upgraded) {
+            upgradeName();
+            upgradeDamage(UPGRADE_PLUS_DAMAGE);
+            initializeDescription();
+        }
+    }
 }

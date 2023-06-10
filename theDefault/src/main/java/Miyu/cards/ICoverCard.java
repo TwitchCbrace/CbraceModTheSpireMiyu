@@ -1,7 +1,6 @@
 package Miyu.cards;
 
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
-import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
 /*
     trigger가 존재한다는 약속으루다가 interface 하나 만들어둠.
@@ -10,6 +9,6 @@ by josh
  */
 
 public interface ICoverCard {
-	public void triggerOnCovered(AbstractPlayer p);
+    public void triggerOnCovered(AbstractPlayer p);
 
 }

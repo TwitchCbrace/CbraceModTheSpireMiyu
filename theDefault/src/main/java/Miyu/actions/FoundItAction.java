@@ -11,40 +11,43 @@ import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.localization.UIStrings;
 import com.megacrit.cardcrawl.powers.watcher.VigorPower;
 
-public class FoundItAction extends AbstractGameAction {
+public class FoundItAction
+    extends AbstractGameAction {
 
-	private static final UIStrings uiStrings;
-	public static final String[] TEXT;
+    private static final UIStrings uiStrings;
 
-	private int magicAmount;
-	private AbstractPlayer p;
+    public static final String[] TEXT;
 
-	public FoundItAction(AbstractPlayer p, int magicAmount) {
-		this.p = p;
-		this.magicAmount = magicAmount;
-	}
+    private int magicAmount;
 
-	@Override
-	public void update() {
-		// 현재 미유가 엄폐중인 카드를 가져온다.
-		Covered covered = (Covered) p.getPower(Covered.POWER_ID);
+    private AbstractPlayer p;
 
-		// 엄폐중이라면 엄폐중인 카드, 엄폐중이 아니라면 null
-		AbstractCard coveredSource = covered != null ? covered.sourceCover : null;
+    public FoundItAction(AbstractPlayer p, int magicAmount) {
+        this.p = p;
+        this.magicAmount = magicAmount;
+    }
 
-		for (AbstractCard c : DrawCardAction.drawnCards) {
-			// 엄폐중인 카드를 뽑았다면 자존감과 활력을 magicAmount 만큼 얻는다.
-			if (c == coveredSource) {
-				addToBot(new ApplyPowerAction(p, p, new SelfEsteem(p, p, magicAmount), magicAmount));
-				addToBot(new ApplyPowerAction(p, p, new VigorPower(p, magicAmount), magicAmount));
-			}
-		}
+    @Override
+    public void update() {
+        // 현재 미유가 엄폐중인 카드를 가져온다.
+        Covered covered = (Covered) p.getPower(Covered.POWER_ID);
 
-		this.isDone = true;
-	}
+        // 엄폐중이라면 엄폐중인 카드, 엄폐중이 아니라면 null
+        AbstractCard coveredSource = covered != null ? covered.sourceCover : null;
 
-	static {
-		uiStrings = CardCrawlGame.languagePack.getUIString("PutOnDeckAction");
-		TEXT = uiStrings.TEXT;
-	}
+        for (AbstractCard c : DrawCardAction.drawnCards) {
+            // 엄폐중인 카드를 뽑았다면 자존감과 활력을 magicAmount 만큼 얻는다.
+            if (c == coveredSource) {
+                addToBot(new ApplyPowerAction(p, p, new SelfEsteem(p, p, magicAmount), magicAmount));
+                addToBot(new ApplyPowerAction(p, p, new VigorPower(p, magicAmount), magicAmount));
+            }
+        }
+
+        this.isDone = true;
+    }
+
+    static {
+        uiStrings = CardCrawlGame.languagePack.getUIString("PutOnDeckAction");
+        TEXT = uiStrings.TEXT;
+    }
 }

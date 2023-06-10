@@ -1,9 +1,7 @@
 package Miyu.cards;
 
-import Miyu.DefaultMod;
-import Miyu.characters.TheDefault;
-import Miyu.powers.Covered;
-import Miyu.powers.TrashPower;
+import static Miyu.DefaultMod.makeCardPath;
+
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
 import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
@@ -14,83 +12,97 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
-import static Miyu.DefaultMod.makeCardPath;
+import Miyu.DefaultMod;
+import Miyu.characters.TheDefault;
+import Miyu.powers.Covered;
+import Miyu.powers.TrashPower;
 
-public class Park extends AbstractDynamicCard implements ICoverCard {
+public class Park
+    extends AbstractDynamicCard
+    implements ICoverCard {
 
-	// TEXT DECLARATION
+    // TEXT DECLARATION
 
-	public static final String ID = DefaultMod.makeID(Park.class.getSimpleName());
-	public static final String IMG = makeCardPath("Park.png");
+    public static final String ID = DefaultMod.makeID(Park.class.getSimpleName());
 
-	// /TEXT DECLARATION/
-	private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
+    public static final String IMG = makeCardPath("Park.png");
 
-	// STAT DECLARATION
+    // /TEXT DECLARATION/
+    private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
 
-	private static final CardRarity RARITY = CardRarity.UNCOMMON;
-	private static final CardTarget TARGET = CardTarget.SELF;
-	private static final CardType TYPE = CardType.SKILL;
-	public static final CardColor COLOR = TheDefault.Enums.COLOR_GRAY;
-	private static final int COST = -2;
+    // STAT DECLARATION
 
-	private static final int MAGIC = 1;
-	private static final int COVER = 8;
-	private static final int UPGRADE_PLUS_COVER = 4;
+    private static final CardRarity RARITY = CardRarity.UNCOMMON;
 
-	// /STAT DECLARATION/
+    private static final CardTarget TARGET = CardTarget.SELF;
 
-	public Park() {
-		super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
-		this.baseCoverMagicNumber = this.coverMagicNumber = COVER;
-		this.baseMagicNumber = this.magicNumber = MAGIC;
-		selfRetain = true;
-	}
-	public void triggerOnCovered(AbstractPlayer p) {
-		AbstractDungeon.actionManager.addToBottom(new RemoveSpecificPowerAction(p, p, "Miyu:Covered"));
-		AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p,
-				new Covered(p, p, this.baseCoverMagicNumber, this), this.baseCoverMagicNumber));
-		AbstractDungeon.actionManager
-				.addToBottom(new ApplyPowerAction(p, p, new TrashPower(p, p, magicNumber), magicNumber));
-		this.addToBot(new MakeTempCardInHandAction(new Rock(), 1));
-	}
+    private static final CardType TYPE = CardType.SKILL;
 
-	public void triggerOnGlowCheck() {
-		Covered covered = (Covered) AbstractDungeon.player.getPower("Miyu:Covered");
+    public static final CardColor COLOR = TheDefault.Enums.COLOR_GRAY;
 
-		if (covered != null && covered.sourceCover == this) {
-			beginGlowing();
-			this.glowColor = AbstractCard.GOLD_BORDER_GLOW_COLOR.cpy();
-		} else {
-			this.glowColor = AbstractCard.BLUE_BORDER_GLOW_COLOR.cpy();
-		}
-	}
+    private static final int COST = -2;
 
-	public boolean canUse(AbstractPlayer p, AbstractMonster m) {
-		return false;
-	}
+    private static final int MAGIC = 1;
 
-	public void triggerWhenDrawn() {
-		this.addToTop(new MakeTempCardInHandAction(this.makeStatEquivalentCopy()));
-		this.addToTop(new MakeTempCardInHandAction(this.makeStatEquivalentCopy()));
-	}
+    private static final int COVER = 8;
 
-	@Override
-	public void use(AbstractPlayer p, AbstractMonster m) {
-	}
+    private static final int UPGRADE_PLUS_COVER = 4;
 
-	public AbstractCard makeCopy() {
-		return new Park();
-	}
+    // /STAT DECLARATION/
 
-	// Upgraded stats.
-	@Override
-	public void upgrade() {
-		if (!upgraded) {
-			upgradeName();
-			this.upgradeCoverMagicNumber(UPGRADE_PLUS_COVER);
-			this.isCoverMagicNumberModified = true;
-			initializeDescription();
-		}
-	}
+    public Park() {
+        super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
+        this.baseCoverMagicNumber = this.coverMagicNumber = COVER;
+        this.baseMagicNumber = this.magicNumber = MAGIC;
+        selfRetain = true;
+    }
+
+    public void triggerOnCovered(AbstractPlayer p) {
+        AbstractDungeon.actionManager.addToBottom(new RemoveSpecificPowerAction(p, p, "Miyu:Covered"));
+        AbstractDungeon.actionManager.addToBottom(
+            new ApplyPowerAction(p, p, new Covered(p, p, this.baseCoverMagicNumber, this), this.baseCoverMagicNumber));
+        AbstractDungeon.actionManager
+            .addToBottom(new ApplyPowerAction(p, p, new TrashPower(p, p, magicNumber), magicNumber));
+        this.addToBot(new MakeTempCardInHandAction(new Rock(), 1));
+    }
+
+    public void triggerOnGlowCheck() {
+        Covered covered = (Covered) AbstractDungeon.player.getPower("Miyu:Covered");
+
+        if (covered != null && covered.sourceCover == this) {
+            beginGlowing();
+            this.glowColor = AbstractCard.GOLD_BORDER_GLOW_COLOR.cpy();
+        }
+        else {
+            this.glowColor = AbstractCard.BLUE_BORDER_GLOW_COLOR.cpy();
+        }
+    }
+
+    public boolean canUse(AbstractPlayer p, AbstractMonster m) {
+        return false;
+    }
+
+    public void triggerWhenDrawn() {
+        this.addToTop(new MakeTempCardInHandAction(this.makeStatEquivalentCopy()));
+        this.addToTop(new MakeTempCardInHandAction(this.makeStatEquivalentCopy()));
+    }
+
+    @Override
+    public void use(AbstractPlayer p, AbstractMonster m) {
+    }
+
+    public AbstractCard makeCopy() {
+        return new Park();
+    }
+
+    // Upgraded stats.
+    @Override
+    public void upgrade() {
+        if (!upgraded) {
+            upgradeName();
+            this.upgradeCoverMagicNumber(UPGRADE_PLUS_COVER);
+            this.isCoverMagicNumberModified = true;
+            initializeDescription();
+        }
+    }
 }

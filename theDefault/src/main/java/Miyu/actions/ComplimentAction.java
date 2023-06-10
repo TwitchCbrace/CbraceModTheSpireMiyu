@@ -1,6 +1,5 @@
 package Miyu.actions;
 
-import Miyu.powers.SelfEsteem;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
@@ -10,43 +9,49 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.vfx.combat.FlashAtkImgEffect;
 
-public class ComplimentAction extends AbstractGameAction {
-	private int increaseSelfEsteem;
-	private DamageInfo info;
-	private static final float DURATION = 0.1F;
-	private AbstractPlayer p;
+import Miyu.powers.SelfEsteem;
 
-	public ComplimentAction(AbstractPlayer player, AbstractCreature target, DamageInfo info, int selfEsteemAmount) {
-		this.p = player;
-		this.info = info;
-		this.setValues(target, info);
-		this.increaseSelfEsteem = selfEsteemAmount;
-		this.actionType = ActionType.DAMAGE;
-		this.duration = 0.1F;
-	}
+public class ComplimentAction
+    extends AbstractGameAction {
+    private int increaseSelfEsteem;
 
-	public void update() {
-		if (this.duration == 0.1F && this.target != null) {
-			AbstractDungeon.effectList
-					.add(new FlashAtkImgEffect(this.target.hb.cX, this.target.hb.cY, AttackEffect.BLUNT_HEAVY));
+    private DamageInfo info;
 
-			boolean isDamagedOverBlock = isDamagedOverBlock(target);
+    private static final float DURATION = 0.1F;
 
-			this.target.damage(this.info);
+    private AbstractPlayer p;
 
-			if ((((AbstractMonster) this.target).isDying || this.target.currentHealth <= 0 || isDamagedOverBlock)) {
-				addToBot(new ApplyPowerAction(p, p, new SelfEsteem(p, p, increaseSelfEsteem), increaseSelfEsteem));
-			}
+    public ComplimentAction(AbstractPlayer player, AbstractCreature target, DamageInfo info, int selfEsteemAmount) {
+        this.p = player;
+        this.info = info;
+        this.setValues(target, info);
+        this.increaseSelfEsteem = selfEsteemAmount;
+        this.actionType = ActionType.DAMAGE;
+        this.duration = 0.1F;
+    }
 
-			if (AbstractDungeon.getCurrRoom().monsters.areMonstersBasicallyDead()) {
-				AbstractDungeon.actionManager.clearPostCombatActions();
-			}
-		}
+    public void update() {
+        if (this.duration == 0.1F && this.target != null) {
+            AbstractDungeon.effectList
+                .add(new FlashAtkImgEffect(this.target.hb.cX, this.target.hb.cY, AttackEffect.BLUNT_HEAVY));
 
-		this.tickDuration();
-	}
+            boolean isDamagedOverBlock = isDamagedOverBlock(target);
 
-	private Boolean isDamagedOverBlock(AbstractCreature m) {
-		return m.currentBlock > 0 && this.info.output > m.currentBlock;
-	}
+            this.target.damage(this.info);
+
+            if ((((AbstractMonster) this.target).isDying || this.target.currentHealth <= 0 || isDamagedOverBlock)) {
+                addToBot(new ApplyPowerAction(p, p, new SelfEsteem(p, p, increaseSelfEsteem), increaseSelfEsteem));
+            }
+
+            if (AbstractDungeon.getCurrRoom().monsters.areMonstersBasicallyDead()) {
+                AbstractDungeon.actionManager.clearPostCombatActions();
+            }
+        }
+
+        this.tickDuration();
+    }
+
+    private Boolean isDamagedOverBlock(AbstractCreature m) {
+        return m.currentBlock > 0 && this.info.output > m.currentBlock;
+    }
 }

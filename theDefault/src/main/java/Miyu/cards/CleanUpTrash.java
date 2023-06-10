@@ -1,8 +1,7 @@
 package Miyu.cards;
 
-import Miyu.DefaultMod;
-import Miyu.characters.TheDefault;
-import Miyu.powers.CleanUpTrashPower;
+import static Miyu.DefaultMod.makeCardPath;
+
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
@@ -10,47 +9,55 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
-import static Miyu.DefaultMod.makeCardPath;
+import Miyu.DefaultMod;
+import Miyu.characters.TheDefault;
+import Miyu.powers.CleanUpTrashPower;
 
-public class CleanUpTrash extends AbstractDynamicCard {
+public class CleanUpTrash
+    extends AbstractDynamicCard {
 
-	public static final String ID = DefaultMod.makeID(CleanUpTrash.class.getSimpleName());
-	public static final String IMG = makeCardPath("CleanUpTrash.png");
-	private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
+    public static final String ID = DefaultMod.makeID(CleanUpTrash.class.getSimpleName());
 
-	// /TEXT DECLARATION/
+    public static final String IMG = makeCardPath("CleanUpTrash.png");
 
-	// STAT DECLARATION
+    private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
 
-	private static final CardRarity RARITY = CardRarity.RARE;
-	private static final CardTarget TARGET = CardTarget.SELF;
-	private static final CardType TYPE = CardType.POWER;
-	public static final CardColor COLOR = TheDefault.Enums.COLOR_GRAY;
+    // /TEXT DECLARATION/
 
-	private static final int COST = 1;
-	// private static final int UPGRADE_COST = 0;
+    // STAT DECLARATION
 
-	private static final int MAGIC = 1;
+    private static final CardRarity RARITY = CardRarity.RARE;
 
-	public CleanUpTrash() {
-		super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
-		this.baseMagicNumber = this.magicNumber = MAGIC;
-	}
+    private static final CardTarget TARGET = CardTarget.SELF;
 
-	@Override
-	public void use(AbstractPlayer p, AbstractMonster m) {
-		AbstractDungeon.actionManager
-				.addToBottom(new ApplyPowerAction(p, p, new CleanUpTrashPower(p, p, magicNumber), magicNumber)
-				// new Covered(p, p, magicNumber), magicNumber)
-				);
-	}
+    private static final CardType TYPE = CardType.POWER;
 
-	@Override
-	public void upgrade() {
-		if (!upgraded) {
-			upgradeName();
-			upgradeBaseCost(0);
-			initializeDescription();
-		}
-	}
+    public static final CardColor COLOR = TheDefault.Enums.COLOR_GRAY;
+
+    private static final int COST = 1;
+    // private static final int UPGRADE_COST = 0;
+
+    private static final int MAGIC = 1;
+
+    public CleanUpTrash() {
+        super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
+        this.baseMagicNumber = this.magicNumber = MAGIC;
+    }
+
+    @Override
+    public void use(AbstractPlayer p, AbstractMonster m) {
+        AbstractDungeon.actionManager
+            .addToBottom(new ApplyPowerAction(p, p, new CleanUpTrashPower(p, p, magicNumber), magicNumber)
+            // new Covered(p, p, magicNumber), magicNumber)
+            );
+    }
+
+    @Override
+    public void upgrade() {
+        if (!upgraded) {
+            upgradeName();
+            upgradeBaseCost(0);
+            initializeDescription();
+        }
+    }
 }

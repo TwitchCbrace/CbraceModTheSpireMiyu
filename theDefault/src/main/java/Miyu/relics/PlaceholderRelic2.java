@@ -12,36 +12,38 @@ import Miyu.util.TextureLoader;
 import static Miyu.DefaultMod.makeRelicOutlinePath;
 import static Miyu.DefaultMod.makeRelicPath;
 
-public class PlaceholderRelic2 extends CustomRelic {
-	/*
-	 * https://github.com/daviscook477/BaseMod/wiki/Custom-Relics
-	 *
-	 * At the start of each combat, gain 1 Strength (i.e. Vajra)
-	 */
+public class PlaceholderRelic2
+    extends CustomRelic {
+    /*
+     * https://github.com/daviscook477/BaseMod/wiki/Custom-Relics
+     *
+     * At the start of each combat, gain 1 Strength (i.e. Vajra)
+     */
 
-	// ID, images, text.
-	public static final String ID = DefaultMod.makeID("PlaceholderRelic2");
+    // ID, images, text.
+    public static final String ID = DefaultMod.makeID("PlaceholderRelic2");
 
-	private static final Texture IMG = TextureLoader.getTexture(makeRelicPath("placeholder_relic2.png"));
-	private static final Texture OUTLINE = TextureLoader.getTexture(makeRelicOutlinePath("placeholder_relic2.png"));
+    private static final Texture IMG = TextureLoader.getTexture(makeRelicPath("placeholder_relic2.png"));
 
-	public PlaceholderRelic2() {
-		super(ID, IMG, OUTLINE, RelicTier.COMMON, LandingSound.FLAT);
-	}
+    private static final Texture OUTLINE = TextureLoader.getTexture(makeRelicOutlinePath("placeholder_relic2.png"));
 
-	// Gain 1 Strength on on equip.
-	@Override
-	public void atBattleStart() {
-		flash();
-		AbstractDungeon.actionManager.addToTop(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player,
-				new StrengthPower(AbstractDungeon.player, 1), 1));
-		AbstractDungeon.actionManager.addToTop(new RelicAboveCreatureAction(AbstractDungeon.player, this));
-	}
+    public PlaceholderRelic2() {
+        super(ID, IMG, OUTLINE, RelicTier.COMMON, LandingSound.FLAT);
+    }
 
-	// Description
-	@Override
-	public String getUpdatedDescription() {
-		return DESCRIPTIONS[0];
-	}
+    // Gain 1 Strength on on equip.
+    @Override
+    public void atBattleStart() {
+        flash();
+        AbstractDungeon.actionManager.addToTop(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player,
+            new StrengthPower(AbstractDungeon.player, 1), 1));
+        AbstractDungeon.actionManager.addToTop(new RelicAboveCreatureAction(AbstractDungeon.player, this));
+    }
+
+    // Description
+    @Override
+    public String getUpdatedDescription() {
+        return DESCRIPTIONS[0];
+    }
 
 }

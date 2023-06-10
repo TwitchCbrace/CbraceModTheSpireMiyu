@@ -12,51 +12,57 @@ import com.megacrit.cardcrawl.powers.IntangiblePlayerPower;
 
 import static Miyu.DefaultMod.makeCardPath;
 
-public class FadedPresence extends AbstractDynamicCard {
+public class FadedPresence
+    extends AbstractDynamicCard {
 
-	// TEXT DECLARATION
+    // TEXT DECLARATION
 
-	public static final String ID = DefaultMod.makeID(FadedPresence.class.getSimpleName());
-	public static final String IMG = makeCardPath("FadedPresence.png");
+    public static final String ID = DefaultMod.makeID(FadedPresence.class.getSimpleName());
 
-	// /TEXT DECLARATION/
+    public static final String IMG = makeCardPath("FadedPresence.png");
 
-	// STAT DECLARATION
+    // /TEXT DECLARATION/
 
-	private static final CardRarity RARITY = CardRarity.RARE;
-	private static final CardTarget TARGET = CardTarget.SELF;
-	private static final CardType TYPE = CardType.SKILL;
-	public static final CardColor COLOR = TheDefault.Enums.COLOR_GRAY;
+    // STAT DECLARATION
 
-	private static final int COST = 2;
-	private static final int UPGRADED_COST = 1;
-	// /STAT DECLARATION/
+    private static final CardRarity RARITY = CardRarity.RARE;
 
-	public FadedPresence() {
-		super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
+    private static final CardTarget TARGET = CardTarget.SELF;
 
-		this.exhaust = true;
-	}
+    private static final CardType TYPE = CardType.SKILL;
 
-	// Actions the card should do.
-	@Override
-	public void use(AbstractPlayer p, AbstractMonster m) {
-		AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new IntangiblePlayerPower(p, 1)));
-		AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new SelfEsteem(p, p, -5)));
+    public static final CardColor COLOR = TheDefault.Enums.COLOR_GRAY;
 
-	}
+    private static final int COST = 2;
 
-	public AbstractCard makeCopy() {
-		return new FadedPresence();
-	}
+    private static final int UPGRADED_COST = 1;
+    // /STAT DECLARATION/
 
-	// Upgraded stats.
-	@Override
-	public void upgrade() {
-		if (!upgraded) {
-			upgradeName();
-			upgradeBaseCost(UPGRADED_COST);
+    public FadedPresence() {
+        super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
 
-		}
-	}
+        this.exhaust = true;
+    }
+
+    // Actions the card should do.
+    @Override
+    public void use(AbstractPlayer p, AbstractMonster m) {
+        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new IntangiblePlayerPower(p, 1)));
+        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new SelfEsteem(p, p, -5)));
+
+    }
+
+    public AbstractCard makeCopy() {
+        return new FadedPresence();
+    }
+
+    // Upgraded stats.
+    @Override
+    public void upgrade() {
+        if (!upgraded) {
+            upgradeName();
+            upgradeBaseCost(UPGRADED_COST);
+
+        }
+    }
 }
