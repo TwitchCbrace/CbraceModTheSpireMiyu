@@ -1,6 +1,8 @@
 package Miyu.actions;
 
 import Miyu.cards.ICoverCard;
+import basemod.cardmods.EtherealMod;
+import basemod.helpers.CardModifierManager;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -22,8 +24,8 @@ public class WannaBeAloneAction extends AbstractGameAction {
             AbstractCard c = (AbstractCard)iter.next();
 
             if (c instanceof ICoverCard && c != sourceCard) {
-                c.isEthereal = true;
                 c.selfRetain = false;
+                CardModifierManager.addModifier(c, new EtherealMod());
             }
         }
 

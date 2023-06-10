@@ -67,9 +67,6 @@ public class MilitaryCamp extends AbstractDynamicCard implements ICoverCard {
         if (covered != null && covered.sourceCover == this) {
             beginGlowing();
             this.glowColor = AbstractCard.GOLD_BORDER_GLOW_COLOR.cpy();
-        } else if (this.isEthereal) {
-            beginGlowing();
-            this.glowColor = AbstractCard.GREEN_BORDER_GLOW_COLOR.cpy();
         } else {
             this.glowColor = AbstractCard.BLUE_BORDER_GLOW_COLOR.cpy();
         }
