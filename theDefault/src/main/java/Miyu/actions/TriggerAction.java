@@ -16,24 +16,22 @@ import com.megacrit.cardcrawl.powers.StrengthPower;
 
 import java.util.ArrayList;
 
-
 public class TriggerAction extends AbstractGameAction {
 
+	private AbstractPlayer p;
 
-    private AbstractPlayer p;
+	public TriggerAction() {
+		this.actionType = ActionType.WAIT;
+		this.p = AbstractDungeon.player;
+		this.duration = Settings.ACTION_DUR_XFAST;
+	}
 
-    public TriggerAction() {
-        this.actionType = ActionType.WAIT;
-        this.p = AbstractDungeon.player;
-        this.duration = Settings.ACTION_DUR_XFAST;
-    }
+	public void update() {
+		if (this.duration == Settings.ACTION_DUR_XFAST && this.p.hasPower(SelfEsteem.POWER_ID)) {
+			int selfAmt = this.p.getPower(SelfEsteem.POWER_ID).amount;
+			this.addToTop(new ApplyPowerAction(this.p, this.p, new SelfEsteem(this.p, this.p, selfAmt), selfAmt));
+		}
 
-    public void update() {
-        if (this.duration == Settings.ACTION_DUR_XFAST && this.p.hasPower(SelfEsteem.POWER_ID)) {
-            int selfAmt = this.p.getPower(SelfEsteem.POWER_ID).amount;
-            this.addToTop(new ApplyPowerAction(this.p, this.p, new SelfEsteem(this.p, this.p, selfAmt), selfAmt));
-        }
-
-        this.tickDuration();
-    }
+		this.tickDuration();
+	}
 }

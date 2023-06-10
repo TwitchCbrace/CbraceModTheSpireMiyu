@@ -23,117 +23,119 @@ import java.util.Iterator;
 import static Miyu.DefaultMod.makePowerPath;
 
 public class Covered extends AbstractPower implements CloneablePowerInterface {
-    public AbstractCreature source;
+	public AbstractCreature source;
 
-    public static final String POWER_ID = DefaultMod.makeID("Covered");
-    private static final PowerStrings powerStrings = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);
-    public static final String NAME = powerStrings.NAME;
-    public static final String[] DESCRIPTIONS = powerStrings.DESCRIPTIONS;
-    private static final Texture tex84 = TextureLoader.getTexture(makePowerPath("Covered84.png"));
-    private static final Texture tex32 = TextureLoader.getTexture(makePowerPath("Covered32.png"));
+	public static final String POWER_ID = DefaultMod.makeID("Covered");
+	private static final PowerStrings powerStrings = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);
+	public static final String NAME = powerStrings.NAME;
+	public static final String[] DESCRIPTIONS = powerStrings.DESCRIPTIONS;
+	private static final Texture tex84 = TextureLoader.getTexture(makePowerPath("Covered84.png"));
+	private static final Texture tex32 = TextureLoader.getTexture(makePowerPath("Covered32.png"));
 
-    public AbstractDefaultCard sourceCover;
+	public AbstractDefaultCard sourceCover;
 
-    public CardGroup findPlaceCard(AbstractPlayer p, AbstractDefaultCard c) {
-        Iterator var1 = p.hand.group.iterator();
+	public CardGroup findPlaceCard(AbstractPlayer p, AbstractDefaultCard c) {
+		Iterator var1 = p.hand.group.iterator();
 
-        while(var1.hasNext()){
-            AbstractCard tmp = (AbstractCard) var1.next();
-            if (tmp.uuid == c.uuid){
-                return p.hand;
-            }
-        }
-        var1 = p.drawPile.group.iterator();
-        while (var1.hasNext()){
-            AbstractCard tmp = (AbstractCard) var1.next();
-            if (tmp.uuid == c.uuid)
-                return p.drawPile;
-        }
-        var1 = p.discardPile.group.iterator();
-        while (var1.hasNext()){
-            AbstractCard tmp = (AbstractCard) var1.next();
-            if (tmp.uuid == c.uuid){
-                return p.discardPile;
-        }
-    }
-    return p.exhaustPile;
-}
+		while (var1.hasNext()) {
+			AbstractCard tmp = (AbstractCard) var1.next();
+			if (tmp.uuid == c.uuid) {
+				return p.hand;
+			}
+		}
+		var1 = p.drawPile.group.iterator();
+		while (var1.hasNext()) {
+			AbstractCard tmp = (AbstractCard) var1.next();
+			if (tmp.uuid == c.uuid)
+				return p.drawPile;
+		}
+		var1 = p.discardPile.group.iterator();
+		while (var1.hasNext()) {
+			AbstractCard tmp = (AbstractCard) var1.next();
+			if (tmp.uuid == c.uuid) {
+				return p.discardPile;
+			}
+		}
+		return p.exhaustPile;
+	}
 
-    public Covered(final AbstractCreature owner, final AbstractCreature source, final int amount, AbstractDefaultCard sourceCover) {
-        name = NAME;
-        ID = POWER_ID;
-        this.owner = owner;
-        this.amount = amount;
-        this.source = source;
-        this.sourceCover = sourceCover;
+	public Covered(final AbstractCreature owner, final AbstractCreature source, final int amount,
+			AbstractDefaultCard sourceCover) {
+		name = NAME;
+		ID = POWER_ID;
+		this.owner = owner;
+		this.amount = amount;
+		this.source = source;
+		this.sourceCover = sourceCover;
 
+		type = PowerType.BUFF;
+		isTurnBased = false;
 
-        type = PowerType.BUFF;
-        isTurnBased = false;
+		// We load those txtures here.
+		this.region128 = new TextureAtlas.AtlasRegion(tex84, 0, 0, 84, 84);
+		this.region48 = new TextureAtlas.AtlasRegion(tex32, 0, 0, 32, 32);
 
+		updateDescription();
+	}
 
-        // We load those txtures here.
-        this.region128 = new TextureAtlas.AtlasRegion(tex84, 0, 0, 84, 84);
-        this.region48 = new TextureAtlas.AtlasRegion(tex32, 0, 0, 32, 32);
+	public void stackPower(int stackAmount) {
+		this.fontScale = 8.0F;
+		this.amount = stackAmount;
+		if (this.amount > 999) {
+			this.amount = 999;
+		}
 
-        updateDescription();
-    }
+		this.updateDescription();
+	}
+	public void playApplyPowerSfx() {
+		CardCrawlGame.sound.play("POWER_PLATED", 0.05F);
+	}
 
-    public void stackPower(int stackAmount) {
-        this.fontScale = 8.0F;
-        this.amount = stackAmount;
-        if (this.amount > 999) {
-            this.amount = 999;
-        }
+	public int onAttacked(DamageInfo info, int damageAmount) {
 
-        this.updateDescription();
-    }
-    public void playApplyPowerSfx() {
-        CardCrawlGame.sound.play("POWER_PLATED", 0.05F);
-    }
+		if (info.owner != null && info.type != DamageInfo.DamageType.HP_LOSS
+				&& info.type != DamageInfo.DamageType.THORNS && damageAmount > 0) {
 
-    public int onAttacked(DamageInfo info, int damageAmount) {
+			int reduceDamage = Math.min(this.amount, damageAmount);
 
-        if (info.owner != null && info.type != DamageInfo.DamageType.HP_LOSS && info.type != DamageInfo.DamageType.THORNS && damageAmount > 0) {
+			this.addToTop(new ReducePowerAction(this.owner, this.owner, this.ID, reduceDamage));
 
-            int reduceDamage = Math.min(this.amount, damageAmount);
+			sourceCover.baseCoverMagicNumber -= reduceDamage;
+			sourceCover.coverMagicNumber -= reduceDamage;
+			sourceCover.isCoverMagicNumberModified = true;
+			if (sourceCover.baseCoverMagicNumber < 1) {
+				AbstractPlayer p;
+				p = AbstractDungeon.player;
+				CardGroup cg = findPlaceCard(p, sourceCover);
+				cg.moveToExhaustPile(sourceCover);
 
-            this.addToTop(new ReducePowerAction(this.owner, this.owner, this.ID, reduceDamage));
+			}
 
-            sourceCover.baseCoverMagicNumber -= reduceDamage;
-            sourceCover.coverMagicNumber -= reduceDamage;
-            sourceCover.isCoverMagicNumberModified = true;
-            if (sourceCover.baseCoverMagicNumber < 1){
-                AbstractPlayer p;
-                p = AbstractDungeon.player;
-                CardGroup cg = findPlaceCard(p, sourceCover);
-                cg.moveToExhaustPile(sourceCover);
+			for (AbstractPower p : owner.powers) {
+				if (p instanceof OnReduceCover) {
+					((OnReduceCover) p).CoverReduced(info, reduceDamage);
+				}
+			}
+			return damageAmount - reduceDamage;
 
-            }
+		} else {
 
-            for ( AbstractPower p : owner.powers )
-            { if ( p instanceof OnReduceCover) { ((OnReduceCover) p).CoverReduced(info, reduceDamage); } }
-            return damageAmount - reduceDamage;
+			return damageAmount;
 
-        } else {
+		}
+	}
 
-            return damageAmount;
+	@Override
+	public void updateDescription() {
+		if (amount == 1) {
+			description = DESCRIPTIONS[0] + amount + DESCRIPTIONS[1];
+		} else if (amount > 1) {
+			description = DESCRIPTIONS[0] + amount + DESCRIPTIONS[2];
+		}
+	}
 
-        }
-    }
-
-
-    @Override
-    public void updateDescription() {
-        if (amount == 1) {
-            description = DESCRIPTIONS[0] + amount + DESCRIPTIONS[1];
-        } else if (amount > 1) {
-            description = DESCRIPTIONS[0] + amount + DESCRIPTIONS[2];
-        }
-    }
-
-    @Override
-    public AbstractPower makeCopy() {
-        return new Covered(owner, source, amount, sourceCover);
-    }
+	@Override
+	public AbstractPower makeCopy() {
+		return new Covered(owner, source, amount, sourceCover);
+	}
 }

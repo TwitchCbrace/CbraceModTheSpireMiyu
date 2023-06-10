@@ -18,51 +18,46 @@ import static Miyu.DefaultMod.makeCardPath;
 
 public class BackTracking extends AbstractDynamicCard {
 
+	// TEXT DECLARATION
 
-    // TEXT DECLARATION
+	public static final String ID = DefaultMod.makeID(BackTracking.class.getSimpleName());
+	public static final String IMG = makeCardPath("BackTracking.png");
 
-    public static final String ID = DefaultMod.makeID(BackTracking.class.getSimpleName());
-    public static final String IMG = makeCardPath("BackTracking.png");
+	// /TEXT DECLARATION/
+	private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
 
-    // /TEXT DECLARATION/
-    private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
+	// STAT DECLARATION
 
+	private static final CardRarity RARITY = CardRarity.UNCOMMON;
+	private static final CardTarget TARGET = CardTarget.SELF;
+	private static final CardType TYPE = CardType.SKILL;
+	public static final CardColor COLOR = TheDefault.Enums.COLOR_GRAY;
+	private static final int COST = 2;
+	private static final int BLOCK = 13;
+	private static final int UPGRADE_PLUS_BLOCK = 3;
 
-    // STAT DECLARATION
+	// /STAT DECLARATION/
 
-    private static final CardRarity RARITY = CardRarity.UNCOMMON;
-    private static final CardTarget TARGET = CardTarget.SELF;
-    private static final CardType TYPE = CardType.SKILL;
-    public static final CardColor COLOR = TheDefault.Enums.COLOR_GRAY;
-    private static final int COST = 2;
-    private static final int BLOCK = 13;
-    private static final int UPGRADE_PLUS_BLOCK = 3;
+	public BackTracking() {
+		super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
+		baseBlock = BLOCK;
 
+	}
 
-    // /STAT DECLARATION/
+	// Actions the card should do.
+	@Override
+	public void use(AbstractPlayer p, AbstractMonster m) {
+		AbstractDungeon.actionManager.addToBottom(new GainBlockAction(p, p, block));
+		this.addToBot(new BackTrackingAction(p, p));
+	}
 
-
-    public BackTracking() {
-        super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
-        baseBlock = BLOCK;
-
-    }
-
-    // Actions the card should do.
-    @Override
-    public void use(AbstractPlayer p, AbstractMonster m) {
-        AbstractDungeon.actionManager.addToBottom(new GainBlockAction(p, p, block));
-        this.addToBot(new BackTrackingAction(p, p));
-    }
-
-
-    //Upgraded stats.
-    @Override
-    public void upgrade() {
-        if (!upgraded) {
-            upgradeName();
-            upgradeBlock(UPGRADE_PLUS_BLOCK);
-            initializeDescription();
-        }
-    }
+	// Upgraded stats.
+	@Override
+	public void upgrade() {
+		if (!upgraded) {
+			upgradeName();
+			upgradeBlock(UPGRADE_PLUS_BLOCK);
+			initializeDescription();
+		}
+	}
 }

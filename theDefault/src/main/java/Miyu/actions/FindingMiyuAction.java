@@ -19,30 +19,30 @@ import com.megacrit.cardcrawl.vfx.combat.ThrowDaggerEffect;
 import java.util.Iterator;
 
 public class FindingMiyuAction extends AbstractGameAction {
-    private DamageInfo info;
+	private DamageInfo info;
 
-    public FindingMiyuAction(AbstractCreature target, DamageInfo info) {
-        this.duration = Settings.ACTION_DUR_XFAST;
-        this.info = info;
-        this.actionType = ActionType.BLOCK;
-        this.target = target;
-    }
+	public FindingMiyuAction(AbstractCreature target, DamageInfo info) {
+		this.duration = Settings.ACTION_DUR_XFAST;
+		this.info = info;
+		this.actionType = ActionType.BLOCK;
+		this.target = target;
+	}
 
-    public void update() {
+	public void update() {
 
-        Iterator var1 = AbstractDungeon.player.hand.group.iterator();
+		Iterator var1 = AbstractDungeon.player.hand.group.iterator();
 
-        while(var1.hasNext()) {
-            AbstractCard c = (AbstractCard)var1.next();
-            if (c instanceof ICoverCard) {
-                this.addToTop(new DamageAction(this.target, this.info, true));
-                if (this.target != null && this.target.hb != null) {
-                    this.addToTop(new VFXAction(new ThrowDaggerEffect(this.target.hb.cX, this.target.hb.cY)));
-                }
-            }
-        }
+		while (var1.hasNext()) {
+			AbstractCard c = (AbstractCard) var1.next();
+			if (c instanceof ICoverCard) {
+				this.addToTop(new DamageAction(this.target, this.info, true));
+				if (this.target != null && this.target.hb != null) {
+					this.addToTop(new VFXAction(new ThrowDaggerEffect(this.target.hb.cX, this.target.hb.cY)));
+				}
+			}
+		}
 
-        this.isDone = true;
-    }
+		this.isDone = true;
+	}
 
 }

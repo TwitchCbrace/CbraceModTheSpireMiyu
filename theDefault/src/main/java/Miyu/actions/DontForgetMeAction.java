@@ -15,42 +15,38 @@ import com.megacrit.cardcrawl.localization.UIStrings;
 
 import java.util.Iterator;
 
-
 public class DontForgetMeAction extends AbstractGameAction {
 
+	public DontForgetMeAction(AbstractCreature source, int amount) {
 
-    public DontForgetMeAction(AbstractCreature source, int amount) {
+		this.setValues(this.target, source, amount);
+		this.actionType = ActionType.WAIT;
 
-        this.setValues(this.target, source, amount);
-        this.actionType = ActionType.WAIT;
+	}
 
-    }
+	public void update() {
 
+		addToBot(new DrawCardAction(amount, new AbstractGameAction() {
 
+			@Override
 
-    public void update() {
+			public void update() {
 
-        addToBot(new DrawCardAction(amount, new AbstractGameAction() {
+				for (AbstractCard c : DrawCardAction.drawnCards) {
+					if (c.selfRetain == true) {
+						c.selfRetain = false;
+						CardModifierManager.addModifier(c, new EtherealMod());
+					} else {
+						CardModifierManager.addModifier(c, new EtherealMod());
+					}
+				}
 
-            @Override
+				this.isDone = true;
 
-            public void update() {
+			}
 
-                for (AbstractCard c : DrawCardAction.drawnCards) {
-                    if (c.selfRetain == true){
-                        c.selfRetain = false;
-                        CardModifierManager.addModifier(c, new EtherealMod());
-                    } else {
-                        CardModifierManager.addModifier(c, new EtherealMod());
-                    }
-                }
-
-                this.isDone = true;
-
-            }
-
-        }));
-        this.isDone = true;
-    }
+		}));
+		this.isDone = true;
+	}
 
 }

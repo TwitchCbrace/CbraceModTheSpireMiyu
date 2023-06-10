@@ -12,58 +12,55 @@ import static Miyu.DefaultMod.makeCardPath;
 
 public class Compliment extends AbstractDynamicCard {
 
-    // TEXT DECLARATION
+	// TEXT DECLARATION
 
-    public static final String ID = DefaultMod.makeID(Compliment.class.getSimpleName());
-    public static final String IMG = makeCardPath("Compliment.png");
+	public static final String ID = DefaultMod.makeID(Compliment.class.getSimpleName());
+	public static final String IMG = makeCardPath("Compliment.png");
 
-    // /TEXT DECLARATION/
+	// /TEXT DECLARATION/
 
+	// STAT DECLARATION
 
-    // STAT DECLARATION
+	private static final CardRarity RARITY = CardRarity.BASIC;
+	private static final CardTarget TARGET = CardTarget.ENEMY;
+	private static final CardType TYPE = CardType.ATTACK;
+	public static final CardColor COLOR = TheDefault.Enums.COLOR_GRAY;
 
-    private static final CardRarity RARITY = CardRarity.BASIC;
-    private static final CardTarget TARGET = CardTarget.ENEMY;
-    private static final CardType TYPE = CardType.ATTACK;
-    public static final CardColor COLOR = TheDefault.Enums.COLOR_GRAY;
+	private static final int COST = 1;
 
-    private static final int COST = 1;
+	private static final int DAMAGE = 8;
+	private static final int UPGRADE_PLUS_DAMAGE = 3;
 
-    private static final int DAMAGE = 8;
-    private static final int UPGRADE_PLUS_DAMAGE = 3;
+	private static final int MAGIC = 5;
 
-    private static final int MAGIC = 5;
+	// /STAT DECLARATION/
 
-    // /STAT DECLARATION/
+	public Compliment() {
+		super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
+		baseDamage = DAMAGE;
+		this.baseMagicNumber = MAGIC;
+	}
 
+	@Override
+	public void use(AbstractPlayer p, AbstractMonster m) {
+		this.calculateCardDamage(m);
 
-    public Compliment() {
-        super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
-        baseDamage = DAMAGE;
-        this.baseMagicNumber = MAGIC;
-    }
+		// 칭찬 Action 실행
+		addToBot(new ComplimentAction(p, m, new DamageInfo(p, this.damage, this.damageTypeForTurn),
+				this.baseMagicNumber));
+	}
 
-    @Override
-    public void use(AbstractPlayer p, AbstractMonster m) {
-        this.calculateCardDamage(m);
+	public AbstractCard makeCopy() {
+		return new Compliment();
+	}
 
-        // 칭찬 Action 실행
-        addToBot(
-                new ComplimentAction(p, m, new DamageInfo(p, this.damage, this.damageTypeForTurn), this.baseMagicNumber)
-        );
-    }
-
-    public AbstractCard makeCopy() {
-        return new Compliment();
-    }
-
-    //Upgraded stats.
-    @Override
-    public void upgrade() {
-        if (!upgraded) {
-            upgradeName();
-            upgradeDamage(UPGRADE_PLUS_DAMAGE);
-            initializeDescription();
-        }
-    }
+	// Upgraded stats.
+	@Override
+	public void upgrade() {
+		if (!upgraded) {
+			upgradeName();
+			upgradeDamage(UPGRADE_PLUS_DAMAGE);
+			initializeDescription();
+		}
+	}
 }

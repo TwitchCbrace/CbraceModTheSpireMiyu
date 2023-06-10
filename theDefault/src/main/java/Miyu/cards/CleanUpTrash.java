@@ -14,45 +14,43 @@ import static Miyu.DefaultMod.makeCardPath;
 
 public class CleanUpTrash extends AbstractDynamicCard {
 
-    public static final String ID = DefaultMod.makeID(CleanUpTrash.class.getSimpleName());
-    public static final String IMG = makeCardPath("CleanUpTrash.png");
-    private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
+	public static final String ID = DefaultMod.makeID(CleanUpTrash.class.getSimpleName());
+	public static final String IMG = makeCardPath("CleanUpTrash.png");
+	private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
 
-    // /TEXT DECLARATION/
+	// /TEXT DECLARATION/
 
+	// STAT DECLARATION
 
-    // STAT DECLARATION
+	private static final CardRarity RARITY = CardRarity.RARE;
+	private static final CardTarget TARGET = CardTarget.SELF;
+	private static final CardType TYPE = CardType.POWER;
+	public static final CardColor COLOR = TheDefault.Enums.COLOR_GRAY;
 
-    private static final CardRarity RARITY = CardRarity.RARE;
-    private static final CardTarget TARGET = CardTarget.SELF;
-    private static final CardType TYPE = CardType.POWER;
-    public static final CardColor COLOR = TheDefault.Enums.COLOR_GRAY;
+	private static final int COST = 1;
+	// private static final int UPGRADE_COST = 0;
 
-    private static final int COST = 1;
-//    private static final int UPGRADE_COST = 0;
+	private static final int MAGIC = 1;
 
-    private static final int MAGIC = 1;
+	public CleanUpTrash() {
+		super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
+		this.baseMagicNumber = this.magicNumber = MAGIC;
+	}
 
-    public CleanUpTrash() {
-        super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
-        this.baseMagicNumber = this.magicNumber = MAGIC;
-    }
+	@Override
+	public void use(AbstractPlayer p, AbstractMonster m) {
+		AbstractDungeon.actionManager
+				.addToBottom(new ApplyPowerAction(p, p, new CleanUpTrashPower(p, p, magicNumber), magicNumber)
+				// new Covered(p, p, magicNumber), magicNumber)
+				);
+	}
 
-    @Override
-    public void use(AbstractPlayer p, AbstractMonster m) {
-        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p,
-                new CleanUpTrashPower(p, p, magicNumber), magicNumber)
-//                new Covered(p, p, magicNumber), magicNumber)
-        );
-    }
-
-
-    @Override
-    public void upgrade() {
-        if (!upgraded) {
-            upgradeName();
-            upgradeBaseCost(0);
-            initializeDescription();
-        }
-    }
+	@Override
+	public void upgrade() {
+		if (!upgraded) {
+			upgradeName();
+			upgradeBaseCost(0);
+			initializeDescription();
+		}
+	}
 }

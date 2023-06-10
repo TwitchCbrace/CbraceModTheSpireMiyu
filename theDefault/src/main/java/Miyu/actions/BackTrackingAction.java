@@ -14,87 +14,72 @@ import com.megacrit.cardcrawl.localization.UIStrings;
 import java.util.ArrayList;
 import java.util.Iterator;
 
-
 public class BackTrackingAction extends AbstractGameAction {
 
-    private static final UIStrings uiStrings;
+	private static final UIStrings uiStrings;
 
-    public static final String[] TEXT;
+	public static final String[] TEXT;
 
-    private AbstractPlayer p;
+	private AbstractPlayer p;
 
+	public BackTrackingAction(AbstractCreature target, AbstractCreature source) {
 
+		this.target = target;
 
-    public BackTrackingAction(AbstractCreature target, AbstractCreature source) {
+		this.p = (AbstractPlayer) target;
 
-        this.target = target;
+		this.setValues(target, source, amount);
 
-        this.p = (AbstractPlayer)target;
+		this.actionType = ActionType.CARD_MANIPULATION;
 
-        this.setValues(target, source, amount);
+	}
 
-        this.actionType = ActionType.CARD_MANIPULATION;
+	public void update() {
 
-    }
+		if (this.duration == 0.5F) {
 
+			if (this.p.hand.size() == 0) {
 
+				this.isDone = true;
 
-    public void update() {
+				return;
 
-        if (this.duration == 0.5F) {
+			}
 
-            if (this.p.hand.size() == 0) {
+			AbstractDungeon.handCardSelectScreen.open(TEXT[0], p.hand.size(), true, true);
 
-                this.isDone = true;
+			this.tickDuration();
+			return;
+		}
 
-                return;
+		if (!AbstractDungeon.handCardSelectScreen.wereCardsRetrieved) {
 
-            }
+			Iterator<AbstractCard> var3 = AbstractDungeon.handCardSelectScreen.selectedCards.group.iterator();
 
-            AbstractDungeon.handCardSelectScreen.open(TEXT[0], p.hand.size(), true, true);
+			while (var3.hasNext()) {
 
-            this.tickDuration();
-            return;
-        }
+				AbstractCard c = (AbstractCard) var3.next();
 
+				this.p.hand.moveToDeck(c, false);
 
+			}
 
-        if (!AbstractDungeon.handCardSelectScreen.wereCardsRetrieved) {
+			AbstractDungeon.player.hand.refreshHandLayout();
 
-            Iterator<AbstractCard> var3 = AbstractDungeon.handCardSelectScreen.selectedCards.group.iterator();
+			AbstractDungeon.handCardSelectScreen.wereCardsRetrieved = true;
 
+		}
 
+		this.tickDuration();
 
-            while(var3.hasNext()) {
+	}
 
-                AbstractCard c = (AbstractCard)var3.next();
+	static {
 
-                this.p.hand.moveToDeck(c, false);
+		uiStrings = CardCrawlGame.languagePack.getUIString("PutOnDeckAction");
 
-            }
+		TEXT = uiStrings.TEXT;
 
-
-
-            AbstractDungeon.player.hand.refreshHandLayout();
-
-            AbstractDungeon.handCardSelectScreen.wereCardsRetrieved = true;
-
-        }
-
-
-
-        this.tickDuration();
-
-    }
-
-
-
-    static {
-
-        uiStrings = CardCrawlGame.languagePack.getUIString("PutOnDeckAction");
-
-        TEXT = uiStrings.TEXT;
-
-    }
+	}
 
 }

@@ -10,25 +10,25 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import java.util.Iterator;
 
 public class WannaBeAloneAction extends AbstractGameAction {
-    private AbstractCard sourceCard;
+	private AbstractCard sourceCard;
 
-    public WannaBeAloneAction(AbstractCard source) {
-        this.sourceCard = source;
-    }
+	public WannaBeAloneAction(AbstractCard source) {
+		this.sourceCard = source;
+	}
 
-    @Override
-    public void update() {
-        Iterator iter = AbstractDungeon.player.hand.group.iterator();
+	@Override
+	public void update() {
+		Iterator iter = AbstractDungeon.player.hand.group.iterator();
 
-        while(iter.hasNext()) {
-            AbstractCard c = (AbstractCard)iter.next();
+		while (iter.hasNext()) {
+			AbstractCard c = (AbstractCard) iter.next();
 
-            if (c instanceof ICoverCard && c != sourceCard) {
-                c.selfRetain = false;
-                CardModifierManager.addModifier(c, new EtherealMod());
-            }
-        }
+			if (c instanceof ICoverCard && c != sourceCard) {
+				c.selfRetain = false;
+				CardModifierManager.addModifier(c, new EtherealMod());
+			}
+		}
 
-        this.tickDuration();
-    }
+		this.tickDuration();
+	}
 }

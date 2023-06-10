@@ -16,80 +16,75 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
 import static Miyu.DefaultMod.makeCardPath;
 
-
 public class RabbitHole extends AbstractDynamicCard implements ICoverCard {
 
-    // TEXT DECLARATION
+	// TEXT DECLARATION
 
-    public static final String ID = DefaultMod.makeID(RabbitHole.class.getSimpleName());
-    public static final String IMG = makeCardPath("RabbitHole.png");
+	public static final String ID = DefaultMod.makeID(RabbitHole.class.getSimpleName());
+	public static final String IMG = makeCardPath("RabbitHole.png");
 
-    // /TEXT DECLARATION/
-    // STAT DECLARATION
-    private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
+	// /TEXT DECLARATION/
+	// STAT DECLARATION
+	private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
 
-    private static final CardRarity RARITY = CardRarity.UNCOMMON;
-    private static final CardTarget TARGET = CardTarget.SELF;
-    private static final CardType TYPE = CardType.SKILL;
-    public static final CardColor COLOR = TheDefault.Enums.COLOR_GRAY;
-    private static final int COST = -2;
-    private static final int COVER = 8;
-    private static final int UPGRADE_PLUS_COVER = 4;
-    private static final int MAGIC = 2;
-    private static final int UPGRADE_PLUS_MAGIC = 1;
-    // /STAT DECLARATION/
+	private static final CardRarity RARITY = CardRarity.UNCOMMON;
+	private static final CardTarget TARGET = CardTarget.SELF;
+	private static final CardType TYPE = CardType.SKILL;
+	public static final CardColor COLOR = TheDefault.Enums.COLOR_GRAY;
+	private static final int COST = -2;
+	private static final int COVER = 8;
+	private static final int UPGRADE_PLUS_COVER = 4;
+	private static final int MAGIC = 2;
+	private static final int UPGRADE_PLUS_MAGIC = 1;
+	// /STAT DECLARATION/
 
+	public RabbitHole() {
+		super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
+		this.baseMagicNumber = this.magicNumber = MAGIC;
+		this.baseCoverMagicNumber = this.coverMagicNumber = COVER;
+	}
+	public void triggerOnCovered(AbstractPlayer p) {
+		AbstractDungeon.actionManager.addToBottom(new RemoveSpecificPowerAction(p, p, "Miyu:Covered"));
+		AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p,
+				new Covered(p, p, this.baseCoverMagicNumber, this), this.baseCoverMagicNumber));
+		AbstractDungeon.actionManager.addToBottom(new DrawCardAction(magicNumber));
+		AbstractDungeon.actionManager.addToBottom(new PutOnDeckAction(p, p, 1, false));
+	}
 
-    public RabbitHole() {
-        super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
-        this.baseMagicNumber = this.magicNumber = MAGIC;
-        this.baseCoverMagicNumber = this.coverMagicNumber = COVER;
-    }
-    public void triggerOnCovered(AbstractPlayer p) {
-        AbstractDungeon.actionManager.addToBottom(new RemoveSpecificPowerAction(p, p, "Miyu:Covered"));
-        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p,
-            new Covered(p, p, this.baseCoverMagicNumber, this), this.baseCoverMagicNumber)
-        );
-        AbstractDungeon.actionManager.addToBottom(new DrawCardAction(magicNumber));
-        AbstractDungeon.actionManager.addToBottom(new PutOnDeckAction(p, p, 1, false));
-    }
+	public void triggerOnGlowCheck() {
+		Covered covered = (Covered) AbstractDungeon.player.getPower("Miyu:Covered");
 
-    public void triggerOnGlowCheck() {
-        Covered covered =
-                (Covered)AbstractDungeon.player.getPower("Miyu:Covered");
+		if (covered != null && covered.sourceCover == this) {
+			beginGlowing();
+			this.glowColor = AbstractCard.GOLD_BORDER_GLOW_COLOR.cpy();
+		} else {
+			this.glowColor = AbstractCard.BLUE_BORDER_GLOW_COLOR.cpy();
+		}
+	}
 
-        if (covered != null && covered.sourceCover == this) {
-            beginGlowing();
-            this.glowColor = AbstractCard.GOLD_BORDER_GLOW_COLOR.cpy();
-        } else {
-            this.glowColor = AbstractCard.BLUE_BORDER_GLOW_COLOR.cpy();
-        }
-    }
+	public boolean canUse(AbstractPlayer p, AbstractMonster m) {
+		return false;
+	}
 
-    public boolean canUse(AbstractPlayer p, AbstractMonster m) {
-        return false;
-    }
+	@Override
+	public void use(AbstractPlayer p, AbstractMonster m) {
 
+	}
 
-    @Override
-    public void use(AbstractPlayer p, AbstractMonster m) {
+	public AbstractCard makeCopy() {
+		return new RabbitHole();
+	}
 
-    }
-
-    public AbstractCard makeCopy() {
-        return new RabbitHole();
-    }
-
-    //Upgraded stats.
-    @Override
-    public void upgrade() {
-        if (!upgraded) {
-            upgradeName();
-            this.upgradeMagicNumber(UPGRADE_PLUS_MAGIC);
-            this.isCoverMagicNumberModified = true;
-            this.upgradeCoverMagicNumber(UPGRADE_PLUS_COVER);
-            this.isMagicNumberModified = true;
-            initializeDescription();
-        }
-    }
+	// Upgraded stats.
+	@Override
+	public void upgrade() {
+		if (!upgraded) {
+			upgradeName();
+			this.upgradeMagicNumber(UPGRADE_PLUS_MAGIC);
+			this.isCoverMagicNumberModified = true;
+			this.upgradeCoverMagicNumber(UPGRADE_PLUS_COVER);
+			this.isMagicNumberModified = true;
+			initializeDescription();
+		}
+	}
 }

@@ -19,48 +19,45 @@ import static Miyu.DefaultMod.makeCardPath;
 
 public class BunnyHop extends AbstractDynamicCard {
 
-    // TEXT DECLARATION
+	// TEXT DECLARATION
 
-    public static final String ID = DefaultMod.makeID(BunnyHop.class.getSimpleName());
-    public static final String IMG = makeCardPath("BunnyHop.png");
+	public static final String ID = DefaultMod.makeID(BunnyHop.class.getSimpleName());
+	public static final String IMG = makeCardPath("BunnyHop.png");
 
-    // /TEXT DECLARATION/
-    private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
-    public static final String UPGRADE_DESCRIPTION = cardStrings.UPGRADE_DESCRIPTION;
+	// /TEXT DECLARATION/
+	private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
+	public static final String UPGRADE_DESCRIPTION = cardStrings.UPGRADE_DESCRIPTION;
 
+	// STAT DECLARATION
 
-    // STAT DECLARATION
+	private static final CardRarity RARITY = CardRarity.UNCOMMON;
+	private static final CardTarget TARGET = CardTarget.SELF;
+	private static final CardType TYPE = CardType.SKILL;
+	public static final CardColor COLOR = TheDefault.Enums.COLOR_GRAY;
+	private static final int COST = -1;
+	private static final int BLOCK = 3;
+	private static final int UPGRADE_PLUS_BLOCK = 2;
 
-    private static final CardRarity RARITY = CardRarity.UNCOMMON;
-    private static final CardTarget TARGET = CardTarget.SELF;
-    private static final CardType TYPE = CardType.SKILL;
-    public static final CardColor COLOR = TheDefault.Enums.COLOR_GRAY;
-    private static final int COST = -1;
-    private static final int BLOCK = 3;
-    private static final int UPGRADE_PLUS_BLOCK = 2;
+	// /STAT DECLARATION/
 
-    // /STAT DECLARATION/
+	public BunnyHop() {
+		super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
+		baseBlock = BLOCK;
+	}
 
+	// Actions the card should do.
+	@Override
+	public void use(AbstractPlayer p, AbstractMonster m) {
+		this.addToBot(new BunnyHopAction(p, this.block, this.freeToPlayOnce, this.energyOnUse));
+	}
 
-    public BunnyHop() {
-        super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
-        baseBlock = BLOCK;
-    }
-
-    // Actions the card should do.
-    @Override
-    public void use(AbstractPlayer p, AbstractMonster m) {
-        this.addToBot(new BunnyHopAction(p, this.block, this.freeToPlayOnce, this.energyOnUse));
-    }
-
-
-    //Upgraded stats.
-    @Override
-    public void upgrade() {
-        if (!upgraded) {
-            upgradeName();
-            upgradeBlock(UPGRADE_PLUS_BLOCK);
-            initializeDescription();
-        }
-    }
+	// Upgraded stats.
+	@Override
+	public void upgrade() {
+		if (!upgraded) {
+			upgradeName();
+			upgradeBlock(UPGRADE_PLUS_BLOCK);
+			initializeDescription();
+		}
+	}
 }

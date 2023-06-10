@@ -71,7 +71,7 @@
   },
   "Miyu:CleanUpTrash": {
     "NAME": "쓰레기 청소",
-    "DESCRIPTION": " Miyu:쓰레기가 감소 NL 할 때마다 그만큼 NL Miyu:자존감 과 NL 활력 을 얻습니다. "
+    "DESCRIPTION": " Miyu:쓰레기가 감소 NL 할 때마다 그만큼 NL Miyu:자존감 과 NL Miyu:활력 을 얻습니다. "
   },
   "Miyu:Park": {
     "NAME": "공원",
@@ -84,8 +84,8 @@
   },
   "Miyu:SupplyCrate": {
     "NAME": "보급 상자",
-    "DESCRIPTION": " Miyu:엄폐물 !Miyu:C! . NL 소멸 시, 다음 턴에 [R] [R] . ",
-    "UPGRADE_DESCRIPTION": " Miyu:엄폐물 !Miyu:C! . NL 소멸 시, 다음 턴에 [R] [R] [R] . "
+    "DESCRIPTION": " Miyu:엄폐물 !Miyu:C! . NL 소멸 시, 다음 턴에 NL [R] [R] . NL 사용불가. ",
+    "UPGRADE_DESCRIPTION": " Miyu:엄폐물 !Miyu:C! . NL 소멸 시, 다음 턴에 NL [R] [R] [R] . NL 사용불가. "
 
   },
   "Miyu:PanicShot": {
@@ -165,7 +165,7 @@
   },
   "Miyu:NextTarget": {
     "NAME": "다음 타겟",
-    "DESCRIPTION": " 피해를 !D! 줍니다. NL 활력이 !M! 배 적용됩니다. NL 적이 죽었다면 Miyu:이동합니다. "
+    "DESCRIPTION": " 피해를 !D! 줍니다. NL Miyu:활력이 !M! 배 적용됩니다. NL 적이 죽었다면 Miyu:이동합니다. "
   },
   "Miyu:Sniping": {
     "NAME": "저격",
@@ -174,7 +174,7 @@
   },
   "Miyu:FlowerGarden": {
     "NAME": "화원",
-    "DESCRIPTION": " Miyu:엄폐물 !Miyu:C!. NL 활력을 !M! 얻습니다. NL 이 카드를 뽑을 때 NL 엄폐물이 2배가 됩니다. NL 보존. "
+    "DESCRIPTION": " Miyu:엄폐물 !Miyu:C!. NL Miyu:활력을 !M! 얻습니다. NL 이 카드를 뽑을 때 NL Miyu:엄폐물이 2배가 됩니다. NL 보존. "
   },
   "Miyu:DontForgetMe": {
     "NAME": "잊지 말아줘...",
@@ -190,7 +190,7 @@
   },
   "Miyu:RabbitBath": {
     "NAME": "토끼탕",
-    "DESCRIPTION": " 엄폐물 !Miyu:C!. NL 이동 시 체력을 !M! NL 회복하고 회복량이 NL 6 감소합니다. 보존. "
+    "DESCRIPTION": " Miyu:엄폐물 !Miyu:C!. NL 이동 시 체력을 !M! NL 회복하고 회복량이 NL 6 감소합니다. 보존. "
   },
   "Miyu:Hyauu": {
     "NAME": "햐우우...",
@@ -218,7 +218,7 @@
   },
   "Miyu:ContestedArea": {
     "NAME": "격전지",
-    "DESCRIPTION": " 엄폐물이 소멸할 때마다 NL 바위를 !M! 장 얻고 NL 손에 카드를 !M! 장 NL 더 가질 수 있습니다. "
+    "DESCRIPTION": " Miyu:엄폐물이 소멸할 때마다 NL 바위를 !M! 장 얻고 NL 손에 카드를 !M! 장 NL 더 가질 수 있습니다. "
   },
   "Miyu:Can": {
     "NAME": "캔 류",
@@ -246,16 +246,16 @@
   },
   "Miyu:RabbitHole": {
     "NAME": "래빗 홀",
-    "DESCRIPTION": " 엄폐물 !Miyu:C!. NL 이동 시 카드를 !M!장 뽑고 NL 카드 한 장을 뽑을 NL 카드 더미 맨 위로 올립니다. 사용불가. "
+    "DESCRIPTION": " Miyu:엄폐물 !Miyu:C!. NL Miyu:이동 시 카드를 !M!장 뽑고 NL 카드 한 장을 뽑을 NL 카드 더미 맨 위로 올립니다. 사용불가. "
   },
   "Miyu:FindingMiyu": {
     "NAME": "미유를 찾아라",
-    "DESCRIPTION": " 손에 있는 엄폐물마다 피해를 !D! 줍니다. NL ( !M! 회 줍니다. ) NL 선택한 적이 공격할 의도가 있다면, Miyu:이동합니다. "
+    "DESCRIPTION": " 손에 있는 Miyu:엄폐물마다 피해를 !D! 줍니다. NL ( !M! 회 줍니다. ) NL 선택한 적이 공격할 의도가 있다면, Miyu:이동합니다. "
   },
   "Miyu:MilitaryCamp": {
     "NAME": "밀리터리 캠프",
-    "DESCRIPTION": " 엄폐물 !Miyu:C!. NL [R] [R] [R] [R] . NL Miyu:이동 시, 이번 턴 동안 이 카드의 비용이 1 감소합니다. 보존. ",
-    "UPGRADE_DESCRIPTION": " 엄폐물 !Miyu:C!. NL [R] [R] [R] [R] [R] . NL Miyu:이동 시, 이번 턴 동안 이 카드의 비용이 1 감소합니다. 보존. "
+    "DESCRIPTION": " Miyu:엄폐물 !Miyu:C!. NL [R] [R] [R] [R] . NL Miyu:이동 시, 이번 턴 동안 이 카드의 비용이 1 감소합니다. 보존. ",
+    "UPGRADE_DESCRIPTION": " Miyu:엄폐물 !Miyu:C!. NL [R] [R] [R] [R] [R] . NL Miyu:이동 시, 이번 턴 동안 이 카드의 비용이 1 감소합니다. 보존. "
 
   },
   "Miyu:DefenseMechanism": {
@@ -265,10 +265,10 @@
   },
   "Miyu:WannaBeAlone": {
     "NAME": "혼자 있고싶어...",
-    "DESCRIPTION": " 엄폐물 !Miyu:C!. NL 이동 시 모든 엄폐물에 휘발성 부여. NL 사용불가. 보존. "
+    "DESCRIPTION": " Miyu:엄폐물 !Miyu:C!. NL Miyu:이동 시 다른 모든 Miyu:엄폐물에 휘발성 부여. NL 사용불가. 보존. "
   },
   "Miyu:FoundIt": {
     "NAME": "찾았다!",
-    "DESCRIPTION": " 카드를 !M! 장 뽑습니다. NL Miyu:엄폐중인 카드를 뽑았다면 Miyu:자존감과 Miyu:활력을 !Miyu:M2! 얻습니다. NL 카드 한 장을 뽑을 카드 더미 맨 위로 올립니다."
+    "DESCRIPTION": " 카드를 !M! 장 뽑습니다. NL 엄폐중인 카드를 뽑았다면 Miyu:자존감과 Miyu:활력을 !Miyu:M2! 얻습니다. NL 카드 한 장을 뽑을 카드 더미 맨 위로 올립니다."
   }
 }

@@ -22,91 +22,84 @@ by josh
 
 public class TrashBin extends AbstractDynamicCard implements ICoverCard {
 
+	// * Wiki-page: https://github.com/daviscook477/BaseMod/wiki/Custom-Cards
 
-//     * Wiki-page: https://github.com/daviscook477/BaseMod/wiki/Custom-Cards
+	// TEXT DECLARATION
 
-    // TEXT DECLARATION
+	public static final String ID = DefaultMod.makeID(TrashBin.class.getSimpleName());
+	public static final String IMG = makeCardPath("Trashbox.png");
 
-    public static final String ID = DefaultMod.makeID(TrashBin.class.getSimpleName());
-    public static final String IMG = makeCardPath("Trashbox.png");
+	// /TEXT DECLARATION/
+	private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
 
-    // /TEXT DECLARATION/
-    private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
+	// STAT DECLARATION
 
-    // STAT DECLARATION
+	private static final CardRarity RARITY = CardRarity.BASIC;
+	private static final CardTarget TARGET = CardTarget.SELF;
+	private static final CardType TYPE = CardType.SKILL;
+	public static final CardColor COLOR = TheDefault.Enums.COLOR_GRAY;
 
-    private static final CardRarity RARITY = CardRarity.BASIC;
-    private static final CardTarget TARGET = CardTarget.SELF;
-    private static final CardType TYPE = CardType.SKILL;
-    public static final CardColor COLOR = TheDefault.Enums.COLOR_GRAY;
+	private static final int COST = -2;
+	private static final int COVER = 4;
+	private static final int UPGRADE_PLUS_COVER = 3;
 
+	private static final int MAGIC = 3;
+	private static final int UPGRADE_PLUS_MAGIC = 2;
+	// /STAT DECLARATION/
 
+	public TrashBin() {
+		super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
+		this.baseMagicNumber = this.magicNumber = MAGIC;
+		this.baseCoverMagicNumber = this.coverMagicNumber = COVER;
+		selfRetain = true;
 
-    private static final int COST = -2;
-    private static final int COVER = 4;
-    private static final int UPGRADE_PLUS_COVER = 3;
+	}
+	public void triggerOnCovered(AbstractPlayer p) {
+		AbstractDungeon.actionManager.addToBottom(new RemoveSpecificPowerAction(p, p, "Miyu:Covered"));
+		AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p,
+				new Covered(p, p, this.baseCoverMagicNumber, this), this.baseCoverMagicNumber));
 
-    private static final int MAGIC = 3;
-    private static final int UPGRADE_PLUS_MAGIC = 2;
-    // /STAT DECLARATION/
+	}
 
+	public void triggerOnGlowCheck() {
+		Covered covered = (Covered) AbstractDungeon.player.getPower("Miyu:Covered");
 
-    public TrashBin() {
-        super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
-        this.baseMagicNumber = this.magicNumber = MAGIC;
-        this.baseCoverMagicNumber = this.coverMagicNumber = COVER;
-        selfRetain = true;
+		if (covered != null && covered.sourceCover == this) {
+			beginGlowing();
+			this.glowColor = AbstractCard.GOLD_BORDER_GLOW_COLOR.cpy();
+		} else {
+			this.glowColor = AbstractCard.BLUE_BORDER_GLOW_COLOR.cpy();
+		}
+	}
 
-    }
-    public void triggerOnCovered(AbstractPlayer p) {
-        AbstractDungeon.actionManager.addToBottom(new RemoveSpecificPowerAction(p, p, "Miyu:Covered"));
-        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p,
-            new Covered(p, p, this.baseCoverMagicNumber, this), this.baseCoverMagicNumber)
-        );
+	public boolean canUse(AbstractPlayer p, AbstractMonster m) {
+		return false;
+	}
 
-    }
+	// Actions the card should do.
+	@Override
+	public void use(AbstractPlayer p, AbstractMonster m) {
+	}
 
-    public void triggerOnGlowCheck() {
-        Covered covered =
-                (Covered)AbstractDungeon.player.getPower("Miyu:Covered");
+	public void triggerOnExhaust() {
+		AbstractPlayer p = AbstractDungeon.player;
+		this.addToBot(new ApplyPowerAction(p, p, new TrashPower(p, p, baseMagicNumber)));
+	}
 
-        if (covered != null && covered.sourceCover == this) {
-            beginGlowing();
-            this.glowColor = AbstractCard.GOLD_BORDER_GLOW_COLOR.cpy();
-        } else {
-            this.glowColor = AbstractCard.BLUE_BORDER_GLOW_COLOR.cpy();
-        }
-    }
+	public AbstractCard makeCopy() {
+		return new TrashBin();
+	}
 
-    public boolean canUse(AbstractPlayer p, AbstractMonster m) {
-        return false;
-    }
-
-//     Actions the card should do.
-    @Override
-    public void use(AbstractPlayer p, AbstractMonster m) {
-    }
-
-    public void triggerOnExhaust(){
-        AbstractPlayer p = AbstractDungeon.player;
-        this.addToBot(new ApplyPowerAction(p, p, new TrashPower(p, p, baseMagicNumber)));
-    }
-
-
-    public AbstractCard makeCopy() {
-        return new TrashBin();
-    }
-
-    //Upgraded stats.
-    @Override
-    public void upgrade() {
-        if (!upgraded) {
-            upgradeName();
-            this.upgradeMagicNumber(UPGRADE_PLUS_MAGIC);
-            this.isMagicNumberModified = true;
-            this.upgradeCoverMagicNumber(UPGRADE_PLUS_COVER);
-            this.isCoverMagicNumberModified = true;
-            initializeDescription();
-        }
-    }
+	// Upgraded stats.
+	@Override
+	public void upgrade() {
+		if (!upgraded) {
+			upgradeName();
+			this.upgradeMagicNumber(UPGRADE_PLUS_MAGIC);
+			this.isMagicNumberModified = true;
+			this.upgradeCoverMagicNumber(UPGRADE_PLUS_COVER);
+			this.isCoverMagicNumberModified = true;
+			initializeDescription();
+		}
+	}
 }

@@ -17,75 +17,74 @@ import static Miyu.DefaultMod.makeCardPath;
 
 public class FlowerGarden extends AbstractDynamicCard implements ICoverCard {
 
+	// TEXT DECLARATION
 
-    // TEXT DECLARATION
+	public static final String ID = DefaultMod.makeID(FlowerGarden.class.getSimpleName());
+	public static final String IMG = makeCardPath("FlowerGarden.png");
 
-    public static final String ID = DefaultMod.makeID(FlowerGarden.class.getSimpleName());
-    public static final String IMG = makeCardPath("FlowerGarden.png");
+	// /TEXT DECLARATION/
+	private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
 
-    // /TEXT DECLARATION/
-    private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
+	// STAT DECLARATION
 
-    // STAT DECLARATION
+	private static final CardRarity RARITY = CardRarity.UNCOMMON;
+	private static final CardTarget TARGET = CardTarget.SELF;
+	private static final CardType TYPE = CardType.SKILL;
+	public static final CardColor COLOR = TheDefault.Enums.COLOR_GRAY;
+	private static final int COST = 2;
+	private static final int MAGIC = 5;
+	private static final int UPGRADE_PLUS_MAGIC = 3;
+	private static final int COVER = 4;
+	private static final int UPGRADE_PLUS_COVER = 1;
 
-    private static final CardRarity RARITY = CardRarity.UNCOMMON;
-    private static final CardTarget TARGET = CardTarget.SELF;
-    private static final CardType TYPE = CardType.SKILL;
-    public static final CardColor COLOR = TheDefault.Enums.COLOR_GRAY;
-    private static final int COST = 2;
-    private static final int MAGIC = 5;
-    private static final int UPGRADE_PLUS_MAGIC = 3;
-    private static final int COVER = 4;
-    private static final int UPGRADE_PLUS_COVER = 1;
+	// /STAT DECLARATION/
 
-    // /STAT DECLARATION/
-    
-    public FlowerGarden() {
-        super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
-        this.baseCoverMagicNumber = this.coverMagicNumber = COVER;
-        this.baseMagicNumber = this.magicNumber = MAGIC;
-        selfRetain = true;
-    }
+	public FlowerGarden() {
+		super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
+		this.baseCoverMagicNumber = this.coverMagicNumber = COVER;
+		this.baseMagicNumber = this.magicNumber = MAGIC;
+		selfRetain = true;
+	}
 
-    public void triggerOnCovered(AbstractPlayer p) {
-        AbstractDungeon.actionManager.addToBottom(new RemoveSpecificPowerAction(p, p, "Miyu:Covered"));
-        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p,
-                new Covered(p, p, this.baseCoverMagicNumber, this), this.baseCoverMagicNumber)
-        );
+	public void triggerOnCovered(AbstractPlayer p) {
+		AbstractDungeon.actionManager.addToBottom(new RemoveSpecificPowerAction(p, p, "Miyu:Covered"));
+		AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p,
+				new Covered(p, p, this.baseCoverMagicNumber, this), this.baseCoverMagicNumber));
 
-    }
+	}
 
-    public void triggerOnGlowCheck() {
-        Covered covered =
-                (Covered)AbstractDungeon.player.getPower("Miyu:Covered");
+	public void triggerOnGlowCheck() {
+		Covered covered = (Covered) AbstractDungeon.player.getPower("Miyu:Covered");
 
-        if (covered != null && covered.sourceCover == this) {
-            beginGlowing();
-            this.glowColor = AbstractCard.GOLD_BORDER_GLOW_COLOR.cpy();
-        } else {
-            this.glowColor = AbstractCard.BLUE_BORDER_GLOW_COLOR.cpy();
-        }
-    }
+		if (covered != null && covered.sourceCover == this) {
+			beginGlowing();
+			this.glowColor = AbstractCard.GOLD_BORDER_GLOW_COLOR.cpy();
+		} else {
+			this.glowColor = AbstractCard.BLUE_BORDER_GLOW_COLOR.cpy();
+		}
+	}
 
-    public void triggerWhenDrawn() {
-        this.baseCoverMagicNumber *= 2;
-    }
+	public void triggerWhenDrawn() {
+		this.baseCoverMagicNumber *= 2;
+	}
 
-    @Override
-    public void use(AbstractPlayer p, AbstractMonster m) {
-        this.addToBot(new ApplyPowerAction(p, p, new VigorPower(p, this.magicNumber), this.magicNumber));
-    }
+	@Override
+	public void use(AbstractPlayer p, AbstractMonster m) {
+		this.addToBot(new ApplyPowerAction(p, p, new VigorPower(p, this.magicNumber), this.magicNumber));
+	}
 
-    public AbstractCard makeCopy() { return new FlowerGarden(); }
+	public AbstractCard makeCopy() {
+		return new FlowerGarden();
+	}
 
-    //Upgraded stats.
-    @Override
-    public void upgrade() {
-        if (!upgraded) {
-            upgradeName();
-            upgradeCoverMagicNumber(UPGRADE_PLUS_COVER);
-            upgradeMagicNumber(UPGRADE_PLUS_MAGIC);
-            initializeDescription();
-        }
-    }
+	// Upgraded stats.
+	@Override
+	public void upgrade() {
+		if (!upgraded) {
+			upgradeName();
+			upgradeCoverMagicNumber(UPGRADE_PLUS_COVER);
+			upgradeMagicNumber(UPGRADE_PLUS_MAGIC);
+			initializeDescription();
+		}
+	}
 }
