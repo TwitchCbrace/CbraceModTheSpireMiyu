@@ -124,4 +124,20 @@
             </resource>
         </resources>
     </build>
+    
+    <profiles>
+        <profile>
+            <id>devcontainer</id>
+            <activation>
+                <activeByDefault>false</activeByDefault>
+                <property>
+                    <name>env.REMOTE_CONTAINERS</name>
+                    <value>true</value>
+                 </property>
+            </activation>
+            <properties>
+                <Steam.path>/steamapps</Steam.path>
+            </properties>
+        </profile>
+  </profiles>
 </project>

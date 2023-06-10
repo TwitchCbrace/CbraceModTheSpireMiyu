@@ -1,0 +1,35 @@
+// For format details, see https://aka.ms/devcontainer.json. For config options, see the
+// README at: https://github.com/devcontainers/templates/tree/main/src/ubuntu
+{
+	"name": "Ubuntu",
+	"image": "mcr.microsoft.com/devcontainers/base:jammy",
+	// Uncomment to connect as root instead. More info: https://aka.ms/dev-containers-non-root.
+	"remoteUser": "root",
+	"features": {
+		"ghcr.io/devcontainers/features/java:1": {
+			"installMaven": true,
+			"version": "8",
+			"jdkDistro": "ms",
+			"gradleVersion": "latest",
+			"mavenVersion": "latest",
+			"antVersion": "latest"
+		}
+	},
+	"customizations": {
+		"vscode": {
+			"extensions": [
+				"vscjava.vscode-java-pack",
+				"dgileadi.java-decompiler"
+			]
+		}
+	},
+	"mounts": [
+		{
+			// Change the next line to match your Steam installation.
+			// If you're on Windows, you'll need to use double backslash (\\) as the path separator.
+			"source": "C:\\Program Files (x86)\\Steam\\steamapps",
+			"target": "/steamapps",
+			"type": "bind"
+		}
+	]
+}
