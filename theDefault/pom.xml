@@ -53,8 +53,7 @@
             <!--<systemPath>${basedir}/../lib/StSLib.jar</systemPath>-->
         </dependency>
     </dependencies>
-
-
+    
     <!-- This is how your code is packaged into the jar file-->
     <build>
         <finalName>${project.artifactId}</finalName>
@@ -68,6 +67,21 @@
                         <exclude>**/*.psd</exclude>
                     </excludes>
                 </configuration>
+            </plugin>
+            <plugin>
+                <groupId>net.revelc.code.formatter</groupId>
+                <artifactId>formatter-maven-plugin</artifactId>
+                <version>2.16.0</version>
+                <configuration>
+                    <configFile>${project.basedir}/formatter-config.xml</configFile>
+                </configuration>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>format</goal>
+                        </goals>
+                    </execution>
+                </executions>
             </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
