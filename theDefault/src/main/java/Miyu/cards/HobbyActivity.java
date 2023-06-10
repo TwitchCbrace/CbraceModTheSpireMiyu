@@ -43,9 +43,17 @@ public class HobbyActivity extends AbstractDynamicCard {
     public void use(AbstractPlayer p, AbstractMonster m) {
         Pebble pebble = (Pebble) AbstractDungeon.player.getPower(Pebble.POWER_ID);
 
-        Integer pebbleAmount = pebble != null ? pebble.amount : 0;
+        // 현재 취미 생활 파워를 가지고 있는지 확인
+        HobbyActivityPower hobbyActivity = (HobbyActivityPower) p.getPower(HobbyActivityPower.POWER_ID);
 
-        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new HobbyActivityPower(p, m, pebbleAmount), 1));
+        if (hobbyActivity != null) {
+            // 취미 생활 파워를 가지고 있으면 배수를 +1 해줌 (ex: 조약돌의 1배 -> 조약돌의 2배 -> 조약돌의 3배)
+            hobbyActivity.stackPower(1);
+            hobbyActivity.update(1);
+        } else {
+            // 취미 생활 파웍가 없으면 파워 적용
+            addToBot(new ApplyPowerAction(p, p, new HobbyActivityPower(p, m), 1));
+        }
     }
 
     public AbstractCard makeCopy() {
