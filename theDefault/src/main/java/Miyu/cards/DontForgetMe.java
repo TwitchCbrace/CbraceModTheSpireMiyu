@@ -48,7 +48,7 @@ public class DontForgetMe extends AbstractDynamicCard {
 
     public DontForgetMe() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
-        this.baseMagicNumber = MAGIC;
+        this.baseMagicNumber = this.magicNumber = MAGIC;
         exhaust = true;
 
     }
