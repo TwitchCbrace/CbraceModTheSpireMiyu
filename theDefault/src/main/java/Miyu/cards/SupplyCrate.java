@@ -3,6 +3,7 @@ package Miyu.cards;
 import Miyu.DefaultMod;
 import Miyu.characters.TheDefault;
 import Miyu.powers.Covered;
+import Miyu.powers.TrashPower;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
@@ -75,6 +76,11 @@ public class SupplyCrate extends AbstractDynamicCard implements ICoverCard {
 	public void triggerOnExhaust() {
 		AbstractPlayer p = AbstractDungeon.player;
 		this.addToBot(new ApplyPowerAction(p, p, new EnergizedPower(p, magicNumber), magicNumber));
+		if (this.upgraded) {
+			AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new TrashPower(p, p, 5)));
+		} else {
+			AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new TrashPower(p, p, 3)));
+		}
 	}
 
 	public AbstractCard makeCopy() {

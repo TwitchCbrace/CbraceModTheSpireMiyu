@@ -23,9 +23,9 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import Miyu.DefaultMod;
 import Miyu.cards.*;
-import Miyu.relics.DefaultClickableRelic;
-import Miyu.relics.PlaceholderRelic;
-import Miyu.relics.PlaceholderRelic2;
+//import Miyu.relics.DefaultClickableRelic;
+//import Miyu.relics.PlaceholderRelic;
+//import Miyu.relics.PlaceholderRelic2;
 
 import java.util.ArrayList;
 
@@ -65,7 +65,7 @@ public class TheDefault extends CustomPlayer {
 	public static final int STARTING_HP = 72;
 	public static final int MAX_HP = 72;
 	public static final int STARTING_GOLD = 99;
-	public static final int CARD_DRAW = 10;
+	public static final int CARD_DRAW = 5;
 	public static final int ORB_SLOTS = -2;
 
 	// =============== /BASE STATS/ =================
@@ -173,15 +173,15 @@ public class TheDefault extends CustomPlayer {
 	public ArrayList<String> getStartingRelics() {
 		ArrayList<String> retVal = new ArrayList<>();
 
-		retVal.add(PlaceholderRelic.ID);
-		retVal.add(PlaceholderRelic2.ID);
-		retVal.add(DefaultClickableRelic.ID);
+		// retVal.add(PlaceholderRelic.ID);
+		// retVal.add(PlaceholderRelic2.ID);
+		// retVal.add(DefaultClickableRelic.ID);
 
 		// Mark relics as seen - makes it visible in the compendium immediately
 		// If you don't have this it won't be visible in the compendium until you see them in game
-		UnlockTracker.markRelicAsSeen(PlaceholderRelic.ID);
-		UnlockTracker.markRelicAsSeen(PlaceholderRelic2.ID);
-		UnlockTracker.markRelicAsSeen(DefaultClickableRelic.ID);
+		// UnlockTracker.markRelicAsSeen(PlaceholderRelic.ID);
+		// UnlockTracker.markRelicAsSeen(PlaceholderRelic2.ID);
+		// UnlockTracker.markRelicAsSeen(DefaultClickableRelic.ID);
 
 		return retVal;
 	}

@@ -22,8 +22,6 @@ by josh
 
 public class TrashBin extends AbstractDynamicCard implements ICoverCard {
 
-	// * Wiki-page: https://github.com/daviscook477/BaseMod/wiki/Custom-Cards
-
 	// TEXT DECLARATION
 
 	public static final String ID = DefaultMod.makeID(TrashBin.class.getSimpleName());
@@ -40,8 +38,8 @@ public class TrashBin extends AbstractDynamicCard implements ICoverCard {
 	public static final CardColor COLOR = TheDefault.Enums.COLOR_GRAY;
 
 	private static final int COST = -2;
-	private static final int COVER = 4;
-	private static final int UPGRADE_PLUS_COVER = 3;
+	private static final int COVER = 6;
+	private static final int UPGRADE_PLUS_COVER = 6;
 
 	private static final int MAGIC = 3;
 	private static final int UPGRADE_PLUS_MAGIC = 2;
@@ -52,7 +50,6 @@ public class TrashBin extends AbstractDynamicCard implements ICoverCard {
 		this.baseMagicNumber = this.magicNumber = MAGIC;
 		this.baseCoverMagicNumber = this.coverMagicNumber = COVER;
 		selfRetain = true;
-
 	}
 	public void triggerOnCovered(AbstractPlayer p) {
 		AbstractDungeon.actionManager.addToBottom(new RemoveSpecificPowerAction(p, p, "Miyu:Covered"));

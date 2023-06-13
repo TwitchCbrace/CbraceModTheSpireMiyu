@@ -38,7 +38,7 @@
   },
   "Miyu:TrashBin": {
     "NAME": "쓰레기통",
-    "DESCRIPTION": "Miyu:엄폐물 !Miyu:C!. NL 소멸 시 Miyu:쓰레기 !M! NL 개를 얻습니다. NL 사용불가. NL 보존."
+    "DESCRIPTION": "Miyu:엄폐물 !Miyu:C!. NL 소멸 시 Miyu:쓰레기를 !M! NL 얻습니다. NL 사용불가. NL 보존."
   },
   "Miyu:Fortification": {
     "NAME": "요새화",
@@ -71,7 +71,7 @@
   },
   "Miyu:CleanUpTrash": {
     "NAME": "쓰레기 청소",
-    "DESCRIPTION": " Miyu:쓰레기가 감소 NL 할 때마다 그만큼 NL Miyu:자존감 과 NL Miyu:활력 을 얻습니다. "
+    "DESCRIPTION": " Miyu:쓰레기가 감소 NL 할 때마다 그만큼 NL Miyu:자존감 과 NL Miyu:활력을 얻습니다. "
   },
   "Miyu:Park": {
     "NAME": "공원",
@@ -84,8 +84,8 @@
   },
   "Miyu:SupplyCrate": {
     "NAME": "보급 상자",
-    "DESCRIPTION": " Miyu:엄폐물 !Miyu:C! . NL 소멸 시, 다음 턴에 NL [R] [R] . NL 사용불가. ",
-    "UPGRADE_DESCRIPTION": " Miyu:엄폐물 !Miyu:C! . NL 소멸 시, 다음 턴에 NL [R] [R] [R] . NL 사용불가. "
+    "DESCRIPTION": " Miyu:엄폐물 !Miyu:C! . NL 소멸 시 Miyu:쓰레기 3. NL 다음 턴에 NL [R] [R] . NL 사용불가. 보존. ",
+    "UPGRADE_DESCRIPTION": " Miyu:엄폐물 !Miyu:C! . NL 소멸 시 Miyu:쓰레기 5. NL 다음 턴에 NL [R] [R] [R] . NL 사용불가. 보존. "
 
   },
   "Miyu:PanicShot": {
@@ -116,7 +116,7 @@
   },
   "Miyu:IamHere": {
     "NAME": "여기에요!",
-    "DESCRIPTION": " 피해를 !D! 줍니다. NL Miyu:자존감이 3 감소합니다. NL 이 카드를 뽑을 때 NL Miyu:자존감이 음수라면 NL 버립니다. "
+    "DESCRIPTION": " 피해를 !D! 줍니다. NL Miyu:자존감이 5 감소합니다. NL 이 카드를 뽑을 때 NL Miyu:자존감이 음수라면 NL 버립니다. "
 
   },
   "Miyu:ConvenienceStore": {
@@ -141,8 +141,8 @@
   },
   "Miyu:Panic": {
     "NAME": "패닉",
-    "DESCRIPTION": " 카드를 1 장 뽑습니다. NL Miyu:이동합니다. NL Miyu:자존감을 2 잃습니다. NL 카드를 1 장 버립니다.",
-    "UPGRADE_DESCRIPTION": " 카드를 1 장 뽑습니다. NL Miyu:이동합니다. NL Miyu:자존감을 2 잃습니다. NL 카드를 1 장 버립니다. NL Miyu:이동합니다."
+    "DESCRIPTION": " 카드를 1 장 뽑습니다. NL Miyu:이동합니다. NL Miyu:자존감을 3 잃습니다. NL 카드를 1 장 버립니다.",
+    "UPGRADE_DESCRIPTION": " 카드를 1 장 뽑습니다. NL Miyu:이동합니다. NL Miyu:자존감을 3 잃습니다. NL 카드를 1 장 버립니다. NL Miyu:이동합니다."
 
   },
   "Miyu:BunnyHop": {
@@ -182,7 +182,8 @@
   },
   "Miyu:FindingTrashBin": {
     "NAME": "쓰레기통 찾기",
-    "DESCRIPTION": " Miyu:자존감을 2 잃습니다. NL 카드를 !M! 장 뽑습니다. NL Miyu:이동합니다. "
+    "DESCRIPTION": " 카드를 !M! 장 뽑습니다. NL Miyu:자존감을 3 잃습니다. NL Miyu:이동합니다. NL 쓰레기를 3 얻습니다. ",
+    "UPGRADE_DESCRIPTION": "  카드를 !M! 장 뽑습니다. NL Miyu:자존감을 3 잃습니다. NL Miyu:이동합니다. NL 쓰레기를 5 얻습니다.  "
   },
   "Miyu:PalePresence": {
     "NAME": "옅은 존재감",
@@ -190,7 +191,7 @@
   },
   "Miyu:RabbitBath": {
     "NAME": "토끼탕",
-    "DESCRIPTION": " Miyu:엄폐물 !Miyu:C!. NL 이동 시 체력을 !M! NL 회복하고 회복량이 NL 6 감소합니다. 보존. "
+    "DESCRIPTION": " Miyu:엄폐물 !Miyu:C!. NL 이동 시 체력을 6 회복합니다. NL (최대 !M! 만큼.) 보존. "
   },
   "Miyu:Hyauu": {
     "NAME": "햐우우...",
@@ -198,12 +199,12 @@
   },
   "Miyu:DoNotDisturb": {
     "NAME": "방해되지 않도록",
-    "DESCRIPTION": " [R] [R] 를 얻습니다. NL 자존감을 !M! 잃습니다. NL 소멸. ",
-    "UPGRADE_DESCRIPTION": " [R] [R] [R] 를 얻습니다. NL 자존감을 !M! 잃습니다. NL 소멸. "
+    "DESCRIPTION": " [R] [R] 를 얻습니다. NL Miyu:자존감을 !M! 잃습니다. NL 소멸. ",
+    "UPGRADE_DESCRIPTION": " [R] [R] [R] 를 얻습니다. NL Miyu:자존감을 !M! 잃습니다. NL 소멸. "
   },
   "Miyu:Moe": {
     "NAME": "RABBIT.03 모에",
-    "DESCRIPTION": " 3턴 후 턴 종료 시 NL 적 전체에게 NL 피해를 !M! 줍니다. NL ( 손에 있는 모든 카드의 NL 비용과 개수의 곱입니다.) "
+    "DESCRIPTION": " 3턴 후 턴 종료 시 NL 적 전체에게 NL 피해를 !M! 줍니다. NL (손에 있는 모든 카드의 NL 비용과 개수의 곱입니다.) "
   },
   "Miyu:Trigger": {
     "NAME": "트리거",

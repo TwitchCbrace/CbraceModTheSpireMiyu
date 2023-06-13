@@ -32,7 +32,7 @@ public class RunAndGun extends AbstractDynamicCard {
 
 	private static final int COST = 1;
 
-	private static final int DAMAGE = 4;
+	private static final int DAMAGE = 5;
 
 	private static final int UPGRADE_PLUS_DAMAGE = 2;
 

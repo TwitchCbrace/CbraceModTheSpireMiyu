@@ -46,16 +46,21 @@ public class Saki extends AbstractDynamicCard {
 	@Override
 	public void triggerWhenDrawn() {
 		int p = 0;
-		this.updateCost(this.cost);
 		p = AbstractDungeon.player.hand.size();
 		this.baseRangeMagicNumber = p + 1;
 		this.rangeMagicNumber = p + 1;
 		isRangeMagicNumberModified = true;
-		this.updateCost(-p - 1);
-		if (this.cost < 0) {
-			this.cost = 0;
-		}
 
+	}
+
+	public void applyPowers() {
+		if (this.cost <= baseRangeMagicNumber) {
+			costForTurn = 0;
+		} else {
+			costForTurn = this.cost - baseRangeMagicNumber;
+		}
+		isCostModifiedForTurn = true;
+		super.applyPowers();
 	}
 
 	@Override
