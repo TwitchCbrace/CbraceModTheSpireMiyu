@@ -77,14 +77,20 @@ public abstract class AbstractDefaultCard extends CustomCard {
 		rangeMagicNumber = baseRangeMagicNumber; // Set the number to be equal to the base value.
 		upgradedRangeMagicNumber = true; // Upgraded = true - which does what the above method does.
 	}
+
 	public void upgradeCoverMagicNumber(int amount) {
 		baseCoverMagicNumber += amount;
 		coverMagicNumber = baseCoverMagicNumber;
 		upgradedCoverMagicNumber = true;
 	}
+
 	public void upgradeSecondMagicNumber(int amount) {
 		baseSecondMagicNumber += amount;
 		secondMagicNumber = baseSecondMagicNumber;
 		upgradedSecondMagicNumber = true;
+	}
+
+	public int getCoverMagicNumber() {
+		return this.coverMagicNumber;
 	}
 }
