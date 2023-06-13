@@ -1,5 +1,7 @@
 package Miyu.cards;
 
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+
 import static com.megacrit.cardcrawl.core.CardCrawlGame.languagePack;
 
 public abstract class AbstractDynamicCard extends AbstractDefaultCard {
@@ -21,6 +23,21 @@ public abstract class AbstractDynamicCard extends AbstractDefaultCard {
 
 		super(id, languagePack.getCardStrings(id).NAME, img, cost, languagePack.getCardStrings(id).DESCRIPTION, type,
 				color, rarity, target);
+	}
 
+	@Override
+	public void triggerOnExhaust() {
+		AbstractDungeon.player.hand.group
+				.forEach((card) -> ((AbstractDynamicCard) card).triggerWhenOtherCardExhausted());
+		AbstractDungeon.player.discardPile.group
+				.forEach((card) -> ((AbstractDynamicCard) card).triggerWhenOtherCardExhausted());
+		AbstractDungeon.player.drawPile.group
+				.forEach((card) -> ((AbstractDynamicCard) card).triggerWhenOtherCardExhausted());
+		AbstractDungeon.player.exhaustPile.group
+				.forEach((card) -> ((AbstractDynamicCard) card).triggerWhenOtherCardExhausted());
+		super.triggerOnExhaust();
+	}
+
+	public void triggerWhenOtherCardExhausted() {
 	}
 }
