@@ -3,25 +3,29 @@ package Miyu.cards;
 import Miyu.DefaultMod;
 import Miyu.actions.CoverSelectAction;
 import Miyu.characters.TheDefault;
-import Miyu.powers.HandSizeUp;
 import Miyu.powers.SelfEsteem;
-import com.badlogic.gdx.scenes.scene2d.actions.MoveToAction;
+import Miyu.powers.TimidObservationPower;
+import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
+import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.actions.common.DiscardAction;
 import com.megacrit.cardcrawl.actions.common.DrawCardAction;
-import com.megacrit.cardcrawl.actions.common.GainBlockAction;
+import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import com.megacrit.cardcrawl.powers.watcher.BlockReturnPower;
 
 import static Miyu.DefaultMod.makeCardPath;
 
-public class Panic extends AbstractDynamicCard {
+public class TimidObservation extends AbstractDynamicCard {
 
-	public static final String ID = DefaultMod.makeID(Panic.class.getSimpleName());
-	public static final String IMG = makeCardPath("Panic.png");
+	// TEXT DECLARATION
+
+	public static final String ID = DefaultMod.makeID(TimidObservation.class.getSimpleName());
+	public static final String IMG = makeCardPath("TimidObservation.png");
 
 	// /TEXT DECLARATION/
 	private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
@@ -29,30 +33,27 @@ public class Panic extends AbstractDynamicCard {
 
 	// STAT DECLARATION
 
-	private static final CardRarity RARITY = CardRarity.COMMON;
-	private static final CardTarget TARGET = CardTarget.SELF;
+	private static final CardRarity RARITY = CardRarity.UNCOMMON;
+	private static final CardTarget TARGET = CardTarget.ENEMY;
 	private static final CardType TYPE = CardType.SKILL;
 	public static final CardColor COLOR = TheDefault.Enums.COLOR_GRAY;
-	private static final int COST = 0;
+	private static final int COST = 1;
+
+	private static final int MAGIC = 2;
+	private static final int UPGRADED_PLUS_MAGIC = 1;
 
 	// /STAT DECLARATION/
 
-	public Panic() {
+	public TimidObservation() {
 		super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
-
+		this.baseMagicNumber = this.magicNumber = MAGIC;
+		this.exhaust = true;
 	}
 
 	// Actions the card should do.
 	@Override
 	public void use(AbstractPlayer p, AbstractMonster m) {
-		AbstractDungeon.actionManager.addToBottom(new DrawCardAction(1));
-		AbstractDungeon.actionManager.addToBottom(new CoverSelectAction(p, 1));
-		AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new SelfEsteem(p, p, -3)));
-		AbstractDungeon.actionManager.addToBottom(new DiscardAction(p, p, 1, false));
-
-		if (upgraded) {
-			AbstractDungeon.actionManager.addToBottom(new CoverSelectAction(p, 1));
-		}
+		this.addToBot(new ApplyPowerAction(m, p, new TimidObservationPower(m, this.magicNumber), this.magicNumber));
 	}
 
 	// Upgraded stats.
@@ -60,7 +61,7 @@ public class Panic extends AbstractDynamicCard {
 	public void upgrade() {
 		if (!upgraded) {
 			upgradeName();
-			rawDescription = UPGRADE_DESCRIPTION;
+			upgradeMagicNumber(UPGRADED_PLUS_MAGIC);
 			initializeDescription();
 		}
 	}
