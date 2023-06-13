@@ -41,6 +41,7 @@ public class SecretArea extends AbstractDynamicCard {
 	public SecretArea() {
 		super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
 		this.baseBlock = BLOCK;
+		this.baseMagicNumber = MAGIC;
 	}
 
 	@Override
@@ -74,13 +75,14 @@ public class SecretArea extends AbstractDynamicCard {
 		ArrayList<AbstractCard> exhaustPile = p.exhaustPile.group;
 
 		// 소멸 덱에서 엄폐물이 제일 높은 카드를 찾는다.
-		AbstractDynamicCard c = (AbstractDynamicCard) exhaustPile.stream().filter((card) -> card instanceof ICoverCard)
+		AbstractCard c = exhaustPile.stream().filter((card) -> card instanceof ICoverCard)
 				.max(Comparator.comparingInt(card -> ((AbstractDynamicCard) card).getCoverMagicNumber())).orElse(null);
 
 		// 엄폐물이 존재하면 해당 카드로 이동
-		if (c != null && c.getCoverMagicNumber() > 0) {
-			addToBot(
-					new ApplyPowerAction(p, p, new Covered(p, p, c.getCoverMagicNumber(), c), c.getCoverMagicNumber()));
+		if (c != null && ((AbstractDynamicCard) c).getCoverMagicNumber() > 0) {
+			addToBot(new ApplyPowerAction(p, p,
+					new Covered(p, p, ((AbstractDynamicCard) c).getCoverMagicNumber(), ((AbstractDynamicCard) c)),
+					((AbstractDynamicCard) c).getCoverMagicNumber()));
 		}
 
 		// 방어도 얻음

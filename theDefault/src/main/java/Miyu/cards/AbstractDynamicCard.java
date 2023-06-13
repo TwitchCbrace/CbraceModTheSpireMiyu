@@ -27,13 +27,13 @@ public abstract class AbstractDynamicCard extends AbstractDefaultCard {
 
 	@Override
 	public void triggerOnExhaust() {
-		AbstractDungeon.player.hand.group
+		AbstractDungeon.player.hand.group.stream().filter((card) -> card instanceof AbstractDynamicCard)
 				.forEach((card) -> ((AbstractDynamicCard) card).triggerWhenOtherCardExhausted());
-		AbstractDungeon.player.discardPile.group
+		AbstractDungeon.player.discardPile.group.stream().filter((card) -> card instanceof AbstractDynamicCard)
 				.forEach((card) -> ((AbstractDynamicCard) card).triggerWhenOtherCardExhausted());
-		AbstractDungeon.player.drawPile.group
+		AbstractDungeon.player.drawPile.group.stream().filter((card) -> card instanceof AbstractDynamicCard)
 				.forEach((card) -> ((AbstractDynamicCard) card).triggerWhenOtherCardExhausted());
-		AbstractDungeon.player.exhaustPile.group
+		AbstractDungeon.player.exhaustPile.group.stream().filter((card) -> card instanceof AbstractDynamicCard)
 				.forEach((card) -> ((AbstractDynamicCard) card).triggerWhenOtherCardExhausted());
 		super.triggerOnExhaust();
 	}
