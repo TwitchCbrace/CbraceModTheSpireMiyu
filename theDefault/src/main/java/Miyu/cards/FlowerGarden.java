@@ -65,6 +65,10 @@ public class FlowerGarden extends AbstractDynamicCard implements ICoverCard {
 
 	public void triggerWhenDrawn() {
 		this.baseCoverMagicNumber *= 2;
+		if (this.baseCoverMagicNumber >= 999) {
+			this.baseCoverMagicNumber = 999;
+		}
+		this.coverMagicNumber = this.baseCoverMagicNumber;
 	}
 
 	@Override

@@ -68,6 +68,7 @@ public class CoverIncreaseAction extends AbstractGameAction {
 
 			AbstractDungeon.gridSelectScreen.open(cardsHasCover, amount, false, TEXT[0]);
 			tickDuration();
+			AbstractDungeon.gridSelectScreen.selectedCards.clear();
 		}
 
 		if (!AbstractDungeon.gridSelectScreen.selectedCards.isEmpty()) {
@@ -77,6 +78,7 @@ public class CoverIncreaseAction extends AbstractGameAction {
 					((AbstractDefaultCard) card).coverMagicNumber += increaseAmount;
 				}
 			}
+			AbstractDungeon.gridSelectScreen.selectedCards.clear();
 			isDone = true;
 		}
 

@@ -152,7 +152,8 @@
   },
   "Miyu:Urban_S": {
     "NAME": "시가전 S",
-    "DESCRIPTION": " 피해를 !D! 만큼 3 번 NL 줍니다. NL 손에 있는 Miyu:엄폐물 만큼 NL 비용이 감소합니다. "
+    "DESCRIPTION": " 피해를 !D! 만큼 3 번 NL 줍니다. 이 카드의 비용은 언제나 NL 4 - Miyu:엄폐물 카드 수 입니다. ",
+    "UPGRADE_DESCRIPTION": " 피해를 !D! 만큼 3 번 NL 줍니다. 이 카드의 비용은 언제나 NL 3 - Miyu:엄폐물 카드 수 입니다. "
 
   },
   "Miyu:Breakthrough": {
@@ -182,8 +183,8 @@
   },
   "Miyu:FindingTrashBin": {
     "NAME": "쓰레기통 찾기",
-    "DESCRIPTION": " 카드를 !M! 장 뽑습니다. NL Miyu:자존감을 3 잃습니다. NL Miyu:이동합니다. NL 쓰레기를 3 얻습니다. ",
-    "UPGRADE_DESCRIPTION": "  카드를 !M! 장 뽑습니다. NL Miyu:자존감을 3 잃습니다. NL Miyu:이동합니다. NL 쓰레기를 5 얻습니다.  "
+    "DESCRIPTION": " 카드를 !M! 장 뽑습니다. NL Miyu:자존감을 3 잃습니다. NL Miyu:이동합니다. NL Miyu:쓰레기를 3 얻습니다. ",
+    "UPGRADE_DESCRIPTION": "  카드를 !M! 장 뽑습니다. NL Miyu:자존감을 3 잃습니다. NL Miyu:이동합니다. NL Miyu:쓰레기를 5 얻습니다.  "
   },
   "Miyu:PalePresence": {
     "NAME": "옅은 존재감",

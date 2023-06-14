@@ -25,6 +25,7 @@ public class Urban_S extends AbstractDynamicCard {
 	// This does mean that you will need to have an image with the same NAME as the card in your image folder for it to
 	// run correctly.
 	private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
+	public static final String UPGRADE_DESCRIPTION = cardStrings.UPGRADE_DESCRIPTION;
 	// /TEXT DECLARATION/
 
 	// STAT DECLARATION
@@ -85,6 +86,7 @@ public class Urban_S extends AbstractDynamicCard {
 			upgradeName();
 			upgradeDamage(UPGRADE_PLUS_DMG);
 			upgradeBaseCost(UPGRADED_COST);
+			rawDescription = UPGRADE_DESCRIPTION;
 			initializeDescription();
 		}
 	}

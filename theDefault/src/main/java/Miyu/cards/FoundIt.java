@@ -43,7 +43,7 @@ public class FoundIt extends AbstractDynamicCard {
 	public FoundIt() {
 		super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
 		this.baseMagicNumber = DRAW;
-		this.baseSecondMagicNumber = MAGIC;
+		this.baseSecondMagicNumber = this.secondMagicNumber = MAGIC;
 		exhaust = true;
 	}
 

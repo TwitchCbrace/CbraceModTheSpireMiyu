@@ -34,9 +34,9 @@ public class UnexpectedAngle extends AbstractDynamicCard {
 	private static final CardType TYPE = CardType.POWER; //
 	public static final CardColor COLOR = TheDefault.Enums.COLOR_GRAY;
 
-	private static final int COST = 0;
-	private static final int MAGIC = 6;
-	private static final int UPGRADE_PLUS_MAGIC = 3;
+	private static final int COST = 2;
+	private static final int UPGRADE_COST = 1;
+	private static final int MAGIC = 20;
 
 	// /STAT DECLARATION/
 
@@ -60,7 +60,7 @@ public class UnexpectedAngle extends AbstractDynamicCard {
 	public void upgrade() {
 		if (!upgraded) {
 			upgradeName();
-			upgradeMagicNumber(UPGRADE_PLUS_MAGIC);
+			upgradeBaseCost(UPGRADE_COST);
 			isMagicNumberModified = true;
 			initializeDescription();
 		}
