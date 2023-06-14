@@ -45,7 +45,6 @@ public class FlowerGarden extends AbstractDynamicCard implements ICoverCard {
 		this.baseMagicNumber = this.magicNumber = MAGIC;
 		selfRetain = true;
 	}
-
 	public void triggerOnCovered(AbstractPlayer p) {
 		AbstractDungeon.actionManager.addToBottom(new RemoveSpecificPowerAction(p, p, "Miyu:Covered"));
 		AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p,

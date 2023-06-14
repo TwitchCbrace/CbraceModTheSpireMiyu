@@ -44,6 +44,7 @@ public class FoundIt extends AbstractDynamicCard {
 		super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
 		this.baseMagicNumber = DRAW;
 		this.baseSecondMagicNumber = MAGIC;
+		exhaust = true;
 	}
 
 	// Actions the card should do.
