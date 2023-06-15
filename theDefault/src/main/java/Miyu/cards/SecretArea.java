@@ -94,7 +94,7 @@ public class SecretArea extends AbstractDynamicCard {
 	public void upgrade() {
 		if (!upgraded) {
 			upgradeName();
-			upgradeBlock(UPGRADE_PLUS_MAGIC);
+			upgradeMagicNumber(UPGRADE_PLUS_MAGIC);
 			isMagicNumberModified = true;
 			initializeDescription();
 		}
