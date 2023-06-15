@@ -32,15 +32,14 @@ public class SecretArea extends AbstractDynamicCard {
 	public static final CardColor COLOR = TheDefault.Enums.COLOR_GRAY;
 
 	private static final int COST = 1;
-	private static final int BLOCK = 0;
-	private static final int UPGRADE_PLUS_BLOCK = 3;
 	private static final int MAGIC = 0;
+	private static final int UPGRADE_PLUS_MAGIC = 0;
+
 
 	// /STAT DECLARATION/
 
 	public SecretArea() {
 		super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
-		this.baseBlock = BLOCK;
 		this.baseMagicNumber = MAGIC;
 	}
 
@@ -63,7 +62,7 @@ public class SecretArea extends AbstractDynamicCard {
 	}
 
 	private void updateBlockAndDescription(int correction) {
-		this.magicNumber = AbstractDungeon.player.exhaustPile.size() + correction + this.baseBlock;
+		this.magicNumber = AbstractDungeon.player.exhaustPile.size() + correction + this.baseMagicNumber;
 		isMagicNumberModified = true;
 		initializeDescription();
 	}
@@ -83,6 +82,7 @@ public class SecretArea extends AbstractDynamicCard {
 			addToBot(new ApplyPowerAction(p, p,
 					new Covered(p, p, ((AbstractDynamicCard) c).getCoverMagicNumber(), ((AbstractDynamicCard) c)),
 					((AbstractDynamicCard) c).getCoverMagicNumber()));
+			((ICoverCard) c).triggerOnCovered(p);
 		}
 
 		// 방어도 얻음
@@ -94,8 +94,8 @@ public class SecretArea extends AbstractDynamicCard {
 	public void upgrade() {
 		if (!upgraded) {
 			upgradeName();
-			upgradeBlock(UPGRADE_PLUS_BLOCK);
-			isBlockModified = true;
+			upgradeMagicNumber(UPGRADE_PLUS_MAGIC);
+			isMagicNumberModified = true;
 			initializeDescription();
 		}
 	}
