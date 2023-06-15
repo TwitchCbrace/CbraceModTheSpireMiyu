@@ -62,7 +62,7 @@ public class SecretArea extends AbstractDynamicCard {
 	}
 
 	private void updateBlockAndDescription(int correction) {
-		this.magicNumber = AbstractDungeon.player.exhaustPile.size() + correction + this.baseBlock;
+		this.magicNumber = AbstractDungeon.player.exhaustPile.size() + correction + this.baseMagicNumber;
 		isMagicNumberModified = true;
 		initializeDescription();
 	}
