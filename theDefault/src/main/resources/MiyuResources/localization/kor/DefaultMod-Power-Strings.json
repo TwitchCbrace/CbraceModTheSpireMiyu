@@ -90,16 +90,16 @@
                 "NAME": "격전지",
                 "DESCRIPTIONS": [
                         "엄폐물이 소멸할 때마다 바위를 #b",
-                        " 장 얻고 손에 카드를 더 가질 수 있습니다. ",
-                        " 장 얻고 손에 카드를 더 가질 수 있습니다. "
+                        " 장 얻고 손에 카드를 더 가질 수 있습니다.",
+                        " 장 얻고 손에 카드를 더 가질 수 있습니다."
                 ]
         },
         "Miyu:CatCollarPower": {
                 "NAME": "고양이용 목줄",
                 "DESCRIPTIONS": [
                         "이동 할 때마다 활력을 #b",
-                        " 얻습니다. 자존감도 조금 얻습니다. ",
-                        " 얻습니다. 자존감도 조금 얻습니다. "
+                        " 얻고 자존감을 #b",
+                        " 얻습니다."
                 ]
         },
         "Miyu:HobbyActivityPower": {
@@ -155,6 +155,35 @@
                         "다음 #b",
                         " 회의 공격은 두 배의 피해를 줍니다.",
                         " 회의 공격은 두 배의 피해를 줍니다."
+                ]
+        },
+        "Miyu:ThingsForgettablePower": {
+                "NAME": "잊히는 것들",
+                "DESCRIPTIONS":  [
+                        "휘발성 카드를 사용할 때마다 방어도를 #b",
+                        " 얻습니다."
+                ]
+        },
+        "Miyu:InvisibleFormPower": {
+                "NAME": "투명인간",
+                "DESCRIPTIONS":  [
+                        "턴 시작 시 #b",
+                        " 장까지 랜덤한 카드의 비용을 0 으로 만들고 휘발성을 부여합니다. "
+                ]
+        },
+        "Miyu:ContinualEffortPower": {
+                "NAME": "부단한 노력",
+                "DESCRIPTIONS":  [
+                        "턴 시작 시 활력을 #b",
+                        " 얻습니다. 자존감이 -20 이하가 되면 도망갑니다. "
+                ]
+        },
+        "Miyu:GetNegativeDelusions": {
+                "NAME": "부정적인 망상",
+                "DESCRIPTIONS":  [
+                        "턴 시작 시 부정적인 망상을 #b",
+                        " 장 얻습니다. ",
+                        " 장 얻습니다. "
                 ]
         }
 }

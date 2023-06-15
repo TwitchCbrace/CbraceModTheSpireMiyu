@@ -21,7 +21,7 @@ import static Miyu.DefaultMod.makePowerPath;
 //Gain 1 dex for the turn for each card played.
 
 public class CatCollarPower extends AbstractPower implements CloneablePowerInterface {
-	private final int selfEsteemAmount;
+	public int selfEsteemAmount;
 	public AbstractCreature source;
 
 	public static final String POWER_ID = DefaultMod.makeID("CatCollarPower");
@@ -54,6 +54,13 @@ public class CatCollarPower extends AbstractPower implements CloneablePowerInter
 
 		updateDescription();
 	}
+	@Override
+	public void stackPower(int stackAmount) {
+		this.fontScale = 8.0F;
+		this.amount += stackAmount;
+		this.selfEsteemAmount += stackAmount - 1;
+		this.updateDescription();
+	}
 
 	public void onApplyPower(AbstractPower power, AbstractCreature target, AbstractCreature source) {
 		AbstractPower a = power;
@@ -77,11 +84,7 @@ public class CatCollarPower extends AbstractPower implements CloneablePowerInter
 
 	@Override
 	public void updateDescription() {
-		if (amount == 1) {
-			description = DESCRIPTIONS[0] + amount + DESCRIPTIONS[1];
-		} else if (amount > 1) {
-			description = DESCRIPTIONS[0] + amount + DESCRIPTIONS[2];
-		}
+		description = DESCRIPTIONS[0] + amount + DESCRIPTIONS[1] + selfEsteemAmount + DESCRIPTIONS[2];
 	}
 
 	@Override

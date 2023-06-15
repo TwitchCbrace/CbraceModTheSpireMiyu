@@ -34,8 +34,8 @@ public class DontComeClose extends AbstractDynamicCard {
 	public static final CardColor COLOR = TheDefault.Enums.COLOR_GRAY;
 
 	private static final int COST = 1;
-	private static final int DAMAGE = 4;
-	private static final int UPGRADE_PLUS_DMG = 2;
+	private static final int DAMAGE = 8;
+	private static final int UPGRADE_PLUS_DMG = 3;
 
 	private static final int MAGIC = 0;
 	private static final int RANGE = 0;

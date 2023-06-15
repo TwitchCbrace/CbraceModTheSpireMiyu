@@ -378,6 +378,10 @@ public class DefaultMod
 		BaseMod.addPower(SelfEsteem.class, SelfEsteem.POWER_ID);
 		BaseMod.addPower(TacticalReloadPower.class, TacticalReloadPower.POWER_ID);
 		BaseMod.addPower(HandSizeUp.class, HandSizeUp.POWER_ID);
+		BaseMod.addPower(CatCollarPower.class, CatCollarPower.POWER_ID);
+		BaseMod.addPower(ContinualEffortPower.class, ContinualEffortPower.POWER_ID);
+		BaseMod.addPower(DoubleDamage.class, DoubleDamage.POWER_ID);
+
 		// =============== /EVENTS/ =================
 		logger.info("Done loading badge Image and mod options");
 	}

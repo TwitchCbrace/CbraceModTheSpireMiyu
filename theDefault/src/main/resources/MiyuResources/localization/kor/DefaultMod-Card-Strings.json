@@ -316,5 +316,20 @@
   "Miyu:Ricochet": {
     "NAME": "도탄",
     "DESCRIPTION": " 무작위 적에게 피해를 !D! 줍니다. NL 모든 적이 맞을 때까지 반복합니다. "
+  },
+  "Miyu:ThingsForgettable": {
+    "NAME": "잊히는 것들",
+    "DESCRIPTION": " 휘발성 카드를 사용할 때마다 방어도를 !M! 얻습니다. "
+  },
+  "Miyu:InvisibleForm": {
+    "NAME": "투명인간의 형상",
+    "DESCRIPTION": " 턴 시작 시 랜덤한 카드에 휘발성을 부여하고 그 카드의 비용을 0으로 만듭니다. 휘발성. ",
+    "UPGRADE_DESCRIPTION": " 턴 시작 시 랜덤한 카드에 휘발성을 부여하고 그 카드의 비용을 0으로 만듭니다. "
+
+  },
+  "Miyu:ContinualEffort": {
+    "NAME": "부단한 노력",
+    "DESCRIPTION": " 턴 시작 시 Miyu:활력을 !M! 얻고 부정적인 망상을 얻습니다. Miyu:자존감이 -20 이하면 도망갑니다. "
+
   }
 }
