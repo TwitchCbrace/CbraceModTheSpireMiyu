@@ -35,7 +35,6 @@ public class SecretArea extends AbstractDynamicCard {
 	private static final int MAGIC = 0;
 	private static final int UPGRADE_PLUS_MAGIC = 0;
 
-
 	// /STAT DECLARATION/
 
 	public SecretArea() {
