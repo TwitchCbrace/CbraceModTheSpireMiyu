@@ -37,8 +37,8 @@ public class RabbitType39Rifle extends AbstractDynamicCard {
 	private static final CardType TYPE = CardType.ATTACK; //
 	public static final CardColor COLOR = TheDefault.Enums.COLOR_GRAY;
 
-	private static final int COST = 3; // COST = 2
-	private static final int DAMAGE = 39; // DAMAGE = 10
+	private static final int COST = 3;
+	private static final int DAMAGE = 39;
 	private static final int UPGRADE_PLUS_DAMAGE = 15;
 	private static final int MAGIC = 0;
 

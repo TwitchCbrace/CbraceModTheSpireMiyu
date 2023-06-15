@@ -91,17 +91,17 @@ public class Inevitably extends AbstractDynamicCard {
 		super.applyPowers();
 		this.baseDamage = realBaseDamage;
 	}
-	public void calculateCardDamage(AbstractMonster mo) {
-		int realBaseDamage = this.baseDamage;
-		this.baseDamage -= this.rangeMagicNumber;
-		super.calculateCardDamage(mo);
-		this.baseDamage = realBaseDamage;
-		this.isDamageModified = this.damage != this.baseDamage;
-	}
+	 public void calculateCardDamage(AbstractMonster mo) {
+	 int realBaseDamage = this.baseDamage;
+	 this.baseDamage -= this.rangeMagicNumber;
+	 super.calculateCardDamage(mo);
+	 this.baseDamage = realBaseDamage;
+	 this.isDamageModified = this.damage != this.baseDamage;
+	 }
 
 	@Override
 	public void use(AbstractPlayer p, AbstractMonster m) {
-		this.damage -= this.rangeMagicNumber;
+		 this.damage -= this.rangeMagicNumber;
 
 		if (rangeMagicNumber > 7) {
 			this.addToBot(new DrawCardAction(p, 1));
