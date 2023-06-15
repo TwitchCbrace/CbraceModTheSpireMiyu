@@ -312,6 +312,9 @@
   "Miyu:PleaseLookAtMe": {
     "NAME": "저를 봐주세요...",
     "DESCRIPTION": " 다음 턴에 사용하는 첫 공격 카드의 피해가 2배가 됩니다. 보존. "
+  },
+  "Miyu:Ricochet": {
+    "NAME": "도탄",
+    "DESCRIPTION": " 무작위 적에게 피해를 !D! 줍니다. NL 모든 적이 맞을 때까지 반복합니다. "
   }
-
 }
