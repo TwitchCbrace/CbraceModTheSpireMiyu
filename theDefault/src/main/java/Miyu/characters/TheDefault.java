@@ -1,5 +1,6 @@
 package Miyu.characters;
 
+import Miyu.relics.Thermos;
 import basemod.abstracts.CustomPlayer;
 import basemod.animations.SpineAnimation;
 import com.badlogic.gdx.graphics.Color;
@@ -149,12 +150,6 @@ public class TheDefault extends CustomPlayer {
 
 		logger.info("Begin loading starter Deck Strings");
 
-		/*
-		 * 테스트를 위해 초기 덱을 수정함.
-		 * 
-		 * by josh
-		 */
-
 		retVal.add(Strike.ID);
 		retVal.add(Strike.ID);
 		retVal.add(Strike.ID);
@@ -173,13 +168,13 @@ public class TheDefault extends CustomPlayer {
 	public ArrayList<String> getStartingRelics() {
 		ArrayList<String> retVal = new ArrayList<>();
 
-		// retVal.add(PlaceholderRelic.ID);
+		retVal.add(Thermos.ID);
 		// retVal.add(PlaceholderRelic2.ID);
 		// retVal.add(DefaultClickableRelic.ID);
 
 		// Mark relics as seen - makes it visible in the compendium immediately
 		// If you don't have this it won't be visible in the compendium until you see them in game
-		// UnlockTracker.markRelicAsSeen(PlaceholderRelic.ID);
+		UnlockTracker.markRelicAsSeen(Thermos.ID);
 		// UnlockTracker.markRelicAsSeen(PlaceholderRelic2.ID);
 		// UnlockTracker.markRelicAsSeen(DefaultClickableRelic.ID);
 

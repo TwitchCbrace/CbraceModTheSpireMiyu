@@ -1,7 +1,9 @@
 package Miyu;
 
 import Miyu.powers.*;
+import Miyu.relics.Thermos;
 import basemod.*;
+import basemod.abstracts.CustomRelic;
 import basemod.eventUtil.AddEventParams;
 import basemod.helpers.RelicType;
 import basemod.interfaces.*;
@@ -13,6 +15,7 @@ import com.evacipated.cardcrawl.mod.stslib.Keyword;
 import com.evacipated.cardcrawl.modthespire.lib.SpireConfig;
 import com.evacipated.cardcrawl.modthespire.lib.SpireInitializer;
 import com.google.gson.Gson;
+import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.TheCity;
 import com.megacrit.cardcrawl.helpers.CardHelper;
@@ -22,8 +25,6 @@ import com.megacrit.cardcrawl.unlock.UnlockTracker;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import Miyu.characters.TheDefault;
-import Miyu.events.IdentityCrisisEvent;
-import Miyu.potions.PlaceholderPotion;
 import Miyu.util.IDCheckDontTouchPls;
 import Miyu.util.TextureLoader;
 import Miyu.variables.MiyuSecondMagicNumber;
@@ -360,16 +361,17 @@ public class DefaultMod
 
 		// Create a new event builder
 		// Since this is a builder these method calls (outside of create()) can be skipped/added as necessary
-		AddEventParams eventParams = new AddEventParams.Builder(IdentityCrisisEvent.ID, IdentityCrisisEvent.class) // for
-																													// this
-																													// specific
-																													// event
-				.dungeonID(TheCity.ID) // The dungeon (act) this event will appear in
-				.playerClass(TheDefault.Enums.THE_DEFAULT) // Character specific event
-				.create();
+		// AddEventParams eventParams = new AddEventParams.Builder(IdentityCrisisEvent.ID, IdentityCrisisEvent.class) //
+		// for
+		// this
+		// specific
+		// event
+		// .dungeonID(TheCity.ID) // The dungeon (act) this event will appear in
+		// .playerClass(TheDefault.Enums.THE_DEFAULT) // Character specific event
+		// .create();
 
 		// Add the event
-		BaseMod.addEvent(eventParams);
+		// BaseMod.addEvent(eventParams);
 		BaseMod.addPower(TrashPower.class, TrashPower.POWER_ID);
 		BaseMod.addPower(CleanUpTrashPower.class, CleanUpTrashPower.POWER_ID);
 		BaseMod.addPower(CollapsePower.class, CollapsePower.POWER_ID);
@@ -396,8 +398,8 @@ public class DefaultMod
 		// Class Specific Potion. If you want your potion to not be class-specific,
 		// just remove the player class at the end (in this case the "TheDefaultEnum.THE_DEFAULT".
 		// Remember, you can press ctrl+P inside parentheses like addPotions)
-		BaseMod.addPotion(PlaceholderPotion.class, PLACEHOLDER_POTION_LIQUID, PLACEHOLDER_POTION_HYBRID,
-				PLACEHOLDER_POTION_SPOTS, PlaceholderPotion.POTION_ID, TheDefault.Enums.THE_DEFAULT);
+		// BaseMod.addPotion(PlaceholderPotion.class, PLACEHOLDER_POTION_LIQUID, PLACEHOLDER_POTION_HYBRID,
+		// PLACEHOLDER_POTION_SPOTS, PlaceholderPotion.POTION_ID, TheDefault.Enums.THE_DEFAULT);
 
 		logger.info("Done editing potions");
 	}
@@ -410,6 +412,18 @@ public class DefaultMod
 	public void receiveEditRelics() {
 		logger.info("Adding relics");
 
+		// This finds and adds all relics inheriting from CustomRelic that are in the same package
+		// as MyRelic, keeping all as unseen except those annotated with @AutoAdd.Seen
+		new AutoAdd("Miyu").packageFilter(Thermos.class).any(Thermos.class, (info, relic) -> {
+			if (relic.color == null) {
+				BaseMod.addRelic(relic, RelicType.SHARED);
+			} else {
+				BaseMod.addRelicToCustomPool(relic, relic.color);
+			}
+			if (!info.seen) {
+				UnlockTracker.markRelicAsSeen(relic.relicId);
+			}
+		});
 		// Take a look at https://github.com/daviscook477/BaseMod/wiki/AutoAdd
 		// as well as
 		// https://github.com/kiooeht/Bard/blob/e023c4089cc347c60331c78c6415f489d19b6eb9/src/main/java/com/evacipated/cardcrawl/mod/bard/BardMod.java#L319

@@ -307,7 +307,7 @@
   },
   "Miyu:WingIt": {
     "NAME": "임기응변",
-    "DESCRIPTION": " Miyu:엄폐물 !Miyu:C!. 이 카드에 이동했을 때만 사용 가능합니다. 피해를 !D! 줍니다. 휘발성. "
+    "DESCRIPTION": " Miyu:엄폐물 !Miyu:C!. NL 피해를 !D! 줍니다. NL 이 카드에 이동했을 때만 사용 가능합니다. 휘발성. "
   },
   "Miyu:PleaseLookAtMe": {
     "NAME": "저를 봐주세요...",
@@ -323,8 +323,8 @@
   },
   "Miyu:InvisibleForm": {
     "NAME": "투명인간의 형상",
-    "DESCRIPTION": " 턴 시작 시 랜덤한 카드에 휘발성을 부여하고 그 카드의 비용을 0으로 만듭니다. 휘발성. ",
-    "UPGRADE_DESCRIPTION": " 턴 시작 시 랜덤한 카드에 휘발성을 부여하고 그 카드의 비용을 0으로 만듭니다. "
+    "DESCRIPTION": " 턴 시작 시 무작위 카드에 휘발성을 부여하고 그 카드의 비용을 0으로 만듭니다. 휘발성. ",
+    "UPGRADE_DESCRIPTION": " 턴 시작 시 무작위 카드에 휘발성을 부여하고 그 카드의 비용을 0으로 만듭니다. "
 
   },
   "Miyu:ContinualEffort": {

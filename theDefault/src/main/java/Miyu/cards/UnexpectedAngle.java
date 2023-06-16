@@ -61,7 +61,6 @@ public class UnexpectedAngle extends AbstractDynamicCard {
 		if (!upgraded) {
 			upgradeName();
 			upgradeBaseCost(UPGRADE_COST);
-			isMagicNumberModified = true;
 			initializeDescription();
 		}
 	}
