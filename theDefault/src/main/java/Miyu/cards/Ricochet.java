@@ -40,7 +40,7 @@ public class Ricochet extends AbstractDynamicCard {
 
 	@Override
 	public void use(AbstractPlayer p, AbstractMonster m) {
-		this.addToBot(new RicochetAction(this, new DamageInfo(p, this.damage, this.damageTypeForTurn)));
+		this.addToBot(new RicochetAction(this));
 	}
 
 	public AbstractCard makeCopy() {
