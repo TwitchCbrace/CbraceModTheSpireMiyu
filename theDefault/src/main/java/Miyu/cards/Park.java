@@ -46,15 +46,11 @@ public class Park extends AbstractDynamicCard implements ICoverCard {
 		this.baseCoverMagicNumber = this.coverMagicNumber = COVER;
 		this.baseMagicNumber = this.magicNumber = MAGIC;
 		selfRetain = true;
-		this.cardsToPreview = new Rock();
 	}
 	public void triggerOnCovered(AbstractPlayer p) {
 		AbstractDungeon.actionManager.addToBottom(new RemoveSpecificPowerAction(p, p, "Miyu:Covered"));
 		AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p,
 				new Covered(p, p, this.baseCoverMagicNumber, this), this.baseCoverMagicNumber));
-		AbstractDungeon.actionManager
-				.addToBottom(new ApplyPowerAction(p, p, new TrashPower(p, p, magicNumber), magicNumber));
-		this.addToBot(new MakeTempCardInHandAction(new Rock(), 1));
 	}
 
 	public void triggerOnGlowCheck() {
