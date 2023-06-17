@@ -54,7 +54,7 @@ public class Saki extends AbstractDynamicCard {
 	}
 
 	public void applyPowers() {
-		if (this.cost <= baseRangeMagicNumber) {
+		if (this.cost <= baseRangeMagicNumber || this.costForTurn == 0) {
 			costForTurn = 0;
 		} else {
 			costForTurn = this.cost - baseRangeMagicNumber;

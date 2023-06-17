@@ -209,8 +209,8 @@
   },
   "Miyu:Trigger": {
     "NAME": "트리거",
-    "DESCRIPTION": " 자존감이 2배가 됩니다. NL 소멸. ",
-    "UPGRADE_DESCRIPTION": " 자존감이 2배가 됩니다. "
+    "DESCRIPTION": " Miyu:자존감이 2배가 됩니다. NL 소멸. ",
+    "UPGRADE_DESCRIPTION": " Miyu:자존감이 2배가 됩니다. "
 
   },
   "Miyu:RabbitType39Rifle": {
