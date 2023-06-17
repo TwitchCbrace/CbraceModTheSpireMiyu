@@ -12,6 +12,7 @@ import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import com.megacrit.cardcrawl.rooms.AbstractRoom;
 
 import static Miyu.DefaultMod.makeCardPath;
 
@@ -38,7 +39,7 @@ public class Urban_S extends AbstractDynamicCard {
 
 	private static final int DAMAGE = 5; // DAMAGE = 10
 	private static final int UPGRADE_PLUS_DMG = 2; // UPGRADE_PLUS_DMG = 4
-	
+
 	private int internalCoverCount = 0;
 
 	// /STAT DECLARATION/
@@ -48,7 +49,7 @@ public class Urban_S extends AbstractDynamicCard {
 		this.baseDamage = DAMAGE;
 
 	}
-	
+
 	@Override
 	public void triggerWhenDrawn() {
 		super.triggerWhenDrawn();
@@ -62,15 +63,12 @@ public class Urban_S extends AbstractDynamicCard {
 		internalCoverCount = coverCardCounter();
 	}
 	/*
-	매 순간마다 손에 있는 엄폐물 카드 수의 변화량을 비용에 더합니다
-	만약 이 카드가 손패에 들어왔을 때
-	손에 엄폐물이 2장이라면, 비용에 -2를 더합니다
-	그 상황에서 엄폐물이 1장 없어지면, 비용에 1을 더합니다
-	
-	updateCost(X): 비용에 X만큼 더합니다
-	internalCoverCount: UrbanS 카드들에게 내장시킨 카운터입니다. 처음엔 0입니다
-	coverCardCounter: 손에 있는 엄폐물 카드를 셉니다
-	*/
+	 * 매 순간마다 손에 있는 엄폐물 카드 수의 변화량을 비용에 더합니다 만약 이 카드가 손패에 들어왔을 때 손에 엄폐물이 2장이라면, 비용에 -2를 더합니다 그 상황에서 엄폐물이 1장 없어지면, 비용에 1을
+	 * 더합니다
+	 * 
+	 * updateCost(X): 비용에 X만큼 더합니다 internalCoverCount: UrbanS 카드들에게 내장시킨 카운터입니다. 처음엔 0입니다 coverCardCounter: 손에 있는 엄폐물
+	 * 카드를 셉니다
+	 */
 
 	@Override
 	public void use(AbstractPlayer p, AbstractMonster m) {
@@ -85,32 +83,34 @@ public class Urban_S extends AbstractDynamicCard {
 
 	@Override
 	public AbstractCard makeStatEquivalentCopy() {
-		UrbanS copyOfUrbanS = (UrbanS) super.makeStatEquivalentCopy();
-		if (AbstractDungeon.player != null && CardCrawlGame.dungeon != null && AbstractDungeon.currMapNode != null && AbstractDungeon.getCurrRoom().phase == AbstractRoom.RoomPhase.COMBAT) {
+		Urban_S copyOfUrbanS = (Urban_S) super.makeStatEquivalentCopy();
+		if (AbstractDungeon.player != null && CardCrawlGame.dungeon != null && AbstractDungeon.currMapNode != null
+				&& AbstractDungeon.getCurrRoom().phase == AbstractRoom.RoomPhase.COMBAT) {
 			copyOfUrbanS.internalCoverCount = internalCoverCount;
 		}
 		return copyOfUrbanS;
 	}
-	
+
 	@Override
 	public AbstractCard makeCopy() {
-		UrbanS copy = (UrbanS) super.makeCopy();
-		if (AbstractDungeon.player != null && CardCrawlGame.dungeon != null && AbstractDungeon.currMapNode != null && AbstractDungeon.getCurrRoom().phase == AbstractRoom.RoomPhase.COMBAT) {
+		Urban_S copy = (Urban_S) super.makeCopy();
+		if (AbstractDungeon.player != null && CardCrawlGame.dungeon != null && AbstractDungeon.currMapNode != null
+				&& AbstractDungeon.getCurrRoom().phase == AbstractRoom.RoomPhase.COMBAT) {
 			copy.applyPowers();
 		}
 		return copy;
 	}
-	
+
 	public int coverCardCounter() {
 		int coverCount = 0;
 		for (AbstractCard card : AbstractDungeon.player.hand.group) {
-			if (c instanceof ICoverCard) {
-				++count;
+			if (card instanceof ICoverCard) {
+				++coverCount;
 			}
 		}
 		return coverCount;
 	}
-	
+
 	public int thisIsRealUpgradeCost() {
 		int costDifference = UPGRADED_COST - COST;
 		int upgradedCost = cost + costDifference;

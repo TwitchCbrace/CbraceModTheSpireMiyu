@@ -75,7 +75,7 @@
   },
   "Miyu:Park": {
     "NAME": "공원",
-    "DESCRIPTION": " Miyu:엄폐물 !Miyu:C! . NL 이 카드를 뽑을 때 NL 공원을 2장 생성합니다. NL 이동 시 Miyu:쓰레기 와 바위 NL 를 얻습니다. 보존. 사용불가. "
+    "DESCRIPTION": " Miyu:엄폐물 !Miyu:C! . NL 이 카드를 뽑을 때 NL 공원을 2장 생성합니다. 보존. 사용불가. "
   },
   "Miyu:LeafPile": {
     "NAME": "낙엽 더미",
@@ -208,8 +208,8 @@
   },
   "Miyu:Trigger": {
     "NAME": "트리거",
-    "DESCRIPTION": " 자존감이 2배가 됩니다. NL 소멸. ",
-    "UPGRADE_DESCRIPTION": " 자존감이 2배가 됩니다. "
+    "DESCRIPTION": " Miyu:자존감이 2배가 됩니다. NL 소멸. ",
+    "UPGRADE_DESCRIPTION": " Miyu:자존감이 2배가 됩니다. "
 
   },
   "Miyu:RabbitType39Rifle": {
