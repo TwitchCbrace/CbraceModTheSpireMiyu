@@ -59,8 +59,9 @@ public class Urban_S extends AbstractDynamicCard {
 	@Override
 	public void onMoveToDiscard() {
 		super.onMoveToDiscard();
+		updateCost(internalCoverCount);
+		isCostModified = false;
 		internalCoverCount = 0;
-		applyPowers();
 	}
 
 	@Override
