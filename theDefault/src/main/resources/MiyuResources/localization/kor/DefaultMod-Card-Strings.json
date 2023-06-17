@@ -152,9 +152,8 @@
   },
   "Miyu:Urban_S": {
     "NAME": "시가전 S",
-    "DESCRIPTION": " 피해를 !D! 만큼 3 번 NL 줍니다. 이 카드의 비용은 언제나 NL 4 - Miyu:엄폐물 카드 수 입니다. ",
-    "UPGRADE_DESCRIPTION": " 피해를 !D! 만큼 3 번 NL 줍니다. 이 카드의 비용은 언제나 NL 3 - Miyu:엄폐물 카드 수 입니다. "
-
+    "DESCRIPTION": "피해를 !D! 만큼 3 번 줍니다. NL 이 카드의 비용은 손에 있는 Miyu:엄폐물 카드 수만큼 감소합니다.",
+    "UPGRADE_DESCRIPTION": "피해를 !D! 만큼 3 번 줍니다. NL 이 카드의 비용은 손에 있는 Miyu:엄폐물 카드 수만큼 감소합니다."
   },
   "Miyu:Breakthrough": {
     "NAME": "돌파",
