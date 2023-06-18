@@ -24,8 +24,8 @@ public class TacticalReloadPower extends AbstractPower implements CloneablePower
 	public static final String NAME = powerStrings.NAME;
 	public static final String[] DESCRIPTIONS = powerStrings.DESCRIPTIONS;
 
-	private static final Texture tex84 = TextureLoader.getTexture(makePowerPath("TrashPower84.png"));
-	private static final Texture tex32 = TextureLoader.getTexture(makePowerPath("TrashPower32.png"));
+	private static final Texture tex84 = TextureLoader.getTexture(makePowerPath("TacticalReloadPower84.png"));
+	private static final Texture tex32 = TextureLoader.getTexture(makePowerPath("TacticalReloadPower32.png"));
 
 	public TacticalReloadPower(final AbstractCreature owner, final AbstractCreature source, final int amount) {
 		name = NAME;

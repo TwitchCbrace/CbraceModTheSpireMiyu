@@ -22,7 +22,7 @@ public class WannaBeAlone extends AbstractDynamicCard implements ICoverCard {
 	// TEXT DECLARATION
 
 	public static final String ID = DefaultMod.makeID(WannaBeAlone.class.getSimpleName());
-	public static final String IMG = makeCardPath("Dummy.png");
+	public static final String IMG = makeCardPath("WannaBeAlone.png");
 
 	// /TEXT DECLARATION/
 	private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);

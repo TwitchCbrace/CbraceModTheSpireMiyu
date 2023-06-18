@@ -55,7 +55,7 @@ public class Urban_S extends AbstractDynamicCard {
 		super.triggerWhenDrawn();
 		applyPowers();
 	}
-	
+
 	@Override
 	public void onMoveToDiscard() {
 		super.onMoveToDiscard();

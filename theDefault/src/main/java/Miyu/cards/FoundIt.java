@@ -18,7 +18,7 @@ public class FoundIt extends AbstractDynamicCard {
 	// TEXT DECLARATION
 
 	public static final String ID = DefaultMod.makeID(FoundIt.class.getSimpleName());
-	public static final String IMG = makeCardPath("Dummy.png");
+	public static final String IMG = makeCardPath("FoundIt.png");
 
 	// /TEXT DECLARATION/
 	private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);

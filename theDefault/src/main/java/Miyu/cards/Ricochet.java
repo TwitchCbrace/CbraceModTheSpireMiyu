@@ -15,7 +15,7 @@ import static Miyu.DefaultMod.makeCardPath;
 public class Ricochet extends AbstractDynamicCard {
 
 	public static final String ID = DefaultMod.makeID(Ricochet.class.getSimpleName());
-	public static final String IMG = makeCardPath("Dummy.png");
+	public static final String IMG = makeCardPath("Ricochet.png");
 
 	private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
 	public static final String UPGRADE_DESCRIPTION = cardStrings.UPGRADE_DESCRIPTION;

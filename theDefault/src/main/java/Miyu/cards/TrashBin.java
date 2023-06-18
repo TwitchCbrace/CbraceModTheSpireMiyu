@@ -38,7 +38,7 @@ public class TrashBin extends AbstractDynamicCard implements ICoverCard {
 	public static final CardColor COLOR = TheDefault.Enums.COLOR_GRAY;
 
 	private static final int COST = -2;
-	private static final int COVER = 6;
+	private static final int COVER = 8;
 	private static final int UPGRADE_PLUS_COVER = 6;
 
 	private static final int MAGIC = 3;
