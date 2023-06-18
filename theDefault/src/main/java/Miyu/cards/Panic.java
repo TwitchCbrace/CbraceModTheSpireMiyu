@@ -39,7 +39,8 @@ public class Panic extends AbstractDynamicCard {
 
 	public Panic() {
 		super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
-
+		this.exhaust = true;
+		this.isEthereal = true;
 	}
 
 	// Actions the card should do.

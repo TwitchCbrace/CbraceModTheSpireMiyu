@@ -4,6 +4,7 @@ import Miyu.DefaultMod;
 import Miyu.characters.TheDefault;
 import Miyu.powers.TrashPower;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
+import com.megacrit.cardcrawl.actions.common.ReducePowerAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -41,6 +42,7 @@ public class Can extends AbstractDynamicCard {
 		if (trashPower != null && trashPower.amount > 0) {
 			AbstractDungeon.actionManager
 					.addToTop(new ApplyPowerAction(p, p, new PlatedArmorPower(p, trashPower.amount)));
+			AbstractDungeon.actionManager.addToBottom(new ReducePowerAction(p, p, trashPower, trashPower.amount));
 		}
 	}
 

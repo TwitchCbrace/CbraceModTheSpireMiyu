@@ -35,7 +35,7 @@ public class ContinualEffort extends AbstractDynamicCard {
 
 	private static final int COST = 1;
 	private static final int MAGIC = 6;
-	private static final int UPGRADE_PLUS_MAGIC = 2;
+	private static final int UPGRADE_PLUS_MAGIC = 4;
 
 	public ContinualEffort() {
 		super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);

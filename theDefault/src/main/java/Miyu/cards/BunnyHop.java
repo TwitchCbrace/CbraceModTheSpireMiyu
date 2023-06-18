@@ -35,7 +35,7 @@ public class BunnyHop extends AbstractDynamicCard {
 	private static final CardType TYPE = CardType.SKILL;
 	public static final CardColor COLOR = TheDefault.Enums.COLOR_GRAY;
 	private static final int COST = -1;
-	private static final int BLOCK = 3;
+	private static final int BLOCK = 5;
 	private static final int UPGRADE_PLUS_BLOCK = 2;
 
 	// /STAT DECLARATION/

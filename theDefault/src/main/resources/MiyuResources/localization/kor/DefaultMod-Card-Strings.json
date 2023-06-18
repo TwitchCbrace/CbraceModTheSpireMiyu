@@ -90,7 +90,7 @@
   },
   "Miyu:PanicShot": {
     "NAME": "패닉 샷",
-    "DESCRIPTION": " Miyu:거리만큼 피해를 !D! 줍니다. NL 이 카드와 복사본을 NL 뽑을 카드 더미 NL 맨 위에 놓습니다. NL Miyu:거리 !Miyu:R!. "
+    "DESCRIPTION": " 피해를 !D! 줍니다. Miyu:거리만큼 피해량이 증가합니다. 뽑을 카드 더미 맨 위로 올리고 복사합니다.  NL Miyu:거리 !Miyu:R!. "
 
   },
   "Miyu:BackTracking": {
@@ -141,8 +141,8 @@
   },
   "Miyu:Panic": {
     "NAME": "패닉",
-    "DESCRIPTION": " 카드를 1 장 뽑습니다. NL Miyu:이동합니다. NL Miyu:자존감을 3 잃습니다. NL 카드를 1 장 버립니다.",
-    "UPGRADE_DESCRIPTION": " 카드를 1 장 뽑습니다. NL Miyu:이동합니다. NL Miyu:자존감을 3 잃습니다. NL 카드를 1 장 버립니다. NL Miyu:이동합니다."
+    "DESCRIPTION": " 카드를 1 장 뽑습니다. NL Miyu:이동합니다. NL Miyu:자존감을 3 잃습니다. NL 카드를 1 장 버립니다. 휘발성. 소멸.",
+    "UPGRADE_DESCRIPTION": " 카드를 1 장 뽑습니다. NL Miyu:이동합니다. NL Miyu:자존감을 3 잃습니다. NL 카드를 1 장 버립니다. NL Miyu:이동합니다. 휘발성. 소멸."
 
   },
   "Miyu:BunnyHop": {
@@ -223,7 +223,7 @@
   },
   "Miyu:Can": {
     "NAME": "캔 류",
-    "DESCRIPTION": " 현재 보유한 Miyu:쓰레기만큼 NL 판금 갑옷을 얻습니다. NL 소멸. "
+    "DESCRIPTION": " 현재 보유한 Miyu:쓰레기를 모두 잃고 NL 그 만큼 판금 갑옷을 얻습니다. 소멸. "
   },
   "Miyu:CatCollar": {
     "NAME": "고양이용 목줄",

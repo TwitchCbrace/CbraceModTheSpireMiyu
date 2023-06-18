@@ -36,15 +36,14 @@ public class PanicShot extends AbstractDynamicCard {
 	private static final int COST = 1; // COST = 2
 	private static final int UPGRADED_COST = 0; // UPGRADED_COST = 2
 
-	private static final int DAMAGE = 0; // DAMAGE = 10
-	private static final int UPGRADE_PLUS_DMG = 0; // UPGRADE_PLUS_DMG = 4
+	private static final int DAMAGE = 7; // DAMAGE = 10
 	private static final int RANGE = 0;
 
 	// /STAT DECLARATION/
 
 	public PanicShot() {
 		super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
-		this.baseDamage = DAMAGE;
+		this.baseDamage = this.damage = DAMAGE;
 		this.baseRangeMagicNumber = rangeMagicNumber = RANGE;
 		this.shuffleBackIntoDrawPile = true;
 
@@ -57,16 +56,26 @@ public class PanicShot extends AbstractDynamicCard {
 		this.baseRangeMagicNumber = p + 1;
 		this.rangeMagicNumber = p + 1;
 		isRangeMagicNumberModified = true;
-		this.baseDamage = rangeMagicNumber;
 	}
 	public void applyPowers() {
+		int realBaseDamage = this.baseDamage;
+		this.baseDamage += this.rangeMagicNumber;
+		this.isDamageModified = true;
 		super.applyPowers();
+		this.baseDamage = realBaseDamage;
+	}
+	public void calculateCardDamage(AbstractMonster mo) {
+		int realBaseDamage = this.baseDamage;
+		this.baseDamage += this.rangeMagicNumber;
+		super.calculateCardDamage(mo);
+		this.baseDamage = realBaseDamage;
+		this.isDamageModified = this.damage != this.baseDamage;
 	}
 
 	@Override
 	public void use(AbstractPlayer p, AbstractMonster m) {
 		this.calculateCardDamage(m);
-
+		// this.damage += this.rangeMagicNumber;
 		AbstractDungeon.actionManager.addToBottom(new DamageAction(m, new DamageInfo(p, this.damage, damageTypeForTurn),
 				AbstractGameAction.AttackEffect.SMASH, true));
 		this.addToBot(new MakeTempCardInDrawPileAction(this.makeStatEquivalentCopy(), 1, false, false));
@@ -82,7 +91,6 @@ public class PanicShot extends AbstractDynamicCard {
 	public void upgrade() {
 		if (!upgraded) {
 			upgradeName();
-			upgradeDamage(UPGRADE_PLUS_DMG);
 			upgradeBaseCost(UPGRADED_COST);
 			initializeDescription();
 		}

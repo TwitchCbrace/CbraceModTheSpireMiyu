@@ -33,7 +33,7 @@ public class AppropriateDistance extends AbstractDynamicCard {
 	private static final CardType TYPE = CardType.SKILL;
 	public static final CardColor COLOR = TheDefault.Enums.COLOR_GRAY;
 	private static final int COST = 0;
-	private static final int BLOCK = 5;
+	private static final int BLOCK = 8;
 
 	private static final int MAGIC = -7;
 	private static final int UPGRADE_PLUS_BLOCK = 3;
