@@ -41,12 +41,15 @@ public class Urban_S extends AbstractDynamicCard {
 	private static final int UPGRADE_PLUS_DMG = 2; // UPGRADE_PLUS_DMG = 4
 
 	private int internalCoverCount = 0;
+	private int internalCost;
+	private int internalBaseCost;
 
 	// /STAT DECLARATION/
 
 	public Urban_S() {
 		super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
 		this.baseDamage = DAMAGE;
+		internalBaseCost = internalCost = cost;
 
 	}
 
@@ -60,15 +63,20 @@ public class Urban_S extends AbstractDynamicCard {
 	public void onMoveToDiscard() {
 		super.onMoveToDiscard();
 		updateCost(internalCoverCount);
-		isCostModified = false;
+		isCostModified = costForTurn != internalBaseCost;
 		internalCoverCount = 0;
 	}
 
 	@Override
 	public void applyPowers() {
 		super.applyPowers();
-		updateCost(internalCoverCount - coverCardCounter());
+		int countDiff = internalCoverCount - coverCardCounter();
 		internalCoverCount = coverCardCounter();
+		internalCost += countDiff;
+		if (countDiff < 0 || (countDiff > 0 && internalCost > 0 && internalCost <= internalBaseCost)) {
+			updateCost(countDiff);
+			internalCoverCount = coverCardCounter();
+		}
 	}
 	/*
 	 * 매 순간마다 손에 있는 엄폐물 카드 수의 변화량을 비용에 더합니다 만약 이 카드가 손패에 들어왔을 때 손에 엄폐물이 2장이라면, 비용에 -2를 더합니다 그 상황에서 엄폐물이 1장 없어지면, 비용에 1을
@@ -95,6 +103,8 @@ public class Urban_S extends AbstractDynamicCard {
 		if (AbstractDungeon.player != null && CardCrawlGame.dungeon != null && AbstractDungeon.currMapNode != null
 				&& AbstractDungeon.getCurrRoom().phase == AbstractRoom.RoomPhase.COMBAT) {
 			copyOfUrbanS.internalCoverCount = internalCoverCount;
+			copyOfUrbanS.internalCost = internalCost;
+			copyOfUrbanS.internalBaseCost = internalBaseCost;
 		}
 		return copyOfUrbanS;
 	}
@@ -135,6 +145,8 @@ public class Urban_S extends AbstractDynamicCard {
 			upgradeName();
 			upgradeDamage(UPGRADE_PLUS_DMG);
 			upgradeBaseCost(thisIsRealUpgradeCost());
+			internalBaseCost += UPGRADED_COST - COST;
+			internalCost += UPGRADED_COST - COST;
 			rawDescription = UPGRADE_DESCRIPTION;
 			initializeDescription();
 		}
