@@ -184,7 +184,7 @@ public class TheDefault extends CustomPlayer {
 	// character Select screen effect
 	@Override
 	public void doCharSelectScreenSelectEffect() {
-		CardCrawlGame.sound.playA("ATTACK_DAGGER_1", 1.25f); // Sound Effect
+		CardCrawlGame.sound.playAV(makeID("MIYU_A"), 0.0f, 1.0f); // Sound Effect playAV(재생할 사운드의 키, 피치 가감 조절, 볼륨 조절)
 		CardCrawlGame.screenShake.shake(ScreenShake.ShakeIntensity.LOW, ScreenShake.ShakeDur.SHORT, false); // Screen
 																											// Effect
 	}
