@@ -60,7 +60,7 @@ public class RicochetAction extends AbstractGameAction {
 
 			// 때림
 			this.card.calculateCardDamage((AbstractMonster) this.target);
-			this.addToTop(new DamageAction(this.target,
+			this.addToBot(new DamageAction(this.target,
 					new DamageInfo(AbstractDungeon.player, this.card.damage, this.card.damageTypeForTurn)));
 			if (this.target != null && this.target.hb != null) {
 				this.addToBot(new VFXAction(new ThrowDaggerEffect(this.target.hb.cX, this.target.hb.cY)));
