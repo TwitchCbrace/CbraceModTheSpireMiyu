@@ -14,8 +14,10 @@ import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.vfx.combat.ThrowDaggerEffect;
+import com.sun.tools.javac.main.Option;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.concurrent.ThreadLocalRandom;
 
 public class RicochetAction extends AbstractGameAction {
@@ -27,36 +29,34 @@ public class RicochetAction extends AbstractGameAction {
 	}
 
 	public void update() {
-		// 전체 몬스터 그룹을 가져온다
+		/* 가정: 내 공격턴 중에 몬스터가 분열하거나 위치를 바꾸지 않는다. */
+
+		// 몬스터가 존재할 수 있는 위치를 가져옵니다
 		ArrayList<AbstractMonster> monsters = AbstractDungeon.getMonsters().monsters;
-		// n번째 몬스터가 맞았는지 체크할 boolean 어레이
-		boolean[] isHit = new boolean[monsters.size()];
-		// 모든 몬스터가 맞았는지 체크할 변수
-		boolean isAllMonsterHit = false;
-		// 몇 마리나 맞았는지 카운트
-		int hitTargetCount = 0;
 
-		// 모든 몬스터가 맞을때까지 반복
-		while (!isAllMonsterHit) {
-			// 몬스터 숫자 중 랜덤한 숫자 하나를 뽑는다
-			int randomIndex = ThreadLocalRandom.current().nextInt(0, monsters.size());
+		// n번째 위치를 타격한 적이 있는지 저장하는 Boolean Array
+		ArrayList<Boolean> isHit = new ArrayList<>();
 
-			// 그 몬스터가 맞은적이 없다면
-			if (!isHit[randomIndex]) {
-				// 맞았다고 체크하고
-				isHit[randomIndex] = true;
-				// 카운트 + 1
-				hitTargetCount += 1;
+		// 만약 빈 공간 or 죽은 몬스터가 있던 공간인 경우, 타격한 적이 있는 것으로 처리
+		for (AbstractMonster monster : monsters) {
+			isHit.add(monster.isDeadOrEscaped());
+		}
 
-				// 카운트가 몬스터 숫자랑 일치하면
-				if (hitTargetCount == monsters.size()) {
-					// 다 맞았다!
-					isAllMonsterHit = true;
-				}
-			}
+		// 모든 위치의 몬스터를 타격할 때까지 반복
+		while (isHit.contains(false)) {
 
-			// n번째 몬스터를 가져와서
-			this.target = monsters.get(randomIndex);
+			// 모든 위치 중 랜덤한 숫자를 하나 뽑는다
+			do {
+				int randomIndex = ThreadLocalRandom.current().nextInt(0, monsters.size());
+
+				// 그 위치를 타격할 예정
+				isHit.set(randomIndex, true);
+
+				// 타겟 위치 업데이트
+				this.target = monsters.get(randomIndex);
+
+				// 그 공간이 빈 공간이거나 죽은 몬스터가 있던 공간인 경우, 위치를 다시 선택
+			} while (this.target.isDeadOrEscaped());
 
 			// 때림
 			this.card.calculateCardDamage((AbstractMonster) this.target);
