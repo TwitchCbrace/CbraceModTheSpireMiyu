@@ -5,6 +5,7 @@
 
 package Miyu.actions;
 
+import Miyu.DefaultMod;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.animations.VFXAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
@@ -14,10 +15,13 @@ import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.vfx.combat.ThrowDaggerEffect;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import java.util.ArrayList;
 
 public class RicochetAction extends AbstractGameAction {
+	public static final Logger logger = LogManager.getLogger(DefaultMod.class.getName());
 	private AbstractCard card;
 
 	public RicochetAction(AbstractCard card) {
@@ -47,6 +51,10 @@ public class RicochetAction extends AbstractGameAction {
 		// n번째 위치를 타격한 적이 있는지 저장하는 Boolean Array
 		ArrayList<Boolean> isHit = new ArrayList<>();
 
+		// Logger 출력 대비
+		ArrayList<Integer> hitAttemptHistory = new ArrayList<>();
+		ArrayList<Integer> hitRealHistory = new ArrayList<>();
+
 		// 만약 빈 공간 or 죽은 몬스터가 있던 공간인 경우, 타격한 것으로 처리
 		for (AbstractMonster monster : monsters) {
 			isHit.add(monster.isDeadOrEscaped());
@@ -64,7 +72,13 @@ public class RicochetAction extends AbstractGameAction {
 				// 타겟 위치 마킹 및 타격 가능 여부 확인
 				isHit.set(randomIndex, true);
 				this.target = monsters.get(randomIndex);
-			} while (this.target.isDeadOrEscaped()); // WARNING: 적이 이미 죽은 위치도 타격합니다.
+
+				// Logger 타격 시도 위치 추가
+				hitAttemptHistory.add(randomIndex);
+
+			} while (this.target.isDeadOrEscaped());
+			// Logger 실제 타격 위치 추가
+			hitRealHistory.add(randomIndex);
 
 			// 때림
 			this.card.calculateCardDamage((AbstractMonster) this.target);
@@ -74,6 +88,10 @@ public class RicochetAction extends AbstractGameAction {
 				this.addToBot(new VFXAction(new ThrowDaggerEffect(this.target.hb.cX, this.target.hb.cY)));
 			}
 		}
+
+		// Logger 출력: 타격 시도 위치, 실제 타격 위치
+		logger.info("hitAttemptHistory: " + hitAttemptHistory.toString());
+		logger.info("hitRealHistory: " + hitRealHistory.toString());
 
 		this.isDone = true;
 	}
