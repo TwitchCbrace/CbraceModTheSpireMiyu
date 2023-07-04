@@ -21,17 +21,17 @@ public class Compliment extends AbstractDynamicCard {
 
 	// STAT DECLARATION
 
-	private static final CardRarity RARITY = CardRarity.BASIC;
+	private static final CardRarity RARITY = CardRarity.COMMON;
 	private static final CardTarget TARGET = CardTarget.ENEMY;
 	private static final CardType TYPE = CardType.ATTACK;
 	public static final CardColor COLOR = TheDefault.Enums.COLOR_GRAY;
 
 	private static final int COST = 1;
 
-	private static final int DAMAGE = 8;
-	private static final int UPGRADE_PLUS_DAMAGE = 3;
+	private static final int DAMAGE = 12;
+	private static final int UPGRADE_PLUS_DAMAGE = 4;
 
-	private static final int MAGIC = 5;
+	private static final int MAGIC = 10;
 
 	// /STAT DECLARATION/
 

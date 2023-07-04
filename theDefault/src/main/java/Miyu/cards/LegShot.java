@@ -35,8 +35,8 @@ public class LegShot extends AbstractDynamicCard {
 	private static final CardType TYPE = CardType.ATTACK; //
 	public static final CardColor COLOR = TheDefault.Enums.COLOR_GRAY;
 
-	private static final int COST = 2; // COST = 2
-	private static final int DAMAGE = 13; // DAMAGE = 10
+	private static final int COST = 2;
+	private static final int DAMAGE = 13;
 	private static final int MAGIC = 1;
 	private static final int UPGRADE_MAGIC = 1;
 	private static final int SECOND_MAGIC = 0;
@@ -102,6 +102,7 @@ public class LegShot extends AbstractDynamicCard {
 		if (!upgraded) {
 			upgradeName();
 			upgradeMagicNumber(UPGRADE_MAGIC);
+			isMagicNumberModified = true;
 			initializeDescription();
 		}
 	}

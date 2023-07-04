@@ -84,9 +84,7 @@ public class Breakthrough extends AbstractDynamicCard {
 		if (!upgraded) {
 			upgradeName();
 			upgradeDamage(UPGRADE_PLUS_DMG);
-			isDamageModified = true;
 			upgradeMagicNumber(UPGRADE_PLUS_MAGIC);
-			isMagicNumberModified = true;
 			initializeDescription();
 		}
 	}

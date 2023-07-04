@@ -98,9 +98,7 @@ public class RabbitBath extends AbstractDynamicCard implements ICoverCard {
 		if (!upgraded) {
 			upgradeName();
 			this.upgradeMagicNumber(UPGRADE_PLUS_MAGIC);
-			this.isMagicNumberModified = true;
 			this.upgradeCoverMagicNumber(UPGRADE_PLUS_COVER);
-			this.isCoverMagicNumberModified = true;
 			initializeDescription();
 		}
 	}

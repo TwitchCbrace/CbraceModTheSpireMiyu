@@ -92,8 +92,6 @@ public class ConvenienceStore extends AbstractDynamicCard implements ICoverCard 
 			upgradeName();
 			upgradeCoverMagicNumber(UPGRADE_PLUS_COVER);
 			upgradeDamage(UPGRADE_PLUS_DAMAGE);
-			isDamageModified = true;
-			isCoverMagicNumberModified = true;
 			initializeDescription();
 		}
 	}

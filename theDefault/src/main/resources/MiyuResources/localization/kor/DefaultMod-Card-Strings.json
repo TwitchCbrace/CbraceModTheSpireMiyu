@@ -46,7 +46,9 @@
   },
   "Miyu:Dummy": {
   "NAME": "더미",
-  "DESCRIPTION": "Miyu:이동 합니다. NL 대상의 Miyu:엄폐물 만큼 방어도를 얻습니다."
+  "DESCRIPTION": "Miyu:이동 합니다. NL 대상의 Miyu:엄폐물 만큼 방어도를 얻습니다.",
+    "UPGRADE_DESCRIPTION": "Miyu:이동 합니다. NL 대상의 Miyu:엄폐물 만큼 방어도를 얻습니다. 보존."
+
   },
   "Miyu:Miyako": {
     "NAME": "RABBIT01. 미야코",
@@ -182,8 +184,7 @@
   },
   "Miyu:FindingTrashBin": {
     "NAME": "쓰레기통 찾기",
-    "DESCRIPTION": " 카드를 !M! 장 뽑습니다. NL Miyu:자존감을 3 잃습니다. NL Miyu:이동합니다. NL Miyu:쓰레기를 3 얻습니다. ",
-    "UPGRADE_DESCRIPTION": "  카드를 !M! 장 뽑습니다. NL Miyu:자존감을 3 잃습니다. NL Miyu:이동합니다. NL Miyu:쓰레기를 5 얻습니다.  "
+    "DESCRIPTION": " 카드를 !M! 장 뽑습니다. NL Miyu:자존감을 3 잃습니다. NL Miyu:이동합니다. "
   },
   "Miyu:PalePresence": {
     "NAME": "옅은 존재감",
@@ -191,7 +192,7 @@
   },
   "Miyu:RabbitBath": {
     "NAME": "토끼탕",
-    "DESCRIPTION": " Miyu:엄폐물 !Miyu:C!. NL 이동 시 체력을 6 회복합니다. NL (최대 !M! 만큼.) 보존. "
+    "DESCRIPTION": " Miyu:엄폐물 !Miyu:C!. NL 이동 시 체력을 6 회복합니다. NL (회복량 !M! 남음.) 보존. "
   },
   "Miyu:Hyauu": {
     "NAME": "햐우우...",
@@ -204,7 +205,7 @@
   },
   "Miyu:Moe": {
     "NAME": "RABBIT.03 모에",
-    "DESCRIPTION": " 3턴 후 턴 종료 시 NL 적 전체에게 NL 피해를 !M! 줍니다. NL (손에 있는 모든 카드의 NL 비용과 개수의 곱입니다.) "
+    "DESCRIPTION": " 3턴 후 턴 종료 시 NL 적 전체에게 NL 피해를 !M! 줍니다. NL (카드의 비용 합 * 카드의 개수.) "
   },
   "Miyu:Trigger": {
     "NAME": "트리거",

@@ -88,7 +88,6 @@ public class Hyauu extends AbstractDynamicCard {
 		if (!upgraded) {
 			upgradeName();
 			upgradeDamage(UPGRADE_PLUS_DMG);
-			isDamageModified = true;
 			initializeDescription();
 		}
 	}

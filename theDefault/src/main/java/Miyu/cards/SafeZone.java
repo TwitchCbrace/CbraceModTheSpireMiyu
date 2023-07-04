@@ -57,13 +57,13 @@ public class SafeZone extends AbstractDynamicCard {
 	@Override
 	public void use(AbstractPlayer p, AbstractMonster m) {
 		AbstractDungeon.actionManager.addToBottom(new GainBlockAction(p, p, block));
+		AbstractDungeon.actionManager
+				.addToBottom(new ApplyPowerAction(p, p, new HandSizeUp(p, m, magicNumber), magicNumber));
 		if (upgraded) {
 			this.addToBot(new DrawCardAction(p, 2));
 		} else {
 			this.addToBot(new DrawCardAction(p, 1));
 		}
-		AbstractDungeon.actionManager
-				.addToBottom(new ApplyPowerAction(p, p, new HandSizeUp(p, m, magicNumber), magicNumber));
 	}
 
 	// Upgraded stats.
