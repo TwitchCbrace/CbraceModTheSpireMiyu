@@ -49,7 +49,7 @@ public class SafeZone extends AbstractDynamicCard {
 	public SafeZone() {
 		super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
 		baseBlock = BLOCK;
-		this.baseMagicNumber = MAGIC;
+		this.baseMagicNumber = this.magicNumber = MAGIC;
 
 	}
 
@@ -58,7 +58,7 @@ public class SafeZone extends AbstractDynamicCard {
 	public void use(AbstractPlayer p, AbstractMonster m) {
 		AbstractDungeon.actionManager.addToBottom(new GainBlockAction(p, p, block));
 		AbstractDungeon.actionManager
-				.addToBottom(new ApplyPowerAction(p, p, new HandSizeUp(p, m, magicNumber), magicNumber));
+				.addToBottom(new ApplyPowerAction(p, p, new HandSizeUp(p, p, magicNumber), magicNumber));
 		if (upgraded) {
 			this.addToBot(new DrawCardAction(p, 2));
 		} else {

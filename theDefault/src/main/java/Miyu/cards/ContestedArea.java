@@ -41,6 +41,7 @@ public class ContestedArea extends AbstractDynamicCard {
 	public ContestedArea() {
 		super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
 		this.baseMagicNumber = magicNumber = MAGIC;
+		this.cardsToPreview = new Rock();
 	}
 
 	// Actions the card should do.
