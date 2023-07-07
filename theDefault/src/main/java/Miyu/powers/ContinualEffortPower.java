@@ -92,7 +92,6 @@ public class ContinualEffortPower extends AbstractPower implements CloneablePowe
 					if (CanEscape()) {
 						if (AbstractDungeon.getCurrRoom().phase == AbstractRoom.RoomPhase.COMBAT) {
 							AbstractDungeon.getCurrRoom().smoked = true;
-							this.addToBot(new VFXAction(new SmokeBombEffect(target.hb.cX, target.hb.cY)));
 							AbstractDungeon.player.hideHealthBar();
 							AbstractDungeon.player.isEscaping = true;
 							AbstractDungeon.player.flipHorizontal = !AbstractDungeon.player.flipHorizontal;

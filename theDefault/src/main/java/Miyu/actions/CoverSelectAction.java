@@ -80,8 +80,8 @@ public class CoverSelectAction extends AbstractGameAction {
 			 */
 
 			AbstractDungeon.gridSelectScreen.open(cardsHasCover, amount, false, TEXT[0]);
-			tickDuration();
 			AbstractDungeon.gridSelectScreen.selectedCards.clear();
+			this.tickDuration();
 		}
 
 		/*
@@ -92,10 +92,9 @@ public class CoverSelectAction extends AbstractGameAction {
 			for (AbstractCard card : AbstractDungeon.gridSelectScreen.selectedCards) {
 				((ICoverCard) card).triggerOnCovered(p);
 			}
+
 			AbstractDungeon.gridSelectScreen.selectedCards.clear();
-			isDone = true;
-
+			this.isDone = true;
 		}
-
 	}
 }

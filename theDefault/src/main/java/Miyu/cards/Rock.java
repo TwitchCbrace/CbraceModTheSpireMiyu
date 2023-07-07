@@ -29,6 +29,8 @@ public class Rock extends AbstractDynamicCard {
 	private static final int COST = 0;
 	private static final int MAGIC = 1;
 
+	private static final int UPGRADED_MAGIC = 1;
+
 	// /STAT DECLARATION/
 
 	public Rock() {
@@ -50,6 +52,7 @@ public class Rock extends AbstractDynamicCard {
 	public void upgrade() {
 		if (!upgraded) {
 			upgradeName();
+			upgradeMagicNumber(UPGRADED_MAGIC);
 			initializeDescription();
 		}
 	}

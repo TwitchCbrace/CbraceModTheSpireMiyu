@@ -48,11 +48,6 @@ public class FindingTrashBin extends AbstractDynamicCard {
 	@Override
 	public void use(AbstractPlayer p, AbstractMonster m) {
 		AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new SelfEsteem(p, p, -3)));
-		if (this.upgraded) {
-			AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new TrashPower(p, p, 5)));
-		} else {
-			AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new TrashPower(p, p, 3)));
-		}
 		AbstractDungeon.actionManager.addToBottom(new DrawCardAction(p, magicNumber));
 		AbstractDungeon.actionManager.addToBottom(new CoverSelectAction(p, 1));
 
@@ -64,7 +59,6 @@ public class FindingTrashBin extends AbstractDynamicCard {
 		if (!upgraded) {
 			upgradeName();
 			upgradeMagicNumber(UPGRADE_MAGIC_NUMBER);
-			rawDescription = UPGRADE_DESCRIPTION;
 			initializeDescription();
 		}
 	}

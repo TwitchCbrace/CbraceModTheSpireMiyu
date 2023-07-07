@@ -4,10 +4,7 @@ import Miyu.DefaultMod;
 import Miyu.characters.TheDefault;
 import Miyu.powers.HandSizeUp;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
-import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
-import com.megacrit.cardcrawl.actions.common.AttackDamageRandomEnemyAction;
-import com.megacrit.cardcrawl.actions.common.DamageAction;
-import com.megacrit.cardcrawl.actions.common.DrawCardAction;
+import com.megacrit.cardcrawl.actions.common.*;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -50,6 +47,7 @@ public class Breakthrough extends AbstractDynamicCard {
 		super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
 		this.baseDamage = this.damage = DAMAGE;
 		this.baseMagicNumber = this.magicNumber = MAGIC;
+		this.cardsToPreview = new Rock();
 	}
 
 	public void applyPowers() {
@@ -72,6 +70,8 @@ public class Breakthrough extends AbstractDynamicCard {
 
 		AbstractDungeon.actionManager
 				.addToBottom(new ApplyPowerAction(p, p, new HandSizeUp(p, m, magicNumber), magicNumber));
+		addToBot(new MakeTempCardInHandAction(new Rock(), magicNumber));
+
 	}
 
 	public AbstractCard makeCopy() {
@@ -84,9 +84,7 @@ public class Breakthrough extends AbstractDynamicCard {
 		if (!upgraded) {
 			upgradeName();
 			upgradeDamage(UPGRADE_PLUS_DMG);
-			isDamageModified = true;
 			upgradeMagicNumber(UPGRADE_PLUS_MAGIC);
-			isMagicNumberModified = true;
 			initializeDescription();
 		}
 	}

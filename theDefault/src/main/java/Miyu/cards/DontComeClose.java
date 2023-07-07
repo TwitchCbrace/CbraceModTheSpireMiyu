@@ -44,7 +44,7 @@ public class DontComeClose extends AbstractDynamicCard {
 
 	public DontComeClose() {
 		super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
-		this.baseDamage = this.damage = DAMAGE;
+		this.baseDamage = damage = DAMAGE;
 		this.baseRangeMagicNumber = this.rangeMagicNumber = RANGE;
 		this.baseMagicNumber = this.magicNumber = MAGIC;
 	}
@@ -90,7 +90,6 @@ public class DontComeClose extends AbstractDynamicCard {
 		if (!upgraded) {
 			upgradeName();
 			upgradeDamage(UPGRADE_PLUS_DMG);
-			isDamageModified = true;
 			initializeDescription();
 		}
 	}

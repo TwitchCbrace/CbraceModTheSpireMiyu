@@ -4,7 +4,9 @@ import Miyu.DefaultMod;
 import Miyu.characters.TheDefault;
 import Miyu.powers.ContinualEffortPower;
 import Miyu.powers.GetNegativeDelusions;
+import Miyu.powers.SelfEsteem;
 import Miyu.powers.TacticalReloadPower;
+import com.megacrit.cardcrawl.actions.animations.VFXAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -12,6 +14,10 @@ import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import com.megacrit.cardcrawl.rooms.AbstractRoom;
+import com.megacrit.cardcrawl.vfx.combat.SmokeBombEffect;
+
+import java.util.Iterator;
 
 import static Miyu.DefaultMod.makeCardPath;
 
@@ -47,7 +53,38 @@ public class ContinualEffort extends AbstractDynamicCard {
 		AbstractDungeon.actionManager
 				.addToBottom(new ApplyPowerAction(p, p, new ContinualEffortPower(p, p, magicNumber), magicNumber));
 		AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new GetNegativeDelusions(p, p, 1), 1));
+		if (p.hasPower(SelfEsteem.POWER_ID)) {
+			if (p.getPower(SelfEsteem.POWER_ID).amount <= -20) {
+				if (CanEscape()) {
+					if (AbstractDungeon.getCurrRoom().phase == AbstractRoom.RoomPhase.COMBAT) {
+						AbstractDungeon.getCurrRoom().smoked = true;
+						AbstractDungeon.player.hideHealthBar();
+						AbstractDungeon.player.isEscaping = true;
+						AbstractDungeon.player.flipHorizontal = !AbstractDungeon.player.flipHorizontal;
+						AbstractDungeon.overlayMenu.endTurnButton.disable();
+						AbstractDungeon.player.escapeTimer = 2.5F;
+					}
+				}
+			}
+		}
+	}
 
+	private boolean CanEscape() {
+		Iterator var1 = AbstractDungeon.getCurrRoom().monsters.monsters.iterator();
+
+		AbstractMonster m;
+		do {
+			if (!var1.hasNext()) {
+				return true;
+			}
+
+			m = (AbstractMonster) var1.next();
+			if (m.hasPower("BackAttack")) {
+				return false;
+			}
+		} while (m.type != AbstractMonster.EnemyType.BOSS);
+
+		return false;
 	}
 
 	public AbstractCard makeCopy() {
