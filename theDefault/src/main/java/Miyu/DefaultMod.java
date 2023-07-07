@@ -73,7 +73,8 @@ public class DefaultMod
 			EditStringsSubscriber,
 			EditKeywordsSubscriber,
 			EditCharactersSubscriber,
-			PostInitializeSubscriber {
+			PostInitializeSubscriber,
+			AddAudioSubscriber {
 	// Make sure to implement the subscribers *you* are using (read basemod wiki). Editing cards? EditCardsSubscriber.
 	// Making relics? EditRelicsSubscriber. etc., etc., for a full list and how to make your own, visit the basemod
 	// wiki.
@@ -160,6 +161,10 @@ public class DefaultMod
 
 	public static String makeEventPath(String resourcePath) {
 		return getModID() + "Resources/images/events/" + resourcePath;
+	}
+				
+	public static String makeSoundPath(String resourcePath) {
+		return getModID() + "Resources/sound/" + resourcePath;
 	}
 
 	// =============== /MAKE IMAGE PATHS/ =================
@@ -577,5 +582,10 @@ public class DefaultMod
 	// in order to avoid conflicts if any other mod uses the same ID.
 	public static String makeID(String idText) {
 		return getModID() + ":" + idText;
+	}
+				
+	@Override
+	public void receiveAddAudio() {
+		BaseMod.addAudio(makeID("MIYU_A"), makeSoundPath("Miyu_a.ogg"));
 	}
 }
