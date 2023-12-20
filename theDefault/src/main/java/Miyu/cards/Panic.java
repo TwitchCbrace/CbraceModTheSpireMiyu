@@ -2,6 +2,7 @@ package Miyu.cards;
 
 import Miyu.DefaultMod;
 import Miyu.actions.CoverSelectAction;
+import Miyu.actions.MoveToHighCoverAction;
 import Miyu.characters.TheDefault;
 import Miyu.powers.HandSizeUp;
 import Miyu.powers.SelfEsteem;
@@ -47,7 +48,7 @@ public class Panic extends AbstractDynamicCard {
 	@Override
 	public void use(AbstractPlayer p, AbstractMonster m) {
 		AbstractDungeon.actionManager.addToBottom(new DrawCardAction(1));
-		AbstractDungeon.actionManager.addToBottom(new CoverSelectAction(p, 1));
+		AbstractDungeon.actionManager.addToBottom(new MoveToHighCoverAction(p));
 		AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new SelfEsteem(p, p, -3)));
 		AbstractDungeon.actionManager.addToBottom(new DiscardAction(p, p, 1, false));
 

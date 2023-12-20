@@ -42,11 +42,14 @@ public class Moe extends AbstractDynamicCard {
 	private static final int UPGRADED_COST = 2;
 	private static final int MAGIC = 0;
 
+	private static final int SECONDMAGIC = 0;
+
 	// /STAT DECLARATION/
 
 	public Moe() {
 		super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
 		this.baseMagicNumber = magicNumber = MAGIC;
+		this.baseSecondMagicNumber = secondMagicNumber = SECONDMAGIC;
 	}
 
 	public void applyPowers() {
@@ -61,14 +64,18 @@ public class Moe extends AbstractDynamicCard {
 			}
 			bcount++;
 		}
-		this.baseMagicNumber = acount * bcount;
+		this.baseMagicNumber = acount;
+		this.baseSecondMagicNumber = bcount;
 		super.applyPowers();
 		this.initializeDescription();
 	}
 
 	@Override
 	public void use(AbstractPlayer p, AbstractMonster m) {
-		this.addToBot(new ApplyPowerAction(p, p, new MoePower(p, 3, this.baseMagicNumber), 3));
+		int i = 0;
+		for (i = baseSecondMagicNumber; i > 0; i--) {
+			this.addToBot(new ApplyPowerAction(p, p, new MoePower(p, 3, this.baseMagicNumber), 3));
+		}
 	}
 
 	// Upgraded stats.
