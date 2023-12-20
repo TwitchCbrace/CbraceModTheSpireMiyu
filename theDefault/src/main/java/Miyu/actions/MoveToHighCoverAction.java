@@ -22,26 +22,37 @@ public class MoveToHighCoverAction extends AbstractGameAction {
 
 		CardGroup hand = this.p.hand;
 		CardGroup cardsHasCover = new CardGroup(CardGroup.CardGroupType.UNSPECIFIED);
+		AbstractCard maxCoverCard = null;
 
 		for (AbstractCard card1 : hand.group) {
-			if (card1 instanceof ICoverCard) {
-				cardsHasCover.addToBottom(card1);
-			}
-			AbstractCard maxCoverCard = null;
-			for (AbstractCard card2 : cardsHasCover.group) {
-				if (maxCoverCard == null || ((AbstractDefaultCard) card1).baseCoverMagicNumber > ((AbstractDefaultCard) maxCoverCard).baseCoverMagicNumber) {
-					maxCoverCard = card1;
-				}
-			}
-			c = maxCoverCard;
 
+			if (card1 instanceof ICoverCard) {
+
+				cardsHasCover.addToBottom(card1);
+
+			}
+
+		}
+
+		for (AbstractCard card2 : cardsHasCover.group) {
+
+			if (maxCoverCard == null
+					|| ((AbstractDefaultCard) card2).baseCoverMagicNumber > ((AbstractDefaultCard) maxCoverCard).baseCoverMagicNumber) {
+
+				maxCoverCard = card2;
+
+			}
+
+			c = maxCoverCard;
 
 		}
 	}
 
 	@Override
 	public void update() {
-		((ICoverCard) c).triggerOnCovered(p);
+		if (c != null) {
+			((ICoverCard) c).triggerOnCovered(p);
+		}
 		this.isDone = true;
 	}
 }

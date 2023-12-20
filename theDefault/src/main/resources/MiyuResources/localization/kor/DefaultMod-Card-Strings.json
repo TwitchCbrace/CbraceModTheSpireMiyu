@@ -143,8 +143,8 @@
   },
   "Miyu:Panic": {
     "NAME": "패닉",
-    "DESCRIPTION": " 카드를 1 장 뽑습니다. NL Miyu:이동합니다. NL Miyu:자존감을 3 잃습니다. NL 카드를 1 장 버립니다. 휘발성. 소멸.",
-    "UPGRADE_DESCRIPTION": " 카드를 1 장 뽑습니다. NL Miyu:이동합니다. NL Miyu:자존감을 3 잃습니다. NL 카드를 1 장 버립니다. NL Miyu:이동합니다. 휘발성. 소멸."
+    "DESCRIPTION": " 카드를 1 장 뽑습니다. NL 가장 큰 엄폐물로 NL Miyu:이동합니다. NL Miyu:자존감을 3 잃습니다. NL 카드를 1 장 버립니다. 휘발성. 소멸.",
+    "UPGRADE_DESCRIPTION": " 카드를 1 장 뽑습니다. NL 가장 큰 엄폐물로 NL Miyu:이동합니다. NL Miyu:자존감을 3 잃습니다. NL 카드를 1 장 버립니다. NL Miyu:이동합니다. 휘발성. 소멸."
 
   },
   "Miyu:BunnyHop": {

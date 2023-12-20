@@ -162,7 +162,7 @@ public class DefaultMod
 	public static String makeEventPath(String resourcePath) {
 		return getModID() + "Resources/images/events/" + resourcePath;
 	}
-				
+
 	public static String makeSoundPath(String resourcePath) {
 		return getModID() + "Resources/sound/" + resourcePath;
 	}
@@ -583,7 +583,7 @@ public class DefaultMod
 	public static String makeID(String idText) {
 		return getModID() + ":" + idText;
 	}
-				
+
 	@Override
 	public void receiveAddAudio() {
 		BaseMod.addAudio(makeID("MIYU_A"), makeSoundPath("Miyu_a.ogg"));
