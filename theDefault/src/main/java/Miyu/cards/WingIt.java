@@ -32,7 +32,7 @@ public class WingIt extends AbstractDynamicCard implements ICoverCard {
 	public static final CardColor COLOR = TheDefault.Enums.COLOR_GRAY;
 
 	private static final int COST = 0;
-	private static final int DAMAGE = 12;
+	private static final int DAMAGE = 14;
 	private static final int UPGRADE_PLUS_DMG = 4;
 
 	private static final int COVER = 1;

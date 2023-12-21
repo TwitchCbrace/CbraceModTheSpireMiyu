@@ -73,7 +73,7 @@
   },
   "Miyu:CleanUpTrash": {
     "NAME": "쓰레기 청소",
-    "DESCRIPTION": " Miyu:쓰레기가 감소 NL 할 때마다 그만큼 NL Miyu:자존감 과 NL Miyu:활력을 얻습니다. "
+    "DESCRIPTION": " Miyu:쓰레기가 1 감소할 때마다 NL Miyu:자존감 과 NL Miyu:활력을 !M! 얻습니다. "
   },
   "Miyu:Park": {
     "NAME": "공원",
@@ -128,7 +128,7 @@
   },
   "Miyu:PointShooting": {
     "NAME": "지향 사격",
-    "DESCRIPTION": " 무작위 적들에게 NL 피해를 !D! 만큼 !M! 번 NL 줍니다. NL Miyu:거리만큼 피해가 NL 감소합니다. NL Miyu:거리 !Miyu:R!. "
+    "DESCRIPTION": " 무작위 적들에게 NL 피해를 !D! 만큼 !M! 번 NL 줍니다. NL 가장 작은 엄폐물을 소멸 시킵니다. "
 
   },
   "Miyu:UnexpectedAngle": {
@@ -180,7 +180,7 @@
   },
   "Miyu:DontForgetMe": {
     "NAME": "잊지 말아줘...",
-    "DESCRIPTION": " 카드를 !M! 장 뽑습니다. NL 뽑은 카드에 휘발성 을 NL 부여합니다. NL ( 보존 불가. ) NL 소멸. "
+    "DESCRIPTION": " 카드를 !M! 장 뽑습니다. NL 뽑은 카드에 휘발성 을 NL 부여합니다. NL 소멸. "
   },
   "Miyu:FindingTrashBin": {
     "NAME": "쓰레기통 찾기",
@@ -215,7 +215,8 @@
   },
   "Miyu:RabbitType39Rifle": {
     "NAME": "RABBIT 39식 소총",
-    "DESCRIPTION": " 이 카드를 두 번 뽑을 때마다 장전된 소총을 얻습니다. NL !M! 번 뽑음. "
+    "DESCRIPTION": " 이 카드를 두 번 뽑을 때마다 장전된 소총을 얻습니다. NL !M! 번 뽑음. NL 사용불가. ",
+    "UPGRADE_DESCRIPTION": " 이 카드를 두 번 뽑을 때마다 강화된 장전된 소총을 얻습니다. NL !M! 번 뽑음. NL 사용불가. "
 
   },
   "Miyu:CockedRifle": {
@@ -324,7 +325,7 @@
   },
   "Miyu:ThingsForgettable": {
     "NAME": "잊히는 것들",
-    "DESCRIPTION": " 휘발성 카드를 사용할 때마다 방어도를 !M! 얻습니다. "
+    "DESCRIPTION": " 카드가 소멸될 때마다 NL Miyu:쓰레기를 !M! 얻습니다. "
   },
   "Miyu:InvisibleForm": {
     "NAME": "투명인간의 형상",

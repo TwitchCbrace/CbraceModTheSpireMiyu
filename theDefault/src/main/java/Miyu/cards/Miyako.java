@@ -35,7 +35,7 @@ public class Miyako extends AbstractDynamicCard {
 
 	private static final int COST = 1;
 	private static final int MAGIC = 5;
-	private static final int UPGRADE_MAGIC = 3;
+	private static final int UPGRADE_MAGIC = 5;
 
 	// /STAT DECLARATION/
 

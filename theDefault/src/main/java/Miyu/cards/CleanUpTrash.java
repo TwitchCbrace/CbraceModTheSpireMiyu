@@ -30,7 +30,8 @@ public class CleanUpTrash extends AbstractDynamicCard {
 	private static final int COST = 1;
 	// private static final int UPGRADE_COST = 0;
 
-	private static final int MAGIC = 1;
+	private static final int MAGIC = 4;
+	private static final int UPGRADED_PLUS_MAGIC = 2;
 
 	public CleanUpTrash() {
 		super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
@@ -49,7 +50,7 @@ public class CleanUpTrash extends AbstractDynamicCard {
 	public void upgrade() {
 		if (!upgraded) {
 			upgradeName();
-			upgradeBaseCost(0);
+			upgradeMagicNumber(UPGRADED_PLUS_MAGIC);
 			initializeDescription();
 		}
 	}

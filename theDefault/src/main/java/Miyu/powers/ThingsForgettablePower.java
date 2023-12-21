@@ -12,9 +12,11 @@ import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
+import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.powers.AbstractPower;
+import com.megacrit.cardcrawl.powers.FeelNoPainPower;
 import com.megacrit.cardcrawl.powers.watcher.VigorPower;
 
 import static Miyu.DefaultMod.makePowerPath;
@@ -52,12 +54,11 @@ public class ThingsForgettablePower extends AbstractPower implements CloneablePo
 		this.amount += stackAmount;
 		this.updateDescription();
 	}
-	public void onUseCard(AbstractCard card, UseCardAction action) {
+
+	public void onExhaust(AbstractCard card) {
+		this.flash();
 		AbstractPlayer p = AbstractDungeon.player;
-		if (card.isEthereal) {
-			this.flash();
-			this.addToBot(new GainBlockAction(p, this.amount));
-		}
+		this.addToBot(new ApplyPowerAction(p, p, new TrashPower(p, p, this.amount), this.amount));
 	}
 
 	@Override

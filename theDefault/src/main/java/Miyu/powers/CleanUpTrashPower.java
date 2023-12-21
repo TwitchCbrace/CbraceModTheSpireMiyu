@@ -49,7 +49,12 @@ public class CleanUpTrashPower extends AbstractPower implements CloneablePowerIn
 
 		updateDescription();
 	}
-
+	@Override
+	public void stackPower(int stackAmount) {
+		this.fontScale = 8.0F;
+		this.amount += stackAmount;
+		this.updateDescription();
+	}
 	@Override
 	public void updateDescription() {
 		if (amount == 1) {
@@ -66,7 +71,8 @@ public class CleanUpTrashPower extends AbstractPower implements CloneablePowerIn
 
 	@Override
 	public void trashReduced(int amount) {
-		addToBot(new ApplyPowerAction(owner, owner, new VigorPower(owner, amount), amount));
-		addToBot(new ApplyPowerAction(owner, owner, new SelfEsteem(owner, owner, amount), amount));
+		addToBot(new ApplyPowerAction(owner, owner, new VigorPower(owner, amount * this.amount), amount * this.amount));
+		addToBot(new ApplyPowerAction(owner, owner, new SelfEsteem(owner, owner, amount * this.amount),
+				amount * this.amount));
 	}
 }
