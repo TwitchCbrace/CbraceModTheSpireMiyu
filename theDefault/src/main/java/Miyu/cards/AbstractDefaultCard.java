@@ -98,7 +98,7 @@ public abstract class AbstractDefaultCard extends CustomCard {
 	}
 	
 	public AbstractCard makeSameInstanceOf() {
-		AbstractDefaultCard card = (AbstractDefaultCard) super.makeSameInstaneOf();
+		AbstractDefaultCard card = (AbstractDefaultCard) super.makeSameInstanceOf();
 		card.rangeMagicNumber = this.rangeMagicNumber;
 		card.baseRangeMagicNumber = this.baseRangeMagicNumber;
 		return card;
