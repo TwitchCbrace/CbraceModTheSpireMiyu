@@ -10,6 +10,7 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.cards.CardGroup;
 import com.evacipated.cardcrawl.mod.stslib.actions.common.FetchAction;
+import Miyu.cards.ICoverCard;
 
 import static Miyu.DefaultMod.makeRelicOutlinePath;
 import static Miyu.DefaultMod.makeRelicPath;
