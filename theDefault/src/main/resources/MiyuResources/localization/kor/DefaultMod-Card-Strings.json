@@ -337,6 +337,10 @@
     "NAME": "함정",
     "DESCRIPTION": " 피해를 !D! 줍니다. NL Miyu:쓰레기를 !M! 소모하여 NL 1 마다 모든 Miyu:엄폐물을 NL 4 증가시킵니다. "
   },
+  "Miyu:Party": {
+    "NAME": "파티",
+    "DESCRIPTION": " 방어도를 !B! 얻고 NL 약화를 !M! 부여합니다. NL 바위를 !Miyu:M2! 장 얻습니다. "
+  },
 
   "Miyu:ContinualEffort": {
     "NAME": "부단한 노력",

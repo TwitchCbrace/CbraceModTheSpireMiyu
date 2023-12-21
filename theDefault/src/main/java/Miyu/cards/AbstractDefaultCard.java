@@ -1,5 +1,6 @@
 package Miyu.cards;
 import basemod.abstracts.CustomCard;
+import com.megacrit.cardcrawl.cards.AbstractCard;
 
 public abstract class AbstractDefaultCard extends CustomCard {
 
@@ -96,7 +97,7 @@ public abstract class AbstractDefaultCard extends CustomCard {
 		card.baseCoverMagicNumber = this.baseCoverMagicNumber;
 		return card;
 	}
-	
+
 	public AbstractCard makeSameInstanceOf() {
 		AbstractDefaultCard card = (AbstractDefaultCard) super.makeSameInstanceOf();
 		card.rangeMagicNumber = this.rangeMagicNumber;
