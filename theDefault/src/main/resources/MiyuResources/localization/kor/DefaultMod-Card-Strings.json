@@ -123,7 +123,7 @@
   },
   "Miyu:ConvenienceStore": {
     "NAME": "편의점",
-    "DESCRIPTION": " Miyu:엄폐물 !Miyu:C!. NL 피해를 !D! 만큼 NL !M! 회 줍니다. NL 이동할 때 공격 회수가 NL 증가합니다. NL 보존. "
+    "DESCRIPTION": " Miyu:엄폐물 !Miyu:C!. NL 피해를 !D! 만큼 NL !M! 회 줍니다. NL Miyu:이동할 때 공격 회수가 NL 증가합니다. NL 보존. "
 
   },
   "Miyu:PointShooting": {
@@ -333,6 +333,11 @@
     "UPGRADE_DESCRIPTION": " 턴 시작 시 무작위 카드에 휘발성을 부여하고 그 카드의 비용을 0으로 만듭니다. "
 
   },
+  "Miyu:Trap": {
+    "NAME": "함정",
+    "DESCRIPTION": " 피해를 !D! 줍니다. NL Miyu:쓰레기를 !M! 소모하여 NL 1 마다 모든 Miyu:엄폐물을 NL 4 증가시킵니다. "
+  },
+
   "Miyu:ContinualEffort": {
     "NAME": "부단한 노력",
     "DESCRIPTION": " 턴 시작 시 Miyu:활력을 !M! 얻고 부정적인 망상을 얻습니다. Miyu:자존감이 -20 이하면 도망갑니다. "
