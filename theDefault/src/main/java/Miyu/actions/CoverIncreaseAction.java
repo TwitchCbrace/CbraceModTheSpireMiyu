@@ -59,6 +59,7 @@ public class CoverIncreaseAction extends AbstractGameAction {
 					if (card instanceof AbstractDefaultCard) {
 						((AbstractDefaultCard) card).baseCoverMagicNumber += increaseAmount;
 						((AbstractDefaultCard) card).coverMagicNumber += increaseAmount;
+						card.superFlash();
 					}
 
 				}

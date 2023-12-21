@@ -44,6 +44,7 @@ public class CoverIncreaseAllAction extends AbstractGameAction {
 
 			for (AbstractCard card2 : cardsHasCover.group) {
 				((AbstractDefaultCard) card2).baseCoverMagicNumber += (ta * ca);
+				card2.superFlash();
 				// ((AbstractDefaultCard) card2).isCoverMagicNumberModified = true;
 			}
 
