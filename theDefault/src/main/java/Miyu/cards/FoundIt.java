@@ -33,7 +33,7 @@ public class FoundIt extends AbstractDynamicCard {
 	private static final int COST = 0;
 
 	private static final int DRAW = 1;
-	private static final int UPGRADE_DRAW = 0;
+	private static final int UPGRADE_DRAW = 1;
 
 	private static final int MAGIC = 5;
 	private static final int UPGRADE_MAGIC = 3;

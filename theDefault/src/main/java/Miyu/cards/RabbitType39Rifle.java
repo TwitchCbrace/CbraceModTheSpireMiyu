@@ -37,7 +37,7 @@ public class RabbitType39Rifle extends AbstractDynamicCard {
 	private static final CardType TYPE = CardType.ATTACK; //
 	public static final CardColor COLOR = TheDefault.Enums.COLOR_GRAY;
 
-	private static final int COST = 3;
+	private static final int COST = -2;
 	private static final int DAMAGE = 39;
 	private static final int UPGRADE_PLUS_DAMAGE = 15;
 	private static final int MAGIC = 0;
@@ -48,46 +48,42 @@ public class RabbitType39Rifle extends AbstractDynamicCard {
 		super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
 		this.baseDamage = DAMAGE;
 		this.baseMagicNumber = this.magicNumber = MAGIC;
-
+		this.cardsToPreview = new CockedRifle();
 	}
 
 	public void triggerWhenDrawn() {
 		this.baseMagicNumber++;
 		this.magicNumber = this.baseMagicNumber;
 		this.isMagicNumberModified = true;
-	}
-
-	public boolean canUse(AbstractPlayer p, AbstractMonster m) {
-		boolean canUse = super.canUse(p, m);
-		if (!canUse) {
-			return false;
-		} else {
-			if (baseMagicNumber <= 1) {
-				canUse = false;
+		if (this.baseMagicNumber == 2) {
+			this.baseMagicNumber = 0;
+			if (this.upgraded) {
+				AbstractCard c = new CockedRifle();
+				c.upgrade();
+				addToBot(new MakeTempCardInHandAction(c, 1));
+			} else {
+				addToBot(new MakeTempCardInHandAction(new CockedRifle(), 1));
 			}
 		}
-
-		return canUse;
 	}
-
-	public void triggerOnGlowCheck() {
-		boolean glow = true;
-		if (baseMagicNumber <= 1) {
-			glow = false;
-		}
-		if (glow) {
-			this.glowColor = AbstractCard.GOLD_BORDER_GLOW_COLOR.cpy();
-		} else {
-			this.glowColor = AbstractCard.BLUE_BORDER_GLOW_COLOR.cpy();
-		}
+	//
+	// public void triggerOnGlowCheck() {
+	// boolean glow = true;
+	// if (baseMagicNumber <= 1) {
+	// glow = false;
+	// }
+	// if (glow) {
+	// this.glowColor = AbstractCard.GOLD_BORDER_GLOW_COLOR.cpy();
+	// } else {
+	// this.glowColor = AbstractCard.BLUE_BORDER_GLOW_COLOR.cpy();
+	// }
+	// }
+	public boolean canUse(AbstractPlayer p, AbstractMonster m) {
+		return false;
 	}
 
 	@Override
 	public void use(AbstractPlayer p, AbstractMonster m) {
-
-		AbstractDungeon.actionManager.addToBottom(new DamageAction(m, new DamageInfo(p, this.damage, damageTypeForTurn),
-				AbstractGameAction.AttackEffect.SMASH, true));
-		this.baseMagicNumber -= 2;
 	}
 
 	public AbstractCard makeCopy() {

@@ -102,8 +102,8 @@
   },
   "Miyu:TacticalReload": {
     "NAME": "전술 재장전",
-    "DESCRIPTION": " 턴 시작 시 카드를 NL 1장 뽑고 NL 카드 한 장을 뽑을 카드 NL 더미 맨 위에 놓습니다. ",
-    "UPGRADE_DESCRIPTION": " 턴 시작 시 카드를 NL 1장 뽑고 NL 카드 한 장을 뽑을 카드 NL 더미 맨 위에 놓습니다. 선천성. "
+    "DESCRIPTION": " 턴 시작 시 NL 카드를 1장 뽑고 NL 카드 한 장을 뽑을 카드 더미 맨 위에 놓습니다. ",
+    "UPGRADE_DESCRIPTION": " 턴 시작 시 NL 카드를 1장 뽑고 NL 카드 한 장을 뽑을 카드 더미 맨 위에 놓습니다. 선천성. "
 
   },
   "Miyu:Collapse": {
@@ -167,7 +167,7 @@
   },
   "Miyu:NextTarget": {
     "NAME": "다음 타겟",
-    "DESCRIPTION": " 피해를 !D! 줍니다. NL Miyu:활력이 !M! 배 적용됩니다. NL 적이 죽었다면 Miyu:이동합니다. "
+    "DESCRIPTION": " 피해를 !D! 줍니다. NL Miyu:활력이 !M! 배 적용됩니다. NL 처치 시 가장 큰 엄폐물로 NL Miyu:이동합니다. "
   },
   "Miyu:Sniping": {
     "NAME": "저격",
@@ -215,7 +215,12 @@
   },
   "Miyu:RabbitType39Rifle": {
     "NAME": "RABBIT 39식 소총",
-    "DESCRIPTION": " 피해를 !D! 줍니다. NL 이 카드를 NL 두 번 뽑을 때마다 NL 한 번 사용할 수 있습니다. NL (현재 !M! 회 누적) "
+    "DESCRIPTION": " 이 카드를 두 번 뽑을 때마다 장전된 소총을 얻습니다. NL !M! 번 뽑음. "
+
+  },
+  "Miyu:CockedRifle": {
+    "NAME": "장전된 소총",
+    "DESCRIPTION": " 피해를 !D! 줍니다. 소멸. 보존. "
 
   },
   "Miyu:ContestedArea": {
@@ -279,7 +284,7 @@
   },
   "Miyu:SecretArea": {
     "NAME": "비밀 장소",
-    "DESCRIPTION": " 방어도를 !M! 얻습니다. NL (소멸 카드 더미만큼) NL 소멸 카드 더미에서 NL 가장 Miyu:엄폐물이 높은 NL 카드로 Miyu:이동합니다. "
+    "DESCRIPTION": " 방어도를 !M! 얻습니다. NL (소멸 카드 더미만큼) NL 소멸 카드 더미에서 NL 가장 큰 Miyu:엄폐물로 NL Miyu:이동합니다. "
   },
   "Miyu:Specialist": {
     "NAME": "스페셜리스트",
@@ -303,7 +308,7 @@
   },
   "Miyu:MoveCommand": {
     "NAME": "이동 명령",
-    "DESCRIPTION": " 방어도를 !B! 얻고 Miyu:이동합니다. NL 카드 한 장을 뽑을 카드 더미 맨 위로 올립니다. "
+    "DESCRIPTION": " 방어도를 !B! 얻고 NL 가장 큰 엄폐물로 NL Miyu:이동합니다. NL 카드 한 장을 뽑을 카드 더미 맨 위로 올립니다. "
   },
   "Miyu:WingIt": {
     "NAME": "임기응변",

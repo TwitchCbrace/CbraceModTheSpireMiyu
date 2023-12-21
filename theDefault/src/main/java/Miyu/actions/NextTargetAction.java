@@ -35,7 +35,7 @@ public class NextTargetAction extends AbstractGameAction {
 					.add(new FlashAtkImgEffect(this.target.hb.cX, this.target.hb.cY, AttackEffect.SLASH_HORIZONTAL));
 			this.target.damage(this.info);
 			if ((this.target.isDying || this.target.currentHealth <= 0) && !this.target.halfDead) {
-				AbstractDungeon.actionManager.addToBottom(new CoverSelectAction(AbstractDungeon.player, 1));
+				AbstractDungeon.actionManager.addToBottom(new MoveToHighCoverAction(AbstractDungeon.player));
 			}
 			if (AbstractDungeon.getCurrRoom().monsters.areMonstersBasicallyDead()) {
 				AbstractDungeon.actionManager.clearPostCombatActions();

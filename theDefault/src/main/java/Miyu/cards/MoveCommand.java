@@ -2,6 +2,7 @@ package Miyu.cards;
 
 import Miyu.DefaultMod;
 import Miyu.actions.CoverSelectAction;
+import Miyu.actions.MoveToHighCoverAction;
 import Miyu.characters.TheDefault;
 import Miyu.powers.HandSizeUp;
 import com.badlogic.gdx.scenes.scene2d.actions.MoveToAction;
@@ -49,7 +50,7 @@ public class MoveCommand extends AbstractDynamicCard {
 	@Override
 	public void use(AbstractPlayer p, AbstractMonster m) {
 		AbstractDungeon.actionManager.addToBottom(new GainBlockAction(p, p, block));
-		AbstractDungeon.actionManager.addToBottom(new CoverSelectAction(p, 1));
+		AbstractDungeon.actionManager.addToBottom(new MoveToHighCoverAction(p));
 		AbstractDungeon.actionManager.addToBottom(new PutOnDeckAction(p, p, 1, false));
 	}
 
