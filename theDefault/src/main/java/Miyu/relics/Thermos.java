@@ -29,9 +29,17 @@ public class Thermos extends CustomRelic {
 	}
 
 	// Flash at the start of Battle.
-	@Override
 	public void atBattleStartPreDraw() {
-		AbstractDungeon.actionManager.addToBottom(new DrawCardAction(2));
+		CardGroup drawPile = AbstractDungeon.player.drawPile;
+		if (!drawPile.isEmpty()) {
+			CardGroup coverCards = new CardGroup(CardGroup.CardGroupType.UNSPECIFIED);
+			for (AbstractCard c : drawPile.group) {
+				if (c instanceof ICoverCard) {
+					coverCards.addToRandomSpot(c);
+				}
+			}
+			addToTop(new FetchAction(drawPile, Predicate.isEqual(coverCards.getBottomCard()), 1));
+		}
 		flash();
 
 	}
