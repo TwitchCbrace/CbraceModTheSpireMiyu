@@ -103,7 +103,6 @@ public abstract class AbstractDefaultCard extends CustomCard {
 		card.baseRangeMagicNumber = this.baseRangeMagicNumber;
 		return card;
 	}
-
 	public int getCoverMagicNumber() {
 		return this.coverMagicNumber;
 	}
