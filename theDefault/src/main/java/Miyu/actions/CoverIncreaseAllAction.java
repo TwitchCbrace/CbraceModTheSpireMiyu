@@ -25,7 +25,10 @@ public class CoverIncreaseAllAction extends AbstractGameAction {
 		this.ta = trashAmount;
 		this.ca = coverAmount;
 		this.duration = DURATION;
+	}
 
+	@Override
+	public void update() {
 		if (p.hasPower(TrashPower.POWER_ID) && p.getPower(TrashPower.POWER_ID).amount >= 1) {
 			CardGroup hand = p.hand;
 			CardGroup cardsHasCover = new CardGroup(CardGroup.CardGroupType.UNSPECIFIED);
@@ -34,6 +37,10 @@ public class CoverIncreaseAllAction extends AbstractGameAction {
 				if (card1 instanceof ICoverCard) {
 					cardsHasCover.addToBottom(card1);
 				}
+			}
+			if (cardsHasCover.isEmpty()) {
+				this.isDone = true;
+				return;
 			}
 			int powerAmount = p.getPower(TrashPower.POWER_ID).amount;
 			if (powerAmount < ta) {
@@ -44,16 +51,12 @@ public class CoverIncreaseAllAction extends AbstractGameAction {
 
 			for (AbstractCard card2 : cardsHasCover.group) {
 				((AbstractDefaultCard) card2).baseCoverMagicNumber += (ta * ca);
+				((AbstractDefaultCard) card2).coverMagicNumber += (ta * ca);
+				((AbstractDefaultCard) card2).isCoverMagicNumberModified = true;
 				card2.superFlash();
-				// ((AbstractDefaultCard) card2).isCoverMagicNumberModified = true;
 			}
 
 		}
-
-	}
-
-	@Override
-	public void update() {
 
 		this.isDone = true;
 	}
