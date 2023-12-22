@@ -4,6 +4,7 @@ import Miyu.DefaultMod;
 import Miyu.util.TextureLoader;
 import basemod.abstracts.CustomRelic;
 import com.badlogic.gdx.graphics.Texture;
+import com.megacrit.cardcrawl.actions.common.BetterDrawPileToHandAction;
 import com.megacrit.cardcrawl.actions.common.DrawCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -11,7 +12,11 @@ import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.cards.CardGroup;
 import com.evacipated.cardcrawl.mod.stslib.actions.common.FetchAction;
 import Miyu.cards.ICoverCard;
+import com.megacrit.cardcrawl.helpers.DrawMaster;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
+
+import java.util.ArrayList;
+import java.util.Iterator;
 
 import static Miyu.DefaultMod.makeRelicOutlinePath;
 import static Miyu.DefaultMod.makeRelicPath;
@@ -31,7 +36,10 @@ public class Thermos extends CustomRelic {
 	// Flash at the start of Battle.
 	@Override
 	public void atBattleStartPreDraw() {
-		AbstractDungeon.actionManager.addToBottom(new DrawCardAction(2));
+
+		// AbstractDungeon.actionManager.addToBottom(new DrawCardAction(2));
+		AbstractDungeon.actionManager
+				.addToBottom(new FetchAction(AbstractDungeon.player.drawPile, c -> c instanceof ICoverCard));
 		flash();
 
 	}
