@@ -49,10 +49,10 @@ public class NegativeDelusions extends AbstractDynamicCard {
 		// 아무 효과 없음
 	}
 
-	public void triggerOnExhaust() {
-		AbstractPlayer p = AbstractDungeon.player;
-		this.addToBot(new ApplyPowerAction(p, p, new SelfEsteem(p, p, magicNumber)));
-	}
+	// public void triggerOnExhaust() {
+	// AbstractPlayer p = AbstractDungeon.player;
+	// this.addToBot(new ApplyPowerAction(p, p, new SelfEsteem(p, p, magicNumber)));
+	// }
 
 	public void triggerOnEndOfTurnForPlayingCard() {
 

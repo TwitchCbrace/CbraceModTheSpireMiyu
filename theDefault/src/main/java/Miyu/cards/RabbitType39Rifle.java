@@ -97,6 +97,7 @@ public class RabbitType39Rifle extends AbstractDynamicCard {
 			upgradeName();
 			upgradeDamage(UPGRADE_PLUS_DAMAGE);
 			this.cardsToPreview.upgrade();
+			this.rawDescription = cardStrings.UPGRADE_DESCRIPTION;
 			initializeDescription();
 		}
 	}

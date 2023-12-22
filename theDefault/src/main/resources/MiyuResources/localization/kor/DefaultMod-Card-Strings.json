@@ -26,7 +26,7 @@
   },
   "Miyu:Inevitably": {
     "NAME": "하는 수 없죠...",
-    "DESCRIPTION": "피해를 !D! 줍니다. NL Miyu:거리만큼 피해가 감소합니다. NL Miyu:거리가 8 이상이면 NL 카드를 1장 뽑습니다. NL Miyu:거리 !Miyu:R! "
+    "DESCRIPTION": "피해를 !D! 줍니다. NL Miyu:거리만큼 피해가 감소합니다. NL Miyu:거리가 6 이상이면 NL 카드를 1장 뽑습니다. NL Miyu:거리 !Miyu:R! "
   },
   "Miyu:RunAndGun": {
     "NAME": "런앤건",
@@ -73,11 +73,13 @@
   },
   "Miyu:CleanUpTrash": {
     "NAME": "쓰레기 청소",
-    "DESCRIPTION": " Miyu:쓰레기가 1 감소할 때마다 NL Miyu:자존감 과 NL Miyu:활력을 !M! 얻습니다. "
+    "DESCRIPTION": " Miyu:쓰레기가 1 감소할 때마다 Miyu:자존감 과 NL Miyu:활력을 !M! 얻습니다. "
   },
   "Miyu:Park": {
     "NAME": "공원",
-    "DESCRIPTION": " Miyu:엄폐물 !Miyu:C! . NL 이 카드를 뽑을 때 NL 공원을 2장 생성합니다. 보존. 사용불가. "
+    "DESCRIPTION": " Miyu:엄폐물 !Miyu:C! . NL 이 카드를 뽑을 때 NL 공원을 2장 생성합니다. 보존. 사용불가. ",
+    "UPGRADE_DESCRIPTION": " Miyu:엄폐물 !Miyu:C! . NL 이 카드를 뽑을 때 NL 강화된 공원을 2장 생성합니다. 보존. 사용불가. "
+
   },
   "Miyu:LeafPile": {
     "NAME": "낙엽 더미",
@@ -129,6 +131,11 @@
   "Miyu:PointShooting": {
     "NAME": "지향 사격",
     "DESCRIPTION": " 무작위 적들에게 NL 피해를 !D! 만큼 !M! 번 NL 줍니다. NL 가장 작은 엄폐물을 소멸 시킵니다. "
+
+  },
+  "Miyu:BlindSpot": {
+    "NAME": "사각지대",
+    "DESCRIPTION": " 적에게 피해를 !D! 줍니다. NL Miyu:자존감 만큼 Miyu:활력을 얻습니다. "
 
   },
   "Miyu:UnexpectedAngle": {
@@ -281,7 +288,7 @@
   },
   "Miyu:NegativeDelusions": {
     "NAME": "부정적인 망상",
-    "DESCRIPTION": " 소멸 시 자존감 !M!. 턴 종료 시 Miyu:자존감이 음수면 이 카드의 복사본을 얻습니다. 보존."
+    "DESCRIPTION": " 턴 종료 시 Miyu:자존감이 음수면 이 카드의 복사본을 얻습니다. 보존."
   },
   "Miyu:SecretArea": {
     "NAME": "비밀 장소",
@@ -344,7 +351,7 @@
 
   "Miyu:ContinualEffort": {
     "NAME": "부단한 노력",
-    "DESCRIPTION": " 턴 시작 시 Miyu:활력을 !M! 얻고 부정적인 망상을 얻습니다. Miyu:자존감이 -20 이하면 도망갑니다. "
+    "DESCRIPTION": " 턴 시작 시 Miyu:활력을 !M! 얻고 부정적인 망상을 얻습니다. NL Miyu:자존감이 -20 이하면 도망갑니다. "
 
   }
 }

@@ -51,8 +51,8 @@ public class Inevitably extends AbstractDynamicCard {
 	public static final CardColor COLOR = TheDefault.Enums.COLOR_GRAY;
 
 	private static final int COST = 1; // COST = 1
-	private static final int DAMAGE = 14; // DAMAGE = 6
-	private static final int UPGRADE_PLUS_DMG = 5; // UPGRADE_PLUS_DMG = 9
+	private static final int DAMAGE = 16; // DAMAGE = 6
+	private static final int UPGRADE_PLUS_DMG = 6; // UPGRADE_PLUS_DMG = 9
 
 	private static final int MAGIC = 1;
 	private static final int UPGRADE_MAGIC = 0;
@@ -103,7 +103,7 @@ public class Inevitably extends AbstractDynamicCard {
 	public void use(AbstractPlayer p, AbstractMonster m) {
 		this.damage -= this.rangeMagicNumber;
 
-		if (rangeMagicNumber > 7) {
+		if (rangeMagicNumber >= 6) {
 			this.addToBot(new DrawCardAction(p, 1));
 		}
 		this.calculateCardDamage(m);

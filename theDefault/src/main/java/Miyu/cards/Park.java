@@ -87,6 +87,7 @@ public class Park extends AbstractDynamicCard implements ICoverCard {
 		if (!upgraded) {
 			upgradeName();
 			this.upgradeCoverMagicNumber(UPGRADE_PLUS_COVER);
+			this.rawDescription = cardStrings.UPGRADE_DESCRIPTION;
 			this.isCoverMagicNumberModified = true;
 			initializeDescription();
 		}
