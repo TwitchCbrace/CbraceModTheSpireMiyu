@@ -70,13 +70,13 @@ public class Moe extends AbstractDynamicCard {
 		this.initializeDescription();
 	}
 
+	// 이거 수정 했습니다. MoePower에 repeat 라는 값을 베이스매직넘버 2(핸드 수)를 넣었습니다.
 	@Override
 	public void use(AbstractPlayer p, AbstractMonster m) {
-		int i = 0;
-		for (i = baseSecondMagicNumber; i > 0; i--) {
-			this.addToBot(new ApplyPowerAction(p, p, new MoePower(p, 3, this.baseMagicNumber), 3));
-		}
+		this.addToBot(
+				new ApplyPowerAction(p, p, new MoePower(p, 3, this.baseMagicNumber, this.baseSecondMagicNumber), 3));
 	}
+
 
 	// Upgraded stats.
 	@Override
