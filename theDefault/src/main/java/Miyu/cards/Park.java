@@ -52,6 +52,10 @@ public class Park extends AbstractDynamicCard implements ICoverCard {
 		AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p,
 				new Covered(p, p, this.baseCoverMagicNumber, this), this.baseCoverMagicNumber));
 	}
+	public void triggerOnExhaust() {
+		AbstractPlayer p = AbstractDungeon.player;
+		this.addToBot(new ApplyPowerAction(p, p, new TrashPower(p, p, 3)));
+	}
 
 	public void triggerOnGlowCheck() {
 		Covered covered = (Covered) AbstractDungeon.player.getPower("Miyu:Covered");
@@ -87,7 +91,6 @@ public class Park extends AbstractDynamicCard implements ICoverCard {
 		if (!upgraded) {
 			upgradeName();
 			this.upgradeCoverMagicNumber(UPGRADE_PLUS_COVER);
-			this.rawDescription = cardStrings.UPGRADE_DESCRIPTION;
 			this.isCoverMagicNumberModified = true;
 			initializeDescription();
 		}

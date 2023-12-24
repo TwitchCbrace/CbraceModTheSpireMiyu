@@ -80,7 +80,7 @@ public class TrashBin extends AbstractDynamicCard implements ICoverCard {
 
 	public void triggerOnExhaust() {
 		AbstractPlayer p = AbstractDungeon.player;
-		this.addToBot(new ApplyPowerAction(p, p, new TrashPower(p, p, baseMagicNumber)));
+		this.addToBot(new ApplyPowerAction(p, p, new TrashPower(p, p, 3)));
 	}
 
 	public AbstractCard makeCopy() {

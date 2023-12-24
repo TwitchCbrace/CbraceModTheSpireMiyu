@@ -38,8 +38,8 @@ public class SafeZone extends AbstractDynamicCard {
 	private static final CardType TYPE = CardType.SKILL;
 	public static final CardColor COLOR = TheDefault.Enums.COLOR_GRAY;
 	private static final int COST = 1;
-	private static final int BLOCK = 6;
-	private static final int UPGRADE_PLUS_BLOCK = 4;
+	private static final int BLOCK = 8;
+	// private static final int UPGRADE_PLUS_BLOCK = 4;
 
 	private static final int MAGIC = 1;
 	private static final int UPGRADE_MAGIC_NUMBER = 1;
@@ -71,7 +71,7 @@ public class SafeZone extends AbstractDynamicCard {
 	public void upgrade() {
 		if (!upgraded) {
 			upgradeName();
-			upgradeBlock(UPGRADE_PLUS_BLOCK);
+			// upgradeBlock(UPGRADE_PLUS_BLOCK);
 			upgradeMagicNumber(UPGRADE_MAGIC_NUMBER);
 			rawDescription = UPGRADE_DESCRIPTION;
 			initializeDescription();

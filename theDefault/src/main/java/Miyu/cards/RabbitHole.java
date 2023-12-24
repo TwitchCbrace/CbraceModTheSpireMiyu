@@ -3,6 +3,7 @@ package Miyu.cards;
 import Miyu.DefaultMod;
 import Miyu.characters.TheDefault;
 import Miyu.powers.Covered;
+import Miyu.powers.TrashPower;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.DrawCardAction;
 import com.megacrit.cardcrawl.actions.common.PutOnDeckAction;
@@ -49,6 +50,10 @@ public class RabbitHole extends AbstractDynamicCard implements ICoverCard {
 				new Covered(p, p, this.baseCoverMagicNumber, this), this.baseCoverMagicNumber));
 		AbstractDungeon.actionManager.addToBottom(new DrawCardAction(magicNumber));
 		AbstractDungeon.actionManager.addToBottom(new PutOnDeckAction(p, p, 1, false));
+	}
+	public void triggerOnExhaust() {
+		AbstractPlayer p = AbstractDungeon.player;
+		this.addToBot(new ApplyPowerAction(p, p, new TrashPower(p, p, 3)));
 	}
 
 	public void triggerOnGlowCheck() {

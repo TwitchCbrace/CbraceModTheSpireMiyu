@@ -1,6 +1,9 @@
 package Miyu.cards;
 
+import Miyu.powers.TrashPower;
+import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 
 /*
     trigger가 존재한다는 약속으루다가 interface 하나 만들어둠.
@@ -10,4 +13,6 @@ by josh
 
 public interface ICoverCard {
 	void triggerOnCovered(AbstractPlayer p);
+	void triggerOnExhaust();
+
 }

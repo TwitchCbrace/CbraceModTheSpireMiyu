@@ -77,7 +77,6 @@ public class Moe extends AbstractDynamicCard {
 				new ApplyPowerAction(p, p, new MoePower(p, 3, this.baseMagicNumber, this.baseSecondMagicNumber), 3));
 	}
 
-
 	// Upgraded stats.
 	@Override
 	public void upgrade() {

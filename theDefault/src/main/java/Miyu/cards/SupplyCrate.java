@@ -76,11 +76,8 @@ public class SupplyCrate extends AbstractDynamicCard implements ICoverCard {
 	public void triggerOnExhaust() {
 		AbstractPlayer p = AbstractDungeon.player;
 		this.addToBot(new ApplyPowerAction(p, p, new EnergizedPower(p, magicNumber), magicNumber));
-		if (this.upgraded) {
-			AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new TrashPower(p, p, 5)));
-		} else {
-			AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new TrashPower(p, p, 3)));
-		}
+		AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new TrashPower(p, p, 3)));
+
 	}
 
 	public AbstractCard makeCopy() {

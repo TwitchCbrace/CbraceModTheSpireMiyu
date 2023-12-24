@@ -40,7 +40,7 @@ public class MoePower extends AbstractPower {
 		this.owner = owner;
 		this.amount = turns;
 		this.damage = damage;
-// repeat 값 할당.
+		// repeat 값 할당.
 		this.repeat = repeat;
 		this.updateDescription();
 		this.loadRegion("the_bomb");
@@ -50,7 +50,7 @@ public class MoePower extends AbstractPower {
 		if (!AbstractDungeon.getMonsters().areMonstersBasicallyDead()) {
 			this.addToBot(new ReducePowerAction(this.owner, this.owner, this, 1));
 			if (this.amount == 1) {
-// 여기서 repeat 수 만큼 폭발을 반복 했습니다.
+				// 여기서 repeat 수 만큼 폭발을 반복 했습니다.
 				for (int i = 0; i < repeat; i++) {
 					this.addToBot(new DamageAllEnemiesAction((AbstractCreature) null,
 							DamageInfo.createDamageMatrix(this.damage, true), DamageInfo.DamageType.THORNS,
@@ -64,9 +64,9 @@ public class MoePower extends AbstractPower {
 	// 파워 설명을 추가 했습니다. "n 번 반복합니다." 라고 일단 적었습니다.
 	public void updateDescription() {
 		if (this.amount == 1) {
-			this.description = String.format(DESCRIPTIONS[1], this.damage , this.repeat);
+			this.description = String.format(DESCRIPTIONS[1], this.damage, this.repeat);
 		} else {
-			this.description = String.format(DESCRIPTIONS[0], this.amount, this.damage , this.repeat);
+			this.description = String.format(DESCRIPTIONS[0], this.amount, this.damage, this.repeat);
 		}
 
 	}
@@ -74,9 +74,9 @@ public class MoePower extends AbstractPower {
 	public AbstractPower makeCopy() {
 		return new MoePower(owner, amount, damage, repeat);
 	}
-// static {
-// powerStrings = CardCrawlGame.languagePack.getPowerStrings("MoePower");
-// NAME = powerStrings.NAME;
-// DESCRIPTIONS = powerStrings.DESCRIPTIONS;
-// }
+	// static {
+	// powerStrings = CardCrawlGame.languagePack.getPowerStrings("MoePower");
+	// NAME = powerStrings.NAME;
+	// DESCRIPTIONS = powerStrings.DESCRIPTIONS;
+	// }
 }

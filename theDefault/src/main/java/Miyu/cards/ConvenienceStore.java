@@ -3,6 +3,7 @@ package Miyu.cards;
 import Miyu.DefaultMod;
 import Miyu.characters.TheDefault;
 import Miyu.powers.Covered;
+import Miyu.powers.TrashPower;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
@@ -56,6 +57,10 @@ public class ConvenienceStore extends AbstractDynamicCard implements ICoverCard 
 		this.magicNumber++;
 		isMagicNumberModified = true;
 		this.initializeDescription();
+	}
+	public void triggerOnExhaust() {
+		AbstractPlayer p = AbstractDungeon.player;
+		this.addToBot(new ApplyPowerAction(p, p, new TrashPower(p, p, 3)));
 	}
 
 	public void triggerOnGlowCheck() {

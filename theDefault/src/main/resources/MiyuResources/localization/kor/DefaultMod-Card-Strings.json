@@ -38,7 +38,7 @@
   },
   "Miyu:TrashBin": {
     "NAME": "쓰레기통",
-    "DESCRIPTION": "Miyu:엄폐물 !Miyu:C!. NL 소멸 시 Miyu:쓰레기 !M!. NL 사용불가. NL 보존."
+    "DESCRIPTION": "Miyu:엄폐물 !Miyu:C!. NL 사용불가. NL 보존."
   },
   "Miyu:Fortification": {
     "NAME": "요새화",
@@ -77,19 +77,18 @@
   },
   "Miyu:Park": {
     "NAME": "공원",
-    "DESCRIPTION": " Miyu:엄폐물 !Miyu:C! . NL 이 카드를 뽑을 때 NL 공원을 2장 생성합니다. 보존. 사용불가. ",
-    "UPGRADE_DESCRIPTION": " Miyu:엄폐물 !Miyu:C! . NL 이 카드를 뽑을 때 NL 강화된 공원을 2장 생성합니다. 보존. 사용불가. "
+    "DESCRIPTION": " Miyu:엄폐물 !Miyu:C! . NL 뽑을 때 복사본을 NL 2장 얻습니다. NL 보존. 사용불가. "
 
   },
   "Miyu:LeafPile": {
     "NAME": "낙엽 더미",
-    "DESCRIPTION": " Miyu:엄폐물 !Miyu:C! . NL 방어도를 !B! 얻습니다. NL 소멸 시 Miyu:쓰레기 !M!. ",
-    "UPGRADE_DESCRIPTION": " Miyu:엄폐물 !Miyu:C! . NL 방어도를 !B! 얻습니다. NL 소멸 시 Miyu:쓰레기 !M!. "
+    "DESCRIPTION": " Miyu:엄폐물 !Miyu:C! . NL 방어도를 !B! 얻습니다. ",
+    "UPGRADE_DESCRIPTION": " Miyu:엄폐물 !Miyu:C! . NL 방어도를 !B! 얻습니다. "
   },
   "Miyu:SupplyCrate": {
     "NAME": "보급 상자",
-    "DESCRIPTION": " Miyu:엄폐물 !Miyu:C! . NL 소멸 시 Miyu:쓰레기 3. NL 다음 턴에 NL [R] [R] . NL 사용불가. 보존. ",
-    "UPGRADE_DESCRIPTION": " Miyu:엄폐물 !Miyu:C! . NL 소멸 시 Miyu:쓰레기 5. NL 다음 턴에 NL [R] [R] [R] . NL 사용불가. 보존. "
+    "DESCRIPTION": " Miyu:엄폐물 !Miyu:C! . NL 소멸 시 다음 턴에 NL [R] [R] . NL 사용불가. 보존. ",
+    "UPGRADE_DESCRIPTION": " Miyu:엄폐물 !Miyu:C! . NL 소멸 시 다음 턴에 NL [R] [R] [R] . NL 사용불가. 보존. "
 
   },
   "Miyu:PanicShot": {
@@ -183,7 +182,7 @@
   },
   "Miyu:FlowerGarden": {
     "NAME": "화원",
-    "DESCRIPTION": " Miyu:엄폐물 !Miyu:C!. NL Miyu:활력을 !M! 얻습니다. NL 이 카드를 뽑을 때 NL Miyu:엄폐물이 2배가 됩니다. NL 보존. "
+    "DESCRIPTION": " Miyu:엄폐물 !Miyu:C!. NL Miyu:활력을 !M! 얻습니다. NL 이 카드를 뽑을 때 NL Miyu:엄폐물 값이 2배가 됩니다. NL 보존. "
   },
   "Miyu:DontForgetMe": {
     "NAME": "잊지 말아줘...",
