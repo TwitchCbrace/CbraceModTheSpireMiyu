@@ -69,7 +69,8 @@
   },
   "Miyu:RecyclingTrash": {
     "NAME": "재활용 쓰레기",
-    "DESCRIPTION": " 손이 가득 찰 때까지 NL Miyu:쓰레기를 소모하여 카드를 뽑습니다. "
+    "DESCRIPTION": " 카드를 1 장 뽑고 NL 손이 가득 찰 때까지 NL Miyu:쓰레기를 소모하여 카드를 뽑습니다. ",
+    "UPGRADE_DESCRIPTION": " 카드를 1 장 뽑고 NL 손이 가득 찰 때까지 NL Miyu:쓰레기를 소모하여 카드를 뽑습니다. NL 보존. "
   },
   "Miyu:CleanUpTrash": {
     "NAME": "쓰레기 청소",
@@ -346,6 +347,20 @@
   "Miyu:Party": {
     "NAME": "파티",
     "DESCRIPTION": " 방어도를 !B! 얻고 NL 약화를 !M! 부여합니다. NL 바위를 !Miyu:M2! 장 얻습니다. "
+  },
+  "Miyu:Dive": {
+    "NAME": "잠수",
+    "DESCRIPTION": " Miyu:엄폐물 !Miyu:C!. NL Miyu:엄폐물을 !M! 만큼 X번 얻습니다. NL 이 카드로 Miyu:이동합니다. NL 소멸. "
+  },
+
+  "Miyu:Ready": {
+    "NAME": "요이",
+    "DESCRIPTION": " 땅! 을 !M! 장 얻습니다. 소멸. "
+  },
+
+  "Miyu:Go": {
+    "NAME": "땅!",
+    "DESCRIPTION": " Miyu:이동합니다. NL 보존. 소멸. "
   },
 
   "Miyu:ContinualEffort": {

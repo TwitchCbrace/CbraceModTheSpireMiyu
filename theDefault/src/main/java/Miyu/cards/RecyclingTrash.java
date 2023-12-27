@@ -3,6 +3,7 @@ package Miyu.cards;
 import Miyu.DefaultMod;
 import Miyu.actions.RecyclingTrashAction;
 import Miyu.characters.TheDefault;
+import com.megacrit.cardcrawl.actions.common.DrawCardAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.localization.CardStrings;
@@ -25,6 +26,7 @@ public class RecyclingTrash extends AbstractDynamicCard {
 
 	// /TEXT DECLARATION/
 	private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
+	public static final String UPGRADE_DESCRIPTION = cardStrings.UPGRADE_DESCRIPTION;
 
 	// STAT DECLARATION
 
@@ -32,8 +34,7 @@ public class RecyclingTrash extends AbstractDynamicCard {
 	private static final CardTarget TARGET = CardTarget.SELF;
 	private static final CardType TYPE = CardType.SKILL;
 	public static final CardColor COLOR = TheDefault.Enums.COLOR_GRAY;
-	private static final int COST = 1;
-	private static final int UPGRADED_COST = 0;
+	private static final int COST = 0;
 
 	private static final int MAGIC = 1;
 
@@ -41,7 +42,6 @@ public class RecyclingTrash extends AbstractDynamicCard {
 
 	public RecyclingTrash() {
 		super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
-
 		this.baseMagicNumber = MAGIC;
 
 	}
@@ -49,13 +49,8 @@ public class RecyclingTrash extends AbstractDynamicCard {
 	// Actions the card should do.
 	@Override
 	public void use(AbstractPlayer p, AbstractMonster m) {
+		this.addToBot(new DrawCardAction(1));
 		this.addToBot(new RecyclingTrashAction(p));
-		// int amount = 0;
-		// amount = Math.min(p.getPower(TrashPower.POWER_ID).amount,
-		// p.gameHandSize - p.hand.size());
-		//
-		// this.addToBot(new ExpertiseAction(p, amount));
-		// this.addToBot(new ReducePowerAction(p, p, TrashPower.POWER_ID, amount));
 
 	}
 
@@ -63,8 +58,9 @@ public class RecyclingTrash extends AbstractDynamicCard {
 	@Override
 	public void upgrade() {
 		if (!upgraded) {
+			this.selfRetain = true;
 			upgradeName();
-			this.upgradeBaseCost(0);
+			rawDescription = UPGRADE_DESCRIPTION;
 			initializeDescription();
 		}
 	}

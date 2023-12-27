@@ -36,8 +36,8 @@ public class FindingMiyu extends AbstractDynamicCard {
 	public static final CardColor COLOR = TheDefault.Enums.COLOR_GRAY;
 
 	private static final int COST = 1;
-	private static final int DAMAGE = 5;
-	private static final int UPGRADE_PLUS_DMG = 2;
+	private static final int DAMAGE = 7;
+	private static final int UPGRADE_PLUS_DMG = 3;
 	private static final int MAGIC = 0;
 	// /STAT DECLARATION/
 
