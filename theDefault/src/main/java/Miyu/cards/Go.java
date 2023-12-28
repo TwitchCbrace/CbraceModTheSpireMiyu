@@ -5,8 +5,11 @@ import Miyu.actions.CoverSelectAction;
 import Miyu.powers.Pebble;
 import Miyu.powers.SelfEsteem;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
+import com.megacrit.cardcrawl.actions.common.DrawCardAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
+import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
 import static Miyu.DefaultMod.makeCardPath;
@@ -17,6 +20,8 @@ public class Go extends AbstractDynamicCard {
 
 	public static final String ID = DefaultMod.makeID(Go.class.getSimpleName());
 	public static final String IMG = makeCardPath("Go.png");
+	private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
+	public static final String UPGRADE_DESCRIPTION = cardStrings.UPGRADE_DESCRIPTION;
 
 	// /TEXT DECLARATION/
 
@@ -41,12 +46,16 @@ public class Go extends AbstractDynamicCard {
 
 	@Override
 	public void use(AbstractPlayer p, AbstractMonster m) {
+		if (upgraded) {
+			AbstractDungeon.actionManager.addToBottom(new DrawCardAction(p, 1));
+		}
 		AbstractDungeon.actionManager.addToBottom(new CoverSelectAction(p, 1));
 	}
 
 	@Override
 	public void upgrade() {
 		if (!upgraded) {
+			rawDescription = UPGRADE_DESCRIPTION;
 			upgradeName();
 			initializeDescription();
 		}

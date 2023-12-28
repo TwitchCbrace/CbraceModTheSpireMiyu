@@ -7,7 +7,9 @@ import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
+import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
 import java.util.ArrayList;
@@ -21,6 +23,9 @@ public class SecretArea extends AbstractDynamicCard {
 
 	public static final String ID = DefaultMod.makeID(SecretArea.class.getSimpleName());
 	public static final String IMG = makeCardPath("SecretArea.png");
+
+	private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
+	public static final String UPGRADE_DESCRIPTION = cardStrings.UPGRADE_DESCRIPTION;
 
 	// /TEXT DECLARATION/
 
@@ -62,6 +67,9 @@ public class SecretArea extends AbstractDynamicCard {
 
 	private void updateBlockAndDescription(int correction) {
 		this.magicNumber = AbstractDungeon.player.exhaustPile.size() + correction + this.baseMagicNumber;
+		if (upgraded) {
+			this.magicNumber += 3;
+		}
 		isMagicNumberModified = true;
 		initializeDescription();
 	}
@@ -78,9 +86,10 @@ public class SecretArea extends AbstractDynamicCard {
 
 		// 엄폐물이 존재하면 해당 카드로 이동
 		if (c != null && ((AbstractDynamicCard) c).getCoverMagicNumber() > 0) {
-			addToBot(new ApplyPowerAction(p, p,
-					new Covered(p, p, ((AbstractDynamicCard) c).getCoverMagicNumber(), ((AbstractDynamicCard) c)),
-					((AbstractDynamicCard) c).getCoverMagicNumber()));
+			// addToBot(new ApplyPowerAction(p, p,
+			// new Covered(p, p, ((AbstractDynamicCard) c).getCoverMagicNumber(), ((AbstractDynamicCard) c)),
+			// ((AbstractDynamicCard) c).getCoverMagicNumber()));
+			// 이동이 두 번 작동해서 주석처리함 cbrace
 			((ICoverCard) c).triggerOnCovered(p);
 		}
 
@@ -94,6 +103,7 @@ public class SecretArea extends AbstractDynamicCard {
 		if (!upgraded) {
 			upgradeName();
 			upgradeMagicNumber(UPGRADE_PLUS_MAGIC);
+			rawDescription = UPGRADE_DESCRIPTION;
 			isMagicNumberModified = true;
 			initializeDescription();
 		}
