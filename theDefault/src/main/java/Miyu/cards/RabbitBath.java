@@ -3,6 +3,7 @@ package Miyu.cards;
 import Miyu.DefaultMod;
 import Miyu.characters.TheDefault;
 import Miyu.powers.Covered;
+import Miyu.powers.TrashPower;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.HealAction;
 import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
@@ -76,6 +77,10 @@ public class RabbitBath extends AbstractDynamicCard implements ICoverCard {
 		} else {
 			this.glowColor = AbstractCard.BLUE_BORDER_GLOW_COLOR.cpy();
 		}
+	}
+	public void triggerOnExhaust() {
+		AbstractPlayer p = AbstractDungeon.player;
+		this.addToBot(new ApplyPowerAction(p, p, new TrashPower(p, p, 3)));
 	}
 
 	public boolean canUse(AbstractPlayer p, AbstractMonster m) {
