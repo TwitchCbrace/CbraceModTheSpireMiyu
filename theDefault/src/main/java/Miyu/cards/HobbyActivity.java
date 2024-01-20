@@ -36,6 +36,7 @@ public class HobbyActivity extends AbstractDynamicCard {
 	// /STAT DECLARATION/
 	public HobbyActivity() {
 		super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
+		this.cardsToPreview = new Rock();
 	}
 
 	// Actions the card should do.

@@ -43,7 +43,7 @@ public class NextTarget extends AbstractDynamicCard {
 	private static final int DAMAGE = 15; // DAMAGE = 10
 	private static final int UPGRADE_PLUS_DAMAGE = 5;
 	private static final int MAGIC = 3;
-	private static final int UPGRADE_PLUS_MAGIC = 2;
+	private static final int UPGRADE_PLUS_MAGIC = 1;
 
 	// /STAT DECLARATION/
 
