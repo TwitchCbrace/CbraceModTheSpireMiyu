@@ -20,7 +20,7 @@ import java.util.Iterator;
 
 import static Miyu.DefaultMod.makeCardPath;
 
-public class Saki extends AbstractDynamicCard {
+public class Saki extends AbstractRangeIconCard {
 
 	public static final String ID = DefaultMod.makeID(Saki.class.getSimpleName()); // USE THIS ONE FOR THE TEMPLATE;
 	public static final String IMG = makeCardPath("Saki.png");// "public static final String IMG =
@@ -50,7 +50,7 @@ public class Saki extends AbstractDynamicCard {
 		this.baseRangeMagicNumber = p + 1;
 		this.rangeMagicNumber = p + 1;
 		isRangeMagicNumberModified = true;
-
+		// super.triggerWhenDrawn(); // 대체됨
 	}
 
 	public void applyPowers() {

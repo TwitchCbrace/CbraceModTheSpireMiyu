@@ -15,7 +15,7 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
 import static Miyu.DefaultMod.makeCardPath;
 
-public class AppropriateDistance extends AbstractDynamicCard {
+public class AppropriateDistance extends AbstractRangeIconCard {
 
 	// TEXT DECLARATION
 
@@ -50,11 +50,12 @@ public class AppropriateDistance extends AbstractDynamicCard {
 		this.isEthereal = true;
 	}
 	public void triggerWhenDrawn() {
-		int p = 0;
-		p = AbstractDungeon.player.hand.size();
-		this.baseRangeMagicNumber = p + 1;
-		this.rangeMagicNumber = p + 1;
-		isRangeMagicNumberModified = true;
+		// int p = 0;
+		// p = AbstractDungeon.player.hand.size();
+		// this.baseRangeMagicNumber = p + 1;
+		// this.rangeMagicNumber = p + 1;
+		// isRangeMagicNumberModified = true;
+		super.triggerWhenDrawn(); // 대체됨(이 코드(함수)를 지워도 됩니다)
 	}
 
 	public void applyPowers() {

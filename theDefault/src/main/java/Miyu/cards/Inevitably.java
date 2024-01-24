@@ -13,7 +13,7 @@ import Miyu.characters.TheDefault;
 
 import static Miyu.DefaultMod.makeCardPath;
 
-public class Inevitably extends AbstractDynamicCard {
+public class Inevitably extends AbstractRangeIconCard {
 
 	/*
 	 * "Hey, I wanna make a bunch of cards now." - You, probably. ok cool my dude no problem here's the most convenient
@@ -69,11 +69,12 @@ public class Inevitably extends AbstractDynamicCard {
 	}
 	@Override
 	public void triggerWhenDrawn() {
-		int p = 0;
-		p = AbstractDungeon.player.hand.size();
-		this.baseRangeMagicNumber = p + 1;
-		this.rangeMagicNumber = p + 1;
-		isRangeMagicNumberModified = true;
+		// int p = 0;
+		// p = AbstractDungeon.player.hand.size();
+		// this.baseRangeMagicNumber = p + 1;
+		// this.rangeMagicNumber = p + 1;
+		// isRangeMagicNumberModified = true;
+		super.triggerWhenDrawn(); // 대체됨(함수를 지워도 됩니다)
 	}
 	public void triggerOnGlowCheck() {
 		if (rangeMagicNumber > 7) {

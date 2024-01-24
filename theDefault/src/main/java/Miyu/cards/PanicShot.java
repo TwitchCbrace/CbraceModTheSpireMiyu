@@ -15,7 +15,7 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
 import static Miyu.DefaultMod.makeCardPath;
 
-public class PanicShot extends AbstractDynamicCard {
+public class PanicShot extends AbstractRangeIconCard {
 
 	public static final String ID = DefaultMod.makeID(PanicShot.class.getSimpleName()); // USE THIS ONE FOR THE
 																						// TEMPLATE;
@@ -51,11 +51,12 @@ public class PanicShot extends AbstractDynamicCard {
 
 	@Override
 	public void triggerWhenDrawn() {
-		int p = 0;
-		p = AbstractDungeon.player.hand.size();
-		this.baseRangeMagicNumber = p + 1;
-		this.rangeMagicNumber = p + 1;
-		isRangeMagicNumberModified = true;
+		// int p = 0;
+		// p = AbstractDungeon.player.hand.size();
+		// this.baseRangeMagicNumber = p + 1;
+		// this.rangeMagicNumber = p + 1;
+		// isRangeMagicNumberModified = true;
+		super.triggerWhenDrawn(); // 대체됨(함수 지워도 됨)
 	}
 	public void applyPowers() {
 		int realBaseDamage = this.baseDamage;
