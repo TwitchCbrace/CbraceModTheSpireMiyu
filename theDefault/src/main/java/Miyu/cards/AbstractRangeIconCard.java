@@ -61,7 +61,7 @@ public abstract class AbstractRangeIconCard extends AbstractDynamicCard {
 				temp = MODIFIED_COLOR;
 
 			// 텍스트 표시
-			FontHelper.renderRotatedText(sb, FONT, String.valueOf(rangeMagicNumber), current_x, current_y,
+			FontHelper.renderRotatedText(sb, FONT, String.valueOf(baseRangeMagicNumber), current_x, current_y,
 					-132F * scale, 128F * scale, angle, false, temp);
 		}
 	}
