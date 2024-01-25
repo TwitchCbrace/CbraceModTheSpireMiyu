@@ -50,7 +50,7 @@ public class Saki extends AbstractRangeIconCard {
 		this.baseRangeMagicNumber = p + 1;
 		this.rangeMagicNumber = p + 1;
 		isRangeMagicNumberModified = true;
-		// super.triggerWhenDrawn(); // 대체됨
+
 	}
 
 	public void applyPowers() {

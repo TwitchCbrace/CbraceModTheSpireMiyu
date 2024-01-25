@@ -50,12 +50,11 @@ public class AppropriateDistance extends AbstractRangeIconCard {
 		this.isEthereal = true;
 	}
 	public void triggerWhenDrawn() {
-		// int p = 0;
-		// p = AbstractDungeon.player.hand.size();
-		// this.baseRangeMagicNumber = p + 1;
-		// this.rangeMagicNumber = p + 1;
-		// isRangeMagicNumberModified = true;
-		super.triggerWhenDrawn(); // 대체됨(이 코드(함수)를 지워도 됩니다)
+		int p = 0;
+		p = AbstractDungeon.player.hand.size();
+		this.baseRangeMagicNumber = p + 1;
+		this.rangeMagicNumber = p + 1;
+		isRangeMagicNumberModified = true;
 	}
 
 	public void applyPowers() {

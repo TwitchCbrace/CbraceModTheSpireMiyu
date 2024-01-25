@@ -69,12 +69,11 @@ public class Inevitably extends AbstractRangeIconCard {
 	}
 	@Override
 	public void triggerWhenDrawn() {
-		// int p = 0;
-		// p = AbstractDungeon.player.hand.size();
-		// this.baseRangeMagicNumber = p + 1;
-		// this.rangeMagicNumber = p + 1;
-		// isRangeMagicNumberModified = true;
-		super.triggerWhenDrawn(); // 대체됨(함수를 지워도 됩니다)
+		int p = 0;
+		p = AbstractDungeon.player.hand.size();
+		this.baseRangeMagicNumber = p + 1;
+		this.rangeMagicNumber = p + 1;
+		isRangeMagicNumberModified = true;
 	}
 	public void triggerOnGlowCheck() {
 		if (rangeMagicNumber > 7) {
