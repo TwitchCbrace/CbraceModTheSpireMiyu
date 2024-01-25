@@ -58,12 +58,11 @@ public class Scope extends AbstractRangeIconCard {
 
 	@Override
 	public void triggerWhenDrawn() {
-		// int p = 0;
-		// p = AbstractDungeon.player.hand.size();
-		// this.baseRangeMagicNumber = p + 1;
-		// this.rangeMagicNumber = p + 1;
-		// isRangeMagicNumberModified = true;
-		super.triggerWhenDrawn(); // 대체됨
+		int p = 0;
+		p = AbstractDungeon.player.hand.size();
+		this.baseRangeMagicNumber = p + 1;
+		this.rangeMagicNumber = p + 1;
+		isRangeMagicNumberModified = true;
 		if (this.upgraded) {
 			this.baseMagicNumber = rangeMagicNumber / 3;
 		} else {
