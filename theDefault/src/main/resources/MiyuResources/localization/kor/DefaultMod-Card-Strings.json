@@ -303,7 +303,7 @@
   },
   "Miyu:AppropriateDistance": {
     "NAME": "원하는 거리",
-    "DESCRIPTION": " 방어도를 !B! 얻습니다. NL 거리와 7의 차이만큼 NL Miyu:자존감이 변합니다. NL (현재 !M!) NL 휘발성. 소멸. "
+    "DESCRIPTION": " 방어도를 !B! 얻습니다. NL Miyu:거리와 7의 차이만큼 NL Miyu:자존감이 변합니다. NL (현재 !M!) NL 휘발성. 소멸. "
   },
   "Miyu:DontComeClose": {
     "NAME": "오지 마세요",

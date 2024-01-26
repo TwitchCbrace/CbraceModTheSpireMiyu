@@ -8,6 +8,7 @@ import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.Settings;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.FontHelper;
 
 import java.util.ArrayList;
@@ -23,7 +24,6 @@ public abstract class AbstractRangeIconCard extends AbstractDynamicCard {
 	public AbstractRangeIconCard(String id, String img, int cost, CardType type, CardColor color, CardRarity rarity,
 			CardTarget target) {
 		super(id, img, cost, type, color, rarity, target);
-		addKeyword();
 	}
 
 	// 배경 이미지(경로는 임시로 아무곳에 저장함)
@@ -41,7 +41,7 @@ public abstract class AbstractRangeIconCard extends AbstractDynamicCard {
 	@Override
 	public void render(SpriteBatch sb) {
 		super.render(sb);
-		if (CardCrawlGame.isInARun()) { // 백과사전에선 랜더링되지 않음
+		if (AbstractDungeon.player != null) { // 백과사전 안에서 랜더링되는 것을 방지함
 			float scale = drawScale * Settings.scale;
 			// 뒷배경 그리기
 			sb.draw(ICON, // 배경
@@ -72,11 +72,5 @@ public abstract class AbstractRangeIconCard extends AbstractDynamicCard {
 		super.renderInLibrary(sb);
 		sb.draw(ICON, current_x - 165F, current_y + 96F, 165F, -96F, 64F, 64F, drawScale * Settings.scale,
 				drawScale * Settings.scale, angle, 0, 0, 64, 64, false, false);
-	}
-
-	// 카드에 키워드 설명 추가(키워드가 없을때만)
-	private void addKeyword() {
-		if (!keywords.contains("miyu:거리"))
-			keywords.add("miyu:거리");
 	}
 }
