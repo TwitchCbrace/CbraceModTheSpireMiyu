@@ -25,7 +25,7 @@ public abstract class AbstractRangeIconCard extends AbstractDynamicCard {
 	// 배경 이미지(경로는 임시로 아무곳에 저장함)
 	private static final Texture ICON = TextureLoader
 			.getTexture(DefaultMod.getModID() + "Resources/images/1024/range_icon.png");
-	// 거리를 표시할 때 쓸 폰트(카드 에너지 폰트 썼음)
+	// 거리를 표시할 때 쓸 폰트(카드 에너지 폰트)
 	private static final BitmapFont FONT = FontHelper.cardEnergyFont_L;
 	// 거리를 변경되었을때 쓸 색깔(초록색)
 	private static final Color MODIFIED_COLOR = new Color(0.4F, 1.0F, 0.4F, 1F);
@@ -33,7 +33,7 @@ public abstract class AbstractRangeIconCard extends AbstractDynamicCard {
 	private static final Color COLOR_WHITE = new Color(1F, 1F, 1F, 1F);
 
 	// 대부분의 상황에서 랜더링됨,
-	// 우클릭으로 카드를 확대 했을때는 랜더링 안됨
+	// 우클릭으로 카드를 확대했을 때는 랜더링 안됨
 	@Override
 	public void render(SpriteBatch sb) {
 		super.render(sb);
@@ -51,14 +51,14 @@ public abstract class AbstractRangeIconCard extends AbstractDynamicCard {
 					64, 64, // 이미지 파일의 끝점(위와 같음)
 					false, false // 좌우/상하 반전여부
 			);
-			// 표시색 결정
-			Color temp = COLOR_WHITE;
+			// 표시색 결정, 거리값이 변했다면 초록색으로 표기됨
+			Color tempColor = COLOR_WHITE;
 			if (isRangeMagicNumberModified)
-				temp = MODIFIED_COLOR;
+				tempColor = MODIFIED_COLOR;
 
 			// 텍스트 표시
 			FontHelper.renderRotatedText(sb, FONT, String.valueOf(baseRangeMagicNumber), current_x, current_y,
-					-132F * scale, 128F * scale, angle, false, temp);
+					-132F * scale, 128F * scale, angle, false, tempColor);
 		}
 	}
 
