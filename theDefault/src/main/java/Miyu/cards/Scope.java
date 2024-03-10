@@ -17,7 +17,7 @@ import com.megacrit.cardcrawl.powers.VulnerablePower;
 
 import static Miyu.DefaultMod.makeCardPath;
 
-public class Scope extends AbstractDynamicCard {
+public class Scope extends AbstractRangeIconCard {
 
 	public static final String ID = DefaultMod.makeID(Scope.class.getSimpleName()); // USE THIS ONE FOR THE TEMPLATE;
 	public static final String IMG = makeCardPath("Scope.png");// "public static final String IMG =

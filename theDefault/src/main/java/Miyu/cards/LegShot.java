@@ -17,7 +17,7 @@ import com.megacrit.cardcrawl.powers.WeakPower;
 
 import static Miyu.DefaultMod.makeCardPath;
 
-public class LegShot extends AbstractDynamicCard {
+public class LegShot extends AbstractRangeIconCard {
 
 	public static final String ID = DefaultMod.makeID(LegShot.class.getSimpleName()); // USE THIS ONE FOR THE TEMPLATE;
 	public static final String IMG = makeCardPath("LegShot.png");// "public static final String IMG =

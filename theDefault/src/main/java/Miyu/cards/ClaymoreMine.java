@@ -11,7 +11,7 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
 import static Miyu.DefaultMod.makeCardPath;
 
-public class ClaymoreMine extends AbstractDynamicCard {
+public class ClaymoreMine extends AbstractRangeIconCard {
 
 	public static final String ID = DefaultMod.makeID(ClaymoreMine.class.getSimpleName()); // USE THIS ONE FOR THE
 																							// TEMPLATE;

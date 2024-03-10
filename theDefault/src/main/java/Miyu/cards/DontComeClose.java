@@ -15,7 +15,7 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
 import static Miyu.DefaultMod.makeCardPath;
 
-public class DontComeClose extends AbstractDynamicCard {
+public class DontComeClose extends AbstractRangeIconCard {
 
 	public static final String ID = DefaultMod.makeID(DontComeClose.class.getSimpleName()); // USE THIS ONE FOR THE
 																							// TEMPLATE;
@@ -56,7 +56,6 @@ public class DontComeClose extends AbstractDynamicCard {
 		this.baseRangeMagicNumber = p + 1;
 		this.rangeMagicNumber = p + 1;
 		isRangeMagicNumberModified = true;
-
 	}
 	public void applyPowers() {
 		int p = 0;

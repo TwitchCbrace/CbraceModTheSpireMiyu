@@ -15,7 +15,7 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
 import static Miyu.DefaultMod.makeCardPath;
 
-public class AppropriateDistance extends AbstractDynamicCard {
+public class AppropriateDistance extends AbstractRangeIconCard {
 
 	// TEXT DECLARATION
 
