@@ -70,7 +70,7 @@ public class SecretArea extends AbstractDynamicCard {
 		if (upgraded) {
 			this.magicNumber += 3;
 		}
-		isMagicNumberModified = true;
+//		isMagicNumberModified = true;
 		initializeDescription();
 	}
 

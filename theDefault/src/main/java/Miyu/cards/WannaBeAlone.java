@@ -4,6 +4,7 @@ import Miyu.DefaultMod;
 import Miyu.actions.WannaBeAloneAction;
 import Miyu.characters.TheDefault;
 import Miyu.powers.Covered;
+import Miyu.powers.TrashPower;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
@@ -46,6 +47,7 @@ public class WannaBeAlone extends AbstractDynamicCard implements ICoverCard {
 		selfRetain = true;
 	}
 
+
 	public void triggerOnCovered(AbstractPlayer p) {
 		AbstractDungeon.actionManager.addToBottom(new RemoveSpecificPowerAction(p, p, "Miyu:Covered"));
 		AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p,
@@ -54,6 +56,11 @@ public class WannaBeAlone extends AbstractDynamicCard implements ICoverCard {
 		// 손에 있는 엄폐물에게 휘발성을 부여하는 액션을 actionManager 맨 밑에 추가
 		addToBot(new WannaBeAloneAction(this));
 	}
+	public void triggerOnExhaust() {
+		AbstractPlayer p = AbstractDungeon.player;
+		this.addToBot(new ApplyPowerAction(p, p, new TrashPower(p, p, 3)));
+	}
+
 
 	public void triggerOnGlowCheck() {
 		Covered covered = (Covered) AbstractDungeon.player.getPower("Miyu:Covered");
