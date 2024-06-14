@@ -21,7 +21,7 @@ import static Miyu.DefaultMod.makeCardPath;
 public class Party extends AbstractDynamicCard {
 
 	public static final String ID = DefaultMod.makeID(Party.class.getSimpleName());
-	public static final String IMG = makeCardPath("party.png");
+	public static final String IMG = makeCardPath("Party.png");
 	private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
 	// /TEXT DECLARATION/
 

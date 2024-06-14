@@ -47,7 +47,6 @@ public class WannaBeAlone extends AbstractDynamicCard implements ICoverCard {
 		selfRetain = true;
 	}
 
-
 	public void triggerOnCovered(AbstractPlayer p) {
 		AbstractDungeon.actionManager.addToBottom(new RemoveSpecificPowerAction(p, p, "Miyu:Covered"));
 		AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p,
@@ -60,7 +59,6 @@ public class WannaBeAlone extends AbstractDynamicCard implements ICoverCard {
 		AbstractPlayer p = AbstractDungeon.player;
 		this.addToBot(new ApplyPowerAction(p, p, new TrashPower(p, p, 3)));
 	}
-
 
 	public void triggerOnGlowCheck() {
 		Covered covered = (Covered) AbstractDungeon.player.getPower("Miyu:Covered");
