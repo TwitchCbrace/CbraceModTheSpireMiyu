@@ -1,9 +1,8 @@
 package Miyu.cards;
 
 import Miyu.DefaultMod;
-import Miyu.actions.BunnyHopAction;
 import Miyu.characters.TheDefault;
-import Miyu.powers.SelfEsteem;
+import Miyu.powers.PresencePower;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
@@ -66,7 +65,7 @@ public class AppropriateDistance extends AbstractRangeIconCard {
 	public void use(AbstractPlayer p, AbstractMonster m) {
 		AbstractDungeon.actionManager.addToBottom(new GainBlockAction(p, p, block, true));
 		AbstractDungeon.actionManager
-				.addToBottom(new ApplyPowerAction(p, p, new SelfEsteem(p, p, magicNumber), magicNumber));
+				.addToBottom(new ApplyPowerAction(p, p, new PresencePower(p, p, magicNumber), magicNumber));
 	}
 
 	public AbstractCard makeCopy() {

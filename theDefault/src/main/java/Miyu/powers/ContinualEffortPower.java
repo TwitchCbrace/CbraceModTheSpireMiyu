@@ -1,16 +1,11 @@
 package Miyu.powers;
 
 import Miyu.DefaultMod;
-import Miyu.actions.InvisibleFormAction;
-import Miyu.cards.NegativeDelusions;
 import Miyu.util.TextureLoader;
 import basemod.interfaces.CloneablePowerInterface;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
-import com.megacrit.cardcrawl.actions.animations.VFXAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
-import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
-import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -19,7 +14,6 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.powers.watcher.VigorPower;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
-import com.megacrit.cardcrawl.vfx.combat.SmokeBombEffect;
 
 import java.util.Iterator;
 
@@ -86,9 +80,9 @@ public class ContinualEffortPower extends AbstractPower implements CloneablePowe
 
 	@Override
 	public void onApplyPower(AbstractPower power, AbstractCreature target, AbstractCreature source) {
-		if (target.hasPower(SelfEsteem.POWER_ID)) {
-			if (power.ID == SelfEsteem.POWER_ID) {
-				if (target.getPower(SelfEsteem.POWER_ID).amount + power.amount <= -20) {
+		if (target.hasPower(PresencePower.POWER_ID)) {
+			if (power.ID == PresencePower.POWER_ID) {
+				if (target.getPower(PresencePower.POWER_ID).amount + power.amount <= -20) {
 					if (CanEscape()) {
 						if (AbstractDungeon.getCurrRoom().phase == AbstractRoom.RoomPhase.COMBAT) {
 							AbstractDungeon.getCurrRoom().smoked = true;

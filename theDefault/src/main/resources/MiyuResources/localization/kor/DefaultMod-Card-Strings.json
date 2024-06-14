@@ -60,7 +60,7 @@
   },
   "Miyu:Rock": {
     "NAME": "바위",
-    "DESCRIPTION": " Miyu:조약돌을 !M! 얻습니다. NL Miyu:자존감을 !M! 얻습니다. NL 소멸. NL 보존."
+    "DESCRIPTION": " Miyu:조약돌을 !M! 얻습니다. NL Miyu:존재감을 !M! 얻습니다. NL 소멸. NL 보존."
   },
   "Miyu:SafeZone": {
     "NAME": "안전 지대",
@@ -74,7 +74,7 @@
   },
   "Miyu:CleanUpTrash": {
     "NAME": "쓰레기 청소",
-    "DESCRIPTION": " Miyu:쓰레기가 1 감소할 때마다 Miyu:자존감 과 NL Miyu:활력을 !M! 얻습니다. "
+    "DESCRIPTION": " Miyu:쓰레기가 1 감소할 때마다 Miyu:존재감 과 NL Miyu:활력을 !M! 얻습니다. "
   },
   "Miyu:Park": {
     "NAME": "공원",
@@ -115,12 +115,12 @@
   },
   "Miyu:FadedPresence": {
     "NAME": "사라진 존재감",
-    "DESCRIPTION": " 불가침을 1 얻습니다. NL Miyu:자존감이 5 감소합니다. NL 소멸. "
+    "DESCRIPTION": " 불가침을 1 얻습니다. NL Miyu:존재감이 5 감소합니다. NL 소멸. "
 
   },
   "Miyu:IamHere": {
     "NAME": "여기에요!",
-    "DESCRIPTION": " 피해를 !D! 줍니다. NL Miyu:자존감이 5 감소합니다. NL 이 카드를 뽑을 때 NL Miyu:자존감이 음수라면 NL 버립니다. "
+    "DESCRIPTION": " 피해를 !D! 줍니다. NL Miyu:존재감이 5 감소합니다. NL 이 카드를 뽑을 때 NL Miyu:존재감이 음수라면 NL 버립니다. "
 
   },
   "Miyu:ConvenienceStore": {
@@ -135,7 +135,7 @@
   },
   "Miyu:BlindSpot": {
     "NAME": "사각지대",
-    "DESCRIPTION": " 적에게 피해를 !D! 줍니다. NL Miyu:자존감 만큼 Miyu:활력을 얻습니다. "
+    "DESCRIPTION": " 적에게 피해를 !D! 줍니다. NL Miyu:존재감 만큼 Miyu:활력을 얻습니다. "
 
   },
   "Miyu:UnexpectedAngle": {
@@ -150,8 +150,8 @@
   },
   "Miyu:Panic": {
     "NAME": "패닉",
-    "DESCRIPTION": " 카드를 1 장 뽑습니다. NL 가장 큰 엄폐물로 NL Miyu:이동합니다. NL Miyu:자존감을 3 잃습니다. NL 카드를 1 장 버립니다. 휘발성. 소멸.",
-    "UPGRADE_DESCRIPTION": " 카드를 1 장 뽑습니다. NL 가장 큰 엄폐물로 NL Miyu:이동합니다. NL Miyu:자존감을 3 잃습니다. NL 카드를 1 장 버립니다. NL Miyu:이동합니다. 휘발성. 소멸."
+    "DESCRIPTION": " 카드를 1 장 뽑습니다. NL 가장 큰 엄폐물로 NL Miyu:이동합니다. NL Miyu:존재감을 3 잃습니다. NL 카드를 1 장 버립니다. 휘발성. 소멸.",
+    "UPGRADE_DESCRIPTION": " 카드를 1 장 뽑습니다. NL 가장 큰 엄폐물로 NL Miyu:이동합니다. NL Miyu:존재감을 3 잃습니다. NL 카드를 1 장 버립니다. NL Miyu:이동합니다. 휘발성. 소멸."
 
   },
   "Miyu:BunnyHop": {
@@ -191,7 +191,7 @@
   },
   "Miyu:FindingTrashBin": {
     "NAME": "쓰레기통 찾기",
-    "DESCRIPTION": " 카드를 !M! 장 뽑습니다. NL Miyu:자존감을 3 잃습니다. NL Miyu:이동합니다. "
+    "DESCRIPTION": " 카드를 !M! 장 뽑습니다. NL Miyu:존재감을 3 잃습니다. NL Miyu:이동합니다. "
   },
   "Miyu:PalePresence": {
     "NAME": "옅은 존재감",
@@ -203,12 +203,12 @@
   },
   "Miyu:Hyauu": {
     "NAME": "햐우우...",
-    "DESCRIPTION": " 피해를 !D! 줍니다. NL 방어도를 !B! 얻습니다. NL (음수의 자존감만큼) "
+    "DESCRIPTION": " 피해를 !D! 줍니다. NL 방어도를 !B! 얻습니다. NL (음수의 존재감만큼) "
   },
   "Miyu:DoNotDisturb": {
     "NAME": "방해되지 않도록",
-    "DESCRIPTION": " [R] [R] 를 얻습니다. NL Miyu:자존감을 !M! 잃습니다. NL 소멸. ",
-    "UPGRADE_DESCRIPTION": " [R] [R] [R] 를 얻습니다. NL Miyu:자존감을 !M! 잃습니다. NL 소멸. "
+    "DESCRIPTION": " [R] [R] 를 얻습니다. NL Miyu:존재감을 !M! 잃습니다. NL 소멸. ",
+    "UPGRADE_DESCRIPTION": " [R] [R] [R] 를 얻습니다. NL Miyu:존재감을 !M! 잃습니다. NL 소멸. "
   },
   "Miyu:Moe": {
     "NAME": "RABBIT.03 모에",
@@ -216,8 +216,8 @@
   },
   "Miyu:Trigger": {
     "NAME": "트리거",
-    "DESCRIPTION": " Miyu:자존감이 2배가 됩니다. NL 소멸. ",
-    "UPGRADE_DESCRIPTION": " Miyu:자존감이 2배가 됩니다. "
+    "DESCRIPTION": " Miyu:존재감이 2배가 됩니다. NL 소멸. ",
+    "UPGRADE_DESCRIPTION": " Miyu:존재감이 2배가 됩니다. "
 
   },
   "Miyu:RabbitType39Rifle": {
@@ -241,15 +241,15 @@
   },
   "Miyu:CatCollar": {
     "NAME": "고양이용 목줄",
-    "DESCRIPTION": " Miyu:이동할 때마다 NL Miyu:활력을 !M! NL Miyu:자존감을 !Miyu:M2! 얻습니다. "
+    "DESCRIPTION": " Miyu:이동할 때마다 NL Miyu:활력을 !M! NL Miyu:존재감을 !Miyu:M2! 얻습니다. "
   },
   "Miyu:HobbyActivity": {
     "NAME": "취미 생활",
-    "DESCRIPTION": " Miyu:조약돌을 얻을 때마다 NL 현재 보유한 Miyu:조약돌만큼 Miyu:자존감과 Miyu:활력을 얻습니다."
+    "DESCRIPTION": " Miyu:조약돌을 얻을 때마다 NL 현재 보유한 Miyu:조약돌만큼 Miyu:존재감과 Miyu:활력을 얻습니다."
   },
   "Miyu:Compliment": {
     "NAME": "칭찬",
-    "DESCRIPTION": " 피해를 !D! 줍니다. NL 적의 방어도를 넘어선 피해를 주거나 처치했다면, NL Miyu:자존감을 !M! 얻습니다. "
+    "DESCRIPTION": " 피해를 !D! 줍니다. NL 적의 방어도를 넘어선 피해를 주거나 처치했다면, NL Miyu:존재감을 !M! 얻습니다. "
   },
   "Miyu:LegShot": {
     "NAME": "다리 쏘기",
@@ -275,8 +275,8 @@
   },
   "Miyu:DefenseMechanism": {
     "NAME": "방어 기제",
-    "DESCRIPTION": " Miyu:자존감이 변할 때 NL 변한 만큼 NL 방어도를 얻습니다. ",
-    "UPGRADE_DESCRIPTION": " Miyu:자존감이 변할 때 NL 변한 만큼 NL 방어도를 얻습니다. 선천성. "
+    "DESCRIPTION": " Miyu:존재감이 변할 때 NL 변한 만큼 NL 방어도를 얻습니다. ",
+    "UPGRADE_DESCRIPTION": " Miyu:존재감이 변할 때 NL 변한 만큼 NL 방어도를 얻습니다. 선천성. "
   },
   "Miyu:WannaBeAlone": {
     "NAME": "혼자 있고싶어...",
@@ -284,26 +284,24 @@
   },
   "Miyu:FoundIt": {
     "NAME": "찾았다!",
-    "DESCRIPTION": " 카드를 !M! 장 뽑습니다. NL 엄폐중인 카드를 뽑았다면 Miyu:자존감과 Miyu:활력을 !Miyu:M2! 얻습니다. NL 카드 한 장을 뽑을 카드 더미 맨 위로 올립니다. 소멸."
+    "DESCRIPTION": " 카드를 !M! 장 뽑습니다. NL 엄폐중인 카드를 뽑았다면 Miyu:존재감과 Miyu:활력을 !Miyu:M2! 얻습니다. NL 카드 한 장을 뽑을 카드 더미 맨 위로 올립니다. 소멸."
   },
   "Miyu:NegativeDelusions": {
     "NAME": "부정적인 망상",
-    "DESCRIPTION": " 턴 종료 시 Miyu:자존감이 음수면 이 카드의 복사본을 얻습니다. 보존."
+    "DESCRIPTION": " 턴 종료 시 Miyu:존재감이 음수면 이 카드의 복사본을 얻습니다. 보존."
   },
   "Miyu:SecretArea": {
     "NAME": "비밀 장소",
     "DESCRIPTION": " 방어도를 !M! 얻습니다. NL (소멸 카드 더미만큼) NL 소멸 카드 더미에서 NL 가장 큰 Miyu:엄폐물로 NL Miyu:이동합니다. ",
     "UPGRADE_DESCRIPTION": " 방어도를 !M! 얻습니다. NL (소멸 카드 더미 +3 만큼) NL 소멸 카드 더미에서 NL 가장 큰 Miyu:엄폐물로 NL Miyu:이동합니다. "
-
-
   },
   "Miyu:Specialist": {
     "NAME": "스페셜리스트",
-    "DESCRIPTION": " 턴 시작 시 NL Miyu:자존감 8 마다 NL 에너지를 !M! 얻습니다. "
+    "DESCRIPTION": " 턴 시작 시 NL Miyu:존재감 8 마다 NL 에너지를 !M! 얻습니다. "
   },
   "Miyu:AppropriateDistance": {
     "NAME": "원하는 거리",
-    "DESCRIPTION": " 방어도를 !B! 얻습니다. NL Miyu:거리와 7의 차이만큼 NL Miyu:자존감이 변합니다. NL (현재 !M!) NL 휘발성. 소멸. "
+    "DESCRIPTION": " 방어도를 !B! 얻습니다. NL Miyu:거리와 7의 차이만큼 NL Miyu:존재감이 변합니다. NL (현재 !M!) NL 휘발성. 소멸. "
   },
   "Miyu:DontComeClose": {
     "NAME": "오지 마세요",
@@ -370,7 +368,17 @@
 
   "Miyu:ContinualEffort": {
     "NAME": "부단한 노력",
-    "DESCRIPTION": " 턴 시작 시 Miyu:활력을 !M! 얻고 부정적인 망상을 얻습니다. NL Miyu:자존감이 -20 이하면 도망갑니다. "
+    "DESCRIPTION": " 턴 시작 시 Miyu:활력을 !M! 얻고 부정적인 망상을 얻습니다. NL Miyu:존재감이 -20 이하면 도망갑니다. "
+
+  },
+  "Miyu:FaintPresence": {
+    "NAME": "희미한 존재감",
+    "DESCRIPTION": " !M! % 확률로 턴을 종료하고 NL 내 턴을 추가로 NL 진행합니다. NL 소멸. 휘발성. "
+
+  },
+  "Miyu:DistinctPresence": {
+    "NAME": "뚜렷한 존재감",
+    "DESCRIPTION": " 활력을 !M! 얻습니다. NL 소멸. 휘발성. "
 
   }
 }

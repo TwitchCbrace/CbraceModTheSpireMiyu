@@ -4,13 +4,10 @@ import Miyu.DefaultMod;
 import Miyu.actions.CoverSelectAction;
 import Miyu.actions.MoveToHighCoverAction;
 import Miyu.characters.TheDefault;
-import Miyu.powers.HandSizeUp;
-import Miyu.powers.SelfEsteem;
-import com.badlogic.gdx.scenes.scene2d.actions.MoveToAction;
+import Miyu.powers.PresencePower;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.DiscardAction;
 import com.megacrit.cardcrawl.actions.common.DrawCardAction;
-import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -49,7 +46,7 @@ public class Panic extends AbstractDynamicCard {
 	public void use(AbstractPlayer p, AbstractMonster m) {
 		AbstractDungeon.actionManager.addToBottom(new DrawCardAction(1));
 		AbstractDungeon.actionManager.addToBottom(new MoveToHighCoverAction(p));
-		AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new SelfEsteem(p, p, -3)));
+		AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new PresencePower(p, p, -3)));
 		AbstractDungeon.actionManager.addToBottom(new DiscardAction(p, p, 1, false));
 
 		if (upgraded) {

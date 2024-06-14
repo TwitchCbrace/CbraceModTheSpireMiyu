@@ -1,21 +1,15 @@
 package Miyu.powers;
 
 import Miyu.DefaultMod;
-import Miyu.cards.OnReduceTrash;
 import Miyu.util.TextureLoader;
 import basemod.interfaces.CloneablePowerInterface;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
-import com.megacrit.cardcrawl.actions.AbstractGameAction;
-import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
-import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
-import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.powers.AbstractPower;
-import com.megacrit.cardcrawl.powers.watcher.VigorPower;
 
 import static Miyu.DefaultMod.makePowerPath;
 
@@ -70,7 +64,7 @@ public class DefenseMechanismPower extends AbstractPower implements CloneablePow
 
 	@Override
 	public void onApplyPower(AbstractPower power, AbstractCreature target, AbstractCreature source) {
-		if (power.ID == SelfEsteem.POWER_ID) {
+		if (power.ID == PresencePower.POWER_ID) {
 			this.flash();
 			int a = 0;
 			a = Math.abs(power.amount);

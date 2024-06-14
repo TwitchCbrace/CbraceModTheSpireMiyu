@@ -1,7 +1,7 @@
 package Miyu.actions;
 
 import Miyu.powers.Covered;
-import Miyu.powers.SelfEsteem;
+import Miyu.powers.PresencePower;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.DrawCardAction;
@@ -33,9 +33,9 @@ public class FoundItAction extends AbstractGameAction {
 		AbstractCard coveredSource = covered != null ? covered.sourceCover : null;
 
 		for (AbstractCard c : DrawCardAction.drawnCards) {
-			// 엄폐중인 카드를 뽑았다면 자존감과 활력을 magicAmount 만큼 얻는다.
+			// 엄폐중인 카드를 뽑았다면 존재감과 활력을 magicAmount 만큼 얻는다.
 			if (c == coveredSource) {
-				addToBot(new ApplyPowerAction(p, p, new SelfEsteem(p, p, magicAmount), magicAmount));
+				addToBot(new ApplyPowerAction(p, p, new PresencePower(p, p, magicAmount), magicAmount));
 				addToBot(new ApplyPowerAction(p, p, new VigorPower(p, magicAmount), magicAmount));
 			}
 		}

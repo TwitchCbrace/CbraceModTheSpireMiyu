@@ -1,22 +1,13 @@
 package Miyu.cards;
 
 import Miyu.DefaultMod;
-import Miyu.actions.CoverSelectAction;
 import Miyu.characters.TheDefault;
-import Miyu.powers.SelfEsteem;
 import Miyu.powers.TimidObservationPower;
-import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
-import com.megacrit.cardcrawl.actions.common.DamageAction;
-import com.megacrit.cardcrawl.actions.common.DiscardAction;
-import com.megacrit.cardcrawl.actions.common.DrawCardAction;
-import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
-import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import com.megacrit.cardcrawl.powers.watcher.BlockReturnPower;
 
 import static Miyu.DefaultMod.makeCardPath;
 

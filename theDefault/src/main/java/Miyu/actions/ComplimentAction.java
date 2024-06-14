@@ -1,6 +1,6 @@
 package Miyu.actions;
 
-import Miyu.powers.SelfEsteem;
+import Miyu.powers.PresencePower;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
@@ -35,7 +35,7 @@ public class ComplimentAction extends AbstractGameAction {
 			this.target.damage(this.info);
 
 			if ((((AbstractMonster) this.target).isDying || this.target.currentHealth <= 0 || isDamagedOverBlock)) {
-				addToBot(new ApplyPowerAction(p, p, new SelfEsteem(p, p, increaseSelfEsteem), increaseSelfEsteem));
+				addToBot(new ApplyPowerAction(p, p, new PresencePower(p, p, increaseSelfEsteem), increaseSelfEsteem));
 			}
 
 			if (AbstractDungeon.getCurrRoom().monsters.areMonstersBasicallyDead()) {

@@ -2,7 +2,7 @@ package Miyu.cards;
 
 import Miyu.DefaultMod;
 import Miyu.characters.TheDefault;
-import Miyu.powers.SelfEsteem;
+import Miyu.powers.PresencePower;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.*;
 import com.megacrit.cardcrawl.cards.AbstractCard;
@@ -12,7 +12,6 @@ import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import com.megacrit.cardcrawl.powers.AbstractPower;
 
 import static Miyu.DefaultMod.makeCardPath;
 
@@ -44,8 +43,8 @@ public class IamHere extends AbstractDynamicCard {
 	}
 	@Override
 	public void triggerWhenDrawn() {
-		if (AbstractDungeon.player.hasPower(SelfEsteem.POWER_ID)) {
-			if (AbstractDungeon.player.getPower(SelfEsteem.POWER_ID).amount < 0) {
+		if (AbstractDungeon.player.hasPower(PresencePower.POWER_ID)) {
+			if (AbstractDungeon.player.getPower(PresencePower.POWER_ID).amount < 0) {
 				AbstractDungeon.actionManager.addToBottom(new DiscardSpecificCardAction(this));
 			}
 		}
@@ -59,7 +58,7 @@ public class IamHere extends AbstractDynamicCard {
 		this.calculateCardDamage(m);
 		AbstractDungeon.actionManager.addToBottom(new DamageAction(m, new DamageInfo(p, this.damage, damageTypeForTurn),
 				AbstractGameAction.AttackEffect.SMASH, true));
-		AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new SelfEsteem(p, p, -5)));
+		AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new PresencePower(p, p, -5)));
 
 	}
 

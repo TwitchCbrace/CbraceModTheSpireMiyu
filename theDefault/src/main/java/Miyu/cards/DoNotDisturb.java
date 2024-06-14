@@ -1,9 +1,8 @@
 package Miyu.cards;
 
 import Miyu.DefaultMod;
-import Miyu.actions.RecyclingTrashAction;
 import Miyu.characters.TheDefault;
-import Miyu.powers.SelfEsteem;
+import Miyu.powers.PresencePower;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.GainEnergyAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -46,7 +45,7 @@ public class DoNotDisturb extends AbstractDynamicCard {
 	@Override
 	public void use(AbstractPlayer p, AbstractMonster m) {
 		AbstractDungeon.actionManager.addToBottom(new GainEnergyAction(magicNumber));
-		AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new SelfEsteem(p, p, -magicNumber)));
+		AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new PresencePower(p, p, -magicNumber)));
 	}
 
 	// Upgraded stats.

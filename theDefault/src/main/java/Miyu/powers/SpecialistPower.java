@@ -5,15 +5,12 @@ import Miyu.util.TextureLoader;
 import basemod.interfaces.CloneablePowerInterface;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
-import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
-import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.actions.common.GainEnergyAction;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.powers.AbstractPower;
-import com.megacrit.cardcrawl.powers.watcher.VigorPower;
 
 import static Miyu.DefaultMod.makePowerPath;
 
@@ -54,8 +51,8 @@ public class SpecialistPower extends AbstractPower implements CloneablePowerInte
 
 	@Override
 	public void atStartOfTurnPostDraw() {
-		if (owner.hasPower(SelfEsteem.POWER_ID) && owner.getPower(SelfEsteem.POWER_ID).amount >= 1) {
-			int energy = owner.getPower(SelfEsteem.POWER_ID).amount / 8;
+		if (owner.hasPower(PresencePower.POWER_ID) && owner.getPower(PresencePower.POWER_ID).amount >= 1) {
+			int energy = owner.getPower(PresencePower.POWER_ID).amount / 8;
 			AbstractDungeon.actionManager.addToBottom(new GainEnergyAction((energy * amount)));
 
 		}

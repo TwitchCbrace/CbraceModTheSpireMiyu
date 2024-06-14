@@ -2,7 +2,7 @@ package Miyu.cards;
 
 import Miyu.DefaultMod;
 import Miyu.characters.TheDefault;
-import Miyu.powers.SelfEsteem;
+import Miyu.powers.PresencePower;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
@@ -41,9 +41,9 @@ public class Trigger extends AbstractDynamicCard {
 
 	@Override
 	public void use(AbstractPlayer p, AbstractMonster m) {
-		if (p.hasPower(SelfEsteem.POWER_ID)) {
-			int selfAmt = p.getPower(SelfEsteem.POWER_ID).amount;
-			this.addToTop(new ApplyPowerAction(p, p, new SelfEsteem(p, p, selfAmt), selfAmt));
+		if (p.hasPower(PresencePower.POWER_ID)) {
+			int selfAmt = p.getPower(PresencePower.POWER_ID).amount;
+			this.addToTop(new ApplyPowerAction(p, p, new PresencePower(p, p, selfAmt), selfAmt));
 		}
 	}
 

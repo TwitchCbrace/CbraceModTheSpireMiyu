@@ -4,9 +4,7 @@ import Miyu.DefaultMod;
 import Miyu.characters.TheDefault;
 import Miyu.powers.ContinualEffortPower;
 import Miyu.powers.GetNegativeDelusions;
-import Miyu.powers.SelfEsteem;
-import Miyu.powers.TacticalReloadPower;
-import com.megacrit.cardcrawl.actions.animations.VFXAction;
+import Miyu.powers.PresencePower;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -15,7 +13,6 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
-import com.megacrit.cardcrawl.vfx.combat.SmokeBombEffect;
 
 import java.util.Iterator;
 
@@ -53,8 +50,8 @@ public class ContinualEffort extends AbstractDynamicCard {
 		AbstractDungeon.actionManager
 				.addToBottom(new ApplyPowerAction(p, p, new ContinualEffortPower(p, p, magicNumber), magicNumber));
 		AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new GetNegativeDelusions(p, p, 1), 1));
-		if (p.hasPower(SelfEsteem.POWER_ID)) {
-			if (p.getPower(SelfEsteem.POWER_ID).amount <= -20) {
+		if (p.hasPower(PresencePower.POWER_ID)) {
+			if (p.getPower(PresencePower.POWER_ID).amount <= -20) {
 				if (CanEscape()) {
 					if (AbstractDungeon.getCurrRoom().phase == AbstractRoom.RoomPhase.COMBAT) {
 						AbstractDungeon.getCurrRoom().smoked = true;

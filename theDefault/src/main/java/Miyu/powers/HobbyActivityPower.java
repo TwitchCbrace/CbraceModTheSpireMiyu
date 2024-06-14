@@ -67,7 +67,7 @@ public class HobbyActivityPower extends AbstractPower implements CloneablePowerI
 
 			addToBot(new ApplyPowerAction(owner, owner, new VigorPower(owner, pebbleAmount * amount),
 					pebbleAmount * amount));
-			addToBot(new ApplyPowerAction(owner, owner, new SelfEsteem(owner, owner, pebbleAmount * amount),
+			addToBot(new ApplyPowerAction(owner, owner, new PresencePower(owner, owner, pebbleAmount * amount),
 					pebbleAmount * amount));
 
 			updateDescription();

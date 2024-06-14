@@ -1,30 +1,37 @@
 package Miyu.powers;
 
 import Miyu.DefaultMod;
+import Miyu.cards.DistinctPresence;
+import Miyu.cards.FaintPresence;
 import Miyu.util.TextureLoader;
-import basemod.BaseMod;
 import basemod.interfaces.CloneablePowerInterface;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
+import com.megacrit.cardcrawl.actions.common.GainEnergyAction;
+import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
+import com.megacrit.cardcrawl.actions.common.ReducePowerAction;
 import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
+import com.megacrit.cardcrawl.cards.tempCards.Expunger;
+import com.megacrit.cardcrawl.cards.tempCards.Shiv;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 
 import static Miyu.DefaultMod.makePowerPath;
 
-public class SelfEsteem extends AbstractPower implements CloneablePowerInterface {
+public class PresencePower extends AbstractPower implements CloneablePowerInterface {
 	public AbstractCreature source;
 
-	public static final String POWER_ID = DefaultMod.makeID("SelfEsteem");
+	public static final String POWER_ID = DefaultMod.makeID("PresencePower");
 	private static final PowerStrings powerStrings = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);
 	public static final String NAME = powerStrings.NAME;
 	public static final String[] DESCRIPTIONS = powerStrings.DESCRIPTIONS;
 	private static final Texture tex84 = TextureLoader.getTexture(makePowerPath("SelfEsteem84.png"));
 	private static final Texture tex32 = TextureLoader.getTexture(makePowerPath("SelfEsteem32.png"));
 
-	public SelfEsteem(final AbstractCreature owner, final AbstractCreature source, final int amount) {
+	public PresencePower(final AbstractCreature owner, final AbstractCreature source, final int amount) {
 		name = NAME;
 		ID = POWER_ID;
 		this.owner = owner;
@@ -32,7 +39,7 @@ public class SelfEsteem extends AbstractPower implements CloneablePowerInterface
 		this.source = source;
 
 		type = PowerType.BUFF;
-		isTurnBased = false;
+		isTurnBased = true;
 
 		// We load those txtures here.
 		this.region128 = new TextureAtlas.AtlasRegion(tex84, 0, 0, 84, 84);
@@ -41,12 +48,28 @@ public class SelfEsteem extends AbstractPower implements CloneablePowerInterface
 		updateDescription();
 		this.canGoNegative = true;
 	}
+	@Override
+	public void atStartOfTurnPostDraw() {
+		if (this.amount > 0) {
+			DistinctPresence c = new DistinctPresence();
+			this.addToBot(new MakeTempCardInHandAction(c, 1, false));
+			c.setDP(this.amount);
+			this.addToBot(new RemoveSpecificPowerAction(this.owner, this.owner, "Miyu:PresencePower"));;
+		} else {
+			FaintPresence c = new FaintPresence();
+			this.addToBot(new MakeTempCardInHandAction(c, 1, false));
+			c.setFP(Math.abs(this.amount));
+			this.addToBot(new RemoveSpecificPowerAction(this.owner, this.owner, "Miyu:PresencePower"));;
+		}
+
+		super.atStartOfTurnPostDraw();
+	}
 
 	public void stackPower(int stackAmount) {
 		this.fontScale = 8.0F;
 		this.amount += stackAmount;
 		if (this.amount == 0) {
-			this.addToTop(new RemoveSpecificPowerAction(this.owner, this.owner, "Miyu:SelfEsteem"));
+			this.addToTop(new RemoveSpecificPowerAction(this.owner, this.owner, "Miyu:PresencePower"));
 		}
 
 		if (this.amount > 999) {
@@ -60,7 +83,7 @@ public class SelfEsteem extends AbstractPower implements CloneablePowerInterface
 		this.updateDescription();
 	}
 	public void playApplyPowerSfx() {
-		CardCrawlGame.sound.play("POWER_PLATED", 0.05F);
+		CardCrawlGame.sound.play("POWER_FOCUS", 0.05F);
 	}
 
 	// @Override
@@ -77,16 +100,16 @@ public class SelfEsteem extends AbstractPower implements CloneablePowerInterface
 	// Update the description when you apply this power. (i.e. add or remove an "s" in keyword(s))
 	@Override
 	public void updateDescription() {
-		if (amount == 1 || amount == -1) {
+		if (amount >= 1) {
 			description = DESCRIPTIONS[0] + amount + DESCRIPTIONS[1];
 		} else {
-			description = DESCRIPTIONS[0] + amount + DESCRIPTIONS[2];
+			description = DESCRIPTIONS[0] + Math.abs(amount) + DESCRIPTIONS[2];
 		}
 	}
 	// @Override
 
 	@Override
 	public AbstractPower makeCopy() {
-		return new SelfEsteem(owner, source, amount);
+		return new PresencePower(owner, source, amount);
 	}
 }

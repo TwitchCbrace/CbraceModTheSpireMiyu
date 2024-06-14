@@ -1,10 +1,7 @@
 package Miyu.cards;
 
 import Miyu.DefaultMod;
-import Miyu.powers.Pebble;
-import Miyu.powers.SelfEsteem;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
-import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;

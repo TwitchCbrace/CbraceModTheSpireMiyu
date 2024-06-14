@@ -1,10 +1,8 @@
 package Miyu.cards;
 
 import Miyu.DefaultMod;
-import Miyu.actions.FoundItAction;
 import Miyu.characters.TheDefault;
-import Miyu.powers.SelfEsteem;
-import Miyu.powers.TrashPower;
+import Miyu.powers.PresencePower;
 import com.megacrit.cardcrawl.actions.common.*;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -51,13 +49,13 @@ public class NegativeDelusions extends AbstractDynamicCard {
 
 	// public void triggerOnExhaust() {
 	// AbstractPlayer p = AbstractDungeon.player;
-	// this.addToBot(new ApplyPowerAction(p, p, new SelfEsteem(p, p, magicNumber)));
+	// this.addToBot(new ApplyPowerAction(p, p, new PresencePower(p, p, magicNumber)));
 	// }
 
 	public void triggerOnEndOfTurnForPlayingCard() {
 
-		if (AbstractDungeon.player.hasPower(SelfEsteem.POWER_ID)) {
-			if (AbstractDungeon.player.getPower(SelfEsteem.POWER_ID).amount <= -1) {
+		if (AbstractDungeon.player.hasPower(PresencePower.POWER_ID)) {
+			if (AbstractDungeon.player.getPower(PresencePower.POWER_ID).amount <= -1) {
 				this.addToBot(new MakeTempCardInHandAction(this.makeStatEquivalentCopy(), 1, false));
 			}
 		}

@@ -1,15 +1,11 @@
 package Miyu.powers;
 
 import Miyu.DefaultMod;
-import Miyu.cards.OnReduceTrash;
 import Miyu.util.TextureLoader;
 import basemod.interfaces.CloneablePowerInterface;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
-import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
-import com.megacrit.cardcrawl.actions.utility.UseCardAction;
-import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.localization.PowerStrings;
@@ -67,7 +63,7 @@ public class CatCollarPower extends AbstractPower implements CloneablePowerInter
 		if (a.ID == Covered.POWER_ID) {
 			this.flash();
 			addToBot(new ApplyPowerAction(owner, owner, new VigorPower(owner, amount), amount));
-			addToBot(new ApplyPowerAction(owner, owner, new SelfEsteem(owner, owner, selfEsteemAmount),
+			addToBot(new ApplyPowerAction(owner, owner, new PresencePower(owner, owner, selfEsteemAmount),
 					selfEsteemAmount));
 		}
 	}
@@ -78,7 +74,7 @@ public class CatCollarPower extends AbstractPower implements CloneablePowerInter
 	// addToBot(new ApplyPowerAction(owner, owner,
 	// new VigorPower(owner, amount), amount));
 	// addToBot(new ApplyPowerAction(owner, owner,
-	// new SelfEsteem(owner, owner, selfEsteemAmount), selfEsteemAmount));
+	// new PresencePower(owner, owner, selfEsteemAmount), selfEsteemAmount));
 	// }
 	// }
 

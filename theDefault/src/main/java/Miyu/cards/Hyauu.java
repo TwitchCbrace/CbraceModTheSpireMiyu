@@ -2,11 +2,9 @@ package Miyu.cards;
 
 import Miyu.DefaultMod;
 import Miyu.characters.TheDefault;
-import Miyu.powers.HandSizeUp;
-import Miyu.powers.SelfEsteem;
+import Miyu.powers.PresencePower;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.animations.VFXAction;
-import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.actions.utility.WaitAction;
@@ -56,7 +54,7 @@ public class Hyauu extends AbstractDynamicCard {
 	}
 
 	public void applyPowers() {
-		AbstractPower selfEsteem = AbstractDungeon.player.getPower(SelfEsteem.POWER_ID);
+		AbstractPower selfEsteem = AbstractDungeon.player.getPower(PresencePower.POWER_ID);
 		if (selfEsteem != null && selfEsteem.amount < 0) {
 			this.baseBlock = Math.abs(selfEsteem.amount);
 		} else {

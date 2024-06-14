@@ -3,12 +3,9 @@ package Miyu.cards;
 import Miyu.DefaultMod;
 import Miyu.actions.CoverSelectAction;
 import Miyu.characters.TheDefault;
-import Miyu.powers.HandSizeUp;
-import Miyu.powers.SelfEsteem;
-import Miyu.powers.TrashPower;
+import Miyu.powers.PresencePower;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.DrawCardAction;
-import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -47,7 +44,7 @@ public class FindingTrashBin extends AbstractDynamicCard {
 	// Actions the card should do.
 	@Override
 	public void use(AbstractPlayer p, AbstractMonster m) {
-		AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new SelfEsteem(p, p, -3)));
+		AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new PresencePower(p, p, -3)));
 		AbstractDungeon.actionManager.addToBottom(new DrawCardAction(p, magicNumber));
 		AbstractDungeon.actionManager.addToBottom(new CoverSelectAction(p, 1));
 

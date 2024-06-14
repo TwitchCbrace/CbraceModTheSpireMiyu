@@ -72,7 +72,7 @@ public class CleanUpTrashPower extends AbstractPower implements CloneablePowerIn
 	@Override
 	public void trashReduced(int amount) {
 		addToBot(new ApplyPowerAction(owner, owner, new VigorPower(owner, amount * this.amount), amount * this.amount));
-		addToBot(new ApplyPowerAction(owner, owner, new SelfEsteem(owner, owner, amount * this.amount),
+		addToBot(new ApplyPowerAction(owner, owner, new PresencePower(owner, owner, amount * this.amount),
 				amount * this.amount));
 	}
 }

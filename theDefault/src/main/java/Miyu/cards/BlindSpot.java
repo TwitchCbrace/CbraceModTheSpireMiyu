@@ -2,13 +2,10 @@ package Miyu.cards;
 
 import Miyu.DefaultMod;
 import Miyu.characters.TheDefault;
-import Miyu.powers.SelfEsteem;
+import Miyu.powers.PresencePower;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
-import com.megacrit.cardcrawl.actions.animations.VFXAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
-import com.megacrit.cardcrawl.actions.common.GainBlockAction;
-import com.megacrit.cardcrawl.actions.utility.WaitAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -18,7 +15,6 @@ import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.powers.watcher.VigorPower;
-import com.megacrit.cardcrawl.vfx.combat.IronWaveEffect;
 
 import static Miyu.DefaultMod.makeCardPath;
 
@@ -48,7 +44,7 @@ public class BlindSpot extends AbstractDynamicCard {
 	}
 
 	public void applyPowers() {
-		AbstractPower selfEsteem = AbstractDungeon.player.getPower(SelfEsteem.POWER_ID);
+		AbstractPower selfEsteem = AbstractDungeon.player.getPower(PresencePower.POWER_ID);
 		if (selfEsteem != null && selfEsteem.amount > 0) {
 			this.magicNumber = Math.abs(selfEsteem.amount);
 		} else {
