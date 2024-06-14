@@ -110,7 +110,7 @@
   },
   "Miyu:Collapse": {
     "NAME": "붕괴",
-    "DESCRIPTION": "공격을 받을 때마다 NL 공격한 적에게 NL 감소한 Miyu:엄폐물 만큼 NL 피해를 줍니다. "
+    "DESCRIPTION": "공격을 받을 때 NL 감소한 Miyu:엄폐물 만큼 NL 공격한 적에게 NL 피해를 줍니다. "
 
   },
   "Miyu:FadedPresence": {
@@ -174,7 +174,7 @@
   },
   "Miyu:NextTarget": {
     "NAME": "다음 타겟",
-    "DESCRIPTION": " 피해를 !D! 줍니다. NL Miyu:활력이 !M! 배 적용됩니다. NL 처치 시 가장 큰 엄폐물로 NL Miyu:이동합니다. "
+    "DESCRIPTION": " 피해를 !D! 줍니다. NL Miyu:활력이 !M! 배 적용됩니다. NL 처치 시 가장 큰 엄폐물로 Miyu:이동합니다. "
   },
   "Miyu:Sniping": {
     "NAME": "저격",
