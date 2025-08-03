@@ -67,10 +67,16 @@ public class SecretArea extends AbstractDynamicCard {
 
 	private void updateBlockAndDescription(int correction) {
 		this.magicNumber = AbstractDungeon.player.exhaustPile.size() + correction + this.baseMagicNumber;
-		if (upgraded) {
-			this.magicNumber += 3;
-		}
-		// isMagicNumberModified = true;
+		this.baseBlock = this.magicNumber;
+	}
+
+	@Override
+	public void applyPowers() {
+		updateBlockAndDescription(0);
+		this.isMagicNumberModified = true;
+		super.applyPowers();
+		this.magicNumber = this.block; // magicNumber를 최종 block 값으로 설정
+		this.isBlockModified = (this.block != this.baseBlock);
 		initializeDescription();
 	}
 
@@ -94,7 +100,7 @@ public class SecretArea extends AbstractDynamicCard {
 		}
 
 		// 방어도 얻음
-		AbstractDungeon.actionManager.addToBottom(new GainBlockAction(p, p, this.magicNumber));
+		AbstractDungeon.actionManager.addToBottom(new GainBlockAction(p, p, this.block));
 	}
 
 	// Upgraded stats.
