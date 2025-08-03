@@ -28,8 +28,8 @@ public class PresencePower extends AbstractPower implements CloneablePowerInterf
 	private static final PowerStrings powerStrings = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);
 	public static final String NAME = powerStrings.NAME;
 	public static final String[] DESCRIPTIONS = powerStrings.DESCRIPTIONS;
-	private static final Texture tex84 = TextureLoader.getTexture(makePowerPath("SelfEsteem84.png"));
-	private static final Texture tex32 = TextureLoader.getTexture(makePowerPath("SelfEsteem32.png"));
+	private static final Texture tex84 = TextureLoader.getTexture(makePowerPath("Presence84.png"));
+	private static final Texture tex32 = TextureLoader.getTexture(makePowerPath("Presence32.png"));
 
 	public PresencePower(final AbstractCreature owner, final AbstractCreature source, final int amount) {
 		name = NAME;
@@ -52,17 +52,15 @@ public class PresencePower extends AbstractPower implements CloneablePowerInterf
 	public void atStartOfTurnPostDraw() {
 		if (this.amount > 0) {
 			DistinctPresence c = new DistinctPresence();
-			this.addToBot(new MakeTempCardInHandAction(c, 1, false));
 			c.setDP(this.amount);
+			this.addToBot(new MakeTempCardInHandAction(c, 1, false));
 			this.addToBot(new RemoveSpecificPowerAction(this.owner, this.owner, "Miyu:PresencePower"));;
 		} else {
 			FaintPresence c = new FaintPresence();
-			this.addToBot(new MakeTempCardInHandAction(c, 1, false));
 			c.setFP(Math.abs(this.amount));
+			this.addToBot(new MakeTempCardInHandAction(c, 1, false));
 			this.addToBot(new RemoveSpecificPowerAction(this.owner, this.owner, "Miyu:PresencePower"));;
 		}
-
-		super.atStartOfTurnPostDraw();
 	}
 
 	public void stackPower(int stackAmount) {

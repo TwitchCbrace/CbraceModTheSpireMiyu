@@ -6,6 +6,7 @@ import com.megacrit.cardcrawl.actions.animations.VFXAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.watcher.PressEndTurnButtonAction;
 import com.megacrit.cardcrawl.actions.watcher.SkipEnemiesTurnAction;
+import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -41,7 +42,7 @@ public class DistinctPresence extends AbstractDynamicCard {
 
 	public DistinctPresence() {
 		super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
-		this.baseMagicNumber = this.magicNumber = 0;
+		this.baseMagicNumber = this.magicNumber = MAGIC;
 		this.exhaust = true;
 		this.isEthereal = true;
 	}
@@ -59,7 +60,11 @@ public class DistinctPresence extends AbstractDynamicCard {
 			this.addToBot(new VFXAction(p, new FlameBarrierEffect(p.hb.cX, p.hb.cY), 0.5F));
 		}
 
-		this.addToBot(new ApplyPowerAction(p, p, new VigorPower(p, magicNumber), magicNumber));
+		this.addToBot(new ApplyPowerAction(p, p, new VigorPower(p, this.baseMagicNumber), this.baseMagicNumber));
+	}
+
+	public AbstractCard makeCopy() {
+		return new DistinctPresence();
 	}
 
 	@Override

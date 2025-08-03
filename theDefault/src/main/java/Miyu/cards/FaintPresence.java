@@ -52,7 +52,7 @@ public class FaintPresence extends AbstractDynamicCard {
 	}
 	@Override
 	public void use(AbstractPlayer p, AbstractMonster m) {
-		if (AbstractDungeon.miscRng.random(0, 100) <= Math.abs(magicNumber)) {
+		if (AbstractDungeon.miscRng.random(0, 100) <= Math.abs(baseMagicNumber)) {
 			this.addToBot(new VFXAction(new WhirlwindEffect(new Color(1.0F, 0.9F, 0.4F, 1.0F), true)));
 			this.addToBot(new SkipEnemiesTurnAction());
 			this.addToBot(new PressEndTurnButtonAction());
