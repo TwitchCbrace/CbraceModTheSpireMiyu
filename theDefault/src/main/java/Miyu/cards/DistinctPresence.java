@@ -1,6 +1,7 @@
 package Miyu.cards;
 
 import Miyu.DefaultMod;
+import Miyu.powers.PresencePower;
 import com.badlogic.gdx.graphics.Color;
 import com.megacrit.cardcrawl.actions.animations.VFXAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
@@ -61,6 +62,11 @@ public class DistinctPresence extends AbstractDynamicCard {
 		}
 
 		this.addToBot(new ApplyPowerAction(p, p, new VigorPower(p, this.baseMagicNumber), this.baseMagicNumber));
+		if (p.hasPower(PresencePower.POWER_ID)) {
+			this.addToBot(
+					new ApplyPowerAction(p, p, new PresencePower(p, p, -p.getPower(PresencePower.POWER_ID).amount),
+							-p.getPower(PresencePower.POWER_ID).amount));
+		}
 	}
 
 	public AbstractCard makeCopy() {

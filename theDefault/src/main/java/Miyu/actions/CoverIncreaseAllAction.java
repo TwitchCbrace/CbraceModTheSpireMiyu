@@ -54,6 +54,7 @@ public class CoverIncreaseAllAction extends AbstractGameAction {
 				((AbstractDefaultCard) card2).coverMagicNumber += (ta * ca);
 				((AbstractDefaultCard) card2).isCoverMagicNumberModified = true;
 				card2.superFlash();
+				AbstractDungeon.actionManager.addToBottom(new ClearCardTooltipAction());
 			}
 
 		}

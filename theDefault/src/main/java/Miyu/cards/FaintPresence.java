@@ -56,6 +56,11 @@ public class FaintPresence extends AbstractDynamicCard {
 			this.addToBot(new VFXAction(new WhirlwindEffect(new Color(1.0F, 0.9F, 0.4F, 1.0F), true)));
 			this.addToBot(new SkipEnemiesTurnAction());
 			this.addToBot(new PressEndTurnButtonAction());
+			if (p.hasPower(PresencePower.POWER_ID)) {
+				this.addToBot(
+						new ApplyPowerAction(p, p, new PresencePower(p, p, -p.getPower(PresencePower.POWER_ID).amount),
+								-p.getPower(PresencePower.POWER_ID).amount));
+			}
 		}
 	}
 

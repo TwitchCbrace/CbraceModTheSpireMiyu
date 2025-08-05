@@ -50,16 +50,16 @@ public class PresencePower extends AbstractPower implements CloneablePowerInterf
 	}
 	@Override
 	public void atStartOfTurnPostDraw() {
-		if (this.amount > 0) {
-			DistinctPresence c = new DistinctPresence();
-			c.setDP(this.amount);
-			this.addToBot(new MakeTempCardInHandAction(c, 1, false));
-			this.addToBot(new RemoveSpecificPowerAction(this.owner, this.owner, "Miyu:PresencePower"));;
-		} else {
-			FaintPresence c = new FaintPresence();
-			c.setFP(Math.abs(this.amount));
-			this.addToBot(new MakeTempCardInHandAction(c, 1, false));
-			this.addToBot(new RemoveSpecificPowerAction(this.owner, this.owner, "Miyu:PresencePower"));;
+		if (AbstractDungeon.player.hand.size() < AbstractDungeon.player.gameHandSize) { // 손이 가득 차지 않았을 때만 카드 생성
+			if (this.amount > 0) {
+				DistinctPresence c = new DistinctPresence();
+				c.setDP(this.amount);
+				this.addToBot(new MakeTempCardInHandAction(c, 1, false));
+			} else {
+				FaintPresence c = new FaintPresence();
+				c.setFP(Math.abs(this.amount));
+				this.addToBot(new MakeTempCardInHandAction(c, 1, false));
+			}
 		}
 	}
 

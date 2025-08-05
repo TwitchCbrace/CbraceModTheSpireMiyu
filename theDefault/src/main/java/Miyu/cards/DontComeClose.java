@@ -51,8 +51,7 @@ public class DontComeClose extends AbstractRangeIconCard {
 
 	@Override
 	public void triggerWhenDrawn() {
-		int p = 0;
-		p = AbstractDungeon.player.hand.size();
+		int p = AbstractDungeon.player.hand.size();
 		this.baseRangeMagicNumber = p + 1;
 		this.rangeMagicNumber = p + 1;
 		isRangeMagicNumberModified = true;

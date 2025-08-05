@@ -65,8 +65,8 @@ public class NegativeDelusions extends AbstractDynamicCard {
 	public void upgrade() {
 		if (!upgraded) {
 			upgradeName();
-			upgradeMagicNumber(UPGRADE_PLUS_MAGIC);
-			isMagicNumberModified = true;
+			this.exhaust = true;
+			rawDescription = cardStrings.UPGRADE_DESCRIPTION;
 			initializeDescription();
 		}
 	}

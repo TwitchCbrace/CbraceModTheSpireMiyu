@@ -46,9 +46,7 @@ public class Panic extends AbstractDynamicCard {
 	public void use(AbstractPlayer p, AbstractMonster m) {
 		AbstractDungeon.actionManager.addToBottom(new DrawCardAction(1));
 		AbstractDungeon.actionManager.addToBottom(new MoveToHighCoverAction(p));
-		AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new PresencePower(p, p, -3)));
-		AbstractDungeon.actionManager.addToBottom(new DiscardAction(p, p, 1, false));
-
+		AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new PresencePower(p, p, -5)));
 		if (upgraded) {
 			AbstractDungeon.actionManager.addToBottom(new CoverSelectAction(p, 1));
 		}

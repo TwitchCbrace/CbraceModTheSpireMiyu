@@ -69,14 +69,13 @@ public class Inevitably extends AbstractRangeIconCard {
 	}
 	@Override
 	public void triggerWhenDrawn() {
-		int p = 0;
-		p = AbstractDungeon.player.hand.size();
+		int p = AbstractDungeon.player.hand.size();
 		this.baseRangeMagicNumber = p + 1;
 		this.rangeMagicNumber = p + 1;
 		isRangeMagicNumberModified = true;
 	}
 	public void triggerOnGlowCheck() {
-		if (rangeMagicNumber > 7) {
+		if (rangeMagicNumber > 5) {
 			beginGlowing();
 			this.glowColor = AbstractCard.GOLD_BORDER_GLOW_COLOR.cpy();
 		} else {
@@ -103,7 +102,7 @@ public class Inevitably extends AbstractRangeIconCard {
 	public void use(AbstractPlayer p, AbstractMonster m) {
 		this.damage -= this.rangeMagicNumber;
 
-		if (rangeMagicNumber >= 6) {
+		if (rangeMagicNumber > 5) {
 			this.addToBot(new DrawCardAction(p, 1));
 		}
 		this.calculateCardDamage(m);

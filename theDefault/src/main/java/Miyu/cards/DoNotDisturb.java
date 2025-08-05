@@ -30,21 +30,24 @@ public class DoNotDisturb extends AbstractDynamicCard {
 	private static final CardType TYPE = CardType.SKILL;
 	public static final CardColor COLOR = TheDefault.Enums.COLOR_GRAY;
 	private static final int COST = 1;
-	private static final int MAGIC = 2;
-	private static final int UPGRADE_MAGIC_NUMBER = 1;
+	private static final int MAGIC = 5;
+	private static final int UPGRADE_MAGIC_NUMBER = 5;
+	private static final int ENERGY_BASE = 2;
+	private static final int ENERGY_UPGRADE = 1;
 
 	// /STAT DECLARATION/
 
 	public DoNotDisturb() {
 		super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
 		this.baseMagicNumber = this.magicNumber = MAGIC;
+		this.baseSecondMagicNumber = this.secondMagicNumber = ENERGY_BASE;
 		this.exhaust = true;
 	}
 
 	// Actions the card should do.
 	@Override
 	public void use(AbstractPlayer p, AbstractMonster m) {
-		AbstractDungeon.actionManager.addToBottom(new GainEnergyAction(magicNumber));
+		AbstractDungeon.actionManager.addToBottom(new GainEnergyAction(secondMagicNumber));
 		AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new PresencePower(p, p, -magicNumber)));
 	}
 
@@ -54,6 +57,7 @@ public class DoNotDisturb extends AbstractDynamicCard {
 		if (!upgraded) {
 			upgradeName();
 			upgradeMagicNumber(UPGRADE_MAGIC_NUMBER);
+			upgradeSecondMagicNumber(ENERGY_UPGRADE);
 			this.rawDescription = cardStrings.UPGRADE_DESCRIPTION;
 			initializeDescription();
 		}

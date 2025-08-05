@@ -56,6 +56,7 @@ public class LeafPile extends AbstractDynamicCard implements ICoverCard {
 		AbstractDungeon.actionManager.addToBottom(new RemoveSpecificPowerAction(p, p, "Miyu:Covered"));
 		AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p,
 				new Covered(p, p, this.baseCoverMagicNumber, this), this.baseCoverMagicNumber));
+		AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new TrashPower(p, p, this.magicNumber)));
 	}
 
 	public void triggerOnGlowCheck() {

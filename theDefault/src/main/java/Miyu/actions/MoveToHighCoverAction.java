@@ -52,6 +52,7 @@ public class MoveToHighCoverAction extends AbstractGameAction {
 	public void update() {
 		if (c != null) {
 			((ICoverCard) c).triggerOnCovered(p);
+			this.addToBot(new ClearCardTooltipAction());
 		}
 		this.isDone = true;
 	}

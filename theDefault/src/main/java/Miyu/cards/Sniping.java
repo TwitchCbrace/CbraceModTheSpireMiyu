@@ -53,8 +53,7 @@ public class Sniping extends AbstractRangeIconCard {
 
 	@Override
 	public void triggerWhenDrawn() {
-		int p = 0;
-		p = AbstractDungeon.player.hand.size();
+		int p = AbstractDungeon.player.hand.size();
 		this.baseRangeMagicNumber = p + 1;
 		this.rangeMagicNumber = p + 1;
 		isRangeMagicNumberModified = true;
@@ -64,10 +63,6 @@ public class Sniping extends AbstractRangeIconCard {
 		} else {
 			this.baseMagicNumber = rangeMagicNumber / 5;
 		}
-		// if (this.baseMagicNumber != 0) {
-		// this.isMagicNumberModified = true;
-		// }
-
 	}
 	public void triggerOnGlowCheck() {
 		if (this.baseMagicNumber != 0 && canPlay(this)) {

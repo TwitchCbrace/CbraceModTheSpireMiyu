@@ -1,13 +1,16 @@
 package Miyu.cards;
 
 import Miyu.DefaultMod;
+import Miyu.actions.CoverSelectAction;
 import Miyu.actions.FoundItAction;
+import Miyu.actions.MoveAction;
 import Miyu.characters.TheDefault;
 import com.megacrit.cardcrawl.actions.common.DrawCardAction;
 import com.megacrit.cardcrawl.actions.common.PutOnDeckAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
@@ -33,10 +36,9 @@ public class FoundIt extends AbstractDynamicCard {
 	private static final int COST = 0;
 
 	private static final int DRAW = 1;
-	private static final int UPGRADE_DRAW = 1;
 
-	private static final int MAGIC = 5;
-	private static final int UPGRADE_MAGIC = 3;
+	private static final int MAGIC = 10;
+	private static final int UPGRADE_MAGIC = 5;
 
 	// /STAT DECLARATION/
 
@@ -53,8 +55,7 @@ public class FoundIt extends AbstractDynamicCard {
 		// 카드를 baseMagicNumber만큼 뽑고, 엄폐중인 카드를 뽑았을 때의 후처리를 위해 FoundItAction을 FollowAction으로 넣어준다.
 		addToBot(new DrawCardAction(baseMagicNumber, new FoundItAction(p, secondMagicNumber)));
 
-		// 카드 1장을 덱 맨 위로 올리는 액션
-		this.addToBot(new PutOnDeckAction(p, p, 1, false));
+		AbstractDungeon.actionManager.addToBottom(new CoverSelectAction(p, 1));
 	}
 
 	// Upgraded stats.
@@ -62,8 +63,6 @@ public class FoundIt extends AbstractDynamicCard {
 	public void upgrade() {
 		if (!upgraded) {
 			upgradeName();
-			upgradeMagicNumber(UPGRADE_DRAW);
-			isMagicNumberModified = true;
 			upgradeSecondMagicNumber(UPGRADE_MAGIC);
 			isSecondMagicNumberModified = true;
 			initializeDescription();

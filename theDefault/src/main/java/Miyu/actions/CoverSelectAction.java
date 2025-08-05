@@ -68,6 +68,7 @@ public class CoverSelectAction extends AbstractGameAction {
 				for (AbstractCard card : cardsHasCover.group) {
 					((ICoverCard) card).triggerOnCovered(p);
 				}
+				this.addToBot(new ClearCardTooltipAction());
 				isDone = true;
 				return;
 			}
@@ -92,7 +93,7 @@ public class CoverSelectAction extends AbstractGameAction {
 			for (AbstractCard card : AbstractDungeon.gridSelectScreen.selectedCards) {
 				((ICoverCard) card).triggerOnCovered(p);
 			}
-
+			this.addToBot(new ClearCardTooltipAction());
 			AbstractDungeon.gridSelectScreen.selectedCards.clear();
 			this.isDone = true;
 		}

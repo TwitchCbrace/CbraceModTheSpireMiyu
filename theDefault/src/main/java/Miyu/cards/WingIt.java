@@ -43,6 +43,15 @@ public class WingIt extends AbstractDynamicCard implements ICoverCard {
 		this.baseCoverMagicNumber = this.coverMagicNumber = COVER;
 		this.baseDamage = this.damage = DAMAGE;
 		this.isEthereal = true;
+		this.baseRangeMagicNumber = this.rangeMagicNumber = 0;
+	}
+
+	@Override
+	public void triggerWhenDrawn() {
+		int p = AbstractDungeon.player.hand.size();
+		this.baseRangeMagicNumber = p + 1;
+		this.rangeMagicNumber = p + 1;
+		isRangeMagicNumberModified = true;
 	}
 
 	public void triggerOnCovered(AbstractPlayer p) {

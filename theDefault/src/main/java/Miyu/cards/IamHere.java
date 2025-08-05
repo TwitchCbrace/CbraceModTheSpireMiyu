@@ -58,7 +58,7 @@ public class IamHere extends AbstractDynamicCard {
 		this.calculateCardDamage(m);
 		AbstractDungeon.actionManager.addToBottom(new DamageAction(m, new DamageInfo(p, this.damage, damageTypeForTurn),
 				AbstractGameAction.AttackEffect.SMASH, true));
-		AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new PresencePower(p, p, -5)));
+		AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new PresencePower(p, p, -20)));
 
 	}
 

@@ -37,6 +37,7 @@ public class MilitaryCamp extends AbstractDynamicCard implements ICoverCard {
 	private static final int MAGIC = 4;
 	private static final int UPGRADE_PLUS_MAGIC = 1;
 	// /STAT DECLARATION/
+	private boolean isCostReducedThisTurn = false;
 
 	public MilitaryCamp() {
 		super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
@@ -56,10 +57,27 @@ public class MilitaryCamp extends AbstractDynamicCard implements ICoverCard {
 			this.setCostForTurn(0);
 			isCostModified = true;
 		}
+		this.isCostReducedThisTurn = true;
 	}
 	public void triggerOnExhaust() {
 		AbstractPlayer p = AbstractDungeon.player;
 		this.addToBot(new ApplyPowerAction(p, p, new TrashPower(p, p, 3)));
+	}
+
+	@Override
+	public void atTurnStart() {
+		this.resetAttributes();
+		this.applyPowers();
+		this.isCostReducedThisTurn = false;
+	}
+
+	@Override
+	public void triggerWhenDrawn() {
+		super.triggerWhenDrawn();
+		if (this.isCostReducedThisTurn) {
+			this.setCostForTurn(this.costForTurn - 1);
+			this.isCostModified = true;
+		}
 	}
 
 	public void triggerOnGlowCheck() {

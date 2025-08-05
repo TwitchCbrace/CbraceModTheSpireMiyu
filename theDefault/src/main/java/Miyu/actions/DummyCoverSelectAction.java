@@ -61,6 +61,7 @@ public class DummyCoverSelectAction extends AbstractGameAction {
 					def = ((AbstractDefaultCard) card).baseCoverMagicNumber;
 					AbstractDungeon.actionManager.addToBottom(new GainBlockAction(p, p, def));
 				}
+				this.addToBot(new ClearCardTooltipAction());
 				isDone = true;
 				return;
 			}
@@ -76,6 +77,7 @@ public class DummyCoverSelectAction extends AbstractGameAction {
 				def = ((AbstractDefaultCard) card).baseCoverMagicNumber;
 				AbstractDungeon.actionManager.addToBottom(new GainBlockAction(p, p, def));
 			}
+			this.addToBot(new ClearCardTooltipAction());
 			AbstractDungeon.gridSelectScreen.selectedCards.clear();
 			isDone = true;
 		}

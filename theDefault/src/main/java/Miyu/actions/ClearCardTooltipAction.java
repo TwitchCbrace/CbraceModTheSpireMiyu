@@ -1,8 +1,9 @@
 package Miyu.actions;
 
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
-import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 
 public class ClearCardTooltipAction extends AbstractGameAction {
 	public ClearCardTooltipAction() {
@@ -11,21 +12,27 @@ public class ClearCardTooltipAction extends AbstractGameAction {
 
 	@Override
 	public void update() {
-		// 열려 있는 카드 팝업 (카드 미리보기 등)을 닫습니다.
+		// Close any open card popups (like card previews)
 		if (CardCrawlGame.cardPopup != null) {
 			CardCrawlGame.cardPopup.close();
 		}
 
-		// 상단 패널의 모든 호버 상태를 해제합니다. (일반적인 UI 호버를 지울 수 있음)
+		// Unhover all hitboxes in the top panel
 		AbstractDungeon.topPanel.unhoverHitboxes();
 
-		// 현재 활성화된 화면을 강제로 닫고, 화면이 활성화된 상태를 해제합니다.
+		// Force the current screen to close and reset screen state
 		AbstractDungeon.screen = AbstractDungeon.CurrentScreen.NONE;
 		AbstractDungeon.isScreenUp = false;
 
-		// 취소 버튼을 숨기고 현재 화면을 닫습니다.
+		// Hide the cancel button and close the current screen
 		AbstractDungeon.overlayMenu.cancelButton.hide();
 		AbstractDungeon.closeCurrentScreen();
+
+		// Unhover and remove tooltips from all cards in hand
+		for (AbstractCard c : AbstractDungeon.player.hand.group) {
+			c.unhover();
+			c.untip();
+		}
 
 		this.isDone = true;
 	}

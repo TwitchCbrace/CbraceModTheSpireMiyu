@@ -44,7 +44,7 @@ public class FindingTrashBin extends AbstractDynamicCard {
 	// Actions the card should do.
 	@Override
 	public void use(AbstractPlayer p, AbstractMonster m) {
-		AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new PresencePower(p, p, -3)));
+		AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new PresencePower(p, p, -5)));
 		AbstractDungeon.actionManager.addToBottom(new DrawCardAction(p, magicNumber));
 		AbstractDungeon.actionManager.addToBottom(new CoverSelectAction(p, 1));
 

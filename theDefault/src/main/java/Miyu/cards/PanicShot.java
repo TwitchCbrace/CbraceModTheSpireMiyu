@@ -32,11 +32,9 @@ public class PanicShot extends AbstractRangeIconCard {
 	private static final CardTarget TARGET = CardTarget.ENEMY; // since they don't change much.
 	private static final CardType TYPE = CardType.ATTACK; //
 	public static final CardColor COLOR = TheDefault.Enums.COLOR_GRAY;
-
-	private static final int COST = 1; // COST = 2
-	private static final int UPGRADED_COST = 0; // UPGRADED_COST = 2
-
-	private static final int DAMAGE = 7; // DAMAGE = 10
+	private static final int COST = 0;
+	private static final int DAMAGE = 4;
+	private static final int UPGRADE_PLUS_DMG = 2;
 	private static final int RANGE = 0;
 
 	// /STAT DECLARATION/
@@ -51,8 +49,7 @@ public class PanicShot extends AbstractRangeIconCard {
 
 	@Override
 	public void triggerWhenDrawn() {
-		int p = 0;
-		p = AbstractDungeon.player.hand.size();
+		int p = AbstractDungeon.player.hand.size();
 		this.baseRangeMagicNumber = p + 1;
 		this.rangeMagicNumber = p + 1;
 		isRangeMagicNumberModified = true;
@@ -91,7 +88,7 @@ public class PanicShot extends AbstractRangeIconCard {
 	public void upgrade() {
 		if (!upgraded) {
 			upgradeName();
-			upgradeBaseCost(UPGRADED_COST);
+			upgradeDamage(UPGRADE_PLUS_DMG);
 			initializeDescription();
 		}
 	}

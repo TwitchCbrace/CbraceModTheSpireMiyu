@@ -60,6 +60,7 @@ public class CoverIncreaseAction extends AbstractGameAction {
 						((AbstractDefaultCard) card).baseCoverMagicNumber += increaseAmount;
 						((AbstractDefaultCard) card).coverMagicNumber += increaseAmount;
 						card.superFlash();
+						AbstractDungeon.actionManager.addToBottom(new ClearCardTooltipAction());
 					}
 
 				}
