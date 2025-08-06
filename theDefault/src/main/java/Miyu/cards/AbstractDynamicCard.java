@@ -140,4 +140,8 @@ public abstract class AbstractDynamicCard extends AbstractDefaultCard {
 
 	public void triggerWhenOtherCardExhausted() {
 	}
+
+	public int getCoverValue() {
+		return this.baseCoverMagicNumber;
+	}
 }

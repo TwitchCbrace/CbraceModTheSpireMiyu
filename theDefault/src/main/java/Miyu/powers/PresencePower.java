@@ -18,6 +18,7 @@ import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.powers.AbstractPower;
+import basemod.BaseMod;
 
 import static Miyu.DefaultMod.makePowerPath;
 
@@ -50,7 +51,7 @@ public class PresencePower extends AbstractPower implements CloneablePowerInterf
 	}
 	@Override
 	public void atStartOfTurnPostDraw() {
-		if (AbstractDungeon.player.hand.size() < AbstractDungeon.player.gameHandSize) { // 손이 가득 차지 않았을 때만 카드 생성
+		if (AbstractDungeon.player.hand.size() < BaseMod.MAX_HAND_SIZE) { // 손이 가득 차지 않았을 때만 카드 생성
 			if (this.amount > 0) {
 				DistinctPresence c = new DistinctPresence();
 				c.setDP(this.amount);

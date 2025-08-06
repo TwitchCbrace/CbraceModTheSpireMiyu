@@ -12,6 +12,7 @@ by josh
  */
 
 public interface ICoverCard {
+	int getCoverValue();
 	void triggerOnCovered(AbstractPlayer p);
 	void triggerOnExhaust();
 

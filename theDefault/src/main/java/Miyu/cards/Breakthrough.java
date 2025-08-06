@@ -2,7 +2,9 @@ package Miyu.cards;
 
 import Miyu.DefaultMod;
 import Miyu.characters.TheDefault;
+import Miyu.powers.Covered;
 import Miyu.powers.HandSizeUp;
+import Miyu.actions.BreakthroughAction;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.*;
 import com.megacrit.cardcrawl.cards.AbstractCard;
@@ -37,17 +39,11 @@ public class Breakthrough extends AbstractDynamicCard {
 	private static final int DAMAGE = 9;
 	private static final int UPGRADE_PLUS_DMG = 3;
 
-	private static final int MAGIC = 1;
-	private static final int UPGRADE_PLUS_MAGIC = 1;
-	private static final int RANGE = 0;
-
 	// /STAT DECLARATION/
 
 	public Breakthrough() {
 		super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
 		this.baseDamage = this.damage = DAMAGE;
-		this.baseMagicNumber = this.magicNumber = MAGIC;
-		this.cardsToPreview = new Rock();
 	}
 
 	public void applyPowers() {
@@ -66,12 +62,8 @@ public class Breakthrough extends AbstractDynamicCard {
 	public void use(AbstractPlayer p, AbstractMonster m) {
 		this.calculateCardDamage(m);
 		AbstractDungeon.actionManager.addToBottom(new DamageAction(m, new DamageInfo(p, damage, damageTypeForTurn),
-				AbstractGameAction.AttackEffect.SLASH_HORIZONTAL));
-
-		AbstractDungeon.actionManager
-				.addToBottom(new ApplyPowerAction(p, p, new HandSizeUp(p, m, magicNumber), magicNumber));
-		addToBot(new MakeTempCardInHandAction(new Rock(), magicNumber));
-
+				AbstractGameAction.AttackEffect.SMASH));
+		this.addToBot(new BreakthroughAction());
 	}
 
 	public AbstractCard makeCopy() {
@@ -84,7 +76,6 @@ public class Breakthrough extends AbstractDynamicCard {
 		if (!upgraded) {
 			upgradeName();
 			upgradeDamage(UPGRADE_PLUS_DMG);
-			upgradeMagicNumber(UPGRADE_PLUS_MAGIC);
 			initializeDescription();
 		}
 	}
