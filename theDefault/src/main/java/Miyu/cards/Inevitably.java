@@ -13,7 +13,7 @@ import Miyu.characters.TheDefault;
 
 import static Miyu.DefaultMod.makeCardPath;
 
-public class Inevitably extends AbstractRangeIconCard {
+public class Inevitably extends AbstractDynamicCard {
 
 	/*
 	 * "Hey, I wanna make a bunch of cards now." - You, probably. ok cool my dude no problem here's the most convenient

@@ -15,7 +15,7 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
 import static Miyu.DefaultMod.makeCardPath;
 
-public class PanicShot extends AbstractRangeIconCard {
+public class PanicShot extends AbstractDynamicCard {
 
 	public static final String ID = DefaultMod.makeID(PanicShot.class.getSimpleName()); // USE THIS ONE FOR THE
 																						// TEMPLATE;

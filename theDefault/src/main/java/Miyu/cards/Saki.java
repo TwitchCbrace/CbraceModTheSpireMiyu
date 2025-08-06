@@ -20,7 +20,7 @@ import java.util.Iterator;
 
 import static Miyu.DefaultMod.makeCardPath;
 
-public class Saki extends AbstractRangeIconCard {
+public class Saki extends AbstractDynamicCard {
 
 	public static final String ID = DefaultMod.makeID(Saki.class.getSimpleName()); // USE THIS ONE FOR THE TEMPLATE;
 	public static final String IMG = makeCardPath("Saki.png");// "public static final String IMG =

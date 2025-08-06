@@ -14,7 +14,7 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
 import static Miyu.DefaultMod.makeCardPath;
 
-public class AppropriateDistance extends AbstractRangeIconCard {
+public class AppropriateDistance extends AbstractDynamicCard {
 
 	public static final String ID = DefaultMod.makeID(AppropriateDistance.class.getSimpleName());
 	public static final String IMG = makeCardPath("AppropriateDistance.png");
