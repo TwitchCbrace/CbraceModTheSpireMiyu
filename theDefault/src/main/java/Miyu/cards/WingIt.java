@@ -96,14 +96,9 @@ public class WingIt extends AbstractDynamicCard implements ICoverCard {
 
 	@Override
 	public void use(AbstractPlayer p, AbstractMonster m) {
-		this.damage -= this.rangeMagicNumber;
-
-		if (rangeMagicNumber > 7) {
-			this.addToBot(new DrawCardAction(p, 1));
-		}
 		this.calculateCardDamage(m);
 		AbstractDungeon.actionManager.addToBottom(new DamageAction(m, new DamageInfo(p, this.damage, damageTypeForTurn),
-				AbstractGameAction.AttackEffect.BLUNT_HEAVY, true));
+				AbstractGameAction.AttackEffect.SLASH_HORIZONTAL, true));
 	}
 	public AbstractCard makeCopy() {
 		return new WingIt();
