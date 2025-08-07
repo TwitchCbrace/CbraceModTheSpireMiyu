@@ -45,11 +45,11 @@ public class RabbitHole extends AbstractDynamicCard implements ICoverCard {
 		this.baseCoverMagicNumber = this.coverMagicNumber = COVER;
 	}
 	public void triggerOnCovered(AbstractPlayer p) {
-		AbstractDungeon.actionManager.addToBottom(new RemoveSpecificPowerAction(p, p, "Miyu:Covered"));
-		AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p,
+		AbstractDungeon.actionManager.addToTop(new ApplyPowerAction(p, p,
 				new Covered(p, p, this.baseCoverMagicNumber, this), this.baseCoverMagicNumber));
-		AbstractDungeon.actionManager.addToBottom(new DrawCardAction(magicNumber));
-		AbstractDungeon.actionManager.addToBottom(new PutOnDeckAction(p, p, 1, false));
+		AbstractDungeon.actionManager.addToTop(new RemoveSpecificPowerAction(p, p, "Miyu:Covered"));
+		AbstractDungeon.actionManager.addToTop(new DrawCardAction(magicNumber));
+		AbstractDungeon.actionManager.addToTop(new PutOnDeckAction(p, p, 1, false));
 	}
 
 	public void triggerOnGlowCheck() {

@@ -33,15 +33,13 @@ public class ContestedArea extends AbstractDynamicCard {
 	public static final CardColor COLOR = TheDefault.Enums.COLOR_GRAY;
 
 	private static final int COST = 1;
-	private static final int MAGIC = 2;
-	private static final int UPGRADED_MAGIC = 1;
+	private static final int MAGIC = 1;
 
 	// /STAT DECLARATION/
 
 	public ContestedArea() {
 		super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
 		this.baseMagicNumber = magicNumber = MAGIC;
-		this.cardsToPreview = new Rock();
 	}
 
 	// Actions the card should do.
@@ -59,7 +57,7 @@ public class ContestedArea extends AbstractDynamicCard {
 	public void upgrade() {
 		if (!upgraded) {
 			upgradeName();
-			upgradeMagicNumber(UPGRADED_MAGIC);
+			upgradeBaseCost(0);
 			initializeDescription();
 		}
 	}

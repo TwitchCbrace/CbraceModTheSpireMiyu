@@ -2,6 +2,7 @@ package Miyu.cards;
 
 import Miyu.DefaultMod;
 import Miyu.actions.MoveAction;
+import Miyu.actions.MoveToRandomCoverAction;
 import Miyu.characters.TheDefault;
 import Miyu.powers.PresencePower;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
@@ -51,19 +52,8 @@ public class BlindSpot extends AbstractDynamicCard {
 
 		this.addToBot(new DamageAction(m, new DamageInfo(p, this.damage, this.damageTypeForTurn),
 				AbstractGameAction.AttackEffect.SLASH_VERTICAL));
+		this.addToBot(new MoveToRandomCoverAction(p));
 
-		ArrayList<AbstractCard> coverCardsInHand = new ArrayList<>();
-		for (AbstractCard c : p.hand.group) {
-			if (c instanceof ICoverCard) {
-				coverCardsInHand.add(c);
-			}
-		}
-
-		if (!coverCardsInHand.isEmpty()) {
-			AbstractCard cardToMove = coverCardsInHand
-					.get(AbstractDungeon.cardRandomRng.random(coverCardsInHand.size() - 1));
-			this.addToBot(new MoveAction(p, cardToMove));
-		}
 	}
 
 	public AbstractCard makeCopy() {

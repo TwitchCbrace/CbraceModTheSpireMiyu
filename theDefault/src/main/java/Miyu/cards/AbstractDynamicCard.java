@@ -139,6 +139,7 @@ public abstract class AbstractDynamicCard extends AbstractDefaultCard {
 				.forEach((card) -> ((AbstractDynamicCard) card).triggerWhenOtherCardExhausted());
 		AbstractDungeon.player.exhaustPile.group.stream().filter((card) -> card instanceof AbstractDynamicCard)
 				.forEach((card) -> ((AbstractDynamicCard) card).triggerWhenOtherCardExhausted());
+
 		if (this instanceof ICoverCard) {
 			AbstractPlayer p = AbstractDungeon.player;
 			AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new TrashPower(p, p, 3), 3));

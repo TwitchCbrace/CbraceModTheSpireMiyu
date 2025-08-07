@@ -47,16 +47,16 @@ public class RabbitBath extends AbstractDynamicCard implements ICoverCard {
 		this.tags.add(CardTags.HEALING);
 	}
 	public void triggerOnCovered(AbstractPlayer p) {
-		AbstractDungeon.actionManager.addToBottom(new RemoveSpecificPowerAction(p, p, "Miyu:Covered"));
-		AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p,
+		AbstractDungeon.actionManager.addToTop(new ApplyPowerAction(p, p,
 				new Covered(p, p, this.baseCoverMagicNumber, this), this.baseCoverMagicNumber));
+		AbstractDungeon.actionManager.addToTop(new RemoveSpecificPowerAction(p, p, "Miyu:Covered"));
 		int a = 0;
 		if (this.baseMagicNumber > 6) {
 			a = 6;
 		} else {
 			a = this.baseMagicNumber;
 		}
-		AbstractDungeon.actionManager.addToBottom(new HealAction(p, p, a));
+		AbstractDungeon.actionManager.addToTop(new HealAction(p, p, a));
 		this.baseMagicNumber -= 6;
 		this.magicNumber -= 6;
 		if (this.baseMagicNumber <= 0) {

@@ -50,9 +50,9 @@ public class ConvenienceStore extends AbstractDynamicCard implements ICoverCard 
 
 	}
 	public void triggerOnCovered(AbstractPlayer p) {
-		AbstractDungeon.actionManager.addToBottom(new RemoveSpecificPowerAction(p, p, "Miyu:Covered"));
-		AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p,
+		AbstractDungeon.actionManager.addToTop(new ApplyPowerAction(p, p,
 				new Covered(p, p, this.baseCoverMagicNumber, this), this.baseCoverMagicNumber));
+		AbstractDungeon.actionManager.addToTop(new RemoveSpecificPowerAction(p, p, "Miyu:Covered"));
 		this.baseMagicNumber++;
 		this.magicNumber++;
 		isMagicNumberModified = true;

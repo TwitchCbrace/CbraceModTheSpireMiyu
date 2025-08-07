@@ -16,6 +16,7 @@ import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.cards.tempCards.Shiv;
+import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.Settings;
@@ -58,21 +59,9 @@ public class ContestedAreaPower extends AbstractPower implements CloneablePowerI
 		updateDescription();
 	}
 
-	public void onExhaust(AbstractCard card) {
-		if (card instanceof ICoverCard) {
-			this.flash();
-			addToBot(new ApplyPowerAction(owner, owner, new HandSizeUp(owner, owner, amount), amount));
-			addToBot(new MakeTempCardInHandAction(new Rock(), amount));
-		}
-	}
-
 	@Override
 	public void updateDescription() {
-		if (amount == 1) {
-			description = DESCRIPTIONS[0] + amount + DESCRIPTIONS[1];
-		} else if (amount > 1) {
-			description = DESCRIPTIONS[0] + amount + DESCRIPTIONS[2];
-		}
+		description = DESCRIPTIONS[0];
 	}
 
 	@Override
@@ -80,4 +69,13 @@ public class ContestedAreaPower extends AbstractPower implements CloneablePowerI
 		return new ContestedAreaPower(owner, source, amount);
 	}
 
+	@Override
+	public void onExhaust(AbstractCard card) {
+		if (card instanceof ICoverCard) {
+			for (int i = 0; i < this.amount; i++) {
+				this.addToTop(new Miyu.actions.MoveToRandomCoverAction(
+						(com.megacrit.cardcrawl.characters.AbstractPlayer) this.owner, true));
+			}
+		}
+	}
 }

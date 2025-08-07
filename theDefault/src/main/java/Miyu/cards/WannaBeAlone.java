@@ -48,12 +48,12 @@ public class WannaBeAlone extends AbstractDynamicCard implements ICoverCard {
 	}
 
 	public void triggerOnCovered(AbstractPlayer p) {
-		AbstractDungeon.actionManager.addToBottom(new RemoveSpecificPowerAction(p, p, "Miyu:Covered"));
-		AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p,
+		AbstractDungeon.actionManager.addToTop(new ApplyPowerAction(p, p,
 				new Covered(p, p, this.baseCoverMagicNumber, this), this.baseCoverMagicNumber));
+		AbstractDungeon.actionManager.addToTop(new RemoveSpecificPowerAction(p, p, "Miyu:Covered"));
 
 		// 손에 있는 엄폐물에게 휘발성을 부여하는 액션을 actionManager 맨 밑에 추가
-		addToBot(new WannaBeAloneAction(this));
+		addToTop(new WannaBeAloneAction(this));
 	}
 
 	public void triggerOnGlowCheck() {
