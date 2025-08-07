@@ -59,10 +59,6 @@ public class MilitaryCamp extends AbstractDynamicCard implements ICoverCard {
 		}
 		this.isCostReducedThisTurn = true;
 	}
-	public void triggerOnExhaust() {
-		AbstractPlayer p = AbstractDungeon.player;
-		this.addToBot(new ApplyPowerAction(p, p, new TrashPower(p, p, 3)));
-	}
 
 	@Override
 	public void atTurnStart() {

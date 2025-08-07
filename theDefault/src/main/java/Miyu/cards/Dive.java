@@ -56,11 +56,6 @@ public class Dive extends AbstractDynamicCard implements ICoverCard {
 				new Covered(p, p, this.baseCoverMagicNumber, this), this.baseCoverMagicNumber));
 	}
 
-	public void triggerOnExhaust() {
-		AbstractPlayer p = AbstractDungeon.player;
-		this.addToBot(new ApplyPowerAction(p, p, new TrashPower(p, p, 3)));
-	}
-
 	// Actions the card should do.
 	@Override
 	public void use(AbstractPlayer p, AbstractMonster m) {

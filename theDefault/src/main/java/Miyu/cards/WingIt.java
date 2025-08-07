@@ -12,6 +12,7 @@ import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
+import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.AbstractPower;
@@ -60,10 +61,7 @@ public class WingIt extends AbstractDynamicCard implements ICoverCard {
 				new Covered(p, p, this.baseCoverMagicNumber, this), this.baseCoverMagicNumber));
 		this.initializeDescription();
 	}
-	public void triggerOnExhaust() {
-		AbstractPlayer p = AbstractDungeon.player;
-		this.addToBot(new ApplyPowerAction(p, p, new TrashPower(p, p, 3)));
-	}
+
 	public void triggerOnGlowCheck() {
 		Covered covered = (Covered) AbstractDungeon.player.getPower("Miyu:Covered");
 

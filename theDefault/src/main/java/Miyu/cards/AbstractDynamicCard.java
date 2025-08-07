@@ -1,11 +1,15 @@
 package Miyu.cards;
 
 import Miyu.DefaultMod;
+import Miyu.powers.TrashPower;
 import Miyu.util.TextureLoader;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
+import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
+import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.FontHelper;
@@ -135,6 +139,11 @@ public abstract class AbstractDynamicCard extends AbstractDefaultCard {
 				.forEach((card) -> ((AbstractDynamicCard) card).triggerWhenOtherCardExhausted());
 		AbstractDungeon.player.exhaustPile.group.stream().filter((card) -> card instanceof AbstractDynamicCard)
 				.forEach((card) -> ((AbstractDynamicCard) card).triggerWhenOtherCardExhausted());
+		if (this instanceof ICoverCard) {
+			AbstractPlayer p = AbstractDungeon.player;
+			AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new TrashPower(p, p, 3), 3));
+			AbstractDungeon.actionManager.addToBottom(new MakeTempCardInHandAction(new Rock(), 1));
+		}
 		super.triggerOnExhaust();
 	}
 

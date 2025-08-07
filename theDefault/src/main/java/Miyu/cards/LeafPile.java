@@ -76,11 +76,6 @@ public class LeafPile extends AbstractDynamicCard implements ICoverCard {
 		AbstractDungeon.actionManager.addToBottom(new GainBlockAction(p, p, block));
 	}
 
-	public void triggerOnExhaust() {
-		AbstractPlayer p = AbstractDungeon.player;
-		this.addToBot(new ApplyPowerAction(p, p, new TrashPower(p, p, 3)));
-	}
-
 	public AbstractCard makeCopy() {
 		return new LeafPile();
 	}

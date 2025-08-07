@@ -9,6 +9,7 @@ import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import com.megacrit.cardcrawl.powers.AbstractPower;
 
 import static Miyu.DefaultMod.makeCardPath;
 
@@ -16,11 +17,8 @@ public class CleanUpTrash extends AbstractDynamicCard {
 
 	public static final String ID = DefaultMod.makeID(CleanUpTrash.class.getSimpleName());
 	public static final String IMG = makeCardPath("CleanUpTrash.png");
+
 	private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
-
-	// /TEXT DECLARATION/
-
-	// STAT DECLARATION
 
 	private static final CardRarity RARITY = CardRarity.RARE;
 	private static final CardTarget TARGET = CardTarget.SELF;
@@ -28,29 +26,37 @@ public class CleanUpTrash extends AbstractDynamicCard {
 	public static final CardColor COLOR = TheDefault.Enums.COLOR_GRAY;
 
 	private static final int COST = 1;
-	// private static final int UPGRADE_COST = 0;
 
-	private static final int MAGIC = 4;
-	private static final int UPGRADED_PLUS_MAGIC = 2;
+	private static final int MAGIC = 3;
+	private static final int UPGRADE_PLUS_MAGIC = 2;
+	private static final int SECOND_MAGIC = 1;
+	private static final int UPGRADE_PLUS_SECOND_MAGIC = 1;
 
 	public CleanUpTrash() {
 		super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
 		this.baseMagicNumber = this.magicNumber = MAGIC;
+		this.baseSecondMagicNumber = this.secondMagicNumber = SECOND_MAGIC;
 	}
 
 	@Override
 	public void use(AbstractPlayer p, AbstractMonster m) {
-		AbstractDungeon.actionManager
-				.addToBottom(new ApplyPowerAction(p, p, new CleanUpTrashPower(p, p, magicNumber), magicNumber)
-				// new Covered(p, p, magicNumber), magicNumber)
-				);
+		AbstractPower existingPower = p.getPower(CleanUpTrashPower.POWER_ID);
+		if (existingPower != null) {
+			((CleanUpTrashPower) existingPower).amount += this.magicNumber;
+			((CleanUpTrashPower) existingPower).vigor += this.secondMagicNumber;
+			existingPower.updateDescription();
+		} else {
+			AbstractDungeon.actionManager.addToBottom(
+					new ApplyPowerAction(p, p, new CleanUpTrashPower(p, p, this.magicNumber, this.secondMagicNumber)));
+		}
 	}
 
 	@Override
 	public void upgrade() {
 		if (!upgraded) {
 			upgradeName();
-			upgradeMagicNumber(UPGRADED_PLUS_MAGIC);
+			upgradeMagicNumber(UPGRADE_PLUS_MAGIC);
+			upgradeSecondMagicNumber(UPGRADE_PLUS_SECOND_MAGIC);
 			initializeDescription();
 		}
 	}

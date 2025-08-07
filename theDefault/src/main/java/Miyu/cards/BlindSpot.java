@@ -1,6 +1,7 @@
 package Miyu.cards;
 
 import Miyu.DefaultMod;
+import Miyu.actions.MoveAction;
 import Miyu.characters.TheDefault;
 import Miyu.powers.PresencePower;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
@@ -16,12 +17,14 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.powers.watcher.VigorPower;
 
+import java.util.ArrayList;
+
 import static Miyu.DefaultMod.makeCardPath;
 
 public class BlindSpot extends AbstractDynamicCard {
 
 	public static final String ID = DefaultMod.makeID(BlindSpot.class.getSimpleName()); // USE THIS ONE FOR THE
-																						// TEMPLATE;
+	// TEMPLATE;
 	public static final String IMG = makeCardPath("BlindSpot.png");
 	private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
 
@@ -43,24 +46,24 @@ public class BlindSpot extends AbstractDynamicCard {
 		this.baseMagicNumber = this.magicNumber = MAGIC;
 	}
 
-	public void applyPowers() {
-		AbstractPower selfEsteem = AbstractDungeon.player.getPower(PresencePower.POWER_ID);
-		if (selfEsteem != null && selfEsteem.amount > 0) {
-			this.magicNumber = Math.abs(selfEsteem.amount);
-		} else {
-			this.magicNumber = 0;
-		}
-		super.applyPowers();
-		this.initializeDescription();
-	}
-
 	@Override
 	public void use(AbstractPlayer p, AbstractMonster m) {
-		if (this.magicNumber >= 1) {
-			this.addToBot(new ApplyPowerAction(p, p, new VigorPower(p, magicNumber)));
-		}
+
 		this.addToBot(new DamageAction(m, new DamageInfo(p, this.damage, this.damageTypeForTurn),
 				AbstractGameAction.AttackEffect.SLASH_VERTICAL));
+
+		ArrayList<AbstractCard> coverCardsInHand = new ArrayList<>();
+		for (AbstractCard c : p.hand.group) {
+			if (c instanceof ICoverCard) {
+				coverCardsInHand.add(c);
+			}
+		}
+
+		if (!coverCardsInHand.isEmpty()) {
+			AbstractCard cardToMove = coverCardsInHand
+					.get(AbstractDungeon.cardRandomRng.random(coverCardsInHand.size() - 1));
+			this.addToBot(new MoveAction(p, cardToMove));
+		}
 	}
 
 	public AbstractCard makeCopy() {

@@ -74,7 +74,7 @@
   },
   "Miyu:CleanUpTrash": {
     "NAME": "쓰레기 청소",
-    "DESCRIPTION": " Miyu:쓰레기가 1 감소할 때마다 Miyu:존재감 과 NL Miyu:활력을 !M! 얻습니다. "
+    "DESCRIPTION": " 카드를 사용할 때마다 NL Miyu:쓰레기가 1 감소하며 NL Miyu:존재감 !M! NL Miyu:활력을 !Miyu:M2! 얻습니다. "
   },
   "Miyu:Park": {
     "NAME": "공원",
@@ -120,7 +120,7 @@
   },
   "Miyu:IamHere": {
     "NAME": "여기에요!",
-    "DESCRIPTION": " 피해를 !D! 줍니다. NL Miyu:존재감을 5 잃습니다. NL 이 카드를 뽑을 때 NL Miyu:존재감이 음수라면 NL 버립니다. "
+    "DESCRIPTION": " 피해를 !D! 줍니다. NL Miyu:존재감을 20 잃습니다. NL 이 카드를 뽑을 때 NL Miyu:존재감이 음수라면 NL 버립니다. "
 
   },
   "Miyu:ConvenienceStore": {
@@ -135,7 +135,7 @@
   },
   "Miyu:BlindSpot": {
     "NAME": "사각지대",
-    "DESCRIPTION": " 적에게 피해를 !D! 줍니다. NL Miyu:존재감 만큼 Miyu:활력을 얻습니다. "
+    "DESCRIPTION": " 적에게 피해를 !D! 줍니다. NL 무작위 엄폐물로 Miyu:이동합니다. "
 
   },
   "Miyu:UnexpectedAngle": {

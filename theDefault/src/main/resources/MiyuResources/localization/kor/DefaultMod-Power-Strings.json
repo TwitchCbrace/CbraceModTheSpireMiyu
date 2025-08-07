@@ -50,9 +50,9 @@
         "Miyu:CleanUpTrashPower": {
                 "NAME": "쓰레기 청소",
                 "DESCRIPTIONS": [
-                        "쓰레기가 1 감소할 때마다 존재감과 활력을 #b",
-                        " 얻습니다. ",
-                        " 얻습니다. "
+                        "카드를 사용할 때마다 쓰레기가 1 감소하며, 존재감을 #b",
+                        " 얻고 활력을 #b",
+                        " 얻습니다."
                 ]
         },
         "Miyu:TacticalReloadPower": {

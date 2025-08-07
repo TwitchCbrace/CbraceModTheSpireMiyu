@@ -58,10 +58,6 @@ public class ConvenienceStore extends AbstractDynamicCard implements ICoverCard 
 		isMagicNumberModified = true;
 		this.initializeDescription();
 	}
-	public void triggerOnExhaust() {
-		AbstractPlayer p = AbstractDungeon.player;
-		this.addToBot(new ApplyPowerAction(p, p, new TrashPower(p, p, 3)));
-	}
 
 	public void triggerOnGlowCheck() {
 		Covered covered = (Covered) AbstractDungeon.player.getPower("Miyu:Covered");
