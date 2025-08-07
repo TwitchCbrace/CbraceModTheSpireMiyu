@@ -50,7 +50,6 @@ public class ContestedAreaPower extends AbstractPower implements CloneablePowerI
 
 		type = PowerType.BUFF;
 		isTurnBased = false;
-		isPostActionPower = true;
 
 		// We load those txtures here.
 		this.region128 = new TextureAtlas.AtlasRegion(tex84, 0, 0, 84, 84);

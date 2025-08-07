@@ -97,12 +97,12 @@ public class Covered extends AbstractPower implements CloneablePowerInterface {
 				&& info.type != DamageInfo.DamageType.THORNS && damageAmount > 0) {
 
 			int reduceDamage = Math.min(this.amount, damageAmount);
-
-			this.addToTop(new ReducePowerAction(this.owner, this.owner, this.ID, reduceDamage));
-
+			// 엄폐물이 적의 피해를 받고 감소하며, 적의 피해도 줄인다.
 			sourceCover.baseCoverMagicNumber -= reduceDamage;
 			sourceCover.coverMagicNumber -= reduceDamage;
 			sourceCover.isCoverMagicNumberModified = true;
+
+			// 엄폐물이 적의 피해를 받고 1 미만이 되면 소멸.
 			if (sourceCover.baseCoverMagicNumber < 1) {
 				AbstractPlayer p;
 				p = AbstractDungeon.player;
@@ -110,7 +110,9 @@ public class Covered extends AbstractPower implements CloneablePowerInterface {
 				cg.moveToExhaustPile(sourceCover);
 
 			}
-
+			// 소멸 관련 트리거 후 엄폐됨 파워가 감소한다.
+			this.addToTop(new ReducePowerAction(this.owner, this.owner, this.ID, reduceDamage));
+			// 엄폐가 감소할 때 발동하는 파워를 위해
 			for (AbstractPower p : owner.powers) {
 				if (p instanceof OnReduceCover) {
 					((OnReduceCover) p).CoverReduced(info, reduceDamage);
