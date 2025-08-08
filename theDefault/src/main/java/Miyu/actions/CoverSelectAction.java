@@ -25,7 +25,7 @@ public class CoverSelectAction extends AbstractGameAction {
 
 	private final int amount;
 	private AbstractPlayer p;
-	private ArrayList<AbstractCard.CardTags> keyword = new ArrayList();
+	private ArrayList<AbstractCard.CardTags> keyword = new ArrayList<>();
 
 	// card 장수를 넣으면 되구요
 	// by josh
